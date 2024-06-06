@@ -16,14 +16,13 @@ import ULTRAETH_ABI from "./abis/ultraEth.json";
 import ESCROW_ABI from "./abis/withdrawalEscrow.json";
 import DELEGATION_MANAGER_ABI from "./abis/delegationManager.json";
 
-
 export class AffineRestakingSDK {
   private provider: providers.JsonRpcProvider;
   private signer: ethers.Signer;
 
-  constructor(provider: providers.JsonRpcProvider) {
+  constructor(provider: providers.JsonRpcProvider, signer?: ethers.Signer) {
     this.provider = provider;
-    this.signer = provider.getSigner();
+    this.signer = signer || this.provider.getSigner();
   }
 
   async getBalance(contractAddress: string, address: string): Promise<string> {

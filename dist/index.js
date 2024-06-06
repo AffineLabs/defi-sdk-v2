@@ -14,17 +14,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AffineRestakingSDK = void 0;
 const ethers_1 = require("ethers");
+const constants_1 = require("./constants");
 // ABIs
 const erc20_json_1 = __importDefault(require("./abis/erc20.json"));
 const eigenlayerStrategy_json_1 = __importDefault(require("./abis/eigenlayerStrategy.json"));
 const ultraEth_json_1 = __importDefault(require("./abis/ultraEth.json"));
 const withdrawalEscrow_json_1 = __importDefault(require("./abis/withdrawalEscrow.json"));
 const delegationManager_json_1 = __importDefault(require("./abis/delegationManager.json"));
-const constants_1 = require("./constants");
 class AffineRestakingSDK {
-    constructor(provider) {
+    constructor(provider, signer) {
         this.provider = provider;
-        this.signer = provider.getSigner();
+        this.signer = signer || this.provider.getSigner();
     }
     getBalance(contractAddress, address) {
         return __awaiter(this, void 0, void 0, function* () {

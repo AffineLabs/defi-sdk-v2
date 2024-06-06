@@ -2,7 +2,7 @@ import { ethers, providers } from "ethers";
 export declare class AffineRestakingSDK {
     private provider;
     private signer;
-    constructor(provider: providers.JsonRpcProvider);
+    constructor(provider: providers.JsonRpcProvider, signer?: ethers.Signer);
     getBalance(contractAddress: string, address: string): Promise<string>;
     migratableAssets(address: string): Promise<number>;
     queueMigrationWithdrawal(address: string, assets: string): Promise<any>;

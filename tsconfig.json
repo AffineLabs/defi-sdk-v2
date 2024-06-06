@@ -9,5 +9,6 @@
     "declaration": true,
     "outDir": "./dist",
     "resolveJsonModule": true
-  }
+  },
+  "exclude": ["test.ts"]
 }
