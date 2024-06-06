@@ -154,7 +154,8 @@ class AffineRestakingSDK {
     approve(contractAddress, spenderAddress, amount) {
         return __awaiter(this, void 0, void 0, function* () {
             const erc20Contract = new ethers_1.ethers.Contract(contractAddress, erc20_json_1.default, this.signer);
-            const tx = yield erc20Contract.approve(spenderAddress, amount);
+            const units = this._addDecimals(amount.toString(), yield erc20Contract.decimals());
+            const tx = yield erc20Contract.approve(spenderAddress, units);
             return tx;
         });
     }

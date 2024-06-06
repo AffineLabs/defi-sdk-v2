@@ -22,7 +22,7 @@ export declare class AffineRestakingSDK {
     }>;
     canWithdrawEscrow(epoch: string): Promise<any>;
     redeem(address: string, epoch: string): Promise<ethers.providers.TransactionResponse>;
-    approve(contractAddress: string, spenderAddress: string, amount: ethers.BigNumberish): Promise<ethers.providers.TransactionResponse>;
+    approve(contractAddress: string, spenderAddress: string, amount: number): Promise<ethers.providers.TransactionResponse>;
     _removeDecimals(amount: ethers.BigNumber, decimals: ethers.BigNumberish): string;
     _addDecimals(amount: string, decimals: number): ethers.BigNumber;
 }

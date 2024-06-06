@@ -43,20 +43,20 @@ describe("AffineRestakingSDK", () => {
   it("should deposit the correct amount", async () => {
     const contractAddress = StETHAddress;
     const address = await signer.getAddress();
-    const amount = "0.1";
-    const units = sdk._addDecimals(amount, 18);
+    const amount = 0.1;
+    // const units = sdk._addDecimals(amount, 18);
 
     // approve
     const approvalTx = await sdk.approve(
       contractAddress,
       UltraLRTAddress,
-      units,
+      amount,
     );
     await approvalTx.wait();
     console.log("approvalTx: ", approvalTx.hash);
 
     // deposit
-    const tx = await sdk.deposit(amount, address);
+    const tx = await sdk.deposit(amount.toString(), address);
     await tx.wait();
     console.log("tx: ", tx.hash);
   }, 100000);
