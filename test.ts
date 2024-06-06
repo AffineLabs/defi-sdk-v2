@@ -13,9 +13,10 @@ describe("AffineRestakingSDK", () => {
     const privateKey = process.env.PK;
     const rpcUrl = process.env.RPC_URL;
     if (!privateKey || !rpcUrl) {
-      throw new Error("Private key or RPC are not set in the environment variables");
+      throw new Error(
+        "Private key or RPC are not set in the environment variables",
+      );
     }
-
 
     const wallet = new ethers.Wallet(privateKey);
     provider = new ethers.providers.JsonRpcProvider(rpcUrl);

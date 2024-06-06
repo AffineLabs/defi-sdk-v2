@@ -91,7 +91,9 @@ export class AffineRestakingSDK {
       [[[EigenStETHStrategy], [ethers.BigNumber.from(shares)], address]],
     ];
 
-    const tx = await eigenDelegator.queueWithdrawals(queuedWithdrawalParams);
+    const tx = await eigenDelegator.queueWithdrawals(queuedWithdrawalParams, {
+      value: ethers.utils.parseEther("0"),
+    });
     return tx;
   }
 
@@ -169,10 +171,12 @@ export class AffineRestakingSDK {
     );
 
     const assetUnits = this._addDecimals(amount, await asset.decimals());
-    const tx = await lrtVault.deposit(assetUnits, await this.signer.getAddress());
+    const tx = await lrtVault.deposit(
+      assetUnits,
+      await this.signer.getAddress(),
+    );
     return tx;
   }
-  
 
   async withdraw(amount: string) {
     const asset = new ethers.Contract(StETHAddress, ERC20_ABI, this.signer);
@@ -201,7 +205,6 @@ export class AffineRestakingSDK {
     const tx = await lrtVault.deposit(assetUnits, receiver);
     return tx;
   }
-  
 
   async withdrawSymbiotic(amount: string) {
     const asset = new ethers.Contract(StETHAddress, ERC20_ABI, this.signer);
@@ -283,9 +286,7 @@ export class AffineRestakingSDK {
     return value;
   }
 
-  async redeem(
-    epoch: string,
-  ): Promise<ethers.providers.TransactionResponse> {
+  async redeem(epoch: string): Promise<ethers.providers.TransactionResponse> {
     const withdrawalEscrowV2 = new ethers.Contract(
       EscrowAddress,
       ESCROW_ABI,
@@ -311,7 +312,6 @@ export class AffineRestakingSDK {
     return tx;
   }
 
-
   async isApproved(
     contractAddress: string,
     spenderAddress: string,
@@ -322,8 +322,14 @@ export class AffineRestakingSDK {
       ERC20_ABI,
       this.signer,
     );
-    const units = this._addDecimals(amount.toString(), await erc20Contract.decimals());
-    const allowance = await erc20Contract.allowance(await this.signer.getAddress(), spenderAddress);
+    const units = this._addDecimals(
+      amount.toString(),
+      await erc20Contract.decimals(),
+    );
+    const allowance = await erc20Contract.allowance(
+      await this.signer.getAddress(),
+      spenderAddress,
+    );
     return ethers.BigNumber.from(allowance).gte(units);
   }
 
@@ -337,7 +343,10 @@ export class AffineRestakingSDK {
       ERC20_ABI,
       this.signer,
     );
-    const units = this._addDecimals(amount.toString(), await erc20Contract.decimals());
+    const units = this._addDecimals(
+      amount.toString(),
+      await erc20Contract.decimals(),
+    );
     const tx = await erc20Contract.approve(spenderAddress, units);
     return tx;
   }
