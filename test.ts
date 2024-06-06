@@ -1,6 +1,6 @@
-import { AffineRestakingSDK } from "./index";
+import { AffineRestakingSDK } from "./dist/index";
 import { ethers } from "ethers";
-import { StETHAddress, UltraLRTAddress } from "./constants";
+import { StETHAddress, UltraLRTAddress } from "./dist/constants";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -11,10 +11,11 @@ describe("AffineRestakingSDK", () => {
 
   beforeEach(() => {
     const privateKey = process.env.PK;
-    if (!privateKey) {
-      throw new Error("Private key is not set in the environment variables");
+    const rpcUrl = process.env.RPC_URL;
+    if (!privateKey || !rpcUrl) {
+      throw new Error("Private key or RPC are not set in the environment variables");
     }
-    const rpcUrl = "https://ethereum-holesky-rpc.publicnode.com";
+
 
     const wallet = new ethers.Wallet(privateKey);
     provider = new ethers.providers.JsonRpcProvider(rpcUrl);
@@ -24,7 +25,6 @@ describe("AffineRestakingSDK", () => {
   });
 
   it("should return the correct balance", async () => {
-    const contractAddress = UltraLRTAddress;
     const address = await signer.getAddress();
     // const expectedBalance = '1000';
 
@@ -33,26 +33,47 @@ describe("AffineRestakingSDK", () => {
     // mockBalanceOf.mockReturnValue(expectedBalance);
     // sdk.getBalance = mockBalanceOf;
 
-    const balance = await sdk.getBalance(contractAddress, address);
+    const balance = await sdk.getUltraEthBalance(address);
     console.log("balance: ", balance);
 
     // expect(mockBalanceOf).toHaveBeenCalledWith(contractAddress, address);
     // expect(balance).toEqual(expectedBalance);
   });
 
-  //   it('should deposit the correct amount', async () => {
-  //     const contractAddress = StETHAddress;
-  //     const address = await signer.getAddress();
-  //     const amount = '1000';
+  it("should deposit the correct amount", async () => {
+    const contractAddress = StETHAddress;
+    const address = await signer.getAddress();
+    const amount = "0.1";
+    const units = sdk._addDecimals(amount, 18);
 
-  //     // Mock the deposit function in the contract
-  //     const mockDeposit = jest.fn();
-  //     sdk.deposit = mockDeposit;
+    // approve
+    const approvalTx = await sdk.approve(
+      contractAddress,
+      UltraLRTAddress,
+      units,
+    );
+    await approvalTx.wait();
+    console.log("approvalTx: ", approvalTx.hash);
 
-  //     await sdk.deposit(amount, address);
+    // deposit
+    const tx = await sdk.deposit(amount, address);
+    await tx.wait();
+    console.log("tx: ", tx.hash);
+  }, 100000);
 
-  //     expect(mockDeposit).toHaveBeenCalledWith(amount, address);
-  //   });
+  it("should withdraw the correct amount", async () => {
+    const contractAddress = StETHAddress;
+    const receiver = await signer.getAddress();
+    const owner = await signer.getAddress();
+    const amount = "0.1";
+
+    // withdraw
+    const tx = await sdk.withdraw(amount, receiver, owner);
+    await tx.wait();
+    console.log("tx: ", tx.hash);
+
+    //   expect(mockWithdraw).toHaveBeenCalledWith(amount, receiver, owner);
+  }, 100000);
 
   // Write your tests here
 });

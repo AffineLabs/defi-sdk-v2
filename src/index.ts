@@ -25,9 +25,19 @@ export class AffineRestakingSDK {
     this.signer = signer || this.provider.getSigner();
   }
 
-  async getBalance(contractAddress: string, address: string): Promise<string> {
+  async getUltraEthBalance(address: string): Promise<string> {
     const erc20Contract = new ethers.Contract(
-      contractAddress,
+      UltraLRTAddress,
+      ERC20_ABI,
+      this.signer,
+    );
+    const balance = await erc20Contract.balanceOf(address);
+    return this._removeDecimals(balance, 26);
+  }
+
+  async getStEthBalance(address: string): Promise<string> {
+    const erc20Contract = new ethers.Contract(
+      StETHAddress,
       ERC20_ABI,
       this.signer,
     );
@@ -227,14 +237,14 @@ export class AffineRestakingSDK {
     return tx;
   }
 
-  private _removeDecimals(
+  _removeDecimals(
     amount: ethers.BigNumber,
     decimals: ethers.BigNumberish,
   ): string {
     return ethers.utils.formatUnits(amount, decimals);
   }
 
-  private _addDecimals(amount: string, decimals: number): ethers.BigNumber {
+  _addDecimals(amount: string, decimals: number): ethers.BigNumber {
     return ethers.utils.parseUnits(amount, decimals);
   }
 }
