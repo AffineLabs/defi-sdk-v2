@@ -1,13 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SymbioticEscrow =
-  exports.SymbioticVault =
-  exports.EscrowAddress =
-  exports.StETHAddress =
-  exports.UltraLRTAddress =
-  exports.EigenDelegatorAddress =
-  exports.EigenStETHStrategy =
-    void 0;
+exports.SymbioticEscrow = exports.SymbioticVault = exports.EscrowAddress = exports.StETHAddress = exports.UltraLRTAddress = exports.EigenDelegatorAddress = exports.EigenStETHStrategy = void 0;
 exports.EigenStETHStrategy = "0x7D704507b76571a51d9caE8AdDAbBFd0ba0e63d3";
 exports.EigenDelegatorAddress = "0xA44151489861Fe9e3055d95adC98FbD462B948e7";
 exports.UltraLRTAddress = "0x3b07A1A5de80f9b22DE0EC6C44C6E59DDc1C5f41";

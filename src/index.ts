@@ -88,7 +88,7 @@ export class AffineRestakingSDK {
     console.log("shares", shares.toString());
 
     const queuedWithdrawalParams = [
-      [[[EigenStETHStrategy], [ethers.BigNumber.from(shares)], address]],
+     [[EigenStETHStrategy], [ethers.BigNumber.from(shares)], address],
     ];
 
     const tx = await eigenDelegator.queueWithdrawals(queuedWithdrawalParams, {

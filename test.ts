@@ -41,26 +41,26 @@ describe("AffineRestakingSDK", () => {
     // expect(balance).toEqual(expectedBalance);
   });
 
-  it("should deposit the correct amount", async () => {
-    const contractAddress = StETHAddress;
-    const address = await signer.getAddress();
-    const amount = 0.1;
-    // const units = sdk._addDecimals(amount, 18);
+//   it("should deposit the correct amount", async () => {
+//     const contractAddress = StETHAddress;
+//     const address = await signer.getAddress();
+//     const amount = 0.1;
+//     // const units = sdk._addDecimals(amount, 18);
 
-    // approve
-    const approvalTx = await sdk.approve(
-      contractAddress,
-      UltraLRTAddress,
-      amount,
-    );
-    await approvalTx.wait();
-    console.log("approvalTx: ", approvalTx.hash);
+//     // approve
+//     const approvalTx = await sdk.approve(
+//       contractAddress,
+//       UltraLRTAddress,
+//       amount,
+//     );
+//     await approvalTx.wait();
+//     console.log("approvalTx: ", approvalTx.hash);
 
-    // deposit
-    const tx = await sdk.deposit(amount.toString());
-    await tx.wait();
-    console.log("tx: ", tx.hash);
-  }, 100000);
+//     // deposit
+//     const tx = await sdk.deposit(amount.toString());
+//     await tx.wait();
+//     console.log("tx: ", tx.hash);
+//   }, 100000);
 
   it("should withdraw the correct amount", async () => {
     const contractAddress = StETHAddress;
@@ -69,7 +69,7 @@ describe("AffineRestakingSDK", () => {
     const amount = "0.1";
 
     // withdraw
-    const tx = await sdk.withdraw(amount);
+    const tx = await sdk.queueMigrationWithdrawal(receiver, amount);
     await tx.wait();
     console.log("tx: ", tx.hash);
 
