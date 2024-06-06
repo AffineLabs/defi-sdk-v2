@@ -4,6 +4,7 @@ export declare class AffineRestakingSDK {
     private signer;
     constructor(provider: providers.JsonRpcProvider, signer?: ethers.Signer);
     getUltraEthBalance(): Promise<string>;
+    getSymbioticBalance(): Promise<string>;
     getStEthBalance(): Promise<string>;
     migratableAssets(address: string): Promise<number>;
     queueMigrationWithdrawal(address: string, assets: string): Promise<any>;

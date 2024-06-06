@@ -38,6 +38,17 @@ export class AffineRestakingSDK {
     return this._removeDecimals(balance, 26);
   }
 
+  async getSymbioticBalance(): Promise<string> {
+    const address = await this.signer.getAddress();
+    const erc20Contract = new ethers.Contract(
+      SymbioticVault,
+      ERC20_ABI,
+      this.signer,
+    );
+    const balance = await erc20Contract.balanceOf(address);
+    return this._removeDecimals(balance, 26);
+  }
+
   async getStEthBalance(): Promise<string> {
     const address = await this.signer.getAddress();
     const erc20Contract = new ethers.Contract(
