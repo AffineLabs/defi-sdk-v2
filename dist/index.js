@@ -94,6 +94,14 @@ class AffineRestakingSDK {
             return value;
         });
     }
+    canWithdrawSymbiotic(amount) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const asset = new ethers_1.ethers.Contract(constants_1.StETHAddress, erc20_json_1.default, this.signer);
+            const lrtVault = new ethers_1.ethers.Contract(constants_1.SymbioticVault, ultraEth_json_1.default, this.signer);
+            const value = yield lrtVault.canWithdraw(this._addDecimals(amount.toString(), yield asset.decimals()));
+            return value;
+        });
+    }
     deposit(amount) {
         return __awaiter(this, void 0, void 0, function* () {
             const asset = new ethers_1.ethers.Contract(constants_1.StETHAddress, erc20_json_1.default, this.signer);
@@ -158,9 +166,22 @@ class AffineRestakingSDK {
             return { totalAmount, epochData };
         });
     }
+    getEthBalance() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const balance = yield this.signer.getBalance();
+            return ethers_1.ethers.utils.formatEther(balance);
+        });
+    }
     canWithdrawEscrow(epoch) {
         return __awaiter(this, void 0, void 0, function* () {
             const withdrawalEscrowV2 = new ethers_1.ethers.Contract(constants_1.EscrowAddress, withdrawalEscrow_json_1.default, this.signer);
+            const value = yield withdrawalEscrowV2.canWithdraw(epoch);
+            return value;
+        });
+    }
+    canWithdrawEscrowSymbiotic(epoch) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const withdrawalEscrowV2 = new ethers_1.ethers.Contract(constants_1.SymbioticEscrow, withdrawalEscrow_json_1.default, this.signer);
             const value = yield withdrawalEscrowV2.canWithdraw(epoch);
             return value;
         });

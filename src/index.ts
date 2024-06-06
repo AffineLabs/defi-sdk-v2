@@ -136,6 +136,19 @@ export class AffineRestakingSDK {
     return value;
   }
 
+  async canWithdrawSymbiotic(amount: number) {
+    const asset = new ethers.Contract(StETHAddress, ERC20_ABI, this.signer);
+    const lrtVault = new ethers.Contract(
+      SymbioticVault,
+      ULTRAETH_ABI,
+      this.signer,
+    );
+    const value = await lrtVault.canWithdraw(
+      this._addDecimals(amount.toString(), await asset.decimals()),
+    );
+    return value;
+  }
+
   async deposit(amount: string) {
     const asset = new ethers.Contract(StETHAddress, ERC20_ABI, this.signer);
     const lrtVault = new ethers.Contract(
@@ -234,9 +247,24 @@ export class AffineRestakingSDK {
     return { totalAmount, epochData };
   }
 
+  async getEthBalance(): Promise<string> {
+    const balance = await this.signer.getBalance();
+    return ethers.utils.formatEther(balance);
+  }
+
   async canWithdrawEscrow(epoch: string) {
     const withdrawalEscrowV2 = new ethers.Contract(
       EscrowAddress,
+      ESCROW_ABI,
+      this.signer,
+    );
+    const value = await withdrawalEscrowV2.canWithdraw(epoch);
+    return value;
+  }
+
+  async canWithdrawEscrowSymbiotic(epoch: string) {
+    const withdrawalEscrowV2 = new ethers.Contract(
+      SymbioticEscrow,
       ESCROW_ABI,
       this.signer,
     );

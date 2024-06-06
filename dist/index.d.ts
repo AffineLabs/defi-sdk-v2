@@ -9,6 +9,7 @@ export declare class AffineRestakingSDK {
     queueMigrationWithdrawal(address: string, assets: string): Promise<any>;
     completeMigrationWithdrawal(address: string, delegator: string, nonce: string, blockNumber: string, shares: string): Promise<any>;
     canWithdraw(amount: number): Promise<any>;
+    canWithdrawSymbiotic(amount: number): Promise<any>;
     deposit(amount: string): Promise<any>;
     withdraw(amount: string): Promise<any>;
     depositSymbiotic(amount: string): Promise<any>;
@@ -22,7 +23,9 @@ export declare class AffineRestakingSDK {
             canWithdraw: any;
         }[];
     }>;
+    getEthBalance(): Promise<string>;
     canWithdrawEscrow(epoch: string): Promise<any>;
+    canWithdrawEscrowSymbiotic(epoch: string): Promise<any>;
     redeem(epoch: string): Promise<ethers.providers.TransactionResponse>;
     redeemSymbiotic(epoch: string): Promise<ethers.providers.TransactionResponse>;
     isApproved(contractAddress: string, spenderAddress: string, amount: number): Promise<boolean>;
