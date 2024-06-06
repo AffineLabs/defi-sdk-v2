@@ -33,7 +33,7 @@ describe("AffineRestakingSDK", () => {
     // mockBalanceOf.mockReturnValue(expectedBalance);
     // sdk.getBalance = mockBalanceOf;
 
-    const balance = await sdk.getUltraEthBalance(address);
+    const balance = await sdk.getUltraEthBalance();
     console.log("balance: ", balance);
 
     // expect(mockBalanceOf).toHaveBeenCalledWith(contractAddress, address);

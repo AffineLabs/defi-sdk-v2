@@ -25,7 +25,8 @@ export class AffineRestakingSDK {
     this.signer = signer || this.provider.getSigner();
   }
 
-  async getUltraEthBalance(address: string): Promise<string> {
+  async getUltraEthBalance(): Promise<string> {
+    const address = await this.signer.getAddress();
     const erc20Contract = new ethers.Contract(
       UltraLRTAddress,
       ERC20_ABI,
@@ -35,7 +36,8 @@ export class AffineRestakingSDK {
     return this._removeDecimals(balance, 26);
   }
 
-  async getStEthBalance(address: string): Promise<string> {
+  async getStEthBalance(): Promise<string> {
+    const address = await this.signer.getAddress();
     const erc20Contract = new ethers.Contract(
       StETHAddress,
       ERC20_ABI,
