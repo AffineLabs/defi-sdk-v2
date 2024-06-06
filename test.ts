@@ -56,7 +56,7 @@ describe("AffineRestakingSDK", () => {
     console.log("approvalTx: ", approvalTx.hash);
 
     // deposit
-    const tx = await sdk.deposit(amount.toString(), address);
+    const tx = await sdk.deposit(amount.toString());
     await tx.wait();
     console.log("tx: ", tx.hash);
   }, 100000);
@@ -68,7 +68,7 @@ describe("AffineRestakingSDK", () => {
     const amount = "0.1";
 
     // withdraw
-    const tx = await sdk.withdraw(amount, receiver, owner);
+    const tx = await sdk.withdraw(amount);
     await tx.wait();
     console.log("tx: ", tx.hash);
 

@@ -94,21 +94,42 @@ class AffineRestakingSDK {
             return value;
         });
     }
-    deposit(amount, address) {
+    deposit(amount) {
         return __awaiter(this, void 0, void 0, function* () {
             const asset = new ethers_1.ethers.Contract(constants_1.StETHAddress, erc20_json_1.default, this.signer);
             const lrtVault = new ethers_1.ethers.Contract(constants_1.UltraLRTAddress, ultraEth_json_1.default, this.signer);
             const assetUnits = this._addDecimals(amount, yield asset.decimals());
-            const tx = yield lrtVault.deposit(assetUnits, address);
+            const tx = yield lrtVault.deposit(assetUnits, yield this.signer.getAddress());
             return tx;
         });
     }
-    withdraw(amount, receiver, owner) {
+    withdraw(amount) {
         return __awaiter(this, void 0, void 0, function* () {
             const asset = new ethers_1.ethers.Contract(constants_1.StETHAddress, erc20_json_1.default, this.signer);
             const lrtVault = new ethers_1.ethers.Contract(constants_1.UltraLRTAddress, ultraEth_json_1.default, this.signer);
+            const receiver = yield this.signer.getAddress();
             const assetUnits = this._addDecimals(amount, yield asset.decimals());
-            const tx = yield lrtVault.withdraw(assetUnits, receiver, owner);
+            const tx = yield lrtVault.withdraw(assetUnits, receiver, receiver);
+            return tx;
+        });
+    }
+    depositSymbiotic(amount) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const asset = new ethers_1.ethers.Contract(constants_1.StETHAddress, erc20_json_1.default, this.signer);
+            const lrtVault = new ethers_1.ethers.Contract(constants_1.SymbioticVault, ultraEth_json_1.default, this.signer);
+            const receiver = yield this.signer.getAddress();
+            const assetUnits = this._addDecimals(amount, yield asset.decimals());
+            const tx = yield lrtVault.deposit(assetUnits, receiver);
+            return tx;
+        });
+    }
+    withdrawSymbiotic(amount) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const asset = new ethers_1.ethers.Contract(constants_1.StETHAddress, erc20_json_1.default, this.signer);
+            const lrtVault = new ethers_1.ethers.Contract(constants_1.SymbioticVault, ultraEth_json_1.default, this.signer);
+            const receiver = yield this.signer.getAddress();
+            const assetUnits = this._addDecimals(amount, yield asset.decimals());
+            const tx = yield lrtVault.withdraw(assetUnits, receiver, receiver);
             return tx;
         });
     }
@@ -144,10 +165,19 @@ class AffineRestakingSDK {
             return value;
         });
     }
-    redeem(address, epoch) {
+    redeem(epoch) {
         return __awaiter(this, void 0, void 0, function* () {
             const withdrawalEscrowV2 = new ethers_1.ethers.Contract(constants_1.EscrowAddress, withdrawalEscrow_json_1.default, this.signer);
-            const tx = yield withdrawalEscrowV2.redeem(address, epoch);
+            const receiver = yield this.signer.getAddress();
+            const tx = yield withdrawalEscrowV2.redeem(receiver, epoch);
+            return tx;
+        });
+    }
+    redeemSymbiotic(epoch) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const withdrawalEscrowV2 = new ethers_1.ethers.Contract(constants_1.SymbioticEscrow, withdrawalEscrow_json_1.default, this.signer);
+            const receiver = yield this.signer.getAddress();
+            const tx = yield withdrawalEscrowV2.redeem(receiver, epoch);
             return tx;
         });
     }

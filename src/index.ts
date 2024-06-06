@@ -7,6 +7,8 @@ import {
   EigenDelegatorAddress,
   EigenStETHStrategy,
   UltraLRTAddress,
+  SymbioticEscrow,
+  SymbioticVault,
 } from "./constants";
 
 // ABIs
@@ -134,7 +136,7 @@ export class AffineRestakingSDK {
     return value;
   }
 
-  async deposit(amount: string, address: string) {
+  async deposit(amount: string) {
     const asset = new ethers.Contract(StETHAddress, ERC20_ABI, this.signer);
     const lrtVault = new ethers.Contract(
       UltraLRTAddress,
@@ -143,20 +145,51 @@ export class AffineRestakingSDK {
     );
 
     const assetUnits = this._addDecimals(amount, await asset.decimals());
-    const tx = await lrtVault.deposit(assetUnits, address);
+    const tx = await lrtVault.deposit(assetUnits, await this.signer.getAddress());
+    return tx;
+  }
+  
+
+  async withdraw(amount: string) {
+    const asset = new ethers.Contract(StETHAddress, ERC20_ABI, this.signer);
+    const lrtVault = new ethers.Contract(
+      UltraLRTAddress,
+      ULTRAETH_ABI,
+      this.signer,
+    );
+    const receiver = await this.signer.getAddress();
+
+    const assetUnits = this._addDecimals(amount, await asset.decimals());
+    const tx = await lrtVault.withdraw(assetUnits, receiver, receiver);
     return tx;
   }
 
-  async withdraw(amount: string, receiver: string, owner: string) {
+  async depositSymbiotic(amount: string) {
     const asset = new ethers.Contract(StETHAddress, ERC20_ABI, this.signer);
     const lrtVault = new ethers.Contract(
-      UltraLRTAddress,
+      SymbioticVault,
       ULTRAETH_ABI,
       this.signer,
     );
+    const receiver = await this.signer.getAddress();
 
     const assetUnits = this._addDecimals(amount, await asset.decimals());
-    const tx = await lrtVault.withdraw(assetUnits, receiver, owner);
+    const tx = await lrtVault.deposit(assetUnits, receiver);
+    return tx;
+  }
+  
+
+  async withdrawSymbiotic(amount: string) {
+    const asset = new ethers.Contract(StETHAddress, ERC20_ABI, this.signer);
+    const lrtVault = new ethers.Contract(
+      SymbioticVault,
+      ULTRAETH_ABI,
+      this.signer,
+    );
+    const receiver = await this.signer.getAddress();
+
+    const assetUnits = this._addDecimals(amount, await asset.decimals());
+    const tx = await lrtVault.withdraw(assetUnits, receiver, receiver);
     return tx;
   }
 
@@ -212,7 +245,6 @@ export class AffineRestakingSDK {
   }
 
   async redeem(
-    address: string,
     epoch: string,
   ): Promise<ethers.providers.TransactionResponse> {
     const withdrawalEscrowV2 = new ethers.Contract(
@@ -220,10 +252,26 @@ export class AffineRestakingSDK {
       ESCROW_ABI,
       this.signer,
     );
+    const receiver = await this.signer.getAddress();
 
-    const tx = await withdrawalEscrowV2.redeem(address, epoch);
+    const tx = await withdrawalEscrowV2.redeem(receiver, epoch);
     return tx;
   }
+
+  async redeemSymbiotic(
+    epoch: string,
+  ): Promise<ethers.providers.TransactionResponse> {
+    const withdrawalEscrowV2 = new ethers.Contract(
+      SymbioticEscrow,
+      ESCROW_ABI,
+      this.signer,
+    );
+    const receiver = await this.signer.getAddress();
+
+    const tx = await withdrawalEscrowV2.redeem(receiver, epoch);
+    return tx;
+  }
+
 
   async isApproved(
     contractAddress: string,

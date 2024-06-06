@@ -6,6 +6,8 @@ export const EigenDelegatorAddress =
 export const UltraLRTAddress = "0x3b07A1A5de80f9b22DE0EC6C44C6E59DDc1C5f41";
 export const StETHAddress = "0x3F1c547b21f65e10480dE3ad8E19fAAC46C95034";
 export const EscrowAddress = "0x84eF1F1A7f14A237c4b1DA8d13548123879FC3A9";
+export const SymbioticVault = "0x9BA3f0899E9272d85E6D380fc2C735b60EC5f4bB";
+export const SymbioticEscrow = "0x6fEB97e7F963886d97C2d85EA60283A41BCE4eD2";
 export interface WithdrawalInfo {
   staker: string;
   delegatedTo: string;
