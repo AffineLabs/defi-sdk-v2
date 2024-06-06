@@ -225,6 +225,21 @@ export class AffineRestakingSDK {
     return tx;
   }
 
+  async isApproved(
+    contractAddress: string,
+    spenderAddress: string,
+    amount: number,
+  ): Promise<boolean> {
+    const erc20Contract = new ethers.Contract(
+      contractAddress,
+      ERC20_ABI,
+      this.signer,
+    );
+    const units = this._addDecimals(amount.toString(), await erc20Contract.decimals());
+    const allowance = await erc20Contract.allowance(await this.signer.getAddress(), spenderAddress);
+    return ethers.BigNumber.from(allowance).gte(units);
+  }
+
   async approve(
     contractAddress: string,
     spenderAddress: string,
