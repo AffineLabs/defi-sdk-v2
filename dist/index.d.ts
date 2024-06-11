@@ -6,6 +6,7 @@ export declare class AffineRestakingSDK {
     getUltraEthBalance(): Promise<string>;
     getSymbioticBalance(): Promise<string>;
     getStEthBalance(): Promise<string>;
+    getWStEthBalance(): Promise<string>;
     migratableAssets(address: string): Promise<number>;
     queueMigrationWithdrawal(address: string, assets: string): Promise<any>;
     completeMigrationWithdrawal(address: string, delegator: string, nonce: string, blockNumber: string, shares: string): Promise<any>;

@@ -50,6 +50,14 @@ class AffineRestakingSDK {
             return this._removeDecimals(balance, 18);
         });
     }
+    getWStEthBalance() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const address = yield this.signer.getAddress();
+            const erc20Contract = new ethers_1.ethers.Contract(constants_1.WStEthAddress, erc20_json_1.default, this.signer);
+            const balance = yield erc20Contract.balanceOf(address);
+            return this._removeDecimals(balance, 18);
+        });
+    }
     migratableAssets(address) {
         return __awaiter(this, void 0, void 0, function* () {
             const eigenStETH = new ethers_1.ethers.Contract(constants_1.EigenStETHStrategy, eigenlayerStrategy_json_1.default, this.signer);
@@ -133,7 +141,7 @@ class AffineRestakingSDK {
     }
     depositSymbiotic(amount) {
         return __awaiter(this, void 0, void 0, function* () {
-            const asset = new ethers_1.ethers.Contract(constants_1.StETHAddress, erc20_json_1.default, this.signer);
+            const asset = new ethers_1.ethers.Contract(constants_1.WStEthAddress, erc20_json_1.default, this.signer);
             const lrtVault = new ethers_1.ethers.Contract(constants_1.SymbioticVault, ultraEth_json_1.default, this.signer);
             const receiver = yield this.signer.getAddress();
             const assetUnits = this._addDecimals(amount, yield asset.decimals());
@@ -143,7 +151,7 @@ class AffineRestakingSDK {
     }
     withdrawSymbiotic(amount) {
         return __awaiter(this, void 0, void 0, function* () {
-            const asset = new ethers_1.ethers.Contract(constants_1.StETHAddress, erc20_json_1.default, this.signer);
+            const asset = new ethers_1.ethers.Contract(constants_1.WStEthAddress, erc20_json_1.default, this.signer);
             const lrtVault = new ethers_1.ethers.Contract(constants_1.SymbioticVault, ultraEth_json_1.default, this.signer);
             const receiver = yield this.signer.getAddress();
             const assetUnits = this._addDecimals(amount, yield asset.decimals());
