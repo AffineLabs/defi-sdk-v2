@@ -70,12 +70,12 @@ export interface WithdrawalRequestEventObject {
     epoch: BigNumber;
     shares: BigNumber;
 }
-export type WithdrawalRequestEvent = TypedEvent<[
+export declare type WithdrawalRequestEvent = TypedEvent<[
     string,
     BigNumber,
     BigNumber
 ], WithdrawalRequestEventObject>;
-export type WithdrawalRequestEventFilter = TypedEventFilter<WithdrawalRequestEvent>;
+export declare type WithdrawalRequestEventFilter = TypedEventFilter<WithdrawalRequestEvent>;
 export interface WithdrawalEscrowV2 extends BaseContract {
     connect(signerOrProvider: Signer | Provider | string): this;
     attach(addressOrName: string): this;

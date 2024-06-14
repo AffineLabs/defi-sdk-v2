@@ -151,14 +151,40 @@ class AffineRestakingSDK {
             return tx;
         });
     }
+    isPermit2Approve(token, amount) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const asset = typechain_1.MockERC20__factory.connect(token, this.signer);
+            const receiver = yield this.signer.getAddress();
+            const allowance = yield asset.allowance(receiver, Permit2_sdk_1.PERMIT2_ADDRESS);
+            const assetUnits = this._addDecimals(amount, yield asset.decimals());
+            if (allowance.lt(assetUnits)) {
+                // get approval for permit 2
+                return false;
+            }
+            return true;
+        });
+    }
+    approvePermit2(token) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const asset = typechain_1.MockERC20__factory.connect(token, this.signer);
+            const tx = yield asset.approve(Permit2_sdk_1.PERMIT2_ADDRESS, ethers_1.BigNumber.from("2").pow(256).sub(1));
+            return tx;
+        });
+    }
     depositERC20Any(token, amount, vault) {
         return __awaiter(this, void 0, void 0, function* () {
             const asset = typechain_1.MockERC20__factory.connect(token, this.signer);
             const router = typechain_1.UltraLRTRouter__factory.connect(constants_1.RouterAddress, this.signer);
             const receiver = yield this.signer.getAddress();
+            // check allowance with the permit2
+            const allowance = yield asset.allowance(receiver, Permit2_sdk_1.PERMIT2_ADDRESS);
+            const assetUnits = this._addDecimals(amount, yield asset.decimals());
+            if (allowance.lt(assetUnits)) {
+                // get approval for permit 2
+                throw Error("No allowance to permit2, please approve permit2 address");
+            }
             const allowanceProvider = new Permit2_sdk_1.AllowanceProvider(this.provider, Permit2_sdk_1.PERMIT2_ADDRESS);
             const { nonce } = yield allowanceProvider.getAllowanceData(receiver, token, router.address);
-            const assetUnits = this._addDecimals(amount, yield asset.decimals());
             const deadline = this._toDeadline(30 * 60 * 1000); // deadline 30 mins
             const permit = {
                 permitted: {

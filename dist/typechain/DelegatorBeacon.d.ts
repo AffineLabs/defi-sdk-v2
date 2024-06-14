@@ -33,11 +33,11 @@ export interface OwnershipTransferredEventObject {
     previousOwner: string;
     newOwner: string;
 }
-export type OwnershipTransferredEvent = TypedEvent<[
+export declare type OwnershipTransferredEvent = TypedEvent<[
     string,
     string
 ], OwnershipTransferredEventObject>;
-export type OwnershipTransferredEventFilter = TypedEventFilter<OwnershipTransferredEvent>;
+export declare type OwnershipTransferredEventFilter = TypedEventFilter<OwnershipTransferredEvent>;
 export interface DelegatorBeacon extends BaseContract {
     connect(signerOrProvider: Signer | Provider | string): this;
     attach(addressOrName: string): this;

@@ -32,16 +32,16 @@ export interface OwnershipTransferredEventObject {
     previousOwner: string;
     newOwner: string;
 }
-export type OwnershipTransferredEvent = TypedEvent<[
+export declare type OwnershipTransferredEvent = TypedEvent<[
     string,
     string
 ], OwnershipTransferredEventObject>;
-export type OwnershipTransferredEventFilter = TypedEventFilter<OwnershipTransferredEvent>;
+export declare type OwnershipTransferredEventFilter = TypedEventFilter<OwnershipTransferredEvent>;
 export interface UpgradedEventObject {
     implementation: string;
 }
-export type UpgradedEvent = TypedEvent<[string], UpgradedEventObject>;
-export type UpgradedEventFilter = TypedEventFilter<UpgradedEvent>;
+export declare type UpgradedEvent = TypedEvent<[string], UpgradedEventObject>;
+export declare type UpgradedEventFilter = TypedEventFilter<UpgradedEvent>;
 export interface UpgradeableBeacon extends BaseContract {
     connect(signerOrProvider: Signer | Provider | string): this;
     attach(addressOrName: string): this;

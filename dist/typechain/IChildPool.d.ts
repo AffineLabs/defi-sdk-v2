@@ -146,77 +146,77 @@ export interface ClaimMaticXSwapEventObject {
     _idx: BigNumber;
     _amountClaimed: BigNumber;
 }
-export type ClaimMaticXSwapEvent = TypedEvent<[
+export declare type ClaimMaticXSwapEvent = TypedEvent<[
     string,
     BigNumber,
     BigNumber
 ], ClaimMaticXSwapEventObject>;
-export type ClaimMaticXSwapEventFilter = TypedEventFilter<ClaimMaticXSwapEvent>;
+export declare type ClaimMaticXSwapEventFilter = TypedEventFilter<ClaimMaticXSwapEvent>;
 export interface CollectedInstantWithdrawalFeesEventObject {
     _fees: BigNumber;
 }
-export type CollectedInstantWithdrawalFeesEvent = TypedEvent<[
+export declare type CollectedInstantWithdrawalFeesEvent = TypedEvent<[
     BigNumber
 ], CollectedInstantWithdrawalFeesEventObject>;
-export type CollectedInstantWithdrawalFeesEventFilter = TypedEventFilter<CollectedInstantWithdrawalFeesEvent>;
+export declare type CollectedInstantWithdrawalFeesEventFilter = TypedEventFilter<CollectedInstantWithdrawalFeesEvent>;
 export interface RequestMaticXSwapEventObject {
     _from: string;
     _amountMaticX: BigNumber;
     _amountMatic: BigNumber;
     userSwapRequestsIndex: BigNumber;
 }
-export type RequestMaticXSwapEvent = TypedEvent<[
+export declare type RequestMaticXSwapEvent = TypedEvent<[
     string,
     BigNumber,
     BigNumber,
     BigNumber
 ], RequestMaticXSwapEventObject>;
-export type RequestMaticXSwapEventFilter = TypedEventFilter<RequestMaticXSwapEvent>;
+export declare type RequestMaticXSwapEventFilter = TypedEventFilter<RequestMaticXSwapEvent>;
 export interface SetFxStateChildTunnelEventObject {
     _address: string;
 }
-export type SetFxStateChildTunnelEvent = TypedEvent<[
+export declare type SetFxStateChildTunnelEvent = TypedEvent<[
     string
 ], SetFxStateChildTunnelEventObject>;
-export type SetFxStateChildTunnelEventFilter = TypedEventFilter<SetFxStateChildTunnelEvent>;
+export declare type SetFxStateChildTunnelEventFilter = TypedEventFilter<SetFxStateChildTunnelEvent>;
 export interface SetInstantPoolOwnerEventObject {
     _address: string;
 }
-export type SetInstantPoolOwnerEvent = TypedEvent<[
+export declare type SetInstantPoolOwnerEvent = TypedEvent<[
     string
 ], SetInstantPoolOwnerEventObject>;
-export type SetInstantPoolOwnerEventFilter = TypedEventFilter<SetInstantPoolOwnerEvent>;
+export declare type SetInstantPoolOwnerEventFilter = TypedEventFilter<SetInstantPoolOwnerEvent>;
 export interface SetInstantWithdrawalFeeBpsEventObject {
     _feeBps: BigNumber;
 }
-export type SetInstantWithdrawalFeeBpsEvent = TypedEvent<[
+export declare type SetInstantWithdrawalFeeBpsEvent = TypedEvent<[
     BigNumber
 ], SetInstantWithdrawalFeeBpsEventObject>;
-export type SetInstantWithdrawalFeeBpsEventFilter = TypedEventFilter<SetInstantWithdrawalFeeBpsEvent>;
+export declare type SetInstantWithdrawalFeeBpsEventFilter = TypedEventFilter<SetInstantWithdrawalFeeBpsEvent>;
 export interface SetMaticXSwapLockPeriodEventEventObject {
     _hours: BigNumber;
 }
-export type SetMaticXSwapLockPeriodEventEvent = TypedEvent<[
+export declare type SetMaticXSwapLockPeriodEventEvent = TypedEvent<[
     BigNumber
 ], SetMaticXSwapLockPeriodEventEventObject>;
-export type SetMaticXSwapLockPeriodEventEventFilter = TypedEventFilter<SetMaticXSwapLockPeriodEventEvent>;
+export declare type SetMaticXSwapLockPeriodEventEventFilter = TypedEventFilter<SetMaticXSwapLockPeriodEventEvent>;
 export interface SetTreasuryEventObject {
     _address: string;
 }
-export type SetTreasuryEvent = TypedEvent<[string], SetTreasuryEventObject>;
-export type SetTreasuryEventFilter = TypedEventFilter<SetTreasuryEvent>;
+export declare type SetTreasuryEvent = TypedEvent<[string], SetTreasuryEventObject>;
+export declare type SetTreasuryEventFilter = TypedEventFilter<SetTreasuryEvent>;
 export interface SetTrustedForwarderEventObject {
     _address: string;
 }
-export type SetTrustedForwarderEvent = TypedEvent<[
+export declare type SetTrustedForwarderEvent = TypedEvent<[
     string
 ], SetTrustedForwarderEventObject>;
-export type SetTrustedForwarderEventFilter = TypedEventFilter<SetTrustedForwarderEvent>;
+export declare type SetTrustedForwarderEventFilter = TypedEventFilter<SetTrustedForwarderEvent>;
 export interface SetVersionEventObject {
     _version: string;
 }
-export type SetVersionEvent = TypedEvent<[string], SetVersionEventObject>;
-export type SetVersionEventFilter = TypedEventFilter<SetVersionEvent>;
+export declare type SetVersionEvent = TypedEvent<[string], SetVersionEventObject>;
+export declare type SetVersionEventFilter = TypedEventFilter<SetVersionEvent>;
 export interface IChildPool extends BaseContract {
     connect(signerOrProvider: Signer | Provider | string): this;
     attach(addressOrName: string): this;

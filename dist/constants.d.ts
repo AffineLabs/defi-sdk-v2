@@ -7,7 +7,7 @@ export declare const WStEthAddress = "0x8d09a4502Cc8Cf1547aD300E066060D043f6982D
 export declare const EscrowAddress = "0x84eF1F1A7f14A237c4b1DA8d13548123879FC3A9";
 export declare const SymbioticVault = "0x9666aB93452dC300C6b7412936D114bF1F737B1B";
 export declare const SymbioticEscrow = "0xe1A274343d23BCb148e838256665baFb250c4937";
-export declare const RouterAddress = "0xe1A274343d23BCb148e838256665baFb250c4937";
+export declare const RouterAddress = "0xB56aC485418304f20F21e8169db757c2261532e2";
 export declare const WEthAddress = "0x94373a4919B3240D86eA41593D5eBa789FEF3848";
 export interface WithdrawalInfo {
     staker: string;

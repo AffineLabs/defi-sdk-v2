@@ -1,4 +1,4 @@
-import { ethers, providers } from "ethers";
+import { ethers, providers, BigNumber } from "ethers";
 import {
   AllowanceProvider,
   PERMIT2_ADDRESS,
@@ -232,11 +232,40 @@ export class AffineRestakingSDK {
     return tx;
   }
 
+  async isPermit2Approve(token: string, amount: string) {
+    const asset = MockERC20__factory.connect(token, this.signer);
+    const receiver = await this.signer.getAddress();
+
+    const allowance = await asset.allowance(receiver, PERMIT2_ADDRESS);
+    const assetUnits = this._addDecimals(amount, await asset.decimals());
+    if (allowance.lt(assetUnits)) {
+      // get approval for permit 2
+      return false;
+    }
+    return true;
+  }
+
+  async approvePermit2(token: string) {
+    const asset = MockERC20__factory.connect(token, this.signer);
+
+    const tx = await asset.approve(
+      PERMIT2_ADDRESS,
+      BigNumber.from("2").pow(256).sub(1)
+    );
+    return tx;
+  }
   async depositERC20Any(token: string, amount: string, vault: string) {
     const asset = MockERC20__factory.connect(token, this.signer);
     const router = UltraLRTRouter__factory.connect(RouterAddress, this.signer);
     const receiver = await this.signer.getAddress();
 
+    // check allowance with the permit2
+    const allowance = await asset.allowance(receiver, PERMIT2_ADDRESS);
+    const assetUnits = this._addDecimals(amount, await asset.decimals());
+    if (allowance.lt(assetUnits)) {
+      // get approval for permit 2
+      throw Error("No allowance to permit2, please approve permit2 address");
+    }
     const allowanceProvider = new AllowanceProvider(
       this.provider,
       PERMIT2_ADDRESS
@@ -248,7 +277,6 @@ export class AffineRestakingSDK {
       router.address
     );
 
-    const assetUnits = this._addDecimals(amount, await asset.decimals());
     const deadline = this._toDeadline(30 * 60 * 1000); // deadline 30 mins
     const permit: PermitTransferFrom = {
       permitted: {

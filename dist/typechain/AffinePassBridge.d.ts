@@ -129,63 +129,63 @@ export interface AdminChangedEventObject {
     previousAdmin: string;
     newAdmin: string;
 }
-export type AdminChangedEvent = TypedEvent<[
+export declare type AdminChangedEvent = TypedEvent<[
     string,
     string
 ], AdminChangedEventObject>;
-export type AdminChangedEventFilter = TypedEventFilter<AdminChangedEvent>;
+export declare type AdminChangedEventFilter = TypedEventFilter<AdminChangedEvent>;
 export interface BeaconUpgradedEventObject {
     beacon: string;
 }
-export type BeaconUpgradedEvent = TypedEvent<[
+export declare type BeaconUpgradedEvent = TypedEvent<[
     string
 ], BeaconUpgradedEventObject>;
-export type BeaconUpgradedEventFilter = TypedEventFilter<BeaconUpgradedEvent>;
+export declare type BeaconUpgradedEventFilter = TypedEventFilter<BeaconUpgradedEvent>;
 export interface BridgeReceiptEventObject {
     messageId: string;
     sourceChainSelector: BigNumber;
     receiver: string;
     id: BigNumber;
 }
-export type BridgeReceiptEvent = TypedEvent<[
+export declare type BridgeReceiptEvent = TypedEvent<[
     string,
     BigNumber,
     string,
     BigNumber
 ], BridgeReceiptEventObject>;
-export type BridgeReceiptEventFilter = TypedEventFilter<BridgeReceiptEvent>;
+export declare type BridgeReceiptEventFilter = TypedEventFilter<BridgeReceiptEvent>;
 export interface BridgeRequestEventObject {
     messageId: string;
     destinationChainSelector: BigNumber;
     sender: string;
     id: BigNumber;
 }
-export type BridgeRequestEvent = TypedEvent<[
+export declare type BridgeRequestEvent = TypedEvent<[
     string,
     BigNumber,
     string,
     BigNumber
 ], BridgeRequestEventObject>;
-export type BridgeRequestEventFilter = TypedEventFilter<BridgeRequestEvent>;
+export declare type BridgeRequestEventFilter = TypedEventFilter<BridgeRequestEvent>;
 export interface InitializedEventObject {
     version: number;
 }
-export type InitializedEvent = TypedEvent<[number], InitializedEventObject>;
-export type InitializedEventFilter = TypedEventFilter<InitializedEvent>;
+export declare type InitializedEvent = TypedEvent<[number], InitializedEventObject>;
+export declare type InitializedEventFilter = TypedEventFilter<InitializedEvent>;
 export interface OwnershipTransferredEventObject {
     previousOwner: string;
     newOwner: string;
 }
-export type OwnershipTransferredEvent = TypedEvent<[
+export declare type OwnershipTransferredEvent = TypedEvent<[
     string,
     string
 ], OwnershipTransferredEventObject>;
-export type OwnershipTransferredEventFilter = TypedEventFilter<OwnershipTransferredEvent>;
+export declare type OwnershipTransferredEventFilter = TypedEventFilter<OwnershipTransferredEvent>;
 export interface UpgradedEventObject {
     implementation: string;
 }
-export type UpgradedEvent = TypedEvent<[string], UpgradedEventObject>;
-export type UpgradedEventFilter = TypedEventFilter<UpgradedEvent>;
+export declare type UpgradedEvent = TypedEvent<[string], UpgradedEventObject>;
+export declare type UpgradedEventFilter = TypedEventFilter<UpgradedEvent>;
 export interface AffinePassBridge extends BaseContract {
     connect(signerOrProvider: Signer | Provider | string): this;
     attach(addressOrName: string): this;

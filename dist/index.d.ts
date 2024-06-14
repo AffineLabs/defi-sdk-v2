@@ -15,6 +15,8 @@ export declare class AffineRestakingSDK {
     deposit(amount: string): Promise<any>;
     withdraw(amount: string): Promise<any>;
     depositSymbiotic(amount: string): Promise<any>;
+    isPermit2Approve(token: string, amount: string): Promise<boolean>;
+    approvePermit2(token: string): Promise<ethers.ContractTransaction>;
     depositERC20Any(token: string, amount: string, vault: string): Promise<ethers.ContractTransaction>;
     depositNative(amount: string, vault: string): Promise<ethers.ContractTransaction>;
     withdrawSymbiotic(amount: string): Promise<any>;
