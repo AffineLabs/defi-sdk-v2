@@ -139,7 +139,7 @@ export class AffineRestakingSDK {
     const uint256Array: ethers.BigNumber[] = [ethers.BigNumber.from("0")];
     const boolArray: boolean[] = [true];
 
-    const tx = await eigenDelegator.completeWithdrawals(
+    const tx = await eigenDelegator.completeQueuedWithdrawal(
       withdrawalInfos,
       assetsArray,
       uint256Array,
