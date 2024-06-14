@@ -15,6 +15,8 @@ export declare class AffineRestakingSDK {
     deposit(amount: string): Promise<any>;
     withdraw(amount: string): Promise<any>;
     depositSymbiotic(amount: string): Promise<any>;
+    depositERC20Any(token: string, amount: string, vault: string): Promise<ethers.ContractTransaction>;
+    depositNative(amount: string, vault: string): Promise<ethers.ContractTransaction>;
     withdrawSymbiotic(amount: string): Promise<any>;
     withdrawableAssets(address: string): Promise<{
         totalAmount: number;
@@ -34,4 +36,5 @@ export declare class AffineRestakingSDK {
     approve(contractAddress: string, spenderAddress: string, amount: number): Promise<ethers.providers.TransactionResponse>;
     _removeDecimals(amount: ethers.BigNumber, decimals: ethers.BigNumberish): string;
     _addDecimals(amount: string, decimals: number): ethers.BigNumber;
+    _toDeadline(expiration: number): number;
 }

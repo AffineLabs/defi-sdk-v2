@@ -9,6 +9,9 @@ export const WStEthAddress = "0x8d09a4502Cc8Cf1547aD300E066060D043f6982D";
 export const EscrowAddress = "0x84eF1F1A7f14A237c4b1DA8d13548123879FC3A9";
 export const SymbioticVault = "0x9666aB93452dC300C6b7412936D114bF1F737B1B";
 export const SymbioticEscrow = "0xe1A274343d23BCb148e838256665baFb250c4937";
+export const RouterAddress = "0xe1A274343d23BCb148e838256665baFb250c4937"; // TODO deploy
+export const WEthAddress = "0x94373a4919B3240D86eA41593D5eBa789FEF3848"; // holeksy
+
 export interface WithdrawalInfo {
   staker: string;
   delegatedTo: string;

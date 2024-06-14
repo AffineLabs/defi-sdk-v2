@@ -1,4 +1,11 @@
 import { ethers, providers } from "ethers";
+import {
+  AllowanceProvider,
+  PERMIT2_ADDRESS,
+  PermitTransferFrom,
+  AllowanceTransfer,
+  SignatureTransfer,
+} from "@uniswap/Permit2-sdk";
 
 import {
   WithdrawalInfo,
@@ -10,6 +17,8 @@ import {
   SymbioticEscrow,
   SymbioticVault,
   WStEthAddress,
+  RouterAddress,
+  WEthAddress,
 } from "./constants";
 
 // ABIs
@@ -18,6 +27,11 @@ import EIGENSTETH_ABI from "./abis/eigenlayerStrategy.json";
 import ULTRAETH_ABI from "./abis/ultraEth.json";
 import ESCROW_ABI from "./abis/withdrawalEscrow.json";
 import DELEGATION_MANAGER_ABI from "./abis/delegationManager.json";
+import {
+  MockERC20__factory,
+  UltraLRTRouter__factory,
+  UltraLRT__factory,
+} from "./typechain";
 
 export class AffineRestakingSDK {
   private provider: providers.JsonRpcProvider;
@@ -218,6 +232,89 @@ export class AffineRestakingSDK {
     return tx;
   }
 
+  async depositERC20Any(token: string, amount: string, vault: string) {
+    const asset = MockERC20__factory.connect(token, this.signer);
+    const router = UltraLRTRouter__factory.connect(RouterAddress, this.signer);
+    const receiver = await this.signer.getAddress();
+
+    const allowanceProvider = new AllowanceProvider(
+      this.provider,
+      PERMIT2_ADDRESS
+    );
+
+    const { nonce } = await allowanceProvider.getAllowanceData(
+      receiver,
+      token,
+      router.address
+    );
+
+    const assetUnits = this._addDecimals(amount, await asset.decimals());
+    const deadline = this._toDeadline(30 * 60 * 1000); // deadline 30 mins
+    const permit: PermitTransferFrom = {
+      permitted: {
+        token,
+        amount: assetUnits,
+      },
+      spender: router.address,
+      nonce,
+      deadline,
+    };
+
+    const { domain, types, values } = SignatureTransfer.getPermitData(
+      permit,
+      PERMIT2_ADDRESS,
+      await this.signer.getChainId()
+    );
+    const signature = await this.provider
+      .getSigner()
+      ._signTypedData(domain, types, values);
+
+    let tx;
+
+    if (token == StETHAddress) {
+      tx = await router.depositStEth(
+        assetUnits,
+        vault,
+        receiver,
+        nonce,
+        deadline,
+        signature
+      );
+    } else if (token == WStEthAddress) {
+      tx = await router.depositWStEth(
+        assetUnits,
+        vault,
+        receiver,
+        nonce,
+        deadline,
+        signature
+      );
+    } else if (token == WEthAddress) {
+      tx = await router.depositWeth(
+        assetUnits,
+        vault,
+        receiver,
+        nonce,
+        deadline,
+        signature
+      );
+    } else {
+      throw Error("Invalid token");
+    }
+    return tx;
+  }
+
+  async depositNative(amount: string, vault: string) {
+    const router = UltraLRTRouter__factory.connect(RouterAddress, this.signer);
+    const receiver = await this.signer.getAddress();
+    const assetUnits = this._addDecimals(amount, 18);
+
+    const tx = await router.depositNative(vault, receiver, {
+      value: assetUnits,
+    });
+    return tx;
+  }
+
   async withdrawSymbiotic(amount: string) {
     const asset = new ethers.Contract(WStEthAddress, ERC20_ABI, this.signer);
     const lrtVault = new ethers.Contract(
@@ -372,5 +469,9 @@ export class AffineRestakingSDK {
 
   _addDecimals(amount: string, decimals: number): ethers.BigNumber {
     return ethers.utils.parseUnits(amount, decimals);
+  }
+
+  _toDeadline(expiration: number): number {
+    return Math.floor((Date.now() + expiration) / 1000);
   }
 }

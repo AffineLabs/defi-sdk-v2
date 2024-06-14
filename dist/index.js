@@ -14,6 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AffineRestakingSDK = void 0;
 const ethers_1 = require("ethers");
+const Permit2_sdk_1 = require("@uniswap/Permit2-sdk");
 const constants_1 = require("./constants");
 // ABIs
 const erc20_json_1 = __importDefault(require("./abis/erc20.json"));
@@ -21,6 +22,7 @@ const eigenlayerStrategy_json_1 = __importDefault(require("./abis/eigenlayerStra
 const ultraEth_json_1 = __importDefault(require("./abis/ultraEth.json"));
 const withdrawalEscrow_json_1 = __importDefault(require("./abis/withdrawalEscrow.json"));
 const delegationManager_json_1 = __importDefault(require("./abis/delegationManager.json"));
+const typechain_1 = require("./typechain");
 class AffineRestakingSDK {
     constructor(provider, signer) {
         this.provider = provider;
@@ -149,6 +151,55 @@ class AffineRestakingSDK {
             return tx;
         });
     }
+    depositERC20Any(token, amount, vault) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const asset = typechain_1.MockERC20__factory.connect(token, this.signer);
+            const router = typechain_1.UltraLRTRouter__factory.connect(constants_1.RouterAddress, this.signer);
+            const receiver = yield this.signer.getAddress();
+            const allowanceProvider = new Permit2_sdk_1.AllowanceProvider(this.provider, Permit2_sdk_1.PERMIT2_ADDRESS);
+            const { nonce } = yield allowanceProvider.getAllowanceData(receiver, token, router.address);
+            const assetUnits = this._addDecimals(amount, yield asset.decimals());
+            const deadline = this._toDeadline(30 * 60 * 1000); // deadline 30 mins
+            const permit = {
+                permitted: {
+                    token,
+                    amount: assetUnits,
+                },
+                spender: router.address,
+                nonce,
+                deadline,
+            };
+            const { domain, types, values } = Permit2_sdk_1.SignatureTransfer.getPermitData(permit, Permit2_sdk_1.PERMIT2_ADDRESS, yield this.signer.getChainId());
+            const signature = yield this.provider
+                .getSigner()
+                ._signTypedData(domain, types, values);
+            let tx;
+            if (token == constants_1.StETHAddress) {
+                tx = yield router.depositStEth(assetUnits, vault, receiver, nonce, deadline, signature);
+            }
+            else if (token == constants_1.WStEthAddress) {
+                tx = yield router.depositWStEth(assetUnits, vault, receiver, nonce, deadline, signature);
+            }
+            else if (token == constants_1.WEthAddress) {
+                tx = yield router.depositWeth(assetUnits, vault, receiver, nonce, deadline, signature);
+            }
+            else {
+                throw Error("Invalid token");
+            }
+            return tx;
+        });
+    }
+    depositNative(amount, vault) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const router = typechain_1.UltraLRTRouter__factory.connect(constants_1.RouterAddress, this.signer);
+            const receiver = yield this.signer.getAddress();
+            const assetUnits = this._addDecimals(amount, 18);
+            const tx = yield router.depositNative(vault, receiver, {
+                value: assetUnits,
+            });
+            return tx;
+        });
+    }
     withdrawSymbiotic(amount) {
         return __awaiter(this, void 0, void 0, function* () {
             const asset = new ethers_1.ethers.Contract(constants_1.WStEthAddress, erc20_json_1.default, this.signer);
@@ -241,6 +292,9 @@ class AffineRestakingSDK {
     }
     _addDecimals(amount, decimals) {
         return ethers_1.ethers.utils.parseUnits(amount, decimals);
+    }
+    _toDeadline(expiration) {
+        return Math.floor((Date.now() + expiration) / 1000);
     }
 }
 exports.AffineRestakingSDK = AffineRestakingSDK;
