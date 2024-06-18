@@ -499,6 +499,15 @@ export class AffineRestakingSDK {
     return tx;
   }
 
+  async wrapETH(amountInEther : string) {
+    const wethContract = new ethers.Contract(WEthAddress, [
+      "function deposit() payable",
+    ], this.signer);
+    const tx = await wethContract.deposit({ value: ethers.utils.parseEther(amountInEther) });
+    await tx.wait();
+    console.log(`Wrapped ${amountInEther} ETH to WETH`);
+  }
+
   _removeDecimals(
     amount: ethers.BigNumber,
     decimals: ethers.BigNumberish
