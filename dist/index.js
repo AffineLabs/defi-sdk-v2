@@ -60,6 +60,14 @@ class AffineRestakingSDK {
             return this._removeDecimals(balance, 18);
         });
     }
+    getWEthBalance() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const address = yield this.signer.getAddress();
+            const erc20Contract = new ethers_1.ethers.Contract(constants_1.WEthAddress, erc20_json_1.default, this.signer);
+            const balance = yield erc20Contract.balanceOf(address);
+            return this._removeDecimals(balance, 18);
+        });
+    }
     migratableAssets(address) {
         return __awaiter(this, void 0, void 0, function* () {
             const eigenStETH = new ethers_1.ethers.Contract(constants_1.EigenStETHStrategy, eigenlayerStrategy_json_1.default, this.signer);
@@ -184,7 +192,7 @@ class AffineRestakingSDK {
                 throw Error("No allowance to permit2, please approve permit2 address");
             }
             const allowanceProvider = new Permit2_sdk_1.AllowanceProvider(this.provider, Permit2_sdk_1.PERMIT2_ADDRESS);
-            const { nonce } = yield allowanceProvider.getAllowanceData(receiver, token, router.address);
+            const nonce = yield this._getRandomNonce();
             const deadline = this._toDeadline(30 * 60 * 1000); // deadline 30 mins
             const permit = {
                 permitted: {
@@ -313,6 +321,16 @@ class AffineRestakingSDK {
             return tx;
         });
     }
+    wrapETH(amountInEther) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const wethContract = new ethers_1.ethers.Contract(constants_1.WEthAddress, [
+                "function deposit() payable",
+            ], this.signer);
+            const tx = yield wethContract.deposit({ value: ethers_1.ethers.utils.parseEther(amountInEther) });
+            yield tx.wait();
+            console.log(`Wrapped ${amountInEther} ETH to WETH`);
+        });
+    }
     _removeDecimals(amount, decimals) {
         return ethers_1.ethers.utils.formatUnits(amount, decimals);
     }
@@ -321,6 +339,23 @@ class AffineRestakingSDK {
     }
     _toDeadline(expiration) {
         return Math.floor((Date.now() + expiration) / 1000);
+    }
+    _getRandomNonce() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const nonceProvider = typechain_1.ISignatureTransfer__factory.connect(Permit2_sdk_1.PERMIT2_ADDRESS, this.signer);
+            const byteSize = 32; // 256 bits
+            for (let i = 0; i < 10; i++) {
+                const randomBytes = ethers_1.ethers.utils.randomBytes(byteSize);
+                const nonce = ethers_1.ethers.BigNumber.from(randomBytes);
+                const bitPos = randomBytes[byteSize - 1];
+                const word = ethers_1.ethers.BigNumber.from(randomBytes.slice(0, byteSize - 1));
+                const bitMap = yield nonceProvider.nonceBitmap(yield nonceProvider.signer.getAddress(), word);
+                if (bitMap.and(ethers_1.ethers.BigNumber.from(2).pow(bitPos)).eq(0)) {
+                    return nonce;
+                }
+            }
+            throw Error("Failed to generate a random nonce");
+        });
     }
 }
 exports.AffineRestakingSDK = AffineRestakingSDK;

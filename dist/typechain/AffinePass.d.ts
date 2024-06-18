@@ -168,50 +168,50 @@ export interface ApprovalEventObject {
     approved: string;
     tokenId: BigNumber;
 }
-export declare type ApprovalEvent = TypedEvent<[
+export type ApprovalEvent = TypedEvent<[
     string,
     string,
     BigNumber
 ], ApprovalEventObject>;
-export declare type ApprovalEventFilter = TypedEventFilter<ApprovalEvent>;
+export type ApprovalEventFilter = TypedEventFilter<ApprovalEvent>;
 export interface ApprovalForAllEventObject {
     owner: string;
     operator: string;
     approved: boolean;
 }
-export declare type ApprovalForAllEvent = TypedEvent<[
+export type ApprovalForAllEvent = TypedEvent<[
     string,
     string,
     boolean
 ], ApprovalForAllEventObject>;
-export declare type ApprovalForAllEventFilter = TypedEventFilter<ApprovalForAllEvent>;
+export type ApprovalForAllEventFilter = TypedEventFilter<ApprovalForAllEvent>;
 export interface OwnershipTransferredEventObject {
     previousOwner: string;
     newOwner: string;
 }
-export declare type OwnershipTransferredEvent = TypedEvent<[
+export type OwnershipTransferredEvent = TypedEvent<[
     string,
     string
 ], OwnershipTransferredEventObject>;
-export declare type OwnershipTransferredEventFilter = TypedEventFilter<OwnershipTransferredEvent>;
+export type OwnershipTransferredEventFilter = TypedEventFilter<OwnershipTransferredEvent>;
 export interface TransferEventObject {
     from: string;
     to: string;
     tokenId: BigNumber;
 }
-export declare type TransferEvent = TypedEvent<[
+export type TransferEvent = TypedEvent<[
     string,
     string,
     BigNumber
 ], TransferEventObject>;
-export declare type TransferEventFilter = TypedEventFilter<TransferEvent>;
+export type TransferEventFilter = TypedEventFilter<TransferEvent>;
 export interface WhitelistMerkleRootUpdatedEventObject {
     merkleRoot: string;
 }
-export declare type WhitelistMerkleRootUpdatedEvent = TypedEvent<[
+export type WhitelistMerkleRootUpdatedEvent = TypedEvent<[
     string
 ], WhitelistMerkleRootUpdatedEventObject>;
-export declare type WhitelistMerkleRootUpdatedEventFilter = TypedEventFilter<WhitelistMerkleRootUpdatedEvent>;
+export type WhitelistMerkleRootUpdatedEventFilter = TypedEventFilter<WhitelistMerkleRootUpdatedEvent>;
 export interface AffinePass extends BaseContract {
     connect(signerOrProvider: Signer | Provider | string): this;
     attach(addressOrName: string): this;

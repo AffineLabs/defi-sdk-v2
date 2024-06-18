@@ -1,4 +1,4 @@
-import { ethers, providers } from "ethers";
+import { ethers, providers, BigNumber } from "ethers";
 export declare class AffineRestakingSDK {
     private provider;
     private signer;
@@ -7,6 +7,7 @@ export declare class AffineRestakingSDK {
     getSymbioticBalance(): Promise<string>;
     getStEthBalance(): Promise<string>;
     getWStEthBalance(): Promise<string>;
+    getWEthBalance(): Promise<string>;
     migratableAssets(address: string): Promise<number>;
     queueMigrationWithdrawal(address: string, assets: string): Promise<any>;
     completeMigrationWithdrawal(address: string, delegator: string, nonce: string, blockNumber: string, shares: string): Promise<any>;
@@ -36,7 +37,9 @@ export declare class AffineRestakingSDK {
     redeemSymbiotic(epoch: string): Promise<ethers.providers.TransactionResponse>;
     isApproved(contractAddress: string, spenderAddress: string, amount: number): Promise<boolean>;
     approve(contractAddress: string, spenderAddress: string, amount: number): Promise<ethers.providers.TransactionResponse>;
+    wrapETH(amountInEther: string): Promise<void>;
     _removeDecimals(amount: ethers.BigNumber, decimals: ethers.BigNumberish): string;
     _addDecimals(amount: string, decimals: number): ethers.BigNumber;
     _toDeadline(expiration: number): number;
+    _getRandomNonce(): Promise<BigNumber>;
 }

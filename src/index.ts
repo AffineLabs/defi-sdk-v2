@@ -31,6 +31,8 @@ import {
   MockERC20__factory,
   UltraLRTRouter__factory,
   UltraLRT__factory,
+  ISignatureTransfer__factory,
+  ISignatureTransfer,
 } from "./typechain";
 
 export class AffineRestakingSDK {
@@ -282,11 +284,7 @@ export class AffineRestakingSDK {
       PERMIT2_ADDRESS
     );
 
-    const { nonce } = await allowanceProvider.getAllowanceData(
-      receiver,
-      token,
-      router.address
-    );
+    const nonce = await this._getRandomNonce();
 
     const deadline = this._toDeadline(30 * 60 * 1000); // deadline 30 mins
     const permit: PermitTransferFrom = {
@@ -521,5 +519,29 @@ export class AffineRestakingSDK {
 
   _toDeadline(expiration: number): number {
     return Math.floor((Date.now() + expiration) / 1000);
+  }
+
+  async _getRandomNonce(): Promise<BigNumber> {
+    const nonceProvider = ISignatureTransfer__factory.connect(
+      PERMIT2_ADDRESS,
+      this.signer
+    );
+    const byteSize = 32; // 256 bits
+    for (let i = 0; i < 10; i++) {
+      const randomBytes = ethers.utils.randomBytes(byteSize);
+      const nonce = ethers.BigNumber.from(randomBytes);
+      const bitPos = randomBytes[byteSize - 1];
+      const word = ethers.BigNumber.from(randomBytes.slice(0, byteSize - 1));
+
+      const bitMap = await nonceProvider.nonceBitmap(
+        await nonceProvider.signer.getAddress(),
+        word
+      );
+
+      if (bitMap.and(ethers.BigNumber.from(2).pow(bitPos)).eq(0)) {
+        return nonce;
+      }
+    }
+    throw Error("Failed to generate a random nonce");
   }
 }

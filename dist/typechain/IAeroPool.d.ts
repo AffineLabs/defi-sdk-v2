@@ -180,60 +180,60 @@ export interface ApprovalEventObject {
     spender: string;
     value: BigNumber;
 }
-export declare type ApprovalEvent = TypedEvent<[
+export type ApprovalEvent = TypedEvent<[
     string,
     string,
     BigNumber
 ], ApprovalEventObject>;
-export declare type ApprovalEventFilter = TypedEventFilter<ApprovalEvent>;
+export type ApprovalEventFilter = TypedEventFilter<ApprovalEvent>;
 export interface BurnEventObject {
     sender: string;
     to: string;
     amount0: BigNumber;
     amount1: BigNumber;
 }
-export declare type BurnEvent = TypedEvent<[
+export type BurnEvent = TypedEvent<[
     string,
     string,
     BigNumber,
     BigNumber
 ], BurnEventObject>;
-export declare type BurnEventFilter = TypedEventFilter<BurnEvent>;
+export type BurnEventFilter = TypedEventFilter<BurnEvent>;
 export interface ClaimEventObject {
     sender: string;
     recipient: string;
     amount0: BigNumber;
     amount1: BigNumber;
 }
-export declare type ClaimEvent = TypedEvent<[
+export type ClaimEvent = TypedEvent<[
     string,
     string,
     BigNumber,
     BigNumber
 ], ClaimEventObject>;
-export declare type ClaimEventFilter = TypedEventFilter<ClaimEvent>;
+export type ClaimEventFilter = TypedEventFilter<ClaimEvent>;
 export interface FeesEventObject {
     sender: string;
     amount0: BigNumber;
     amount1: BigNumber;
 }
-export declare type FeesEvent = TypedEvent<[
+export type FeesEvent = TypedEvent<[
     string,
     BigNumber,
     BigNumber
 ], FeesEventObject>;
-export declare type FeesEventFilter = TypedEventFilter<FeesEvent>;
+export type FeesEventFilter = TypedEventFilter<FeesEvent>;
 export interface MintEventObject {
     sender: string;
     amount0: BigNumber;
     amount1: BigNumber;
 }
-export declare type MintEvent = TypedEvent<[
+export type MintEvent = TypedEvent<[
     string,
     BigNumber,
     BigNumber
 ], MintEventObject>;
-export declare type MintEventFilter = TypedEventFilter<MintEvent>;
+export type MintEventFilter = TypedEventFilter<MintEvent>;
 export interface SwapEventObject {
     sender: string;
     to: string;
@@ -242,7 +242,7 @@ export interface SwapEventObject {
     amount0Out: BigNumber;
     amount1Out: BigNumber;
 }
-export declare type SwapEvent = TypedEvent<[
+export type SwapEvent = TypedEvent<[
     string,
     string,
     BigNumber,
@@ -250,24 +250,24 @@ export declare type SwapEvent = TypedEvent<[
     BigNumber,
     BigNumber
 ], SwapEventObject>;
-export declare type SwapEventFilter = TypedEventFilter<SwapEvent>;
+export type SwapEventFilter = TypedEventFilter<SwapEvent>;
 export interface SyncEventObject {
     reserve0: BigNumber;
     reserve1: BigNumber;
 }
-export declare type SyncEvent = TypedEvent<[BigNumber, BigNumber], SyncEventObject>;
-export declare type SyncEventFilter = TypedEventFilter<SyncEvent>;
+export type SyncEvent = TypedEvent<[BigNumber, BigNumber], SyncEventObject>;
+export type SyncEventFilter = TypedEventFilter<SyncEvent>;
 export interface TransferEventObject {
     from: string;
     to: string;
     value: BigNumber;
 }
-export declare type TransferEvent = TypedEvent<[
+export type TransferEvent = TypedEvent<[
     string,
     string,
     BigNumber
 ], TransferEventObject>;
-export declare type TransferEventFilter = TypedEventFilter<TransferEvent>;
+export type TransferEventFilter = TypedEventFilter<TransferEvent>;
 export interface IAeroPool extends BaseContract {
     connect(signerOrProvider: Signer | Provider | string): this;
     attach(addressOrName: string): this;
