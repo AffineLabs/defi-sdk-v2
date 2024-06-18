@@ -86,6 +86,17 @@ export class AffineRestakingSDK {
     return this._removeDecimals(balance, 18);
   }
 
+  async getWEthBalance(): Promise<string> {
+    const address = await this.signer.getAddress();
+    const erc20Contract = new ethers.Contract(
+        WEthAddress,
+        ERC20_ABI,
+        this.signer
+    );
+    const balance = await erc20Contract.balanceOf(address);
+    return this._removeDecimals(balance, 18);
+  }
+
   async migratableAssets(address: string) {
     const eigenStETH = new ethers.Contract(
       EigenStETHStrategy,
