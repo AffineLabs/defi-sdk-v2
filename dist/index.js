@@ -208,13 +208,13 @@ class AffineRestakingSDK {
                 .getSigner()
                 ._signTypedData(domain, types, values);
             let tx;
-            if (token == constants_1.StETHAddress) {
+            if (token === constants_1.StETHAddress) {
                 tx = yield router.depositStEth(assetUnits, vault, receiver, nonce, deadline, signature);
             }
-            else if (token == constants_1.WStEthAddress) {
+            else if (token === constants_1.WStEthAddress) {
                 tx = yield router.depositWStEth(assetUnits, vault, receiver, nonce, deadline, signature);
             }
-            else if (token == constants_1.WEthAddress) {
+            else if (token === constants_1.WEthAddress) {
                 tx = yield router.depositWeth(assetUnits, vault, receiver, nonce, deadline, signature);
             }
             else {

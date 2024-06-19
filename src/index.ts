@@ -308,7 +308,7 @@ export class AffineRestakingSDK {
 
     let tx;
 
-    if (token == StETHAddress) {
+    if (token === StETHAddress) {
       tx = await router.depositStEth(
         assetUnits,
         vault,
@@ -317,7 +317,7 @@ export class AffineRestakingSDK {
         deadline,
         signature
       );
-    } else if (token == WStEthAddress) {
+    } else if (token === WStEthAddress) {
       tx = await router.depositWStEth(
         assetUnits,
         vault,
@@ -326,7 +326,7 @@ export class AffineRestakingSDK {
         deadline,
         signature
       );
-    } else if (token == WEthAddress) {
+    } else if (token === WEthAddress) {
       tx = await router.depositWeth(
         assetUnits,
         vault,
