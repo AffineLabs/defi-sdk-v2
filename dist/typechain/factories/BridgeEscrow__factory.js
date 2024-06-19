@@ -96,6 +96,7 @@ const _abi = [
     },
 ];
 class BridgeEscrow__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -104,4 +105,3 @@ class BridgeEscrow__factory {
     }
 }
 exports.BridgeEscrow__factory = BridgeEscrow__factory;
-BridgeEscrow__factory.abi = _abi;

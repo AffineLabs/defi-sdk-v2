@@ -513,6 +513,7 @@ const _abi = [
     },
 ];
 class BeefyPearlEpochStrategy__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -521,4 +522,3 @@ class BeefyPearlEpochStrategy__factory {
     }
 }
 exports.BeefyPearlEpochStrategy__factory = BeefyPearlEpochStrategy__factory;
-BeefyPearlEpochStrategy__factory.abi = _abi;

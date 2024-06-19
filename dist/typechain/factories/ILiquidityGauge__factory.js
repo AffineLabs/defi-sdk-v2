@@ -133,6 +133,7 @@ const _abi = [
     },
 ];
 class ILiquidityGauge__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -141,4 +142,3 @@ class ILiquidityGauge__factory {
     }
 }
 exports.ILiquidityGauge__factory = ILiquidityGauge__factory;
-ILiquidityGauge__factory.abi = _abi;

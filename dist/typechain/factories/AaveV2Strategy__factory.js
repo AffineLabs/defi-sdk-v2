@@ -147,6 +147,7 @@ const _abi = [
     },
 ];
 class AaveV2Strategy__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -155,4 +156,3 @@ class AaveV2Strategy__factory {
     }
 }
 exports.AaveV2Strategy__factory = AaveV2Strategy__factory;
-AaveV2Strategy__factory.abi = _abi;

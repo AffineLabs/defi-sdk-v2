@@ -474,6 +474,7 @@ const _abi = [
     },
 ];
 class LockedWithdrawalEscrow__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -482,4 +483,3 @@ class LockedWithdrawalEscrow__factory {
     }
 }
 exports.LockedWithdrawalEscrow__factory = LockedWithdrawalEscrow__factory;
-LockedWithdrawalEscrow__factory.abi = _abi;

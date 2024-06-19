@@ -338,6 +338,7 @@ const _abi = [
     },
 ];
 class IERC721Metadata__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -346,4 +347,3 @@ class IERC721Metadata__factory {
     }
 }
 exports.IERC721Metadata__factory = IERC721Metadata__factory;
-IERC721Metadata__factory.abi = _abi;

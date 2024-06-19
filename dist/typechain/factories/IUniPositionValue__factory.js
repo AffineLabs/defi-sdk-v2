@@ -105,6 +105,7 @@ const _abi = [
     },
 ];
 class IUniPositionValue__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -113,4 +114,3 @@ class IUniPositionValue__factory {
     }
 }
 exports.IUniPositionValue__factory = IUniPositionValue__factory;
-IUniPositionValue__factory.abi = _abi;

@@ -1020,6 +1020,7 @@ const _abi = [
     },
 ];
 class ILendingPool__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -1028,4 +1029,3 @@ class ILendingPool__factory {
     }
 }
 exports.ILendingPool__factory = ILendingPool__factory;
-ILendingPool__factory.abi = _abi;

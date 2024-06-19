@@ -42,6 +42,7 @@ const _abi = [
     },
 ];
 class ERC721TokenReceiver__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -50,4 +51,3 @@ class ERC721TokenReceiver__factory {
     }
 }
 exports.ERC721TokenReceiver__factory = ERC721TokenReceiver__factory;
-ERC721TokenReceiver__factory.abi = _abi;

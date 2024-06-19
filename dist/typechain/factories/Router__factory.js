@@ -417,6 +417,7 @@ const _abi = [
     },
 ];
 class Router__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -425,4 +426,3 @@ class Router__factory {
     }
 }
 exports.Router__factory = Router__factory;
-Router__factory.abi = _abi;

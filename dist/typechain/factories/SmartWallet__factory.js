@@ -261,6 +261,7 @@ const _abi = [
     },
 ];
 class SmartWallet__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -269,4 +270,3 @@ class SmartWallet__factory {
     }
 }
 exports.SmartWallet__factory = SmartWallet__factory;
-SmartWallet__factory.abi = _abi;

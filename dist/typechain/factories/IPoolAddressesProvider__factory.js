@@ -504,6 +504,7 @@ const _abi = [
     },
 ];
 class IPoolAddressesProvider__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -512,4 +513,3 @@ class IPoolAddressesProvider__factory {
     }
 }
 exports.IPoolAddressesProvider__factory = IPoolAddressesProvider__factory;
-IPoolAddressesProvider__factory.abi = _abi;

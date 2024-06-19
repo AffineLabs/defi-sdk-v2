@@ -163,6 +163,7 @@ const _abi = [
     },
 ];
 class IConvexRewards__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -171,4 +172,3 @@ class IConvexRewards__factory {
     }
 }
 exports.IConvexRewards__factory = IConvexRewards__factory;
-IConvexRewards__factory.abi = _abi;

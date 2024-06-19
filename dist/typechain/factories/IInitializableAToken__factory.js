@@ -111,6 +111,7 @@ const _abi = [
     },
 ];
 class IInitializableAToken__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -119,4 +120,3 @@ class IInitializableAToken__factory {
     }
 }
 exports.IInitializableAToken__factory = IInitializableAToken__factory;
-IInitializableAToken__factory.abi = _abi;

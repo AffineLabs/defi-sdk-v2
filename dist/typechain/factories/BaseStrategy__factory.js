@@ -105,6 +105,7 @@ const _abi = [
     },
 ];
 class BaseStrategy__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -113,4 +114,3 @@ class BaseStrategy__factory {
     }
 }
 exports.BaseStrategy__factory = BaseStrategy__factory;
-BaseStrategy__factory.abi = _abi;

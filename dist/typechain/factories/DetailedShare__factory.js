@@ -83,6 +83,7 @@ const _abi = [
     },
 ];
 class DetailedShare__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -91,4 +92,3 @@ class DetailedShare__factory {
     }
 }
 exports.DetailedShare__factory = DetailedShare__factory;
-DetailedShare__factory.abi = _abi;

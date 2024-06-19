@@ -31,6 +31,7 @@ const _abi = [
     },
 ];
 class IStrategyManager__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -39,4 +40,3 @@ class IStrategyManager__factory {
     }
 }
 exports.IStrategyManager__factory = IStrategyManager__factory;
-IStrategyManager__factory.abi = _abi;

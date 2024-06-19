@@ -888,6 +888,7 @@ const _abi = [
     },
 ];
 class IRouter__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -896,4 +897,3 @@ class IRouter__factory {
     }
 }
 exports.IRouter__factory = IRouter__factory;
-IRouter__factory.abi = _abi;

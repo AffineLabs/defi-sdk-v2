@@ -49,6 +49,7 @@ const _abi = [
     },
 ];
 class IMakerAdapter__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -57,4 +58,3 @@ class IMakerAdapter__factory {
     }
 }
 exports.IMakerAdapter__factory = IMakerAdapter__factory;
-IMakerAdapter__factory.abi = _abi;

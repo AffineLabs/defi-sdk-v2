@@ -43,6 +43,7 @@ const _abi = [
     },
 ];
 class VaultErrors__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -51,4 +52,3 @@ class VaultErrors__factory {
     }
 }
 exports.VaultErrors__factory = VaultErrors__factory;
-VaultErrors__factory.abi = _abi;

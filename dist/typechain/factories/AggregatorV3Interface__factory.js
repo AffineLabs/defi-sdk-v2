@@ -119,6 +119,7 @@ const _abi = [
     },
 ];
 class AggregatorV3Interface__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -127,4 +128,3 @@ class AggregatorV3Interface__factory {
     }
 }
 exports.AggregatorV3Interface__factory = AggregatorV3Interface__factory;
-AggregatorV3Interface__factory.abi = _abi;

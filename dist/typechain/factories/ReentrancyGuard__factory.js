@@ -13,6 +13,7 @@ const _abi = [
     },
 ];
 class ReentrancyGuard__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -21,4 +22,3 @@ class ReentrancyGuard__factory {
     }
 }
 exports.ReentrancyGuard__factory = ReentrancyGuard__factory;
-ReentrancyGuard__factory.abi = _abi;

@@ -51,6 +51,7 @@ const _abi = [
     },
 ];
 class SymDelegatorFactory__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -59,4 +60,3 @@ class SymDelegatorFactory__factory {
     }
 }
 exports.SymDelegatorFactory__factory = SymDelegatorFactory__factory;
-SymDelegatorFactory__factory.abi = _abi;

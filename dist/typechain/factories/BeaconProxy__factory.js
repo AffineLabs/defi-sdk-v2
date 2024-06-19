@@ -77,6 +77,7 @@ const _abi = [
     },
 ];
 class BeaconProxy__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -85,4 +86,3 @@ class BeaconProxy__factory {
     }
 }
 exports.BeaconProxy__factory = BeaconProxy__factory;
-BeaconProxy__factory.abi = _abi;

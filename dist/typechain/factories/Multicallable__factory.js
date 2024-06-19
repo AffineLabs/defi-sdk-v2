@@ -27,6 +27,7 @@ const _abi = [
     },
 ];
 class Multicallable__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -35,4 +36,3 @@ class Multicallable__factory {
     }
 }
 exports.Multicallable__factory = Multicallable__factory;
-Multicallable__factory.abi = _abi;

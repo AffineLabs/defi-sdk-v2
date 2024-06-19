@@ -67,6 +67,7 @@ const _abi = [
     },
 ];
 class IRewards__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -75,4 +76,3 @@ class IRewards__factory {
     }
 }
 exports.IRewards__factory = IRewards__factory;
-IRewards__factory.abi = _abi;

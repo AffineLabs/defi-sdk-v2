@@ -110,6 +110,7 @@ const _abi = [
     },
 ];
 class UUPSUpgradeable__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -118,4 +119,3 @@ class UUPSUpgradeable__factory {
     }
 }
 exports.UUPSUpgradeable__factory = UUPSUpgradeable__factory;
-UUPSUpgradeable__factory.abi = _abi;

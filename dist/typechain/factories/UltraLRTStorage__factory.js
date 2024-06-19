@@ -272,6 +272,7 @@ const _abi = [
     },
 ];
 class UltraLRTStorage__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -280,4 +281,3 @@ class UltraLRTStorage__factory {
     }
 }
 exports.UltraLRTStorage__factory = UltraLRTStorage__factory;
-UltraLRTStorage__factory.abi = _abi;

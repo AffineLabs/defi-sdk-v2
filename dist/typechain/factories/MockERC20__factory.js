@@ -344,6 +344,7 @@ const _abi = [
     },
 ];
 class MockERC20__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -352,4 +353,3 @@ class MockERC20__factory {
     }
 }
 exports.MockERC20__factory = MockERC20__factory;
-MockERC20__factory.abi = _abi;

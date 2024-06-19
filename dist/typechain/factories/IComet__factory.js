@@ -553,6 +553,7 @@ const _abi = [
     },
 ];
 class IComet__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -561,4 +562,3 @@ class IComet__factory {
     }
 }
 exports.IComet__factory = IComet__factory;
-IComet__factory.abi = _abi;

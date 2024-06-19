@@ -345,6 +345,7 @@ const _abi = [
     },
 ];
 class ICToken__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -353,4 +354,3 @@ class ICToken__factory {
     }
 }
 exports.ICToken__factory = ICToken__factory;
-ICToken__factory.abi = _abi;

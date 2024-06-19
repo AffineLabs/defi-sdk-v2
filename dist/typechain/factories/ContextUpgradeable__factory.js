@@ -21,6 +21,7 @@ const _abi = [
     },
 ];
 class ContextUpgradeable__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -29,4 +30,3 @@ class ContextUpgradeable__factory {
     }
 }
 exports.ContextUpgradeable__factory = ContextUpgradeable__factory;
-ContextUpgradeable__factory.abi = _abi;

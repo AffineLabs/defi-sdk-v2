@@ -603,6 +603,7 @@ const _abi = [
     },
 ];
 class IAToken__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -611,4 +612,3 @@ class IAToken__factory {
     }
 }
 exports.IAToken__factory = IAToken__factory;
-IAToken__factory.abi = _abi;

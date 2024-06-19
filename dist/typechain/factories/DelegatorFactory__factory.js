@@ -51,6 +51,7 @@ const _abi = [
     },
 ];
 class DelegatorFactory__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -59,4 +60,3 @@ class DelegatorFactory__factory {
     }
 }
 exports.DelegatorFactory__factory = DelegatorFactory__factory;
-DelegatorFactory__factory.abi = _abi;

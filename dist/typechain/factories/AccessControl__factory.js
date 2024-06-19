@@ -212,6 +212,7 @@ const _abi = [
     },
 ];
 class AccessControl__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -220,4 +221,3 @@ class AccessControl__factory {
     }
 }
 exports.AccessControl__factory = AccessControl__factory;
-AccessControl__factory.abi = _abi;

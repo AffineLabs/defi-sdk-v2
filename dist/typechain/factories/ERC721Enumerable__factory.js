@@ -394,6 +394,7 @@ const _abi = [
     },
 ];
 class ERC721Enumerable__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -402,4 +403,3 @@ class ERC721Enumerable__factory {
     }
 }
 exports.ERC721Enumerable__factory = ERC721Enumerable__factory;
-ERC721Enumerable__factory.abi = _abi;

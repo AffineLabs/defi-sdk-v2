@@ -416,6 +416,7 @@ const _abi = [
     },
 ];
 class L1CompoundStrategy__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -424,4 +425,3 @@ class L1CompoundStrategy__factory {
     }
 }
 exports.L1CompoundStrategy__factory = L1CompoundStrategy__factory;
-L1CompoundStrategy__factory.abi = _abi;

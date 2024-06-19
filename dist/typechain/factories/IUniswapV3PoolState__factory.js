@@ -254,6 +254,7 @@ const _abi = [
     },
 ];
 class IUniswapV3PoolState__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -262,4 +263,3 @@ class IUniswapV3PoolState__factory {
     }
 }
 exports.IUniswapV3PoolState__factory = IUniswapV3PoolState__factory;
-IUniswapV3PoolState__factory.abi = _abi;

@@ -21,6 +21,7 @@ const _abi = [
     },
 ];
 class IERC1822Proxiable__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -29,4 +30,3 @@ class IERC1822Proxiable__factory {
     }
 }
 exports.IERC1822Proxiable__factory = IERC1822Proxiable__factory;
-IERC1822Proxiable__factory.abi = _abi;

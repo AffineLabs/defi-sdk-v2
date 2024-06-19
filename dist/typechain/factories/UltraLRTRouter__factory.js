@@ -383,6 +383,7 @@ const _abi = [
     },
 ];
 class UltraLRTRouter__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -391,4 +392,3 @@ class UltraLRTRouter__factory {
     }
 }
 exports.UltraLRTRouter__factory = UltraLRTRouter__factory;
-UltraLRTRouter__factory.abi = _abi;

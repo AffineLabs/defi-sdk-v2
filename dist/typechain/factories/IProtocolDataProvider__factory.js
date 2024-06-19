@@ -292,6 +292,7 @@ const _abi = [
     },
 ];
 class IProtocolDataProvider__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -300,4 +301,3 @@ class IProtocolDataProvider__factory {
     }
 }
 exports.IProtocolDataProvider__factory = IProtocolDataProvider__factory;
-IProtocolDataProvider__factory.abi = _abi;

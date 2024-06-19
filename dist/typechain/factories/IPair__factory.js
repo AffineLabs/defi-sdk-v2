@@ -570,6 +570,7 @@ const _abi = [
     },
 ];
 class IPair__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -578,4 +579,3 @@ class IPair__factory {
     }
 }
 exports.IPair__factory = IPair__factory;
-IPair__factory.abi = _abi;

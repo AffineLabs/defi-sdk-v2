@@ -1761,6 +1761,7 @@ const _abi = [
     },
 ];
 class HighYieldLpVaultEth__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -1769,4 +1770,3 @@ class HighYieldLpVaultEth__factory {
     }
 }
 exports.HighYieldLpVaultEth__factory = HighYieldLpVaultEth__factory;
-HighYieldLpVaultEth__factory.abi = _abi;

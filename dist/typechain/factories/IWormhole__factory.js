@@ -164,6 +164,7 @@ const _abi = [
     },
 ];
 class IWormhole__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -172,4 +173,3 @@ class IWormhole__factory {
     }
 }
 exports.IWormhole__factory = IWormhole__factory;
-IWormhole__factory.abi = _abi;

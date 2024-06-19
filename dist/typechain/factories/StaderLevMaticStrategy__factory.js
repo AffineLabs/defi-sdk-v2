@@ -683,6 +683,7 @@ const _abi = [
     },
 ];
 class StaderLevMaticStrategy__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -691,4 +692,3 @@ class StaderLevMaticStrategy__factory {
     }
 }
 exports.StaderLevMaticStrategy__factory = StaderLevMaticStrategy__factory;
-StaderLevMaticStrategy__factory.abi = _abi;

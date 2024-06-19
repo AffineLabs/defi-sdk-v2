@@ -1730,6 +1730,7 @@ const _abi = [
     },
 ];
 class EthVault__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -1738,4 +1739,3 @@ class EthVault__factory {
     }
 }
 exports.EthVault__factory = EthVault__factory;
-EthVault__factory.abi = _abi;

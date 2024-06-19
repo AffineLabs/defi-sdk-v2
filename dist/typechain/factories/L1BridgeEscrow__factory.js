@@ -138,6 +138,7 @@ const _abi = [
     },
 ];
 class L1BridgeEscrow__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -146,4 +147,3 @@ class L1BridgeEscrow__factory {
     }
 }
 exports.L1BridgeEscrow__factory = L1BridgeEscrow__factory;
-L1BridgeEscrow__factory.abi = _abi;

@@ -661,6 +661,7 @@ const _abi = [
     },
 ];
 class IDefaultCollateral__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -669,4 +670,3 @@ class IDefaultCollateral__factory {
     }
 }
 exports.IDefaultCollateral__factory = IDefaultCollateral__factory;
-IDefaultCollateral__factory.abi = _abi;

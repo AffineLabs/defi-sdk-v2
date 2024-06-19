@@ -150,6 +150,7 @@ const _abi = [
     },
 ];
 class SymbioticDelegator__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -158,4 +159,3 @@ class SymbioticDelegator__factory {
     }
 }
 exports.SymbioticDelegator__factory = SymbioticDelegator__factory;
-SymbioticDelegator__factory.abi = _abi;

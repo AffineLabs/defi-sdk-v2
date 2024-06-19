@@ -21,6 +21,7 @@ const _abi = [
     },
 ];
 class IEIP712__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -29,4 +30,3 @@ class IEIP712__factory {
     }
 }
 exports.IEIP712__factory = IEIP712__factory;
-IEIP712__factory.abi = _abi;

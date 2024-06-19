@@ -665,6 +665,7 @@ const _abi = [
     },
 ];
 class AffineReStaking__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -673,4 +674,3 @@ class AffineReStaking__factory {
     }
 }
 exports.AffineReStaking__factory = AffineReStaking__factory;
-AffineReStaking__factory.abi = _abi;

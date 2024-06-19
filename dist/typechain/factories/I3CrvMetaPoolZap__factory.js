@@ -158,6 +158,7 @@ const _abi = [
     },
 ];
 class I3CrvMetaPoolZap__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -166,4 +167,3 @@ class I3CrvMetaPoolZap__factory {
     }
 }
 exports.I3CrvMetaPoolZap__factory = I3CrvMetaPoolZap__factory;
-I3CrvMetaPoolZap__factory.abi = _abi;

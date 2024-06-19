@@ -162,6 +162,7 @@ const _abi = [
     },
 ];
 class ICropper__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -170,4 +171,3 @@ class ICropper__factory {
     }
 }
 exports.ICropper__factory = ICropper__factory;
-ICropper__factory.abi = _abi;

@@ -1662,6 +1662,7 @@ const _abi = [
     },
 ];
 class UltraLRT__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -1670,4 +1671,3 @@ class UltraLRT__factory {
     }
 }
 exports.UltraLRT__factory = UltraLRT__factory;
-UltraLRT__factory.abi = _abi;

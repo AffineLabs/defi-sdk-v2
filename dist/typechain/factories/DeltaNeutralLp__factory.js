@@ -820,6 +820,7 @@ const _abi = [
     },
 ];
 class DeltaNeutralLp__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -828,4 +829,3 @@ class DeltaNeutralLp__factory {
     }
 }
 exports.DeltaNeutralLp__factory = DeltaNeutralLp__factory;
-DeltaNeutralLp__factory.abi = _abi;

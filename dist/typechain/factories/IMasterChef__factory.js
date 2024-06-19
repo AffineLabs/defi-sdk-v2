@@ -271,6 +271,7 @@ const _abi = [
     },
 ];
 class IMasterChef__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -279,4 +280,3 @@ class IMasterChef__factory {
     }
 }
 exports.IMasterChef__factory = IMasterChef__factory;
-IMasterChef__factory.abi = _abi;

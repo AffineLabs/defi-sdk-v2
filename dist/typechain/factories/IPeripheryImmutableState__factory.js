@@ -34,6 +34,7 @@ const _abi = [
     },
 ];
 class IPeripheryImmutableState__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -42,4 +43,3 @@ class IPeripheryImmutableState__factory {
     }
 }
 exports.IPeripheryImmutableState__factory = IPeripheryImmutableState__factory;
-IPeripheryImmutableState__factory.abi = _abi;

@@ -351,6 +351,7 @@ const _abi = [
     },
 ];
 class ERC721Burnable__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -359,4 +360,3 @@ class ERC721Burnable__factory {
     }
 }
 exports.ERC721Burnable__factory = ERC721Burnable__factory;
-ERC721Burnable__factory.abi = _abi;

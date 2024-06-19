@@ -169,6 +169,7 @@ const _abi = [
     },
 ];
 class IAaveIncentivesController__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -177,4 +178,3 @@ class IAaveIncentivesController__factory {
     }
 }
 exports.IAaveIncentivesController__factory = IAaveIncentivesController__factory;
-IAaveIncentivesController__factory.abi = _abi;

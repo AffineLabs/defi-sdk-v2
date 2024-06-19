@@ -16,6 +16,7 @@ const _abi = [
     },
 ];
 class Proxy__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -24,4 +25,3 @@ class Proxy__factory {
     }
 }
 exports.Proxy__factory = Proxy__factory;
-Proxy__factory.abi = _abi;

@@ -699,6 +699,7 @@ const _abi = [
     },
 ];
 class LidoLev__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -707,4 +708,3 @@ class LidoLev__factory {
     }
 }
 exports.LidoLev__factory = LidoLev__factory;
-LidoLev__factory.abi = _abi;

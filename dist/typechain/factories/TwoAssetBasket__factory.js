@@ -1033,6 +1033,7 @@ const _abi = [
     },
 ];
 class TwoAssetBasket__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -1041,4 +1042,3 @@ class TwoAssetBasket__factory {
     }
 }
 exports.TwoAssetBasket__factory = TwoAssetBasket__factory;
-TwoAssetBasket__factory.abi = _abi;

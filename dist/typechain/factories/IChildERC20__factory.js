@@ -21,6 +21,7 @@ const _abi = [
     },
 ];
 class IChildERC20__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -29,4 +30,3 @@ class IChildERC20__factory {
     }
 }
 exports.IChildERC20__factory = IChildERC20__factory;
-IChildERC20__factory.abi = _abi;

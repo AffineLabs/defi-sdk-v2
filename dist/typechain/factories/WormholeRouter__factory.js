@@ -99,6 +99,7 @@ const _abi = [
     },
 ];
 class WormholeRouter__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -107,4 +108,3 @@ class WormholeRouter__factory {
     }
 }
 exports.WormholeRouter__factory = WormholeRouter__factory;
-WormholeRouter__factory.abi = _abi;

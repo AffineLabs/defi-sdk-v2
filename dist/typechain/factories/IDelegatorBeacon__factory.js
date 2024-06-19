@@ -21,6 +21,7 @@ const _abi = [
     },
 ];
 class IDelegatorBeacon__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -29,4 +30,3 @@ class IDelegatorBeacon__factory {
     }
 }
 exports.IDelegatorBeacon__factory = IDelegatorBeacon__factory;
-IDelegatorBeacon__factory.abi = _abi;

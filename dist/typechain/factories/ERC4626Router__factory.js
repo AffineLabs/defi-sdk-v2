@@ -392,6 +392,7 @@ const _abi = [
     },
 ];
 class ERC4626Router__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -400,4 +401,3 @@ class ERC4626Router__factory {
     }
 }
 exports.ERC4626Router__factory = ERC4626Router__factory;
-ERC4626Router__factory.abi = _abi;

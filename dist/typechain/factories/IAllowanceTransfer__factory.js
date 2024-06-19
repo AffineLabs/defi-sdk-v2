@@ -492,6 +492,7 @@ const _abi = [
     },
 ];
 class IAllowanceTransfer__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -500,4 +501,3 @@ class IAllowanceTransfer__factory {
     }
 }
 exports.IAllowanceTransfer__factory = IAllowanceTransfer__factory;
-IAllowanceTransfer__factory.abi = _abi;

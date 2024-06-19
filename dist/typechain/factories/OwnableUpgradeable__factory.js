@@ -73,6 +73,7 @@ const _abi = [
     },
 ];
 class OwnableUpgradeable__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -81,4 +82,3 @@ class OwnableUpgradeable__factory {
     }
 }
 exports.OwnableUpgradeable__factory = OwnableUpgradeable__factory;
-OwnableUpgradeable__factory.abi = _abi;

@@ -448,6 +448,7 @@ const _abi = [
     },
 ];
 class CompoundV3Strategy__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -456,4 +457,3 @@ class CompoundV3Strategy__factory {
     }
 }
 exports.CompoundV3Strategy__factory = CompoundV3Strategy__factory;
-CompoundV3Strategy__factory.abi = _abi;

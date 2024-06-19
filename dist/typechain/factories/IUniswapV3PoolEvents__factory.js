@@ -335,6 +335,7 @@ const _abi = [
     },
 ];
 class IUniswapV3PoolEvents__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -343,4 +344,3 @@ class IUniswapV3PoolEvents__factory {
     }
 }
 exports.IUniswapV3PoolEvents__factory = IUniswapV3PoolEvents__factory;
-IUniswapV3PoolEvents__factory.abi = _abi;

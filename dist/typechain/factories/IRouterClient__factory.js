@@ -193,6 +193,7 @@ const _abi = [
     },
 ];
 class IRouterClient__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -201,4 +202,3 @@ class IRouterClient__factory {
     }
 }
 exports.IRouterClient__factory = IRouterClient__factory;
-IRouterClient__factory.abi = _abi;

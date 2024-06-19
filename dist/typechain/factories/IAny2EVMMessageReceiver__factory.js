@@ -60,6 +60,7 @@ const _abi = [
     },
 ];
 class IAny2EVMMessageReceiver__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -68,4 +69,3 @@ class IAny2EVMMessageReceiver__factory {
     }
 }
 exports.IAny2EVMMessageReceiver__factory = IAny2EVMMessageReceiver__factory;
-IAny2EVMMessageReceiver__factory.abi = _abi;

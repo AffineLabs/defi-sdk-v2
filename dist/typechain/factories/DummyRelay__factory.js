@@ -21,6 +21,7 @@ const _abi = [
     },
 ];
 class DummyRelay__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -29,4 +30,3 @@ class DummyRelay__factory {
     }
 }
 exports.DummyRelay__factory = DummyRelay__factory;
-DummyRelay__factory.abi = _abi;

@@ -36,6 +36,7 @@ const _abi = [
     },
 ];
 class IFlashLoanRecipient__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -44,4 +45,3 @@ class IFlashLoanRecipient__factory {
     }
 }
 exports.IFlashLoanRecipient__factory = IFlashLoanRecipient__factory;
-IFlashLoanRecipient__factory.abi = _abi;

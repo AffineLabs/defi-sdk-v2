@@ -56,6 +56,7 @@ const _abi = [
     },
 ];
 class ICREATE3Factory__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -64,4 +65,3 @@ class ICREATE3Factory__factory {
     }
 }
 exports.ICREATE3Factory__factory = ICREATE3Factory__factory;
-ICREATE3Factory__factory.abi = _abi;

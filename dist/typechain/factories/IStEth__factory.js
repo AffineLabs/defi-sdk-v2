@@ -346,6 +346,7 @@ const _abi = [
     },
 ];
 class IStEth__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -354,4 +355,3 @@ class IStEth__factory {
     }
 }
 exports.IStEth__factory = IStEth__factory;
-IStEth__factory.abi = _abi;

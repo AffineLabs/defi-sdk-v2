@@ -588,6 +588,7 @@ const _abi = [
     },
 ];
 class IVat__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -596,4 +597,3 @@ class IVat__factory {
     }
 }
 exports.IVat__factory = IVat__factory;
-IVat__factory.abi = _abi;

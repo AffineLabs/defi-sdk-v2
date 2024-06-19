@@ -128,6 +128,7 @@ const _abi = [
     },
 ];
 class ReStakingErrors__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -136,4 +137,3 @@ class ReStakingErrors__factory {
     }
 }
 exports.ReStakingErrors__factory = ReStakingErrors__factory;
-ReStakingErrors__factory.abi = _abi;

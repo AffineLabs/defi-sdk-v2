@@ -372,6 +372,7 @@ const _abi = [
     },
 ];
 class DummyEpochStrategy__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -380,4 +381,3 @@ class DummyEpochStrategy__factory {
     }
 }
 exports.DummyEpochStrategy__factory = DummyEpochStrategy__factory;
-DummyEpochStrategy__factory.abi = _abi;

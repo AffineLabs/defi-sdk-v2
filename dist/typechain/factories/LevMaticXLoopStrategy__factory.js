@@ -709,6 +709,7 @@ const _abi = [
     },
 ];
 class LevMaticXLoopStrategy__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -717,4 +718,3 @@ class LevMaticXLoopStrategy__factory {
     }
 }
 exports.LevMaticXLoopStrategy__factory = LevMaticXLoopStrategy__factory;
-LevMaticXLoopStrategy__factory.abi = _abi;

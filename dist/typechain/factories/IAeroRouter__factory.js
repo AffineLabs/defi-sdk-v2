@@ -1599,6 +1599,7 @@ const _abi = [
     },
 ];
 class IAeroRouter__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -1607,4 +1608,3 @@ class IAeroRouter__factory {
     }
 }
 exports.IAeroRouter__factory = IAeroRouter__factory;
-IAeroRouter__factory.abi = _abi;

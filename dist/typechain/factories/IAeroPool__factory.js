@@ -1146,6 +1146,7 @@ const _abi = [
     },
 ];
 class IAeroPool__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -1154,4 +1155,3 @@ class IAeroPool__factory {
     }
 }
 exports.IAeroPool__factory = IAeroPool__factory;
-IAeroPool__factory.abi = _abi;

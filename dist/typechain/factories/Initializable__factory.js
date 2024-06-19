@@ -21,6 +21,7 @@ const _abi = [
     },
 ];
 class Initializable__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -29,4 +30,3 @@ class Initializable__factory {
     }
 }
 exports.Initializable__factory = Initializable__factory;
-Initializable__factory.abi = _abi;

@@ -341,6 +341,7 @@ const _abi = [
     },
 ];
 class EigenDelegator__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -349,4 +350,3 @@ class EigenDelegator__factory {
     }
 }
 exports.EigenDelegator__factory = EigenDelegator__factory;
-EigenDelegator__factory.abi = _abi;

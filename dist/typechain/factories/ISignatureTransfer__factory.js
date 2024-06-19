@@ -400,6 +400,7 @@ const _abi = [
     },
 ];
 class ISignatureTransfer__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -408,4 +409,3 @@ class ISignatureTransfer__factory {
     }
 }
 exports.ISignatureTransfer__factory = ISignatureTransfer__factory;
-ISignatureTransfer__factory.abi = _abi;

@@ -3,9 +3,8 @@ import {
   AllowanceProvider,
   PERMIT2_ADDRESS,
   PermitTransferFrom,
-  AllowanceTransfer,
   SignatureTransfer,
-} from "@uniswap/Permit2-sdk";
+} from "@uniswap/permit2-sdk";
 
 import {
   WithdrawalInfo,

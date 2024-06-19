@@ -757,6 +757,7 @@ const _abi = [
     },
 ];
 class IUniswapV2Router01__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -765,4 +766,3 @@ class IUniswapV2Router01__factory {
     }
 }
 exports.IUniswapV2Router01__factory = IUniswapV2Router01__factory;
-IUniswapV2Router01__factory.abi = _abi;

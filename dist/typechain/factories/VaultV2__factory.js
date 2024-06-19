@@ -1855,6 +1855,7 @@ const _abi = [
     },
 ];
 class VaultV2__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -1863,4 +1864,3 @@ class VaultV2__factory {
     }
 }
 exports.VaultV2__factory = VaultV2__factory;
-VaultV2__factory.abi = _abi;

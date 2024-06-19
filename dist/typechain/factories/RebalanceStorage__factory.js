@@ -47,6 +47,7 @@ const _abi = [
     },
 ];
 class RebalanceStorage__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -55,4 +56,3 @@ class RebalanceStorage__factory {
     }
 }
 exports.RebalanceStorage__factory = RebalanceStorage__factory;
-RebalanceStorage__factory.abi = _abi;

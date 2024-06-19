@@ -103,6 +103,7 @@ const _abi = [
     },
 ];
 class CCIPReceiver__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -111,4 +112,3 @@ class CCIPReceiver__factory {
     }
 }
 exports.CCIPReceiver__factory = CCIPReceiver__factory;
-CCIPReceiver__factory.abi = _abi;

@@ -687,6 +687,7 @@ const _abi = [
     },
 ];
 class AffineVault__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -695,4 +696,3 @@ class AffineVault__factory {
     }
 }
 exports.AffineVault__factory = AffineVault__factory;
-AffineVault__factory.abi = _abi;

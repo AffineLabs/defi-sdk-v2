@@ -194,6 +194,7 @@ const _abi = [
     },
 ];
 class Forwarder__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -202,4 +203,3 @@ class Forwarder__factory {
     }
 }
 exports.Forwarder__factory = Forwarder__factory;
-Forwarder__factory.abi = _abi;

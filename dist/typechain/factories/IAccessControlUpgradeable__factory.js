@@ -180,6 +180,7 @@ const _abi = [
     },
 ];
 class IAccessControlUpgradeable__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -188,4 +189,3 @@ class IAccessControlUpgradeable__factory {
     }
 }
 exports.IAccessControlUpgradeable__factory = IAccessControlUpgradeable__factory;
-IAccessControlUpgradeable__factory.abi = _abi;

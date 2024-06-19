@@ -260,6 +260,7 @@ const _abi = [
     },
 ];
 class IBalancerVault__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -268,4 +269,3 @@ class IBalancerVault__factory {
     }
 }
 exports.IBalancerVault__factory = IBalancerVault__factory;
-IBalancerVault__factory.abi = _abi;

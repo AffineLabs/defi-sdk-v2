@@ -398,6 +398,7 @@ const _abi = [
     },
 ];
 class IERC4626__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -406,4 +407,3 @@ class IERC4626__factory {
     }
 }
 exports.IERC4626__factory = IERC4626__factory;
-IERC4626__factory.abi = _abi;

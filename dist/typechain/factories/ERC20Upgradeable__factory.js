@@ -291,6 +291,7 @@ const _abi = [
     },
 ];
 class ERC20Upgradeable__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -299,4 +300,3 @@ class ERC20Upgradeable__factory {
     }
 }
 exports.ERC20Upgradeable__factory = ERC20Upgradeable__factory;
-ERC20Upgradeable__factory.abi = _abi;

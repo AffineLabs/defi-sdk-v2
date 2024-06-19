@@ -2110,6 +2110,7 @@ const _abi = [
     },
 ];
 class L2USDEarnVault__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -2118,4 +2119,3 @@ class L2USDEarnVault__factory {
     }
 }
 exports.L2USDEarnVault__factory = L2USDEarnVault__factory;
-L2USDEarnVault__factory.abi = _abi;

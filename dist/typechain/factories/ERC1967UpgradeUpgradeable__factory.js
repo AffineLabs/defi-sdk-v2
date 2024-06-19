@@ -66,6 +66,7 @@ const _abi = [
     },
 ];
 class ERC1967UpgradeUpgradeable__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -74,4 +75,3 @@ class ERC1967UpgradeUpgradeable__factory {
     }
 }
 exports.ERC1967UpgradeUpgradeable__factory = ERC1967UpgradeUpgradeable__factory;
-ERC1967UpgradeUpgradeable__factory.abi = _abi;

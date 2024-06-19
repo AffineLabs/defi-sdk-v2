@@ -1632,6 +1632,7 @@ const _abi = [
     },
 ];
 class StrategyVault__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -1640,4 +1641,3 @@ class StrategyVault__factory {
     }
 }
 exports.StrategyVault__factory = StrategyVault__factory;
-StrategyVault__factory.abi = _abi;

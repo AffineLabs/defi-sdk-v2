@@ -422,6 +422,7 @@ const _abi = [
     },
 ];
 class ICollateral__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -430,4 +431,3 @@ class ICollateral__factory {
     }
 }
 exports.ICollateral__factory = ICollateral__factory;
-ICollateral__factory.abi = _abi;

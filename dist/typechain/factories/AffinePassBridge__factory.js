@@ -642,6 +642,7 @@ const _abi = [
     },
 ];
 class AffinePassBridge__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -650,4 +651,3 @@ class AffinePassBridge__factory {
     }
 }
 exports.AffinePassBridge__factory = AffinePassBridge__factory;
-AffinePassBridge__factory.abi = _abi;

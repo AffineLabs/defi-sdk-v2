@@ -794,6 +794,7 @@ const _abi = [
     },
 ];
 class AffineGenesis__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -802,4 +803,3 @@ class AffineGenesis__factory {
     }
 }
 exports.AffineGenesis__factory = AffineGenesis__factory;
-AffineGenesis__factory.abi = _abi;

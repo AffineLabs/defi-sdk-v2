@@ -138,6 +138,7 @@ const _abi = [
     },
 ];
 class IDelegationManager__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -146,4 +147,3 @@ class IDelegationManager__factory {
     }
 }
 exports.IDelegationManager__factory = IDelegationManager__factory;
-IDelegationManager__factory.abi = _abi;

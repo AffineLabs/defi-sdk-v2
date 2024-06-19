@@ -171,6 +171,7 @@ const _abi = [
     },
 ];
 class IUniswapV2Factory__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -179,4 +180,3 @@ class IUniswapV2Factory__factory {
     }
 }
 exports.IUniswapV2Factory__factory = IUniswapV2Factory__factory;
-IUniswapV2Factory__factory.abi = _abi;

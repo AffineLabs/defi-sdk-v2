@@ -110,6 +110,7 @@ const _abi = [
     },
 ];
 class UpgradeableBeacon__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -118,4 +119,3 @@ class UpgradeableBeacon__factory {
     }
 }
 exports.UpgradeableBeacon__factory = UpgradeableBeacon__factory;
-UpgradeableBeacon__factory.abi = _abi;

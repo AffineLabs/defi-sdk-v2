@@ -649,6 +649,7 @@ const _abi = [
     },
 ];
 class ConvexStrategy__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -657,4 +658,3 @@ class ConvexStrategy__factory {
     }
 }
 exports.ConvexStrategy__factory = ConvexStrategy__factory;
-ConvexStrategy__factory.abi = _abi;

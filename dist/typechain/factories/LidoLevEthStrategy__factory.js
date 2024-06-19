@@ -600,6 +600,7 @@ const _abi = [
     },
 ];
 class LidoLevEthStrategy__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -608,4 +609,3 @@ class LidoLevEthStrategy__factory {
     }
 }
 exports.LidoLevEthStrategy__factory = LidoLevEthStrategy__factory;
-LidoLevEthStrategy__factory.abi = _abi;

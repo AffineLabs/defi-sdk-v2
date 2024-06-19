@@ -167,6 +167,7 @@ const _abi = [
     },
 ];
 class L2WormholeRouter__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -175,4 +176,3 @@ class L2WormholeRouter__factory {
     }
 }
 exports.L2WormholeRouter__factory = L2WormholeRouter__factory;
-L2WormholeRouter__factory.abi = _abi;

@@ -498,6 +498,7 @@ const _abi = [
     },
 ];
 class BeefyStrategy__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -506,4 +507,3 @@ class BeefyStrategy__factory {
     }
 }
 exports.BeefyStrategy__factory = BeefyStrategy__factory;
-BeefyStrategy__factory.abi = _abi;

@@ -1690,6 +1690,7 @@ const _abi = [
     },
 ];
 class IPool__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -1698,4 +1699,3 @@ class IPool__factory {
     }
 }
 exports.IPool__factory = IPool__factory;
-IPool__factory.abi = _abi;

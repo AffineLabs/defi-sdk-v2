@@ -569,6 +569,7 @@ const _abi = [
     },
 ];
 class StrikeEthStrategy__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -577,4 +578,3 @@ class StrikeEthStrategy__factory {
     }
 }
 exports.StrikeEthStrategy__factory = StrikeEthStrategy__factory;
-StrikeEthStrategy__factory.abi = _abi;

@@ -31,6 +31,7 @@ const _abi = [
     },
 ];
 class IUniswapV3SwapCallback__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -39,4 +40,3 @@ class IUniswapV3SwapCallback__factory {
     }
 }
 exports.IUniswapV3SwapCallback__factory = IUniswapV3SwapCallback__factory;
-IUniswapV3SwapCallback__factory.abi = _abi;

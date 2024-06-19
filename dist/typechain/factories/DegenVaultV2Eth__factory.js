@@ -1761,6 +1761,7 @@ const _abi = [
     },
 ];
 class DegenVaultV2Eth__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -1769,4 +1770,3 @@ class DegenVaultV2Eth__factory {
     }
 }
 exports.DegenVaultV2Eth__factory = DegenVaultV2Eth__factory;
-DegenVaultV2Eth__factory.abi = _abi;

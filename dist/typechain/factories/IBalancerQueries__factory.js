@@ -86,6 +86,7 @@ const _abi = [
     },
 ];
 class IBalancerQueries__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -94,4 +95,3 @@ class IBalancerQueries__factory {
     }
 }
 exports.IBalancerQueries__factory = IBalancerQueries__factory;
-IBalancerQueries__factory.abi = _abi;

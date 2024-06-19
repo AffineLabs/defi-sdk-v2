@@ -995,6 +995,7 @@ const _abi = [
     },
 ];
 class INonfungiblePositionManager__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -1003,4 +1004,3 @@ class INonfungiblePositionManager__factory {
     }
 }
 exports.INonfungiblePositionManager__factory = INonfungiblePositionManager__factory;
-INonfungiblePositionManager__factory.abi = _abi;

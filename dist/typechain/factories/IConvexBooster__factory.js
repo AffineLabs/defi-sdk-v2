@@ -109,6 +109,7 @@ const _abi = [
     },
 ];
 class IConvexBooster__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -117,4 +118,3 @@ class IConvexBooster__factory {
     }
 }
 exports.IConvexBooster__factory = IConvexBooster__factory;
-IConvexBooster__factory.abi = _abi;

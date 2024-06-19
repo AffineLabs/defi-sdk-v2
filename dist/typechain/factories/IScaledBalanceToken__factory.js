@@ -64,6 +64,7 @@ const _abi = [
     },
 ];
 class IScaledBalanceToken__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -72,4 +73,3 @@ class IScaledBalanceToken__factory {
     }
 }
 exports.IScaledBalanceToken__factory = IScaledBalanceToken__factory;
-IScaledBalanceToken__factory.abi = _abi;

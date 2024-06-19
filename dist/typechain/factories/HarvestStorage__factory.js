@@ -73,6 +73,7 @@ const _abi = [
     },
 ];
 class HarvestStorage__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -81,4 +82,3 @@ class HarvestStorage__factory {
     }
 }
 exports.HarvestStorage__factory = HarvestStorage__factory;
-HarvestStorage__factory.abi = _abi;

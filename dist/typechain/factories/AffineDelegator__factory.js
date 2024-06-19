@@ -106,6 +106,7 @@ const _abi = [
     },
 ];
 class AffineDelegator__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -114,4 +115,3 @@ class AffineDelegator__factory {
     }
 }
 exports.AffineDelegator__factory = AffineDelegator__factory;
-AffineDelegator__factory.abi = _abi;

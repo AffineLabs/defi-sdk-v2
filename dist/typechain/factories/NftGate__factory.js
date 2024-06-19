@@ -91,6 +91,7 @@ const _abi = [
     },
 ];
 class NftGate__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -99,4 +100,3 @@ class NftGate__factory {
     }
 }
 exports.NftGate__factory = NftGate__factory;
-NftGate__factory.abi = _abi;

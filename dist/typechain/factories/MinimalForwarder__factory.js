@@ -149,6 +149,7 @@ const _abi = [
     },
 ];
 class MinimalForwarder__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -157,4 +158,3 @@ class MinimalForwarder__factory {
     }
 }
 exports.MinimalForwarder__factory = MinimalForwarder__factory;
-MinimalForwarder__factory.abi = _abi;

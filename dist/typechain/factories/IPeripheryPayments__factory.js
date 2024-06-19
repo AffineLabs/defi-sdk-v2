@@ -56,6 +56,7 @@ const _abi = [
     },
 ];
 class IPeripheryPayments__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -64,4 +65,3 @@ class IPeripheryPayments__factory {
     }
 }
 exports.IPeripheryPayments__factory = IPeripheryPayments__factory;
-IPeripheryPayments__factory.abi = _abi;

@@ -648,6 +648,7 @@ const _abi = [
     },
 ];
 class IChildPool__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -656,4 +657,3 @@ class IChildPool__factory {
     }
 }
 exports.IChildPool__factory = IChildPool__factory;
-IChildPool__factory.abi = _abi;

@@ -871,6 +871,7 @@ const _abi = [
     },
 ];
 class IPermit2__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -879,4 +880,3 @@ class IPermit2__factory {
     }
 }
 exports.IPermit2__factory = IPermit2__factory;
-IPermit2__factory.abi = _abi;

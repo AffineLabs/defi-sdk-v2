@@ -338,6 +338,7 @@ const _abi = [
     },
 ];
 class AccessStrategy__factory {
+    static abi = _abi;
     static createInterface() {
         return new ethers_1.utils.Interface(_abi);
     }
@@ -346,4 +347,3 @@ class AccessStrategy__factory {
     }
 }
 exports.AccessStrategy__factory = AccessStrategy__factory;
-AccessStrategy__factory.abi = _abi;
