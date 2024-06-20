@@ -201,13 +201,24 @@ export class AffineRestakingSDK {
     console.log("MiddlewareTimesIndex:", middlewareTimesIndex);
     console.log("ReceiveAsTokens:", receiveAsTokens);
 
+
     try {
-      const tx = await eigenDelegator.completeQueuedWithdrawals(
+      const gasEstimate = await eigenDelegator.estimateGas.completeQueuedWithdrawals(
           withdrawalInfos,
           assetsArray,
           middlewareTimesIndex,
           receiveAsTokens,
           { from: await this.signer.getAddress() }
+      );
+
+      console.log("Estimated Gas:", gasEstimate.toString());
+
+      const tx = await eigenDelegator.completeQueuedWithdrawals(
+          withdrawalInfos,
+          assetsArray,
+          middlewareTimesIndex,
+          receiveAsTokens,
+          { from: await this.signer.getAddress(), gasLimit: gasEstimate }
       );
 
       console.log("Transaction successful:", tx);
