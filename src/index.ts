@@ -141,8 +141,6 @@ export class AffineRestakingSDK {
   }
 
   async completeMigrationWithdrawal(
-      provider: ethers.providers.JsonRpcProvider,
-      signer: ethers.Signer,
       address: string,
       delegator: string,
       nonce: string,
@@ -178,7 +176,7 @@ export class AffineRestakingSDK {
     const eigenDelegator = new ethers.Contract(
         EigenDelegatorAddress,
         DELEGATION_MANAGER_ABI,
-        signer
+        this.signer
     );
 
     const withdrawalInfos: WithdrawalInfoStruct[] = [
@@ -209,7 +207,7 @@ export class AffineRestakingSDK {
           assetsArray,
           middlewareTimesIndex,
           receiveAsTokens,
-          { from: await signer.getAddress() }
+          { from: await this.signer.getAddress() }
       );
 
       console.log("Transaction successful:", tx);

@@ -11,7 +11,7 @@ export declare class AffineRestakingSDK {
     migratableAssets(address: string): Promise<number>;
     queueMigrationWithdrawal(address: string, assets: string): Promise<any>;
     isValidAddress(address: string): Promise<boolean>;
-    completeMigrationWithdrawal(provider: ethers.providers.JsonRpcProvider, signer: ethers.Signer, address: string, delegator: string, nonce: string, blockNumber: string, shares: string): Promise<any>;
+    completeMigrationWithdrawal(address: string, delegator: string, nonce: string, blockNumber: string, shares: string): Promise<any>;
     canWithdraw(amount: number): Promise<any>;
     canWithdrawSymbiotic(amount: number): Promise<any>;
     deposit(amount: string): Promise<any>;

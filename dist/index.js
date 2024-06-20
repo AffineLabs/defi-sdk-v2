@@ -74,7 +74,7 @@ class AffineRestakingSDK {
     async isValidAddress(address) {
         return ethers_1.ethers.utils.isAddress(address);
     }
-    async completeMigrationWithdrawal(provider, signer, address, delegator, nonce, blockNumber, shares) {
+    async completeMigrationWithdrawal(address, delegator, nonce, blockNumber, shares) {
         // Validate addresses
         if (!await this.isValidAddress(constants_1.EigenDelegatorAddress) ||
             !await this.isValidAddress(address) ||
@@ -96,7 +96,7 @@ class AffineRestakingSDK {
         console.log("Nonce (BigNumber):", nonceBigNumber.toString());
         console.log("BlockNumber (int):", blockNumberInt);
         console.log("Shares (BigNumber):", sharesBigNumber.toString());
-        const eigenDelegator = new ethers_1.ethers.Contract(constants_1.EigenDelegatorAddress, delegationManager_json_1.default, signer);
+        const eigenDelegator = new ethers_1.ethers.Contract(constants_1.EigenDelegatorAddress, delegationManager_json_1.default, this.signer);
         const withdrawalInfos = [
             {
                 staker: address,
@@ -117,7 +117,7 @@ class AffineRestakingSDK {
         console.log("MiddlewareTimesIndex:", middlewareTimesIndex);
         console.log("ReceiveAsTokens:", receiveAsTokens);
         try {
-            const tx = await eigenDelegator.completeQueuedWithdrawals(withdrawalInfos, assetsArray, middlewareTimesIndex, receiveAsTokens, { from: await signer.getAddress() });
+            const tx = await eigenDelegator.completeQueuedWithdrawals(withdrawalInfos, assetsArray, middlewareTimesIndex, receiveAsTokens, { from: await this.signer.getAddress() });
             console.log("Transaction successful:", tx);
             return tx;
         }
