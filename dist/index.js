@@ -71,7 +71,24 @@ class AffineRestakingSDK {
         });
         return tx;
     }
+    async isValidAddress(address) {
+        return ethers_1.ethers.utils.isAddress(address);
+    }
     async completeMigrationWithdrawal(address, delegator, nonce, blockNumber, shares) {
+        // Validate addresses
+        if (!await this.isValidAddress(constants_1.EigenDelegatorAddress) ||
+            !await this.isValidAddress(address) ||
+            !await this.isValidAddress(delegator) ||
+            !await this.isValidAddress(constants_1.EigenStETHStrategy) ||
+            !await this.isValidAddress(constants_1.StETHAddress)) {
+            throw new Error("One or more addresses are invalid");
+        }
+        // Log addresses and parameters
+        console.log("Address:", address);
+        console.log("Delegator:", delegator);
+        console.log("EigenDelegatorAddress:", constants_1.EigenDelegatorAddress);
+        console.log("EigenStETHStrategy:", constants_1.EigenStETHStrategy);
+        console.log("StETHAddress:", constants_1.StETHAddress);
         const eigenDelegator = new ethers_1.ethers.Contract(constants_1.EigenDelegatorAddress, delegationManager_json_1.default, this.signer);
         const withdrawalInfos = [
             {
@@ -84,11 +101,15 @@ class AffineRestakingSDK {
                 shares: [ethers_1.ethers.BigNumber.from(shares)],
             },
         ];
-        // Define the additional parameters
-        const assetsArray = [[constants_1.StETHAddress]];
-        const uint256Array = [ethers_1.ethers.BigNumber.from("0")];
-        const boolArray = [true];
-        const tx = await eigenDelegator.completeQueuedWithdrawal(withdrawalInfos, assetsArray, uint256Array, boolArray);
+        const assetsArray = [constants_1.StETHAddress];
+        const middlewareTimesIndex = ethers_1.ethers.BigNumber.from("0");
+        const receiveAsTokens = true;
+        // Log the structured data
+        console.log("WithdrawalInfos:", withdrawalInfos);
+        console.log("AssetsArray:", assetsArray);
+        console.log("MiddlewareTimesIndex:", middlewareTimesIndex);
+        console.log("ReceiveAsTokens:", receiveAsTokens);
+        const tx = await eigenDelegator.completeQueuedWithdrawal(withdrawalInfos, assetsArray, middlewareTimesIndex, receiveAsTokens);
         return tx;
     }
     async canWithdraw(amount) {

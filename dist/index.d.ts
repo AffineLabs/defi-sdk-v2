@@ -10,6 +10,7 @@ export declare class AffineRestakingSDK {
     getWEthBalance(): Promise<string>;
     migratableAssets(address: string): Promise<number>;
     queueMigrationWithdrawal(address: string, assets: string): Promise<any>;
+    isValidAddress(address: string): Promise<boolean>;
     completeMigrationWithdrawal(address: string, delegator: string, nonce: string, blockNumber: string, shares: string): Promise<any>;
     canWithdraw(amount: number): Promise<any>;
     canWithdrawSymbiotic(amount: number): Promise<any>;

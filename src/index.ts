@@ -7,7 +7,6 @@ import {
 } from "@uniswap/permit2-sdk";
 
 import {
-  WithdrawalInfo,
   EscrowAddress,
   StETHAddress,
   EigenDelegatorAddress,
@@ -33,7 +32,6 @@ import {
   ISignatureTransfer__factory,
   ISignatureTransfer,
 } from "./typechain";
-import constants_1 from "../dist/constants";
 
 export class AffineRestakingSDK {
   private provider: providers.JsonRpcProvider;
