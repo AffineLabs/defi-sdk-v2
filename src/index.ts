@@ -31,7 +31,9 @@ import {
   UltraLRT__factory,
   ISignatureTransfer__factory,
   ISignatureTransfer,
+    DelegatorFactory__factory,
 } from "./typechain";
+import {WithdrawalInfoStruct} from "./typechain/EigenDelegator";
 
 export class AffineRestakingSDK {
   private provider: providers.JsonRpcProvider;
@@ -139,6 +141,8 @@ export class AffineRestakingSDK {
   }
 
   async completeMigrationWithdrawal(
+      provider: ethers.providers.JsonRpcProvider,
+      signer: ethers.Signer,
       address: string,
       delegator: string,
       nonce: string,
@@ -156,49 +160,64 @@ export class AffineRestakingSDK {
       throw new Error("One or more addresses are invalid");
     }
 
+    // Convert parameters to the correct types
+    const nonceBigNumber = ethers.BigNumber.from(nonce);
+    const blockNumberInt = parseInt(blockNumber, 10);
+    const sharesBigNumber = ethers.BigNumber.from(shares);
+
     // Log addresses and parameters
     console.log("Address:", address);
     console.log("Delegator:", delegator);
     console.log("EigenDelegatorAddress:", EigenDelegatorAddress);
     console.log("EigenStETHStrategy:", EigenStETHStrategy);
     console.log("StETHAddress:", StETHAddress);
+    console.log("Nonce (BigNumber):", nonceBigNumber.toString());
+    console.log("BlockNumber (int):", blockNumberInt);
+    console.log("Shares (BigNumber):", sharesBigNumber.toString());
 
     const eigenDelegator = new ethers.Contract(
         EigenDelegatorAddress,
         DELEGATION_MANAGER_ABI,
-        this.signer
+        signer
     );
 
-    const withdrawalInfos = [
+    const withdrawalInfos: WithdrawalInfoStruct[] = [
       {
         staker: address,
         delegatedTo: delegator,
         withdrawer: address,
-        nonce: ethers.BigNumber.from(nonce),
-        startBlock: parseInt(blockNumber),
+        nonce: nonceBigNumber,
+        startBlock: blockNumberInt,
         strategies: [EigenStETHStrategy],
-        shares: [ethers.BigNumber.from(shares)],
+        shares: [sharesBigNumber],
       },
     ];
 
-    const assetsArray = [StETHAddress];
-    const middlewareTimesIndex = ethers.BigNumber.from("0");
-    const receiveAsTokens = true;
+    const assetsArray: string[][] = [[StETHAddress]];
+    const middlewareTimesIndex: ethers.BigNumberish[] = [0];
+    const receiveAsTokens: boolean[] = [true];
 
     // Log the structured data
-    console.log("WithdrawalInfos:", withdrawalInfos);
+    console.log("WithdrawalInfos:", JSON.stringify(withdrawalInfos, null, 2));
     console.log("AssetsArray:", assetsArray);
     console.log("MiddlewareTimesIndex:", middlewareTimesIndex);
     console.log("ReceiveAsTokens:", receiveAsTokens);
 
-    const tx = await eigenDelegator.completeQueuedWithdrawal(
-        withdrawalInfos,
-        assetsArray,
-        middlewareTimesIndex,
-        receiveAsTokens
-    );
+    try {
+      const tx = await eigenDelegator.completeQueuedWithdrawals(
+          withdrawalInfos,
+          assetsArray,
+          middlewareTimesIndex,
+          receiveAsTokens,
+          { from: await signer.getAddress() }
+      );
 
-    return tx;
+      console.log("Transaction successful:", tx);
+      return tx;
+    } catch (error) {
+      console.error("Error completing queued withdrawals:", error);
+      throw error;
+    }
   }
 
   async canWithdraw(amount: number) {
