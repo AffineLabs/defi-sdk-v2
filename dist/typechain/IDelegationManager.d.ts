@@ -2,7 +2,7 @@ import type { BaseContract, BigNumber, BigNumberish, BytesLike, CallOverrides, C
 import type { FunctionFragment, Result } from "@ethersproject/abi";
 import type { Listener, Provider } from "@ethersproject/providers";
 import type { TypedEventFilter, TypedEvent, TypedListener, OnEvent } from "./common";
-export type WithdrawalInfoStruct = {
+export declare type WithdrawalInfoStruct = {
     staker: string;
     delegatedTo: string;
     withdrawer: string;
@@ -11,7 +11,7 @@ export type WithdrawalInfoStruct = {
     strategies: string[];
     shares: BigNumberish[];
 };
-export type WithdrawalInfoStructOutput = [
+export declare type WithdrawalInfoStructOutput = [
     string,
     string,
     string,
@@ -28,23 +28,23 @@ export type WithdrawalInfoStructOutput = [
     strategies: string[];
     shares: BigNumber[];
 };
-export type ApproverSignatureAndExpiryParamsStruct = {
+export declare type ApproverSignatureAndExpiryParamsStruct = {
     signature: BytesLike;
     expiry: BigNumberish;
 };
-export type ApproverSignatureAndExpiryParamsStructOutput = [
+export declare type ApproverSignatureAndExpiryParamsStructOutput = [
     string,
     BigNumber
 ] & {
     signature: string;
     expiry: BigNumber;
 };
-export type QueuedWithdrawalParamsStruct = {
+export declare type QueuedWithdrawalParamsStruct = {
     strategies: string[];
     shares: BigNumberish[];
     recipient: string;
 };
-export type QueuedWithdrawalParamsStructOutput = [
+export declare type QueuedWithdrawalParamsStructOutput = [
     string[],
     BigNumber[],
     string

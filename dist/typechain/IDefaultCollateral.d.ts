@@ -106,81 +106,81 @@ export interface ApprovalEventObject {
     spender: string;
     value: BigNumber;
 }
-export type ApprovalEvent = TypedEvent<[
+export declare type ApprovalEvent = TypedEvent<[
     string,
     string,
     BigNumber
 ], ApprovalEventObject>;
-export type ApprovalEventFilter = TypedEventFilter<ApprovalEvent>;
+export declare type ApprovalEventFilter = TypedEventFilter<ApprovalEvent>;
 export interface DepositEventObject {
     depositor: string;
     recipient: string;
     amount: BigNumber;
 }
-export type DepositEvent = TypedEvent<[
+export declare type DepositEvent = TypedEvent<[
     string,
     string,
     BigNumber
 ], DepositEventObject>;
-export type DepositEventFilter = TypedEventFilter<DepositEvent>;
+export declare type DepositEventFilter = TypedEventFilter<DepositEvent>;
 export interface IncreaseLimitEventObject {
     amount: BigNumber;
 }
-export type IncreaseLimitEvent = TypedEvent<[
+export declare type IncreaseLimitEvent = TypedEvent<[
     BigNumber
 ], IncreaseLimitEventObject>;
-export type IncreaseLimitEventFilter = TypedEventFilter<IncreaseLimitEvent>;
+export declare type IncreaseLimitEventFilter = TypedEventFilter<IncreaseLimitEvent>;
 export interface IssueDebtEventObject {
     issuer: string;
     recipient: string;
     debtIssued: BigNumber;
 }
-export type IssueDebtEvent = TypedEvent<[
+export declare type IssueDebtEvent = TypedEvent<[
     string,
     string,
     BigNumber
 ], IssueDebtEventObject>;
-export type IssueDebtEventFilter = TypedEventFilter<IssueDebtEvent>;
+export declare type IssueDebtEventFilter = TypedEventFilter<IssueDebtEvent>;
 export interface RepayDebtEventObject {
     issuer: string;
     recipient: string;
     debtRepaid: BigNumber;
 }
-export type RepayDebtEvent = TypedEvent<[
+export declare type RepayDebtEvent = TypedEvent<[
     string,
     string,
     BigNumber
 ], RepayDebtEventObject>;
-export type RepayDebtEventFilter = TypedEventFilter<RepayDebtEvent>;
+export declare type RepayDebtEventFilter = TypedEventFilter<RepayDebtEvent>;
 export interface SetLimitIncreaserEventObject {
     limitIncreaser: string;
 }
-export type SetLimitIncreaserEvent = TypedEvent<[
+export declare type SetLimitIncreaserEvent = TypedEvent<[
     string
 ], SetLimitIncreaserEventObject>;
-export type SetLimitIncreaserEventFilter = TypedEventFilter<SetLimitIncreaserEvent>;
+export declare type SetLimitIncreaserEventFilter = TypedEventFilter<SetLimitIncreaserEvent>;
 export interface TransferEventObject {
     from: string;
     to: string;
     value: BigNumber;
 }
-export type TransferEvent = TypedEvent<[
+export declare type TransferEvent = TypedEvent<[
     string,
     string,
     BigNumber
 ], TransferEventObject>;
-export type TransferEventFilter = TypedEventFilter<TransferEvent>;
+export declare type TransferEventFilter = TypedEventFilter<TransferEvent>;
 export interface WithdrawEventObject {
     withdrawer: string;
     recipient: string;
     amount: BigNumber;
 }
-export type WithdrawEvent = TypedEvent<[
+export declare type WithdrawEvent = TypedEvent<[
     string,
     string,
     BigNumber
 ], WithdrawEventObject>;
-export type WithdrawEventFilter = TypedEventFilter<WithdrawEvent>;
+export declare type WithdrawEventFilter = TypedEventFilter<WithdrawEvent>;
 export interface IDefaultCollateral extends BaseContract {
     connect(signerOrProvider: Signer | Provider | string): this;
     attach(addressOrName: string): this;

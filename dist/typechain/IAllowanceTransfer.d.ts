@@ -123,25 +123,25 @@ export interface ApprovalEventObject {
     amount: BigNumber;
     expiration: number;
 }
-export type ApprovalEvent = TypedEvent<[
+export declare type ApprovalEvent = TypedEvent<[
     string,
     string,
     string,
     BigNumber,
     number
 ], ApprovalEventObject>;
-export type ApprovalEventFilter = TypedEventFilter<ApprovalEvent>;
+export declare type ApprovalEventFilter = TypedEventFilter<ApprovalEvent>;
 export interface LockdownEventObject {
     owner: string;
     token: string;
     spender: string;
 }
-export type LockdownEvent = TypedEvent<[
+export declare type LockdownEvent = TypedEvent<[
     string,
     string,
     string
 ], LockdownEventObject>;
-export type LockdownEventFilter = TypedEventFilter<LockdownEvent>;
+export declare type LockdownEventFilter = TypedEventFilter<LockdownEvent>;
 export interface NonceInvalidationEventObject {
     owner: string;
     token: string;
@@ -149,14 +149,14 @@ export interface NonceInvalidationEventObject {
     newNonce: number;
     oldNonce: number;
 }
-export type NonceInvalidationEvent = TypedEvent<[
+export declare type NonceInvalidationEvent = TypedEvent<[
     string,
     string,
     string,
     number,
     number
 ], NonceInvalidationEventObject>;
-export type NonceInvalidationEventFilter = TypedEventFilter<NonceInvalidationEvent>;
+export declare type NonceInvalidationEventFilter = TypedEventFilter<NonceInvalidationEvent>;
 export interface PermitEventObject {
     owner: string;
     token: string;
@@ -165,7 +165,7 @@ export interface PermitEventObject {
     expiration: number;
     nonce: number;
 }
-export type PermitEvent = TypedEvent<[
+export declare type PermitEvent = TypedEvent<[
     string,
     string,
     string,
@@ -173,7 +173,7 @@ export type PermitEvent = TypedEvent<[
     number,
     number
 ], PermitEventObject>;
-export type PermitEventFilter = TypedEventFilter<PermitEvent>;
+export declare type PermitEventFilter = TypedEventFilter<PermitEvent>;
 export interface IAllowanceTransfer extends BaseContract {
     connect(signerOrProvider: Signer | Provider | string): this;
     attach(addressOrName: string): this;
