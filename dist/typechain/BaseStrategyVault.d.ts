@@ -105,72 +105,72 @@ export interface BaseStrategyVaultInterface extends utils.Interface {
 export interface BeginEpochEventObject {
     epoch: BigNumber;
 }
-export declare type BeginEpochEvent = TypedEvent<[BigNumber], BeginEpochEventObject>;
-export declare type BeginEpochEventFilter = TypedEventFilter<BeginEpochEvent>;
+export type BeginEpochEvent = TypedEvent<[BigNumber], BeginEpochEventObject>;
+export type BeginEpochEventFilter = TypedEventFilter<BeginEpochEvent>;
 export interface EndEpochEventObject {
     epoch: BigNumber;
 }
-export declare type EndEpochEvent = TypedEvent<[BigNumber], EndEpochEventObject>;
-export declare type EndEpochEventFilter = TypedEventFilter<EndEpochEvent>;
+export type EndEpochEvent = TypedEvent<[BigNumber], EndEpochEventObject>;
+export type EndEpochEventFilter = TypedEventFilter<EndEpochEvent>;
 export interface HarvestEventObject {
     user: string;
 }
-export declare type HarvestEvent = TypedEvent<[string], HarvestEventObject>;
-export declare type HarvestEventFilter = TypedEventFilter<HarvestEvent>;
+export type HarvestEvent = TypedEvent<[string], HarvestEventObject>;
+export type HarvestEventFilter = TypedEventFilter<HarvestEvent>;
 export interface InitializedEventObject {
     version: number;
 }
-export declare type InitializedEvent = TypedEvent<[number], InitializedEventObject>;
-export declare type InitializedEventFilter = TypedEventFilter<InitializedEvent>;
+export type InitializedEvent = TypedEvent<[number], InitializedEventObject>;
+export type InitializedEventFilter = TypedEventFilter<InitializedEvent>;
 export interface RoleAdminChangedEventObject {
     role: string;
     previousAdminRole: string;
     newAdminRole: string;
 }
-export declare type RoleAdminChangedEvent = TypedEvent<[
+export type RoleAdminChangedEvent = TypedEvent<[
     string,
     string,
     string
 ], RoleAdminChangedEventObject>;
-export declare type RoleAdminChangedEventFilter = TypedEventFilter<RoleAdminChangedEvent>;
+export type RoleAdminChangedEventFilter = TypedEventFilter<RoleAdminChangedEvent>;
 export interface RoleGrantedEventObject {
     role: string;
     account: string;
     sender: string;
 }
-export declare type RoleGrantedEvent = TypedEvent<[
+export type RoleGrantedEvent = TypedEvent<[
     string,
     string,
     string
 ], RoleGrantedEventObject>;
-export declare type RoleGrantedEventFilter = TypedEventFilter<RoleGrantedEvent>;
+export type RoleGrantedEventFilter = TypedEventFilter<RoleGrantedEvent>;
 export interface RoleRevokedEventObject {
     role: string;
     account: string;
     sender: string;
 }
-export declare type RoleRevokedEvent = TypedEvent<[
+export type RoleRevokedEvent = TypedEvent<[
     string,
     string,
     string
 ], RoleRevokedEventObject>;
-export declare type RoleRevokedEventFilter = TypedEventFilter<RoleRevokedEvent>;
+export type RoleRevokedEventFilter = TypedEventFilter<RoleRevokedEvent>;
 export interface StrategyDepositEventObject {
     assets: BigNumber;
 }
-export declare type StrategyDepositEvent = TypedEvent<[
+export type StrategyDepositEvent = TypedEvent<[
     BigNumber
 ], StrategyDepositEventObject>;
-export declare type StrategyDepositEventFilter = TypedEventFilter<StrategyDepositEvent>;
+export type StrategyDepositEventFilter = TypedEventFilter<StrategyDepositEvent>;
 export interface StrategyWithdrawalEventObject {
     assetsRequested: BigNumber;
     assetsReceived: BigNumber;
 }
-export declare type StrategyWithdrawalEvent = TypedEvent<[
+export type StrategyWithdrawalEvent = TypedEvent<[
     BigNumber,
     BigNumber
 ], StrategyWithdrawalEventObject>;
-export declare type StrategyWithdrawalEventFilter = TypedEventFilter<StrategyWithdrawalEvent>;
+export type StrategyWithdrawalEventFilter = TypedEventFilter<StrategyWithdrawalEvent>;
 export interface BaseStrategyVault extends BaseContract {
     connect(signerOrProvider: Signer | Provider | string): this;
     attach(addressOrName: string): this;

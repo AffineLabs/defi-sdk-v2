@@ -41,13 +41,13 @@ export interface PairCreatedEventObject {
     pair: string;
     arg3: BigNumber;
 }
-export declare type PairCreatedEvent = TypedEvent<[
+export type PairCreatedEvent = TypedEvent<[
     string,
     string,
     string,
     BigNumber
 ], PairCreatedEventObject>;
-export declare type PairCreatedEventFilter = TypedEventFilter<PairCreatedEvent>;
+export type PairCreatedEventFilter = TypedEventFilter<PairCreatedEvent>;
 export interface IUniswapV2Factory extends BaseContract {
     connect(signerOrProvider: Signer | Provider | string): this;
     attach(addressOrName: string): this;

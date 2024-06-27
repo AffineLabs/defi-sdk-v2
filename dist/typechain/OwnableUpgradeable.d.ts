@@ -25,17 +25,17 @@ export interface OwnableUpgradeableInterface extends utils.Interface {
 export interface InitializedEventObject {
     version: number;
 }
-export declare type InitializedEvent = TypedEvent<[number], InitializedEventObject>;
-export declare type InitializedEventFilter = TypedEventFilter<InitializedEvent>;
+export type InitializedEvent = TypedEvent<[number], InitializedEventObject>;
+export type InitializedEventFilter = TypedEventFilter<InitializedEvent>;
 export interface OwnershipTransferredEventObject {
     previousOwner: string;
     newOwner: string;
 }
-export declare type OwnershipTransferredEvent = TypedEvent<[
+export type OwnershipTransferredEvent = TypedEvent<[
     string,
     string
 ], OwnershipTransferredEventObject>;
-export declare type OwnershipTransferredEventFilter = TypedEventFilter<OwnershipTransferredEvent>;
+export type OwnershipTransferredEventFilter = TypedEventFilter<OwnershipTransferredEvent>;
 export interface OwnableUpgradeable extends BaseContract {
     connect(signerOrProvider: Signer | Provider | string): this;
     attach(addressOrName: string): this;

@@ -31,9 +31,9 @@ import {
   UltraLRT__factory,
   ISignatureTransfer__factory,
   ISignatureTransfer,
-    DelegatorFactory__factory,
+  DelegatorFactory__factory,
 } from "./typechain";
-import {WithdrawalInfoStruct} from "./typechain/EigenDelegator";
+import { WithdrawalInfoStruct } from "./typechain/EigenDelegator";
 
 export class AffineRestakingSDK {
   private provider: providers.JsonRpcProvider;
@@ -44,59 +44,40 @@ export class AffineRestakingSDK {
     this.signer = signer || this.provider.getSigner();
   }
 
-  async getUltraEthBalance(): Promise<string> {
+  async _getVaultBalanceByAsset(vaultAddress: string): Promise<string> {
     const address = await this.signer.getAddress();
-    const erc20Contract = new ethers.Contract(
-      UltraLRTAddress,
-      ERC20_ABI,
-      this.signer
-    );
-    const balance = await erc20Contract.balanceOf(address);
-    return this._removeDecimals(balance, 26);
+    const vault = UltraLRT__factory.connect(vaultAddress, this.signer);
+    const asset = MockERC20__factory.connect(await vault.asset(), this.signer);
+    const shares = await vault.balanceOf(address);
+    const assets = await vault.convertToAssets(shares);
+    return this._removeDecimals(assets, await asset.decimals());
+  }
+
+  async getUltraEthBalance(): Promise<string> {
+    return this._getVaultBalanceByAsset(UltraLRTAddress);
   }
 
   async getSymbioticBalance(): Promise<string> {
+    return this._getVaultBalanceByAsset(SymbioticVault);
+  }
+
+  async _getTokenBalance(tokenAddress: string): Promise<string> {
     const address = await this.signer.getAddress();
-    const erc20Contract = new ethers.Contract(
-      SymbioticVault,
-      ERC20_ABI,
-      this.signer
-    );
-    const balance = await erc20Contract.balanceOf(address);
-    return this._removeDecimals(balance, 26);
+    const token = MockERC20__factory.connect(tokenAddress, this.signer);
+    const balance = await token.balanceOf(address);
+    return this._removeDecimals(balance, await token.decimals());
   }
 
   async getStEthBalance(): Promise<string> {
-    const address = await this.signer.getAddress();
-    const erc20Contract = new ethers.Contract(
-      StETHAddress,
-      ERC20_ABI,
-      this.signer
-    );
-    const balance = await erc20Contract.balanceOf(address);
-    return this._removeDecimals(balance, 18);
+    return this._getTokenBalance(StETHAddress);
   }
 
   async getWStEthBalance(): Promise<string> {
-    const address = await this.signer.getAddress();
-    const erc20Contract = new ethers.Contract(
-      WStEthAddress,
-      ERC20_ABI,
-      this.signer
-    );
-    const balance = await erc20Contract.balanceOf(address);
-    return this._removeDecimals(balance, 18);
+    return this._getTokenBalance(WStEthAddress);
   }
 
   async getWEthBalance(): Promise<string> {
-    const address = await this.signer.getAddress();
-    const erc20Contract = new ethers.Contract(
-        WEthAddress,
-        ERC20_ABI,
-        this.signer
-    );
-    const balance = await erc20Contract.balanceOf(address);
-    return this._removeDecimals(balance, 18);
+    return this._getTokenBalance(WEthAddress);
   }
 
   async migratableAssets(address: string) {
@@ -141,19 +122,19 @@ export class AffineRestakingSDK {
   }
 
   async completeMigrationWithdrawal(
-      address: string,
-      delegator: string,
-      nonce: string,
-      blockNumber: string,
-      shares: string
+    address: string,
+    delegator: string,
+    nonce: string,
+    blockNumber: string,
+    shares: string
   ) {
     // Validate addresses
     if (
-        !await this.isValidAddress(EigenDelegatorAddress) ||
-        !await this.isValidAddress(address) ||
-        !await this.isValidAddress(delegator) ||
-        !await this.isValidAddress(EigenStETHStrategy) ||
-        !await this.isValidAddress(StETHAddress)
+      !(await this.isValidAddress(EigenDelegatorAddress)) ||
+      !(await this.isValidAddress(address)) ||
+      !(await this.isValidAddress(delegator)) ||
+      !(await this.isValidAddress(EigenStETHStrategy)) ||
+      !(await this.isValidAddress(StETHAddress))
     ) {
       throw new Error("One or more addresses are invalid");
     }
@@ -174,9 +155,9 @@ export class AffineRestakingSDK {
     console.log("Shares (BigNumber):", sharesBigNumber.toString());
 
     const eigenDelegator = new ethers.Contract(
-        EigenDelegatorAddress,
-        DELEGATION_MANAGER_ABI,
-        this.signer
+      EigenDelegatorAddress,
+      DELEGATION_MANAGER_ABI,
+      this.signer
     );
 
     const withdrawalInfos: WithdrawalInfoStruct[] = [
@@ -201,24 +182,24 @@ export class AffineRestakingSDK {
     console.log("MiddlewareTimesIndex:", middlewareTimesIndex);
     console.log("ReceiveAsTokens:", receiveAsTokens);
 
-
     try {
-      const gasEstimate = await eigenDelegator.estimateGas.completeQueuedWithdrawals(
+      const gasEstimate =
+        await eigenDelegator.estimateGas.completeQueuedWithdrawals(
           withdrawalInfos,
           assetsArray,
           middlewareTimesIndex,
           receiveAsTokens,
           { from: await this.signer.getAddress() }
-      );
+        );
 
       console.log("Estimated Gas:", gasEstimate.toString());
 
       const tx = await eigenDelegator.completeQueuedWithdrawals(
-          withdrawalInfos,
-          assetsArray,
-          middlewareTimesIndex,
-          receiveAsTokens,
-          { from: await this.signer.getAddress(), gasLimit: gasEstimate }
+        withdrawalInfos,
+        assetsArray,
+        middlewareTimesIndex,
+        receiveAsTokens,
+        { from: await this.signer.getAddress(), gasLimit: gasEstimate }
       );
 
       console.log("Transaction successful:", tx);
@@ -551,11 +532,15 @@ export class AffineRestakingSDK {
     return tx;
   }
 
-  async wrapETH(amountInEther : string) {
-    const wethContract = new ethers.Contract(WEthAddress, [
-      "function deposit() payable",
-    ], this.signer);
-    const tx = await wethContract.deposit({ value: ethers.utils.parseEther(amountInEther) });
+  async wrapETH(amountInEther: string) {
+    const wethContract = new ethers.Contract(
+      WEthAddress,
+      ["function deposit() payable"],
+      this.signer
+    );
+    const tx = await wethContract.deposit({
+      value: ethers.utils.parseEther(amountInEther),
+    });
     await tx.wait();
     console.log(`Wrapped ${amountInEther} ETH to WETH`);
   }

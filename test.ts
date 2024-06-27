@@ -2,6 +2,7 @@ import { AffineRestakingSDK } from "./dist/index";
 import { ethers } from "ethers";
 import { StETHAddress, UltraLRTAddress } from "./dist/constants";
 import dotenv from "dotenv";
+import { parse } from "path";
 dotenv.config();
 
 describe("AffineRestakingSDK", () => {
@@ -78,8 +79,22 @@ describe("AffineRestakingSDK", () => {
 
   // Write your tests here
 
-  it("Should generate random nonce", async () => {
-    const nonce = await sdk._getRandomNonce();
-    console.log("nonce: ", nonce.toString());
+  // it("Should generate random nonce", async () => {
+  //   const nonce = await sdk._getRandomNonce();
+  //   console.log("nonce: ", nonce.toString());
+  // });
+
+  it("Test Big Number random nonce", async () => {
+    const nonce = "999999999999999";
+    let bigNumber = ethers.BigNumber.from(nonce);
+    console.log("bigNumber: 1", bigNumber.toString());
+    console.log(
+      "bigNumber: 2",
+      bigNumber.div(ethers.BigNumber.from(10).pow(18))
+    );
+    var parsed = ethers.utils.formatUnits(bigNumber, 18);
+    console.log("bigNumber: 3", Number(parsed));
+    console.log("bigNumber: 4", Number(parsed));
+    parsed.indexOf(".");
   });
 });

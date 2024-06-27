@@ -3,8 +3,10 @@ export declare class AffineRestakingSDK {
     private provider;
     private signer;
     constructor(provider: providers.JsonRpcProvider, signer?: ethers.Signer);
+    _getVaultBalanceByAsset(vaultAddress: string): Promise<string>;
     getUltraEthBalance(): Promise<string>;
     getSymbioticBalance(): Promise<string>;
+    _getTokenBalance(tokenAddress: string): Promise<string>;
     getStEthBalance(): Promise<string>;
     getWStEthBalance(): Promise<string>;
     getWEthBalance(): Promise<string>;

@@ -30,28 +30,28 @@ export interface AdminChangedEventObject {
     previousAdmin: string;
     newAdmin: string;
 }
-export declare type AdminChangedEvent = TypedEvent<[
+export type AdminChangedEvent = TypedEvent<[
     string,
     string
 ], AdminChangedEventObject>;
-export declare type AdminChangedEventFilter = TypedEventFilter<AdminChangedEvent>;
+export type AdminChangedEventFilter = TypedEventFilter<AdminChangedEvent>;
 export interface BeaconUpgradedEventObject {
     beacon: string;
 }
-export declare type BeaconUpgradedEvent = TypedEvent<[
+export type BeaconUpgradedEvent = TypedEvent<[
     string
 ], BeaconUpgradedEventObject>;
-export declare type BeaconUpgradedEventFilter = TypedEventFilter<BeaconUpgradedEvent>;
+export type BeaconUpgradedEventFilter = TypedEventFilter<BeaconUpgradedEvent>;
 export interface InitializedEventObject {
     version: number;
 }
-export declare type InitializedEvent = TypedEvent<[number], InitializedEventObject>;
-export declare type InitializedEventFilter = TypedEventFilter<InitializedEvent>;
+export type InitializedEvent = TypedEvent<[number], InitializedEventObject>;
+export type InitializedEventFilter = TypedEventFilter<InitializedEvent>;
 export interface UpgradedEventObject {
     implementation: string;
 }
-export declare type UpgradedEvent = TypedEvent<[string], UpgradedEventObject>;
-export declare type UpgradedEventFilter = TypedEventFilter<UpgradedEvent>;
+export type UpgradedEvent = TypedEvent<[string], UpgradedEventObject>;
+export type UpgradedEventFilter = TypedEventFilter<UpgradedEvent>;
 export interface UUPSUpgradeable extends BaseContract {
     connect(signerOrProvider: Signer | Provider | string): this;
     attach(addressOrName: string): this;

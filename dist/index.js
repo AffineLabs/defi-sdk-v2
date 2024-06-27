@@ -21,35 +21,34 @@ class AffineRestakingSDK {
         this.provider = provider;
         this.signer = signer || this.provider.getSigner();
     }
-    async getUltraEthBalance() {
+    async _getVaultBalanceByAsset(vaultAddress) {
         const address = await this.signer.getAddress();
-        const erc20Contract = new ethers_1.ethers.Contract(constants_1.UltraLRTAddress, erc20_json_1.default, this.signer);
-        const balance = await erc20Contract.balanceOf(address);
-        return this._removeDecimals(balance, 26);
+        const vault = typechain_1.UltraLRT__factory.connect(vaultAddress, this.signer);
+        const asset = typechain_1.MockERC20__factory.connect(await vault.asset(), this.signer);
+        const shares = await vault.balanceOf(address);
+        const assets = await vault.convertToAssets(shares);
+        return this._removeDecimals(assets, await asset.decimals());
+    }
+    async getUltraEthBalance() {
+        return this._getVaultBalanceByAsset(constants_1.UltraLRTAddress);
     }
     async getSymbioticBalance() {
+        return this._getVaultBalanceByAsset(constants_1.SymbioticVault);
+    }
+    async _getTokenBalance(tokenAddress) {
         const address = await this.signer.getAddress();
-        const erc20Contract = new ethers_1.ethers.Contract(constants_1.SymbioticVault, erc20_json_1.default, this.signer);
-        const balance = await erc20Contract.balanceOf(address);
-        return this._removeDecimals(balance, 26);
+        const token = typechain_1.MockERC20__factory.connect(tokenAddress, this.signer);
+        const balance = await token.balanceOf(address);
+        return this._removeDecimals(balance, await token.decimals());
     }
     async getStEthBalance() {
-        const address = await this.signer.getAddress();
-        const erc20Contract = new ethers_1.ethers.Contract(constants_1.StETHAddress, erc20_json_1.default, this.signer);
-        const balance = await erc20Contract.balanceOf(address);
-        return this._removeDecimals(balance, 18);
+        return this._getTokenBalance(constants_1.StETHAddress);
     }
     async getWStEthBalance() {
-        const address = await this.signer.getAddress();
-        const erc20Contract = new ethers_1.ethers.Contract(constants_1.WStEthAddress, erc20_json_1.default, this.signer);
-        const balance = await erc20Contract.balanceOf(address);
-        return this._removeDecimals(balance, 18);
+        return this._getTokenBalance(constants_1.WStEthAddress);
     }
     async getWEthBalance() {
-        const address = await this.signer.getAddress();
-        const erc20Contract = new ethers_1.ethers.Contract(constants_1.WEthAddress, erc20_json_1.default, this.signer);
-        const balance = await erc20Contract.balanceOf(address);
-        return this._removeDecimals(balance, 18);
+        return this._getTokenBalance(constants_1.WEthAddress);
     }
     async migratableAssets(address) {
         const eigenStETH = new ethers_1.ethers.Contract(constants_1.EigenStETHStrategy, eigenlayerStrategy_json_1.default, this.signer);
@@ -76,11 +75,11 @@ class AffineRestakingSDK {
     }
     async completeMigrationWithdrawal(address, delegator, nonce, blockNumber, shares) {
         // Validate addresses
-        if (!await this.isValidAddress(constants_1.EigenDelegatorAddress) ||
-            !await this.isValidAddress(address) ||
-            !await this.isValidAddress(delegator) ||
-            !await this.isValidAddress(constants_1.EigenStETHStrategy) ||
-            !await this.isValidAddress(constants_1.StETHAddress)) {
+        if (!(await this.isValidAddress(constants_1.EigenDelegatorAddress)) ||
+            !(await this.isValidAddress(address)) ||
+            !(await this.isValidAddress(delegator)) ||
+            !(await this.isValidAddress(constants_1.EigenStETHStrategy)) ||
+            !(await this.isValidAddress(constants_1.StETHAddress))) {
             throw new Error("One or more addresses are invalid");
         }
         // Convert parameters to the correct types
@@ -300,10 +299,10 @@ class AffineRestakingSDK {
         return tx;
     }
     async wrapETH(amountInEther) {
-        const wethContract = new ethers_1.ethers.Contract(constants_1.WEthAddress, [
-            "function deposit() payable",
-        ], this.signer);
-        const tx = await wethContract.deposit({ value: ethers_1.ethers.utils.parseEther(amountInEther) });
+        const wethContract = new ethers_1.ethers.Contract(constants_1.WEthAddress, ["function deposit() payable"], this.signer);
+        const tx = await wethContract.deposit({
+            value: ethers_1.ethers.utils.parseEther(amountInEther),
+        });
         await tx.wait();
         console.log(`Wrapped ${amountInEther} ETH to WETH`);
     }

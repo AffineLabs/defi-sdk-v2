@@ -35,10 +35,10 @@ export interface L1BridgeEscrowInterface extends utils.Interface {
 export interface TransferToVaultEventObject {
     assets: BigNumber;
 }
-export declare type TransferToVaultEvent = TypedEvent<[
+export type TransferToVaultEvent = TypedEvent<[
     BigNumber
 ], TransferToVaultEventObject>;
-export declare type TransferToVaultEventFilter = TypedEventFilter<TransferToVaultEvent>;
+export type TransferToVaultEventFilter = TypedEventFilter<TransferToVaultEvent>;
 export interface L1BridgeEscrow extends BaseContract {
     connect(signerOrProvider: Signer | Provider | string): this;
     attach(addressOrName: string): this;
