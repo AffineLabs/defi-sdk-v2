@@ -107,12 +107,12 @@ export interface UnorderedNonceInvalidationEventObject {
     word: BigNumber;
     mask: BigNumber;
 }
-export type UnorderedNonceInvalidationEvent = TypedEvent<[
+export declare type UnorderedNonceInvalidationEvent = TypedEvent<[
     string,
     BigNumber,
     BigNumber
 ], UnorderedNonceInvalidationEventObject>;
-export type UnorderedNonceInvalidationEventFilter = TypedEventFilter<UnorderedNonceInvalidationEvent>;
+export declare type UnorderedNonceInvalidationEventFilter = TypedEventFilter<UnorderedNonceInvalidationEvent>;
 export interface ISignatureTransfer extends BaseContract {
     connect(signerOrProvider: Signer | Provider | string): this;
     attach(addressOrName: string): this;

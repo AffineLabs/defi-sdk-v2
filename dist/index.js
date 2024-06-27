@@ -249,6 +249,8 @@ class AffineRestakingSDK {
         const epochData = [];
         for (let i = 0; i <= currentEpoch; i++) {
             const shares = await withdrawalEscrowV2.userDebtShare(ethers_1.ethers.BigNumber.from(i), address);
+            if (shares.eq(0))
+                continue;
             const assets = await withdrawalEscrowV2.withdrawableAssets(address, i);
             epochData.push({
                 epoch: i,

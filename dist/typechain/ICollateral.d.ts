@@ -70,45 +70,45 @@ export interface ApprovalEventObject {
     spender: string;
     value: BigNumber;
 }
-export type ApprovalEvent = TypedEvent<[
+export declare type ApprovalEvent = TypedEvent<[
     string,
     string,
     BigNumber
 ], ApprovalEventObject>;
-export type ApprovalEventFilter = TypedEventFilter<ApprovalEvent>;
+export declare type ApprovalEventFilter = TypedEventFilter<ApprovalEvent>;
 export interface IssueDebtEventObject {
     issuer: string;
     recipient: string;
     debtIssued: BigNumber;
 }
-export type IssueDebtEvent = TypedEvent<[
+export declare type IssueDebtEvent = TypedEvent<[
     string,
     string,
     BigNumber
 ], IssueDebtEventObject>;
-export type IssueDebtEventFilter = TypedEventFilter<IssueDebtEvent>;
+export declare type IssueDebtEventFilter = TypedEventFilter<IssueDebtEvent>;
 export interface RepayDebtEventObject {
     issuer: string;
     recipient: string;
     debtRepaid: BigNumber;
 }
-export type RepayDebtEvent = TypedEvent<[
+export declare type RepayDebtEvent = TypedEvent<[
     string,
     string,
     BigNumber
 ], RepayDebtEventObject>;
-export type RepayDebtEventFilter = TypedEventFilter<RepayDebtEvent>;
+export declare type RepayDebtEventFilter = TypedEventFilter<RepayDebtEvent>;
 export interface TransferEventObject {
     from: string;
     to: string;
     value: BigNumber;
 }
-export type TransferEvent = TypedEvent<[
+export declare type TransferEvent = TypedEvent<[
     string,
     string,
     BigNumber
 ], TransferEventObject>;
-export type TransferEventFilter = TypedEventFilter<TransferEvent>;
+export declare type TransferEventFilter = TypedEventFilter<TransferEvent>;
 export interface ICollateral extends BaseContract {
     connect(signerOrProvider: Signer | Provider | string): this;
     attach(addressOrName: string): this;

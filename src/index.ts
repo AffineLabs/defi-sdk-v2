@@ -429,6 +429,7 @@ export class AffineRestakingSDK {
         ethers.BigNumber.from(i),
         address
       );
+      if (shares.eq(0)) continue;
       const assets = await withdrawalEscrowV2.withdrawableAssets(address, i);
 
       epochData.push({
