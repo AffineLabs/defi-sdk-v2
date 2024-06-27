@@ -2,14 +2,14 @@ import type { BaseContract, BigNumber, BigNumberish, BytesLike, CallOverrides, C
 import type { FunctionFragment, Result, EventFragment } from "@ethersproject/abi";
 import type { Listener, Provider } from "@ethersproject/providers";
 import type { TypedEventFilter, TypedEvent, TypedListener, OnEvent } from "./common";
-export declare type LendingInfoStruct = {
+export type LendingInfoStruct = {
     pool: string;
     borrow: string;
     priceFeed: string;
     assetToDepositRatioBps: BigNumberish;
     collateralToBorrowRatioBps: BigNumberish;
 };
-export declare type LendingInfoStructOutput = [
+export type LendingInfoStructOutput = [
     string,
     string,
     string,
@@ -22,7 +22,7 @@ export declare type LendingInfoStructOutput = [
     assetToDepositRatioBps: BigNumber;
     collateralToBorrowRatioBps: BigNumber;
 };
-export declare type LpInfoStruct = {
+export type LpInfoStruct = {
     router: string;
     masterChef: string;
     masterChefPid: BigNumberish;
@@ -30,7 +30,7 @@ export declare type LpInfoStruct = {
     sushiToken: string;
     pool: string;
 };
-export declare type LpInfoStructOutput = [
+export type LpInfoStructOutput = [
     string,
     string,
     BigNumber,
@@ -186,7 +186,7 @@ export interface PositionEndEventObject {
     borrowDebtPaid: BigNumber;
     timestamp: BigNumber;
 }
-export declare type PositionEndEvent = TypedEvent<[
+export type PositionEndEvent = TypedEvent<[
     number,
     BigNumber,
     BigNumber,
@@ -202,7 +202,7 @@ export declare type PositionEndEvent = TypedEvent<[
     BigNumber,
     BigNumber
 ], PositionEndEventObject>;
-export declare type PositionEndEventFilter = TypedEventFilter<PositionEndEvent>;
+export type PositionEndEventFilter = TypedEventFilter<PositionEndEvent>;
 export interface PositionStartEventObject {
     position: number;
     assetCollateral: BigNumber;
@@ -212,7 +212,7 @@ export interface PositionStartEventObject {
     borrowsToSushi: BigNumber;
     timestamp: BigNumber;
 }
-export declare type PositionStartEvent = TypedEvent<[
+export type PositionStartEvent = TypedEvent<[
     number,
     BigNumber,
     BigNumber,
@@ -224,40 +224,40 @@ export declare type PositionStartEvent = TypedEvent<[
     BigNumber,
     BigNumber
 ], PositionStartEventObject>;
-export declare type PositionStartEventFilter = TypedEventFilter<PositionStartEvent>;
+export type PositionStartEventFilter = TypedEventFilter<PositionStartEvent>;
 export interface RoleAdminChangedEventObject {
     role: string;
     previousAdminRole: string;
     newAdminRole: string;
 }
-export declare type RoleAdminChangedEvent = TypedEvent<[
+export type RoleAdminChangedEvent = TypedEvent<[
     string,
     string,
     string
 ], RoleAdminChangedEventObject>;
-export declare type RoleAdminChangedEventFilter = TypedEventFilter<RoleAdminChangedEvent>;
+export type RoleAdminChangedEventFilter = TypedEventFilter<RoleAdminChangedEvent>;
 export interface RoleGrantedEventObject {
     role: string;
     account: string;
     sender: string;
 }
-export declare type RoleGrantedEvent = TypedEvent<[
+export type RoleGrantedEvent = TypedEvent<[
     string,
     string,
     string
 ], RoleGrantedEventObject>;
-export declare type RoleGrantedEventFilter = TypedEventFilter<RoleGrantedEvent>;
+export type RoleGrantedEventFilter = TypedEventFilter<RoleGrantedEvent>;
 export interface RoleRevokedEventObject {
     role: string;
     account: string;
     sender: string;
 }
-export declare type RoleRevokedEvent = TypedEvent<[
+export type RoleRevokedEvent = TypedEvent<[
     string,
     string,
     string
 ], RoleRevokedEventObject>;
-export declare type RoleRevokedEventFilter = TypedEventFilter<RoleRevokedEvent>;
+export type RoleRevokedEventFilter = TypedEventFilter<RoleRevokedEvent>;
 export interface DeltaNeutralLp extends BaseContract {
     connect(signerOrProvider: Signer | Provider | string): this;
     attach(addressOrName: string): this;

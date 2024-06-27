@@ -33,7 +33,7 @@ export interface InitializedEventObject {
     aTokenSymbol: string;
     params: string;
 }
-export declare type InitializedEvent = TypedEvent<[
+export type InitializedEvent = TypedEvent<[
     string,
     string,
     string,
@@ -43,7 +43,7 @@ export declare type InitializedEvent = TypedEvent<[
     string,
     string
 ], InitializedEventObject>;
-export declare type InitializedEventFilter = TypedEventFilter<InitializedEvent>;
+export type InitializedEventFilter = TypedEventFilter<InitializedEvent>;
 export interface IInitializableAToken extends BaseContract {
     connect(signerOrProvider: Signer | Provider | string): this;
     attach(addressOrName: string): this;

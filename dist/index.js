@@ -309,7 +309,12 @@ class AffineRestakingSDK {
         console.log(`Wrapped ${amountInEther} ETH to WETH`);
     }
     _removeDecimals(amount, decimals) {
-        return ethers_1.ethers.utils.formatUnits(amount, decimals);
+        const parsed = ethers_1.ethers.utils.formatUnits(amount, decimals);
+        const decimalIndex = parsed.indexOf(".");
+        if (decimalIndex === -1) {
+            return parsed;
+        }
+        return parsed.slice(0, decimalIndex + 7);
     }
     _addDecimals(amount, decimals) {
         return ethers_1.ethers.utils.parseUnits(amount, decimals);

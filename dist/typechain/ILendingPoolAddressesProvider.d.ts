@@ -91,75 +91,75 @@ export interface AddressSetEventObject {
     newAddress: string;
     hasProxy: boolean;
 }
-export declare type AddressSetEvent = TypedEvent<[
+export type AddressSetEvent = TypedEvent<[
     string,
     string,
     boolean
 ], AddressSetEventObject>;
-export declare type AddressSetEventFilter = TypedEventFilter<AddressSetEvent>;
+export type AddressSetEventFilter = TypedEventFilter<AddressSetEvent>;
 export interface ConfigurationAdminUpdatedEventObject {
     newAddress: string;
 }
-export declare type ConfigurationAdminUpdatedEvent = TypedEvent<[
+export type ConfigurationAdminUpdatedEvent = TypedEvent<[
     string
 ], ConfigurationAdminUpdatedEventObject>;
-export declare type ConfigurationAdminUpdatedEventFilter = TypedEventFilter<ConfigurationAdminUpdatedEvent>;
+export type ConfigurationAdminUpdatedEventFilter = TypedEventFilter<ConfigurationAdminUpdatedEvent>;
 export interface EmergencyAdminUpdatedEventObject {
     newAddress: string;
 }
-export declare type EmergencyAdminUpdatedEvent = TypedEvent<[
+export type EmergencyAdminUpdatedEvent = TypedEvent<[
     string
 ], EmergencyAdminUpdatedEventObject>;
-export declare type EmergencyAdminUpdatedEventFilter = TypedEventFilter<EmergencyAdminUpdatedEvent>;
+export type EmergencyAdminUpdatedEventFilter = TypedEventFilter<EmergencyAdminUpdatedEvent>;
 export interface LendingPoolCollateralManagerUpdatedEventObject {
     newAddress: string;
 }
-export declare type LendingPoolCollateralManagerUpdatedEvent = TypedEvent<[
+export type LendingPoolCollateralManagerUpdatedEvent = TypedEvent<[
     string
 ], LendingPoolCollateralManagerUpdatedEventObject>;
-export declare type LendingPoolCollateralManagerUpdatedEventFilter = TypedEventFilter<LendingPoolCollateralManagerUpdatedEvent>;
+export type LendingPoolCollateralManagerUpdatedEventFilter = TypedEventFilter<LendingPoolCollateralManagerUpdatedEvent>;
 export interface LendingPoolConfiguratorUpdatedEventObject {
     newAddress: string;
 }
-export declare type LendingPoolConfiguratorUpdatedEvent = TypedEvent<[
+export type LendingPoolConfiguratorUpdatedEvent = TypedEvent<[
     string
 ], LendingPoolConfiguratorUpdatedEventObject>;
-export declare type LendingPoolConfiguratorUpdatedEventFilter = TypedEventFilter<LendingPoolConfiguratorUpdatedEvent>;
+export type LendingPoolConfiguratorUpdatedEventFilter = TypedEventFilter<LendingPoolConfiguratorUpdatedEvent>;
 export interface LendingPoolUpdatedEventObject {
     newAddress: string;
 }
-export declare type LendingPoolUpdatedEvent = TypedEvent<[
+export type LendingPoolUpdatedEvent = TypedEvent<[
     string
 ], LendingPoolUpdatedEventObject>;
-export declare type LendingPoolUpdatedEventFilter = TypedEventFilter<LendingPoolUpdatedEvent>;
+export type LendingPoolUpdatedEventFilter = TypedEventFilter<LendingPoolUpdatedEvent>;
 export interface LendingRateOracleUpdatedEventObject {
     newAddress: string;
 }
-export declare type LendingRateOracleUpdatedEvent = TypedEvent<[
+export type LendingRateOracleUpdatedEvent = TypedEvent<[
     string
 ], LendingRateOracleUpdatedEventObject>;
-export declare type LendingRateOracleUpdatedEventFilter = TypedEventFilter<LendingRateOracleUpdatedEvent>;
+export type LendingRateOracleUpdatedEventFilter = TypedEventFilter<LendingRateOracleUpdatedEvent>;
 export interface MarketIdSetEventObject {
     newMarketId: string;
 }
-export declare type MarketIdSetEvent = TypedEvent<[string], MarketIdSetEventObject>;
-export declare type MarketIdSetEventFilter = TypedEventFilter<MarketIdSetEvent>;
+export type MarketIdSetEvent = TypedEvent<[string], MarketIdSetEventObject>;
+export type MarketIdSetEventFilter = TypedEventFilter<MarketIdSetEvent>;
 export interface PriceOracleUpdatedEventObject {
     newAddress: string;
 }
-export declare type PriceOracleUpdatedEvent = TypedEvent<[
+export type PriceOracleUpdatedEvent = TypedEvent<[
     string
 ], PriceOracleUpdatedEventObject>;
-export declare type PriceOracleUpdatedEventFilter = TypedEventFilter<PriceOracleUpdatedEvent>;
+export type PriceOracleUpdatedEventFilter = TypedEventFilter<PriceOracleUpdatedEvent>;
 export interface ProxyCreatedEventObject {
     id: string;
     newAddress: string;
 }
-export declare type ProxyCreatedEvent = TypedEvent<[
+export type ProxyCreatedEvent = TypedEvent<[
     string,
     string
 ], ProxyCreatedEventObject>;
-export declare type ProxyCreatedEventFilter = TypedEventFilter<ProxyCreatedEvent>;
+export type ProxyCreatedEventFilter = TypedEventFilter<ProxyCreatedEvent>;
 export interface ILendingPoolAddressesProvider extends BaseContract {
     connect(signerOrProvider: Signer | Provider | string): this;
     attach(addressOrName: string): this;

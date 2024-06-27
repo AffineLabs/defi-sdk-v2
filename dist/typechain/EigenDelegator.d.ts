@@ -2,7 +2,7 @@ import type { BaseContract, BigNumber, BigNumberish, BytesLike, CallOverrides, C
 import type { FunctionFragment, Result, EventFragment } from "@ethersproject/abi";
 import type { Listener, Provider } from "@ethersproject/providers";
 import type { TypedEventFilter, TypedEvent, TypedListener, OnEvent } from "./common";
-export declare type WithdrawalInfoStruct = {
+export type WithdrawalInfoStruct = {
     staker: string;
     delegatedTo: string;
     withdrawer: string;
@@ -11,7 +11,7 @@ export declare type WithdrawalInfoStruct = {
     strategies: string[];
     shares: BigNumberish[];
 };
-export declare type WithdrawalInfoStructOutput = [
+export type WithdrawalInfoStructOutput = [
     string,
     string,
     string,
@@ -97,8 +97,8 @@ export interface EigenDelegatorInterface extends utils.Interface {
 export interface InitializedEventObject {
     version: number;
 }
-export declare type InitializedEvent = TypedEvent<[number], InitializedEventObject>;
-export declare type InitializedEventFilter = TypedEventFilter<InitializedEvent>;
+export type InitializedEvent = TypedEvent<[number], InitializedEventObject>;
+export type InitializedEventFilter = TypedEventFilter<InitializedEvent>;
 export interface EigenDelegator extends BaseContract {
     connect(signerOrProvider: Signer | Provider | string): this;
     attach(addressOrName: string): this;

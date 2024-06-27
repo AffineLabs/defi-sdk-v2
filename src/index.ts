@@ -550,7 +550,12 @@ export class AffineRestakingSDK {
     amount: ethers.BigNumber,
     decimals: ethers.BigNumberish
   ): string {
-    return ethers.utils.formatUnits(amount, decimals);
+    const parsed = ethers.utils.formatUnits(amount, decimals);
+    const decimalIndex = parsed.indexOf(".");
+    if (decimalIndex === -1) {
+      return parsed;
+    }
+    return parsed.slice(0, decimalIndex + 7);
   }
 
   _addDecimals(amount: string, decimals: number): ethers.BigNumber {

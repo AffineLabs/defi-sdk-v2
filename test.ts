@@ -85,16 +85,10 @@ describe("AffineRestakingSDK", () => {
   // });
 
   it("Test Big Number random nonce", async () => {
-    const nonce = "999999999999999";
+    const nonce = "12345678912345678912";
     let bigNumber = ethers.BigNumber.from(nonce);
-    console.log("bigNumber: 1", bigNumber.toString());
-    console.log(
-      "bigNumber: 2",
-      bigNumber.div(ethers.BigNumber.from(10).pow(18))
-    );
-    var parsed = ethers.utils.formatUnits(bigNumber, 18);
-    console.log("bigNumber: 3", Number(parsed));
-    console.log("bigNumber: 4", Number(parsed));
-    parsed.indexOf(".");
+    for (let i = 0; i < nonce.length + 5 ; i++) {
+      console.log(i, "bigNumber: ", sdk._removeDecimals(bigNumber, i));
+    }
   });
 });
