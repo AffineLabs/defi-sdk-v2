@@ -1,4 +1,5 @@
 import { ethers } from "ethers";
+export declare let EthRPC: string;
 export declare const EigenStETHStrategy: string;
 export declare const EigenDelegatorAddress: string;
 export declare const UltraLRTAddress: string;

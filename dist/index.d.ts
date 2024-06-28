@@ -46,5 +46,5 @@ export declare class AffineRestakingSDK {
 }
 export declare function _removeDecimals(amount: ethers.BigNumber, decimals: ethers.BigNumberish): string;
 export declare function _addDecimals(amount: string, decimals: number): ethers.BigNumber;
-export declare function getUltraEthTVL(provider: providers.JsonRpcProvider): Promise<string>;
-export declare function getSymbioticTVL(provider: providers.JsonRpcProvider): Promise<string>;
+export declare function getUltraEthTVL(): Promise<string>;
+export declare function getSymbioticTVL(): Promise<string>;

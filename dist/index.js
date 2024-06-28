@@ -347,11 +347,11 @@ async function _getVaultTVL(vaultAddress, provider) {
     const totalAssets = await vault.totalAssets();
     return _removeDecimals(totalAssets, await asset.decimals());
 }
-async function getUltraEthTVL(provider) {
-    return _getVaultTVL(constants_1.UltraLRTAddress, provider);
+async function getUltraEthTVL() {
+    return _getVaultTVL(constants_1.UltraLRTAddress, new ethers_1.providers.JsonRpcProvider(constants_1.EthRPC));
 }
 exports.getUltraEthTVL = getUltraEthTVL;
-async function getSymbioticTVL(provider) {
-    return _getVaultTVL(constants_1.SymbioticVault, provider);
+async function getSymbioticTVL() {
+    return _getVaultTVL(constants_1.SymbioticVault, new ethers_1.providers.JsonRpcProvider(constants_1.EthRPC));
 }
 exports.getSymbioticTVL = getSymbioticTVL;

@@ -17,6 +17,7 @@ import {
   WStEthAddress,
   RouterAddress,
   WEthAddress,
+  EthRPC,
 } from "./constants";
 
 // ABIs
@@ -604,13 +605,9 @@ async function _getVaultTVL(
   return _removeDecimals(totalAssets, await asset.decimals());
 }
 
-export async function getUltraEthTVL(
-  provider: providers.JsonRpcProvider
-): Promise<string> {
-  return _getVaultTVL(UltraLRTAddress, provider);
+export async function getUltraEthTVL(): Promise<string> {
+  return _getVaultTVL(UltraLRTAddress, new providers.JsonRpcProvider(EthRPC));
 }
-export async function getSymbioticTVL(
-  provider: providers.JsonRpcProvider
-): Promise<string> {
-  return _getVaultTVL(SymbioticVault, provider);
+export async function getSymbioticTVL(): Promise<string> {
+  return _getVaultTVL(SymbioticVault, new providers.JsonRpcProvider(EthRPC));
 }
