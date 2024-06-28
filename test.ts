@@ -1,4 +1,4 @@
-import { AffineRestakingSDK } from "./dist/index";
+import { AffineRestakingSDK, _removeDecimals } from "./dist/index";
 import { ethers } from "ethers";
 import { StETHAddress, UltraLRTAddress } from "./dist/constants";
 import dotenv from "dotenv";
@@ -87,8 +87,8 @@ describe("AffineRestakingSDK", () => {
   it("Test Big Number random nonce", async () => {
     const nonce = "12345678912345678912";
     let bigNumber = ethers.BigNumber.from(nonce);
-    for (let i = 0; i < nonce.length + 5 ; i++) {
-      console.log(i, "bigNumber: ", sdk._removeDecimals(bigNumber, i));
+    for (let i = 0; i < nonce.length + 5; i++) {
+      console.log(i, "bigNumber: ", _removeDecimals(bigNumber, i));
     }
   });
 });

@@ -6,9 +6,6 @@ export declare class AffineRestakingSDK {
     _getVaultBalanceByAsset(vaultAddress: string): Promise<string>;
     getUltraEthBalance(): Promise<string>;
     getSymbioticBalance(): Promise<string>;
-    getVaultTVL(vaultAddress: string): Promise<string>;
-    getUltraEthTVL(): Promise<string>;
-    getSymbioticTVL(): Promise<string>;
     _getTokenBalance(tokenAddress: string): Promise<string>;
     getStEthBalance(): Promise<string>;
     getWStEthBalance(): Promise<string>;
@@ -44,8 +41,10 @@ export declare class AffineRestakingSDK {
     isApproved(contractAddress: string, spenderAddress: string, amount: number): Promise<boolean>;
     approve(contractAddress: string, spenderAddress: string, amount: number): Promise<ethers.providers.TransactionResponse>;
     wrapETH(amountInEther: string): Promise<void>;
-    _removeDecimals(amount: ethers.BigNumber, decimals: ethers.BigNumberish): string;
-    _addDecimals(amount: string, decimals: number): ethers.BigNumber;
     _toDeadline(expiration: number): number;
     _getRandomNonce(): Promise<BigNumber>;
 }
+export declare function _removeDecimals(amount: ethers.BigNumber, decimals: ethers.BigNumberish): string;
+export declare function _addDecimals(amount: string, decimals: number): ethers.BigNumber;
+export declare function getUltraEthTVL(provider: providers.JsonRpcProvider): Promise<string>;
+export declare function getSymbioticTVL(provider: providers.JsonRpcProvider): Promise<string>;
