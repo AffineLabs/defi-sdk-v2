@@ -61,6 +61,20 @@ export class AffineRestakingSDK {
     return this._getVaultBalanceByAsset(SymbioticVault);
   }
 
+  async getVaultTVL(vaultAddress: string): Promise<string> {
+    const vault = UltraLRT__factory.connect(vaultAddress, this.signer);
+    const asset = MockERC20__factory.connect(await vault.asset(), this.signer);
+    const totalAssets = await vault.totalAssets();
+    return this._removeDecimals(totalAssets, await asset.decimals());
+  }
+
+  async getUltraEthTVL(): Promise<string> {
+    return this.getVaultTVL(UltraLRTAddress);
+  }
+  async getSymbioticTVL(): Promise<string> {
+    return this.getVaultTVL(SymbioticVault);
+  }
+
   async _getTokenBalance(tokenAddress: string): Promise<string> {
     const address = await this.signer.getAddress();
     const token = MockERC20__factory.connect(tokenAddress, this.signer);

@@ -6,6 +6,9 @@ export declare class AffineRestakingSDK {
     _getVaultBalanceByAsset(vaultAddress: string): Promise<string>;
     getUltraEthBalance(): Promise<string>;
     getSymbioticBalance(): Promise<string>;
+    getVaultTVL(vaultAddress: string): Promise<string>;
+    getUltraEthTVL(): Promise<string>;
+    getSymbioticTVL(): Promise<string>;
     _getTokenBalance(tokenAddress: string): Promise<string>;
     getStEthBalance(): Promise<string>;
     getWStEthBalance(): Promise<string>;
