@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getSymbioticTVL = exports.getUltraEthTVL = exports._addDecimals = exports._removeDecimals = exports.AffineRestakingSDK = void 0;
+exports.convertWStEthToStEth = exports.convertStEthToWStEth = exports.getSymbioticTVL = exports.getUltraEthTVL = exports._addDecimals = exports._removeDecimals = exports.AffineRestakingSDK = void 0;
 const ethers_1 = require("ethers");
 const permit2_sdk_1 = require("@uniswap/permit2-sdk");
 const constants_1 = require("./constants");
@@ -355,3 +355,24 @@ async function getSymbioticTVL() {
     return _getVaultTVL(constants_1.SymbioticVault, new ethers_1.providers.JsonRpcProvider(constants_1.EthRPC));
 }
 exports.getSymbioticTVL = getSymbioticTVL;
+async function convertStEthToWStEth(amount) {
+    const provider = new ethers_1.providers.JsonRpcProvider(constants_1.EthRPC);
+    const wStEth = typechain_1.IWSTETH__factory.connect(constants_1.WStEthAddress, provider);
+    const stEth = typechain_1.MockERC20__factory.connect(constants_1.StETHAddress, provider);
+    const stEthDecimals = await stEth.decimals();
+    const wStEthDecimals = await wStEth.decimals();
+    const decimalAmount = _addDecimals(amount, stEthDecimals);
+    return _removeDecimals(decimalAmount, wStEthDecimals);
+}
+exports.convertStEthToWStEth = convertStEthToWStEth;
+async function convertWStEthToStEth(amount) {
+    const provider = new ethers_1.providers.JsonRpcProvider(constants_1.EthRPC);
+    const wStEth = typechain_1.IWSTETH__factory.connect(constants_1.WStEthAddress, provider);
+    const stEth = typechain_1.MockERC20__factory.connect(constants_1.StETHAddress, provider);
+    const stEthDecimals = await stEth.decimals();
+    const wStEthDecimals = await wStEth.decimals();
+    const decimalAmount = _addDecimals(amount, wStEthDecimals);
+    const stEthAmount = await wStEth.getStETHByWstETH(decimalAmount);
+    return _removeDecimals(stEthAmount, stEthDecimals);
+}
+exports.convertWStEthToStEth = convertWStEthToStEth;

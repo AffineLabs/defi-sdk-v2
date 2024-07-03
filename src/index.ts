@@ -33,6 +33,8 @@ import {
   ISignatureTransfer__factory,
   ISignatureTransfer,
   DelegatorFactory__factory,
+  IWSTETH__factory,
+  IStEth__factory,
 } from "./typechain";
 import { WithdrawalInfoStruct } from "./typechain/EigenDelegator";
 
@@ -610,4 +612,30 @@ export async function getUltraEthTVL(): Promise<string> {
 }
 export async function getSymbioticTVL(): Promise<string> {
   return _getVaultTVL(SymbioticVault, new providers.JsonRpcProvider(EthRPC));
+}
+
+export async function convertStEthToWStEth(amount: string) {
+  const provider = new providers.JsonRpcProvider(EthRPC);
+  const wStEth = IWSTETH__factory.connect(WStEthAddress, provider);
+  const stEth = MockERC20__factory.connect(StETHAddress, provider);
+
+  const stEthDecimals = await stEth.decimals();
+  const wStEthDecimals = await wStEth.decimals();
+
+  const decimalAmount = _addDecimals(amount, stEthDecimals);
+
+  return _removeDecimals(decimalAmount, wStEthDecimals);
+}
+
+export async function convertWStEthToStEth(amount: string) {
+  const provider = new providers.JsonRpcProvider(EthRPC);
+  const wStEth = IWSTETH__factory.connect(WStEthAddress, provider);
+  const stEth = MockERC20__factory.connect(StETHAddress, provider);
+
+  const stEthDecimals = await stEth.decimals();
+  const wStEthDecimals = await wStEth.decimals();
+
+  const decimalAmount = _addDecimals(amount, wStEthDecimals);
+  const stEthAmount = await wStEth.getStETHByWstETH(decimalAmount);
+  return _removeDecimals(stEthAmount, stEthDecimals);
 }

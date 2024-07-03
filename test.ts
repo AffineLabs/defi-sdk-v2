@@ -3,12 +3,15 @@ import {
   _removeDecimals,
   getUltraEthTVL,
   getSymbioticTVL,
+  convertStEthToWStEth,
+  convertWStEthToStEth,
 } from "./dist/index";
 import { ethers } from "ethers";
 import { StETHAddress, UltraLRTAddress } from "./dist/constants";
 import dotenv from "dotenv";
 import { parse } from "path";
 import { get } from "http";
+import { parseEther } from "ethers/lib/utils";
 dotenv.config();
 
 describe("AffineRestakingSDK", () => {
@@ -101,5 +104,10 @@ describe("AffineRestakingSDK", () => {
   it("test rpc", async () => {
     console.log("rpc: ", await getUltraEthTVL());
     console.log("rpc: ", await getSymbioticTVL());
+  });
+
+  it("test conversion", async () => {
+    const v1 = await convertStEthToWStEth("1");
+    const v2 = await convertWStEthToStEth("1");
   });
 });

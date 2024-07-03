@@ -12,6 +12,7 @@ let _RouterAddress = "0x379a56089623AE0c22F56417AB28319AD8DCF1Cc";
 let _WEthAddress = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2";
 export let EthRPC =
   "https://eth-mainnet.g.alchemy.com/v2/T8JHI8jMGKrO88j6qvZwjk8d1IxOPqtk";
+
 if (process.env.NEXT_PUBLIC_NETWORK_TYPE === "holesky") {
   _EigenStETHStrategy = "0x7D704507b76571a51d9caE8AdDAbBFd0ba0e63d3";
   _EigenDelegatorAddress = "0xA44151489861Fe9e3055d95adC98FbD462B948e7";
