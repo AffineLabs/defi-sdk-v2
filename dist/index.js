@@ -237,10 +237,10 @@ class AffineRestakingSDK {
         const tx = await lrtVault.withdraw(assetUnits, receiver, receiver);
         return tx;
     }
-    async withdrawableAssets(address) {
-        const vault = new ethers_1.ethers.Contract(constants_1.UltraLRTAddress, ultraEth_json_1.default, this.signer);
-        const asset = new ethers_1.ethers.Contract(constants_1.StETHAddress, erc20_json_1.default, this.signer);
-        const withdrawalEscrowV2 = new ethers_1.ethers.Contract(constants_1.EscrowAddress, withdrawalEscrow_json_1.default, this.signer);
+    async withdrawableAssets(vaultAddress, address) {
+        const vault = typechain_1.UltraLRT__factory.connect(vaultAddress, this.signer);
+        const asset = typechain_1.MockERC20__factory.connect(await vault.asset(), this.signer);
+        const withdrawalEscrowV2 = typechain_1.WithdrawalEscrowV2__factory.connect(await vault.escrow(), this.signer);
         const vaultDecimals = await vault.decimals();
         const assetDecimals = await asset.decimals();
         const resolvingEpoch = (await withdrawalEscrowV2.resolvingEpoch()).toNumber();
@@ -277,13 +277,13 @@ class AffineRestakingSDK {
         return value;
     }
     async redeem(epoch) {
-        const withdrawalEscrowV2 = new ethers_1.ethers.Contract(constants_1.EscrowAddress, withdrawalEscrow_json_1.default, this.signer);
+        const withdrawalEscrowV2 = typechain_1.WithdrawalEscrowV2__factory.connect(constants_1.EscrowAddress, this.signer);
         const receiver = await this.signer.getAddress();
         const tx = await withdrawalEscrowV2.redeem(receiver, epoch);
         return tx;
     }
     async redeemSymbiotic(epoch) {
-        const withdrawalEscrowV2 = new ethers_1.ethers.Contract(constants_1.SymbioticEscrow, withdrawalEscrow_json_1.default, this.signer);
+        const withdrawalEscrowV2 = typechain_1.WithdrawalEscrowV2__factory.connect(constants_1.SymbioticEscrow, this.signer);
         const receiver = await this.signer.getAddress();
         const tx = await withdrawalEscrowV2.redeem(receiver, epoch);
         return tx;

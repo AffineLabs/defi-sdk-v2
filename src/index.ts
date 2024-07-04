@@ -35,6 +35,7 @@ import {
   DelegatorFactory__factory,
   IWSTETH__factory,
   IStEth__factory,
+  WithdrawalEscrowV2__factory,
 } from "./typechain";
 import { WithdrawalInfoStruct } from "./typechain/EigenDelegator";
 
@@ -404,16 +405,11 @@ export class AffineRestakingSDK {
     return tx;
   }
 
-  async withdrawableAssets(address: string) {
-    const vault = new ethers.Contract(
-      UltraLRTAddress,
-      ULTRAETH_ABI,
-      this.signer
-    );
-    const asset = new ethers.Contract(StETHAddress, ERC20_ABI, this.signer);
-    const withdrawalEscrowV2 = new ethers.Contract(
-      EscrowAddress,
-      ESCROW_ABI,
+  async withdrawableAssets(vaultAddress: string, address: string) {
+    const vault = UltraLRT__factory.connect(vaultAddress, this.signer);
+    const asset = MockERC20__factory.connect(await vault.asset(), this.signer);
+    const withdrawalEscrowV2 = WithdrawalEscrowV2__factory.connect(
+      await vault.escrow(),
       this.signer
     );
 
@@ -472,9 +468,8 @@ export class AffineRestakingSDK {
   }
 
   async redeem(epoch: string): Promise<ethers.providers.TransactionResponse> {
-    const withdrawalEscrowV2 = new ethers.Contract(
+    const withdrawalEscrowV2 = WithdrawalEscrowV2__factory.connect(
       EscrowAddress,
-      ESCROW_ABI,
       this.signer
     );
     const receiver = await this.signer.getAddress();
@@ -486,9 +481,8 @@ export class AffineRestakingSDK {
   async redeemSymbiotic(
     epoch: string
   ): Promise<ethers.providers.TransactionResponse> {
-    const withdrawalEscrowV2 = new ethers.Contract(
+    const withdrawalEscrowV2 = WithdrawalEscrowV2__factory.connect(
       SymbioticEscrow,
-      ESCROW_ABI,
       this.signer
     );
     const receiver = await this.signer.getAddress();

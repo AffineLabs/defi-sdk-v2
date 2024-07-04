@@ -24,13 +24,13 @@ export declare class AffineRestakingSDK {
     depositERC20Any(token: string, amount: string, vault: string): Promise<ethers.ContractTransaction>;
     depositNative(amount: string, vault: string): Promise<ethers.ContractTransaction>;
     withdrawSymbiotic(amount: string): Promise<any>;
-    withdrawableAssets(address: string): Promise<{
+    withdrawableAssets(vaultAddress: string, address: string): Promise<{
         totalAmount: number;
         epochData: {
             epoch: number;
             assets: string;
             shares: string;
-            canWithdraw: any;
+            canWithdraw: boolean;
         }[];
     }>;
     getEthBalance(): Promise<string>;
