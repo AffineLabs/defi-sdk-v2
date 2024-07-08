@@ -1,4 +1,4 @@
-import { providers } from "ethers";
+import { ethers, providers } from "ethers";
 import { SmallTxReceipt } from "./sdk-v1-types";
 export declare const CCIP_NETWORK_SELECTOR: Record<1 | 137, string>;
 /**
@@ -8,6 +8,7 @@ export declare const CCIP_NETWORK_SELECTOR: Record<1 | 137, string>;
  * @returns
  */
 export declare function getAffinePassBridge(destinationChainId: number, provider: providers.JsonRpcProvider): Promise<import("./typechain").AffinePassBridge>;
+export declare function getAffinePass(chainId: number, provider: providers.JsonRpcProvider): Promise<import("./typechain").AffinePass>;
 /**
  * Get the fee in native asset for bridging pass to destination chain
  * @param destinationChainId the destination chain id
@@ -25,3 +26,4 @@ export declare function ccipFee(destinationChainId: 1 | 137, provider: providers
  * @returns
  */
 export declare function bridgePass(destinationChainId: 1 | 137, destinationAddress: string, tokenId: number, fee: number, provider: providers.JsonRpcProvider): Promise<SmallTxReceipt>;
+export declare function getPassBalance(chainId: number, provider: providers.JsonRpcProvider): Promise<ethers.BigNumber>;

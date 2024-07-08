@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.bridgePass = exports.ccipFee = exports.getAffinePassBridge = exports.CCIP_NETWORK_SELECTOR = void 0;
+exports.getPassBalance = exports.bridgePass = exports.ccipFee = exports.getAffinePass = exports.getAffinePassBridge = exports.CCIP_NETWORK_SELECTOR = void 0;
 const ethers_1 = require("ethers");
 const typechain_1 = require("./typechain");
 const constants_1 = require("./constants");
@@ -23,6 +23,15 @@ async function getAffinePassBridge(destinationChainId, provider) {
     }
 }
 exports.getAffinePassBridge = getAffinePassBridge;
+async function getAffinePass(chainId, provider) {
+    if (chainId === 1) {
+        return typechain_1.AffinePass__factory.connect(constants_1.PassPolygonAddress, provider);
+    }
+    else {
+        return typechain_1.AffinePass__factory.connect(constants_1.PassEthAddress, provider);
+    }
+}
+exports.getAffinePass = getAffinePass;
 /**
  * Get the fee in native asset for bridging pass to destination chain
  * @param destinationChainId the destination chain id
@@ -77,3 +86,8 @@ async function bridgePass(destinationChainId, destinationAddress, tokenId, fee, 
     }
 }
 exports.bridgePass = bridgePass;
+async function getPassBalance(chainId, provider) {
+    const affinePass = await getAffinePass(chainId, provider);
+    return affinePass.balanceOf(await provider.getSigner().getAddress());
+}
+exports.getPassBalance = getPassBalance;
