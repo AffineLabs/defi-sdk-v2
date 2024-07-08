@@ -28,17 +28,14 @@ jobs:
         run: yarn build
 
       - name: Update version
-        id: update_version
-        run: |
-          NEW_VERSION=$(yarn version --patch --no-git-tag-version | grep -o -E '[0-9]+\.[0-9]+\.[0-9]+')
-          echo "NEW_VERSION=${NEW_VERSION}" >> "$GITHUB_ENV"
+        run: yarn version --patch --no-git-tag-version
 
       - name: Commit and push version update
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add package.json yarn.lock
-          git commit -m "Update version to ${{ env.NEW_VERSION }}"
+          git commit -m "Updated version"
           git push origin main
 
       - name: Create release
@@ -46,13 +43,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ env.NEW_VERSION }}
-          release_name: Release ${{ env.NEW_VERSION }}
+          tag_name: $(jq -r .version package.json)
+          release_name: Release $(jq -r .version package.json)
           draft: false
           prerelease: false
 
       - name: Upload built files
         run: |
           git add dist
-          git commit -m "Include built files for version ${{ env.NEW_VERSION }}"
+          git commit -m "Include built files for updated version"
           git push origin main
