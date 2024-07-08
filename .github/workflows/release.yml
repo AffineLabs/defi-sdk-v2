@@ -24,16 +24,16 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Build the package
-        run: yarn build
-
       - name: Update version
         run: yarn version --patch --no-git-tag-version
 
-      - name: Create version.js
+      - name: Create version.ts
         run: |
           VERSION=$(node -p "require('./package.json').version")
-          echo "export const AFFINE_SDK_VERSION = '$VERSION';" > dist/version.js
+          echo "export const AFFINE_SDK_VERSION = '$VERSION';" > src/version.ts      
+
+      - name: Build the package
+        run: yarn build
 
       - name: Commit and push version update
         run: |
