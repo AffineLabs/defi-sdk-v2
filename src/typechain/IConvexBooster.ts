@@ -38,7 +38,7 @@ export declare namespace IConvexBooster {
     string,
     string,
     string,
-    boolean
+    boolean,
   ] & {
     lptoken: string;
     token: string;
@@ -58,26 +58,32 @@ export interface IConvexBoosterInterface extends utils.Interface {
   };
 
   getFunction(
-    nameOrSignatureOrTopic: "crv" | "depositAll" | "poolInfo" | "poolLength"
+    nameOrSignatureOrTopic: "crv" | "depositAll" | "poolInfo" | "poolLength",
   ): FunctionFragment;
 
   encodeFunctionData(functionFragment: "crv", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "depositAll",
-    values: [BigNumberish, boolean]
+    values: [BigNumberish, boolean],
   ): string;
+
   encodeFunctionData(
     functionFragment: "poolInfo",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "poolLength",
-    values?: undefined
+    values?: undefined,
   ): string;
 
   decodeFunctionResult(functionFragment: "crv", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "depositAll", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "poolInfo", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "poolLength", data: BytesLike): Result;
 
   events: {};
@@ -85,7 +91,9 @@ export interface IConvexBoosterInterface extends utils.Interface {
 
 export interface IConvexBooster extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: IConvexBoosterInterface;
@@ -93,17 +101,21 @@ export interface IConvexBooster extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -111,22 +123,22 @@ export interface IConvexBooster extends BaseContract {
 
   functions: {
     crv(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     depositAll(
       _pid: BigNumberish,
       _stake: boolean,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     poolInfo(
       _pid: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     poolLength(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
   };
 
@@ -135,16 +147,16 @@ export interface IConvexBooster extends BaseContract {
   depositAll(
     _pid: BigNumberish,
     _stake: boolean,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   poolInfo(
     _pid: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   poolLength(
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -153,12 +165,12 @@ export interface IConvexBooster extends BaseContract {
     depositAll(
       _pid: BigNumberish,
       _stake: boolean,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     poolInfo(
       _pid: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<IConvexBooster.PoolInfoStructOutput>;
 
     poolLength(overrides?: CallOverrides): Promise<BigNumber>;
@@ -172,12 +184,12 @@ export interface IConvexBooster extends BaseContract {
     depositAll(
       _pid: BigNumberish,
       _stake: boolean,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     poolInfo(
       _pid: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     poolLength(overrides?: Overrides & { from?: string }): Promise<BigNumber>;
@@ -185,22 +197,22 @@ export interface IConvexBooster extends BaseContract {
 
   populateTransaction: {
     crv(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     depositAll(
       _pid: BigNumberish,
       _stake: boolean,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     poolInfo(
       _pid: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     poolLength(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
   };
 }

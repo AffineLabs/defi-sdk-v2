@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { Contract, Signer, utils } from "ethers";
-import type { Provider } from "@ethersproject/providers";
-import type { BaseStrategy, BaseStrategyInterface } from "../BaseStrategy";
+import {Contract, Signer, utils} from "ethers";
+import type {Provider} from "@ethersproject/providers";
+import type {BaseStrategy, BaseStrategyInterface} from "../BaseStrategy";
 
 const _abi = [
   {
@@ -108,12 +108,14 @@ const _abi = [
 
 export class BaseStrategy__factory {
   static readonly abi = _abi;
+
   static createInterface(): BaseStrategyInterface {
     return new utils.Interface(_abi) as BaseStrategyInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): BaseStrategy {
     return new Contract(address, _abi, signerOrProvider) as BaseStrategy;
   }

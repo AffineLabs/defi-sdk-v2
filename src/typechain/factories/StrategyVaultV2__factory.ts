@@ -1767,12 +1767,14 @@ const _abi = [
 
 export class StrategyVaultV2__factory {
   static readonly abi = _abi;
+
   static createInterface(): StrategyVaultV2Interface {
     return new utils.Interface(_abi) as StrategyVaultV2Interface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): StrategyVaultV2 {
     return new Contract(address, _abi, signerOrProvider) as StrategyVaultV2;
   }

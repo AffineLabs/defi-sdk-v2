@@ -39,7 +39,7 @@ export type WithdrawalInfoStructOutput = [
   BigNumber,
   number,
   string[],
-  BigNumber[]
+  BigNumber[],
 ] & {
   staker: string;
   delegatedTo: string;
@@ -57,7 +57,7 @@ export type ApproverSignatureAndExpiryParamsStruct = {
 
 export type ApproverSignatureAndExpiryParamsStructOutput = [
   string,
-  BigNumber
+  BigNumber,
 ] & { signature: string; expiry: BigNumber };
 
 export type QueuedWithdrawalParamsStruct = {
@@ -69,7 +69,7 @@ export type QueuedWithdrawalParamsStruct = {
 export type QueuedWithdrawalParamsStructOutput = [
   string[],
   BigNumber[],
-  string
+  string,
 ] & { strategies: string[]; shares: BigNumber[]; recipient: string };
 
 export interface IDelegationManagerInterface extends utils.Interface {
@@ -83,30 +83,34 @@ export interface IDelegationManagerInterface extends utils.Interface {
     nameOrSignatureOrTopic:
       | "completeQueuedWithdrawals"
       | "delegateTo"
-      | "queueWithdrawals"
+      | "queueWithdrawals",
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "completeQueuedWithdrawals",
-    values: [WithdrawalInfoStruct[], string[][], BigNumberish[], boolean[]]
+    values: [WithdrawalInfoStruct[], string[][], BigNumberish[], boolean[]],
   ): string;
+
   encodeFunctionData(
     functionFragment: "delegateTo",
-    values: [string, ApproverSignatureAndExpiryParamsStruct, BytesLike]
+    values: [string, ApproverSignatureAndExpiryParamsStruct, BytesLike],
   ): string;
+
   encodeFunctionData(
     functionFragment: "queueWithdrawals",
-    values: [QueuedWithdrawalParamsStruct[]]
+    values: [QueuedWithdrawalParamsStruct[]],
   ): string;
 
   decodeFunctionResult(
     functionFragment: "completeQueuedWithdrawals",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "delegateTo", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "queueWithdrawals",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
 
   events: {};
@@ -114,7 +118,9 @@ export interface IDelegationManagerInterface extends utils.Interface {
 
 export interface IDelegationManager extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: IDelegationManagerInterface;
@@ -122,17 +128,21 @@ export interface IDelegationManager extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -144,19 +154,19 @@ export interface IDelegationManager extends BaseContract {
       arg1: string[][],
       arg2: BigNumberish[],
       arg3: boolean[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     delegateTo(
       arg0: string,
       arg1: ApproverSignatureAndExpiryParamsStruct,
       arg2: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     queueWithdrawals(
       arg0: QueuedWithdrawalParamsStruct[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
   };
 
@@ -165,19 +175,19 @@ export interface IDelegationManager extends BaseContract {
     arg1: string[][],
     arg2: BigNumberish[],
     arg3: boolean[],
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   delegateTo(
     arg0: string,
     arg1: ApproverSignatureAndExpiryParamsStruct,
     arg2: BytesLike,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   queueWithdrawals(
     arg0: QueuedWithdrawalParamsStruct[],
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -186,19 +196,19 @@ export interface IDelegationManager extends BaseContract {
       arg1: string[][],
       arg2: BigNumberish[],
       arg3: boolean[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     delegateTo(
       arg0: string,
       arg1: ApproverSignatureAndExpiryParamsStruct,
       arg2: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     queueWithdrawals(
       arg0: QueuedWithdrawalParamsStruct[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
   };
 
@@ -210,19 +220,19 @@ export interface IDelegationManager extends BaseContract {
       arg1: string[][],
       arg2: BigNumberish[],
       arg3: boolean[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     delegateTo(
       arg0: string,
       arg1: ApproverSignatureAndExpiryParamsStruct,
       arg2: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     queueWithdrawals(
       arg0: QueuedWithdrawalParamsStruct[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
   };
 
@@ -232,19 +242,19 @@ export interface IDelegationManager extends BaseContract {
       arg1: string[][],
       arg2: BigNumberish[],
       arg3: boolean[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     delegateTo(
       arg0: string,
       arg1: ApproverSignatureAndExpiryParamsStruct,
       arg2: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     queueWithdrawals(
       arg0: QueuedWithdrawalParamsStruct[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
   };
 }

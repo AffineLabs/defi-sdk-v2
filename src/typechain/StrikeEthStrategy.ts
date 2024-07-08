@@ -89,160 +89,216 @@ export interface StrikeEthStrategyInterface extends utils.Interface {
       | "supportsInterface"
       | "sweep"
       | "totalLockedValue"
-      | "vault"
+      | "vault",
   ): FunctionFragment;
 
   encodeFunctionData(functionFragment: "BALANCER", values?: undefined): string;
+
   encodeFunctionData(functionFragment: "COMP", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "COMPTROLLER",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "DEFAULT_ADMIN_ROLE",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "MAX_BPS", values?: undefined): string;
+
   encodeFunctionData(functionFragment: "ROUTER", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "STRATEGIST_ROLE",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "WETH", values?: undefined): string;
+
   encodeFunctionData(functionFragment: "asset", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "balanceOfAsset",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "borrowBps", values?: undefined): string;
+
   encodeFunctionData(functionFragment: "cToken", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "claimAndSellRewards",
-    values: [BigNumberish, BigNumberish]
+    values: [BigNumberish, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "claimRewards",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "divest",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "getCollateralAndDebt",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "getRoleAdmin",
-    values: [BytesLike]
+    values: [BytesLike],
   ): string;
+
   encodeFunctionData(
     functionFragment: "grantRole",
-    values: [BytesLike, string]
+    values: [BytesLike, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "hasRole",
-    values: [BytesLike, string]
+    values: [BytesLike, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "invest",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(functionFragment: "rebalance", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "receiveFlashLoan",
-    values: [string[], BigNumberish[], BigNumberish[], BytesLike]
+    values: [string[], BigNumberish[], BigNumberish[], BytesLike],
   ): string;
+
   encodeFunctionData(
     functionFragment: "renounceRole",
-    values: [BytesLike, string]
+    values: [BytesLike, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "revokeRole",
-    values: [BytesLike, string]
+    values: [BytesLike, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "setBorrowBps",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "supportsInterface",
-    values: [BytesLike]
+    values: [BytesLike],
   ): string;
+
   encodeFunctionData(functionFragment: "sweep", values: [string]): string;
+
   encodeFunctionData(
     functionFragment: "totalLockedValue",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "vault", values?: undefined): string;
 
   decodeFunctionResult(functionFragment: "BALANCER", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "COMP", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "COMPTROLLER",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "DEFAULT_ADMIN_ROLE",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "MAX_BPS", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "ROUTER", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "STRATEGIST_ROLE",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "WETH", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "asset", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "balanceOfAsset",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "borrowBps", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "cToken", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "claimAndSellRewards",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "claimRewards",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "divest", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "getCollateralAndDebt",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "getRoleAdmin",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "grantRole", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "hasRole", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "invest", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "rebalance", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "receiveFlashLoan",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "renounceRole",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "revokeRole", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "setBorrowBps",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "supportsInterface",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "sweep", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "totalLockedValue",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "vault", data: BytesLike): Result;
 
   events: {
@@ -252,7 +308,9 @@ export interface StrikeEthStrategyInterface extends utils.Interface {
   };
 
   getEvent(nameOrSignatureOrTopic: "RoleAdminChanged"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "RoleGranted"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "RoleRevoked"): EventFragment;
 }
 
@@ -261,6 +319,7 @@ export interface RoleAdminChangedEventObject {
   previousAdminRole: string;
   newAdminRole: string;
 }
+
 export type RoleAdminChangedEvent = TypedEvent<
   [string, string, string],
   RoleAdminChangedEventObject
@@ -274,6 +333,7 @@ export interface RoleGrantedEventObject {
   account: string;
   sender: string;
 }
+
 export type RoleGrantedEvent = TypedEvent<
   [string, string, string],
   RoleGrantedEventObject
@@ -286,6 +346,7 @@ export interface RoleRevokedEventObject {
   account: string;
   sender: string;
 }
+
 export type RoleRevokedEvent = TypedEvent<
   [string, string, string],
   RoleRevokedEventObject
@@ -295,7 +356,9 @@ export type RoleRevokedEventFilter = TypedEventFilter<RoleRevokedEvent>;
 
 export interface StrikeEthStrategy extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: StrikeEthStrategyInterface;
@@ -303,17 +366,21 @@ export interface StrikeEthStrategy extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -339,7 +406,7 @@ export interface StrikeEthStrategy extends BaseContract {
     asset(overrides?: CallOverrides): Promise<[string]>;
 
     balanceOfAsset(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber] & { assets: BigNumber }>;
 
     borrowBps(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -349,20 +416,20 @@ export interface StrikeEthStrategy extends BaseContract {
     claimAndSellRewards(
       slippageBps: BigNumberish,
       minAssetsToSwap: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     claimRewards(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     divest(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     getCollateralAndDebt(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     getRoleAdmin(role: BytesLike, overrides?: CallOverrides): Promise<[string]>;
@@ -370,22 +437,22 @@ export interface StrikeEthStrategy extends BaseContract {
     grantRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     hasRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[boolean]>;
 
     invest(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     rebalance(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     receiveFlashLoan(
@@ -393,38 +460,38 @@ export interface StrikeEthStrategy extends BaseContract {
       amounts: BigNumberish[],
       arg2: BigNumberish[],
       userData: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     renounceRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     revokeRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     setBorrowBps(
       _borrowBps: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     supportsInterface(
       interfaceId: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[boolean]>;
 
     sweep(
       token: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     totalLockedValue(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     vault(overrides?: CallOverrides): Promise<[string]>;
@@ -457,20 +524,20 @@ export interface StrikeEthStrategy extends BaseContract {
   claimAndSellRewards(
     slippageBps: BigNumberish,
     minAssetsToSwap: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   claimRewards(
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   divest(
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   getCollateralAndDebt(
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   getRoleAdmin(role: BytesLike, overrides?: CallOverrides): Promise<string>;
@@ -478,22 +545,22 @@ export interface StrikeEthStrategy extends BaseContract {
   grantRole(
     role: BytesLike,
     account: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   hasRole(
     role: BytesLike,
     account: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<boolean>;
 
   invest(
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   rebalance(
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   receiveFlashLoan(
@@ -501,38 +568,38 @@ export interface StrikeEthStrategy extends BaseContract {
     amounts: BigNumberish[],
     arg2: BigNumberish[],
     userData: BytesLike,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   renounceRole(
     role: BytesLike,
     account: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   revokeRole(
     role: BytesLike,
     account: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   setBorrowBps(
     _borrowBps: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   supportsInterface(
     interfaceId: BytesLike,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<boolean>;
 
   sweep(
     token: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   totalLockedValue(
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   vault(overrides?: CallOverrides): Promise<string>;
@@ -565,7 +632,7 @@ export interface StrikeEthStrategy extends BaseContract {
     claimAndSellRewards(
       slippageBps: BigNumberish,
       minAssetsToSwap: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     claimRewards(overrides?: CallOverrides): Promise<void>;
@@ -573,7 +640,7 @@ export interface StrikeEthStrategy extends BaseContract {
     divest(amount: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
     getCollateralAndDebt(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber] & { collateral: BigNumber; debt: BigNumber }
     >;
@@ -583,13 +650,13 @@ export interface StrikeEthStrategy extends BaseContract {
     grantRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     hasRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     invest(amount: BigNumberish, overrides?: CallOverrides): Promise<void>;
@@ -601,29 +668,29 @@ export interface StrikeEthStrategy extends BaseContract {
       amounts: BigNumberish[],
       arg2: BigNumberish[],
       userData: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     renounceRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     revokeRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     setBorrowBps(
       _borrowBps: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     supportsInterface(
       interfaceId: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     sweep(token: string, overrides?: CallOverrides): Promise<void>;
@@ -637,34 +704,34 @@ export interface StrikeEthStrategy extends BaseContract {
     "RoleAdminChanged(bytes32,bytes32,bytes32)"(
       role?: BytesLike | null,
       previousAdminRole?: BytesLike | null,
-      newAdminRole?: BytesLike | null
+      newAdminRole?: BytesLike | null,
     ): RoleAdminChangedEventFilter;
     RoleAdminChanged(
       role?: BytesLike | null,
       previousAdminRole?: BytesLike | null,
-      newAdminRole?: BytesLike | null
+      newAdminRole?: BytesLike | null,
     ): RoleAdminChangedEventFilter;
 
     "RoleGranted(bytes32,address,address)"(
       role?: BytesLike | null,
       account?: string | null,
-      sender?: string | null
+      sender?: string | null,
     ): RoleGrantedEventFilter;
     RoleGranted(
       role?: BytesLike | null,
       account?: string | null,
-      sender?: string | null
+      sender?: string | null,
     ): RoleGrantedEventFilter;
 
     "RoleRevoked(bytes32,address,address)"(
       role?: BytesLike | null,
       account?: string | null,
-      sender?: string | null
+      sender?: string | null,
     ): RoleRevokedEventFilter;
     RoleRevoked(
       role?: BytesLike | null,
       account?: string | null,
-      sender?: string | null
+      sender?: string | null,
     ): RoleRevokedEventFilter;
   };
 
@@ -696,40 +763,40 @@ export interface StrikeEthStrategy extends BaseContract {
     claimAndSellRewards(
       slippageBps: BigNumberish,
       minAssetsToSwap: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     claimRewards(overrides?: Overrides & { from?: string }): Promise<BigNumber>;
 
     divest(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     getCollateralAndDebt(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     getRoleAdmin(
       role: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     grantRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     hasRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     invest(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     rebalance(overrides?: Overrides & { from?: string }): Promise<BigNumber>;
@@ -739,38 +806,38 @@ export interface StrikeEthStrategy extends BaseContract {
       amounts: BigNumberish[],
       arg2: BigNumberish[],
       userData: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     renounceRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     revokeRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     setBorrowBps(
       _borrowBps: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     supportsInterface(
       interfaceId: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     sweep(
       token: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     totalLockedValue(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     vault(overrides?: CallOverrides): Promise<BigNumber>;
@@ -784,7 +851,7 @@ export interface StrikeEthStrategy extends BaseContract {
     COMPTROLLER(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     DEFAULT_ADMIN_ROLE(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     MAX_BPS(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -806,46 +873,46 @@ export interface StrikeEthStrategy extends BaseContract {
     claimAndSellRewards(
       slippageBps: BigNumberish,
       minAssetsToSwap: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     claimRewards(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     divest(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     getCollateralAndDebt(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     getRoleAdmin(
       role: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     grantRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     hasRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     invest(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     rebalance(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     receiveFlashLoan(
@@ -853,38 +920,38 @@ export interface StrikeEthStrategy extends BaseContract {
       amounts: BigNumberish[],
       arg2: BigNumberish[],
       userData: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     renounceRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     revokeRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     setBorrowBps(
       _borrowBps: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     supportsInterface(
       interfaceId: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     sweep(
       token: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     totalLockedValue(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     vault(overrides?: CallOverrides): Promise<PopulatedTransaction>;

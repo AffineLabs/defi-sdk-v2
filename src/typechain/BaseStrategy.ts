@@ -41,41 +41,53 @@ export interface BaseStrategyInterface extends utils.Interface {
       | "invest"
       | "sweep"
       | "totalLockedValue"
-      | "vault"
+      | "vault",
   ): FunctionFragment;
 
   encodeFunctionData(functionFragment: "asset", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "balanceOfAsset",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "divest",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "invest",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(functionFragment: "sweep", values: [string]): string;
+
   encodeFunctionData(
     functionFragment: "totalLockedValue",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "vault", values?: undefined): string;
 
   decodeFunctionResult(functionFragment: "asset", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "balanceOfAsset",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "divest", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "invest", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "sweep", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "totalLockedValue",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "vault", data: BytesLike): Result;
 
   events: {};
@@ -83,7 +95,9 @@ export interface BaseStrategyInterface extends utils.Interface {
 
 export interface BaseStrategy extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: BaseStrategyInterface;
@@ -91,17 +105,21 @@ export interface BaseStrategy extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -111,26 +129,26 @@ export interface BaseStrategy extends BaseContract {
     asset(overrides?: CallOverrides): Promise<[string]>;
 
     balanceOfAsset(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber] & { assets: BigNumber }>;
 
     divest(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     invest(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     sweep(
       token: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     totalLockedValue(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     vault(overrides?: CallOverrides): Promise<[string]>;
@@ -142,21 +160,21 @@ export interface BaseStrategy extends BaseContract {
 
   divest(
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   invest(
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   sweep(
     token: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   totalLockedValue(
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   vault(overrides?: CallOverrides): Promise<string>;
@@ -186,21 +204,21 @@ export interface BaseStrategy extends BaseContract {
 
     divest(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     invest(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     sweep(
       token: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     totalLockedValue(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     vault(overrides?: CallOverrides): Promise<BigNumber>;
@@ -213,21 +231,21 @@ export interface BaseStrategy extends BaseContract {
 
     divest(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     invest(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     sweep(
       token: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     totalLockedValue(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     vault(overrides?: CallOverrides): Promise<PopulatedTransaction>;

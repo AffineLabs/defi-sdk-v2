@@ -45,7 +45,7 @@ export declare namespace IAllowanceTransfer {
     string,
     BigNumber,
     number,
-    number
+    number,
   ] & { token: string; amount: BigNumber; expiration: number; nonce: number };
 
   export type PermitBatchStruct = {
@@ -57,7 +57,7 @@ export declare namespace IAllowanceTransfer {
   export type PermitBatchStructOutput = [
     IAllowanceTransfer.PermitDetailsStructOutput[],
     string,
-    BigNumber
+    BigNumber,
   ] & {
     details: IAllowanceTransfer.PermitDetailsStructOutput[];
     spender: string;
@@ -73,7 +73,7 @@ export declare namespace IAllowanceTransfer {
   export type PermitSingleStructOutput = [
     IAllowanceTransfer.PermitDetailsStructOutput,
     string,
-    BigNumber
+    BigNumber,
   ] & {
     details: IAllowanceTransfer.PermitDetailsStructOutput;
     spender: string;
@@ -91,7 +91,7 @@ export declare namespace IAllowanceTransfer {
     string,
     string,
     BigNumber,
-    string
+    string,
   ] & { from: string; to: string; amount: BigNumber; token: string };
 }
 
@@ -118,72 +118,88 @@ export interface IAllowanceTransferInterface extends utils.Interface {
       | "permit(address,((address,uint160,uint48,uint48)[],address,uint256),bytes)"
       | "permit(address,((address,uint160,uint48,uint48),address,uint256),bytes)"
       | "transferFrom((address,address,uint160,address)[])"
-      | "transferFrom(address,address,uint160,address)"
+      | "transferFrom(address,address,uint160,address)",
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "DOMAIN_SEPARATOR",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "allowance",
-    values: [string, string, string]
+    values: [string, string, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "approve",
-    values: [string, string, BigNumberish, BigNumberish]
+    values: [string, string, BigNumberish, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "invalidateNonces",
-    values: [string, string, BigNumberish]
+    values: [string, string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "lockdown",
-    values: [IAllowanceTransfer.TokenSpenderPairStruct[]]
+    values: [IAllowanceTransfer.TokenSpenderPairStruct[]],
   ): string;
+
   encodeFunctionData(
     functionFragment: "permit(address,((address,uint160,uint48,uint48)[],address,uint256),bytes)",
-    values: [string, IAllowanceTransfer.PermitBatchStruct, BytesLike]
+    values: [string, IAllowanceTransfer.PermitBatchStruct, BytesLike],
   ): string;
+
   encodeFunctionData(
     functionFragment: "permit(address,((address,uint160,uint48,uint48),address,uint256),bytes)",
-    values: [string, IAllowanceTransfer.PermitSingleStruct, BytesLike]
+    values: [string, IAllowanceTransfer.PermitSingleStruct, BytesLike],
   ): string;
+
   encodeFunctionData(
     functionFragment: "transferFrom((address,address,uint160,address)[])",
-    values: [IAllowanceTransfer.AllowanceTransferDetailsStruct[]]
+    values: [IAllowanceTransfer.AllowanceTransferDetailsStruct[]],
   ): string;
+
   encodeFunctionData(
     functionFragment: "transferFrom(address,address,uint160,address)",
-    values: [string, string, BigNumberish, string]
+    values: [string, string, BigNumberish, string],
   ): string;
 
   decodeFunctionResult(
     functionFragment: "DOMAIN_SEPARATOR",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "allowance", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "invalidateNonces",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "lockdown", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "permit(address,((address,uint160,uint48,uint48)[],address,uint256),bytes)",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "permit(address,((address,uint160,uint48,uint48),address,uint256),bytes)",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "transferFrom((address,address,uint160,address)[])",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "transferFrom(address,address,uint160,address)",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
 
   events: {
@@ -194,8 +210,11 @@ export interface IAllowanceTransferInterface extends utils.Interface {
   };
 
   getEvent(nameOrSignatureOrTopic: "Approval"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Lockdown"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "NonceInvalidation"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Permit"): EventFragment;
 }
 
@@ -206,6 +225,7 @@ export interface ApprovalEventObject {
   amount: BigNumber;
   expiration: number;
 }
+
 export type ApprovalEvent = TypedEvent<
   [string, string, string, BigNumber, number],
   ApprovalEventObject
@@ -218,6 +238,7 @@ export interface LockdownEventObject {
   token: string;
   spender: string;
 }
+
 export type LockdownEvent = TypedEvent<
   [string, string, string],
   LockdownEventObject
@@ -232,6 +253,7 @@ export interface NonceInvalidationEventObject {
   newNonce: number;
   oldNonce: number;
 }
+
 export type NonceInvalidationEvent = TypedEvent<
   [string, string, string, number, number],
   NonceInvalidationEventObject
@@ -248,6 +270,7 @@ export interface PermitEventObject {
   expiration: number;
   nonce: number;
 }
+
 export type PermitEvent = TypedEvent<
   [string, string, string, BigNumber, number, number],
   PermitEventObject
@@ -257,7 +280,9 @@ export type PermitEventFilter = TypedEventFilter<PermitEvent>;
 
 export interface IAllowanceTransfer extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: IAllowanceTransferInterface;
@@ -265,17 +290,21 @@ export interface IAllowanceTransfer extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -288,7 +317,7 @@ export interface IAllowanceTransfer extends BaseContract {
       user: string,
       token: string,
       spender: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, number, number] & {
         amount: BigNumber;
@@ -302,38 +331,38 @@ export interface IAllowanceTransfer extends BaseContract {
       spender: string,
       amount: BigNumberish,
       expiration: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     invalidateNonces(
       token: string,
       spender: string,
       newNonce: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     lockdown(
       approvals: IAllowanceTransfer.TokenSpenderPairStruct[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     "permit(address,((address,uint160,uint48,uint48)[],address,uint256),bytes)"(
       owner: string,
       permitBatch: IAllowanceTransfer.PermitBatchStruct,
       signature: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     "permit(address,((address,uint160,uint48,uint48),address,uint256),bytes)"(
       owner: string,
       permitSingle: IAllowanceTransfer.PermitSingleStruct,
       signature: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     "transferFrom((address,address,uint160,address)[])"(
       transferDetails: IAllowanceTransfer.AllowanceTransferDetailsStruct[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     "transferFrom(address,address,uint160,address)"(
@@ -341,7 +370,7 @@ export interface IAllowanceTransfer extends BaseContract {
       to: string,
       amount: BigNumberish,
       token: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
   };
 
@@ -351,7 +380,7 @@ export interface IAllowanceTransfer extends BaseContract {
     user: string,
     token: string,
     spender: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<
     [BigNumber, number, number] & {
       amount: BigNumber;
@@ -365,38 +394,38 @@ export interface IAllowanceTransfer extends BaseContract {
     spender: string,
     amount: BigNumberish,
     expiration: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   invalidateNonces(
     token: string,
     spender: string,
     newNonce: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   lockdown(
     approvals: IAllowanceTransfer.TokenSpenderPairStruct[],
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   "permit(address,((address,uint160,uint48,uint48)[],address,uint256),bytes)"(
     owner: string,
     permitBatch: IAllowanceTransfer.PermitBatchStruct,
     signature: BytesLike,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   "permit(address,((address,uint160,uint48,uint48),address,uint256),bytes)"(
     owner: string,
     permitSingle: IAllowanceTransfer.PermitSingleStruct,
     signature: BytesLike,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   "transferFrom((address,address,uint160,address)[])"(
     transferDetails: IAllowanceTransfer.AllowanceTransferDetailsStruct[],
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   "transferFrom(address,address,uint160,address)"(
@@ -404,7 +433,7 @@ export interface IAllowanceTransfer extends BaseContract {
     to: string,
     amount: BigNumberish,
     token: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -414,7 +443,7 @@ export interface IAllowanceTransfer extends BaseContract {
       user: string,
       token: string,
       spender: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, number, number] & {
         amount: BigNumber;
@@ -428,38 +457,38 @@ export interface IAllowanceTransfer extends BaseContract {
       spender: string,
       amount: BigNumberish,
       expiration: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     invalidateNonces(
       token: string,
       spender: string,
       newNonce: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     lockdown(
       approvals: IAllowanceTransfer.TokenSpenderPairStruct[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     "permit(address,((address,uint160,uint48,uint48)[],address,uint256),bytes)"(
       owner: string,
       permitBatch: IAllowanceTransfer.PermitBatchStruct,
       signature: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     "permit(address,((address,uint160,uint48,uint48),address,uint256),bytes)"(
       owner: string,
       permitSingle: IAllowanceTransfer.PermitSingleStruct,
       signature: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     "transferFrom((address,address,uint160,address)[])"(
       transferDetails: IAllowanceTransfer.AllowanceTransferDetailsStruct[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     "transferFrom(address,address,uint160,address)"(
@@ -467,7 +496,7 @@ export interface IAllowanceTransfer extends BaseContract {
       to: string,
       amount: BigNumberish,
       token: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
   };
 
@@ -477,25 +506,25 @@ export interface IAllowanceTransfer extends BaseContract {
       token?: string | null,
       spender?: string | null,
       amount?: null,
-      expiration?: null
+      expiration?: null,
     ): ApprovalEventFilter;
     Approval(
       owner?: string | null,
       token?: string | null,
       spender?: string | null,
       amount?: null,
-      expiration?: null
+      expiration?: null,
     ): ApprovalEventFilter;
 
     "Lockdown(address,address,address)"(
       owner?: string | null,
       token?: null,
-      spender?: null
+      spender?: null,
     ): LockdownEventFilter;
     Lockdown(
       owner?: string | null,
       token?: null,
-      spender?: null
+      spender?: null,
     ): LockdownEventFilter;
 
     "NonceInvalidation(address,address,address,uint48,uint48)"(
@@ -503,14 +532,14 @@ export interface IAllowanceTransfer extends BaseContract {
       token?: string | null,
       spender?: string | null,
       newNonce?: null,
-      oldNonce?: null
+      oldNonce?: null,
     ): NonceInvalidationEventFilter;
     NonceInvalidation(
       owner?: string | null,
       token?: string | null,
       spender?: string | null,
       newNonce?: null,
-      oldNonce?: null
+      oldNonce?: null,
     ): NonceInvalidationEventFilter;
 
     "Permit(address,address,address,uint160,uint48,uint48)"(
@@ -519,7 +548,7 @@ export interface IAllowanceTransfer extends BaseContract {
       spender?: string | null,
       amount?: null,
       expiration?: null,
-      nonce?: null
+      nonce?: null,
     ): PermitEventFilter;
     Permit(
       owner?: string | null,
@@ -527,7 +556,7 @@ export interface IAllowanceTransfer extends BaseContract {
       spender?: string | null,
       amount?: null,
       expiration?: null,
-      nonce?: null
+      nonce?: null,
     ): PermitEventFilter;
   };
 
@@ -538,7 +567,7 @@ export interface IAllowanceTransfer extends BaseContract {
       user: string,
       token: string,
       spender: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     approve(
@@ -546,38 +575,38 @@ export interface IAllowanceTransfer extends BaseContract {
       spender: string,
       amount: BigNumberish,
       expiration: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     invalidateNonces(
       token: string,
       spender: string,
       newNonce: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     lockdown(
       approvals: IAllowanceTransfer.TokenSpenderPairStruct[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     "permit(address,((address,uint160,uint48,uint48)[],address,uint256),bytes)"(
       owner: string,
       permitBatch: IAllowanceTransfer.PermitBatchStruct,
       signature: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     "permit(address,((address,uint160,uint48,uint48),address,uint256),bytes)"(
       owner: string,
       permitSingle: IAllowanceTransfer.PermitSingleStruct,
       signature: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     "transferFrom((address,address,uint160,address)[])"(
       transferDetails: IAllowanceTransfer.AllowanceTransferDetailsStruct[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     "transferFrom(address,address,uint160,address)"(
@@ -585,7 +614,7 @@ export interface IAllowanceTransfer extends BaseContract {
       to: string,
       amount: BigNumberish,
       token: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
   };
 
@@ -596,7 +625,7 @@ export interface IAllowanceTransfer extends BaseContract {
       user: string,
       token: string,
       spender: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     approve(
@@ -604,38 +633,38 @@ export interface IAllowanceTransfer extends BaseContract {
       spender: string,
       amount: BigNumberish,
       expiration: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     invalidateNonces(
       token: string,
       spender: string,
       newNonce: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     lockdown(
       approvals: IAllowanceTransfer.TokenSpenderPairStruct[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     "permit(address,((address,uint160,uint48,uint48)[],address,uint256),bytes)"(
       owner: string,
       permitBatch: IAllowanceTransfer.PermitBatchStruct,
       signature: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     "permit(address,((address,uint160,uint48,uint48),address,uint256),bytes)"(
       owner: string,
       permitSingle: IAllowanceTransfer.PermitSingleStruct,
       signature: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     "transferFrom((address,address,uint160,address)[])"(
       transferDetails: IAllowanceTransfer.AllowanceTransferDetailsStruct[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     "transferFrom(address,address,uint160,address)"(
@@ -643,7 +672,7 @@ export interface IAllowanceTransfer extends BaseContract {
       to: string,
       amount: BigNumberish,
       token: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
   };
 }

@@ -67,38 +67,46 @@ export interface IATokenInterface extends utils.Interface {
       | "transfer"
       | "transferFrom"
       | "transferOnLiquidation"
-      | "transferUnderlyingTo"
+      | "transferUnderlyingTo",
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "UNDERLYING_ASSET_ADDRESS",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "allowance",
-    values: [string, string]
+    values: [string, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "approve",
-    values: [string, BigNumberish]
+    values: [string, BigNumberish],
   ): string;
+
   encodeFunctionData(functionFragment: "balanceOf", values: [string]): string;
+
   encodeFunctionData(
     functionFragment: "burn",
-    values: [string, string, BigNumberish, BigNumberish]
+    values: [string, string, BigNumberish, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "getIncentivesController",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "getScaledUserBalanceAndSupply",
-    values: [string]
+    values: [string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "handleRepayment",
-    values: [string, BigNumberish]
+    values: [string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "initialize",
     values: [
@@ -109,96 +117,122 @@ export interface IATokenInterface extends utils.Interface {
       BigNumberish,
       string,
       string,
-      BytesLike
-    ]
+      BytesLike,
+    ],
   ): string;
+
   encodeFunctionData(
     functionFragment: "mint",
-    values: [string, BigNumberish, BigNumberish]
+    values: [string, BigNumberish, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "mintToTreasury",
-    values: [BigNumberish, BigNumberish]
+    values: [BigNumberish, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "scaledBalanceOf",
-    values: [string]
+    values: [string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "scaledTotalSupply",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "totalSupply",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "transfer",
-    values: [string, BigNumberish]
+    values: [string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "transferFrom",
-    values: [string, string, BigNumberish]
+    values: [string, string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "transferOnLiquidation",
-    values: [string, string, BigNumberish]
+    values: [string, string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "transferUnderlyingTo",
-    values: [string, BigNumberish]
+    values: [string, BigNumberish],
   ): string;
 
   decodeFunctionResult(
     functionFragment: "UNDERLYING_ASSET_ADDRESS",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "allowance", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "burn", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "getIncentivesController",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "getScaledUserBalanceAndSupply",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "handleRepayment",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "mint", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "mintToTreasury",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "scaledBalanceOf",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "scaledTotalSupply",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "totalSupply",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "transfer", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "transferFrom",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "transferOnLiquidation",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "transferUnderlyingTo",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
 
   events: {
@@ -211,10 +245,15 @@ export interface IATokenInterface extends utils.Interface {
   };
 
   getEvent(nameOrSignatureOrTopic: "Approval"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "BalanceTransfer"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Burn"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Initialized"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Mint"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Transfer"): EventFragment;
 }
 
@@ -223,6 +262,7 @@ export interface ApprovalEventObject {
   spender: string;
   value: BigNumber;
 }
+
 export type ApprovalEvent = TypedEvent<
   [string, string, BigNumber],
   ApprovalEventObject
@@ -236,6 +276,7 @@ export interface BalanceTransferEventObject {
   value: BigNumber;
   index: BigNumber;
 }
+
 export type BalanceTransferEvent = TypedEvent<
   [string, string, BigNumber, BigNumber],
   BalanceTransferEventObject
@@ -249,6 +290,7 @@ export interface BurnEventObject {
   value: BigNumber;
   index: BigNumber;
 }
+
 export type BurnEvent = TypedEvent<
   [string, string, BigNumber, BigNumber],
   BurnEventObject
@@ -266,6 +308,7 @@ export interface InitializedEventObject {
   aTokenSymbol: string;
   params: string;
 }
+
 export type InitializedEvent = TypedEvent<
   [string, string, string, string, number, string, string, string],
   InitializedEventObject
@@ -278,6 +321,7 @@ export interface MintEventObject {
   value: BigNumber;
   index: BigNumber;
 }
+
 export type MintEvent = TypedEvent<
   [string, BigNumber, BigNumber],
   MintEventObject
@@ -290,6 +334,7 @@ export interface TransferEventObject {
   to: string;
   value: BigNumber;
 }
+
 export type TransferEvent = TypedEvent<
   [string, string, BigNumber],
   TransferEventObject
@@ -299,7 +344,9 @@ export type TransferEventFilter = TypedEventFilter<TransferEvent>;
 
 export interface IAToken extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: IATokenInterface;
@@ -307,17 +354,21 @@ export interface IAToken extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -329,13 +380,13 @@ export interface IAToken extends BaseContract {
     allowance(
       owner: string,
       spender: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     balanceOf(account: string, overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -345,20 +396,20 @@ export interface IAToken extends BaseContract {
       receiverOfUnderlying: string,
       amount: BigNumberish,
       index: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     getIncentivesController(overrides?: CallOverrides): Promise<[string]>;
 
     getScaledUserBalanceAndSupply(
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber, BigNumber]>;
 
     handleRepayment(
       user: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     initialize(
@@ -370,25 +421,25 @@ export interface IAToken extends BaseContract {
       aTokenName: string,
       aTokenSymbol: string,
       params: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     mint(
       user: string,
       amount: BigNumberish,
       index: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     mintToTreasury(
       amount: BigNumberish,
       index: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     scaledBalanceOf(
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     scaledTotalSupply(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -398,27 +449,27 @@ export interface IAToken extends BaseContract {
     transfer(
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     transferFrom(
       from: string,
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     transferOnLiquidation(
       from: string,
       to: string,
       value: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     transferUnderlyingTo(
       user: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
   };
 
@@ -427,13 +478,13 @@ export interface IAToken extends BaseContract {
   allowance(
     owner: string,
     spender: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   approve(
     spender: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   balanceOf(account: string, overrides?: CallOverrides): Promise<BigNumber>;
@@ -443,20 +494,20 @@ export interface IAToken extends BaseContract {
     receiverOfUnderlying: string,
     amount: BigNumberish,
     index: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   getIncentivesController(overrides?: CallOverrides): Promise<string>;
 
   getScaledUserBalanceAndSupply(
     user: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<[BigNumber, BigNumber]>;
 
   handleRepayment(
     user: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   initialize(
@@ -468,20 +519,20 @@ export interface IAToken extends BaseContract {
     aTokenName: string,
     aTokenSymbol: string,
     params: BytesLike,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   mint(
     user: string,
     amount: BigNumberish,
     index: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   mintToTreasury(
     amount: BigNumberish,
     index: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   scaledBalanceOf(user: string, overrides?: CallOverrides): Promise<BigNumber>;
@@ -493,27 +544,27 @@ export interface IAToken extends BaseContract {
   transfer(
     to: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   transferFrom(
     from: string,
     to: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   transferOnLiquidation(
     from: string,
     to: string,
     value: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   transferUnderlyingTo(
     user: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -522,13 +573,13 @@ export interface IAToken extends BaseContract {
     allowance(
       owner: string,
       spender: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     balanceOf(account: string, overrides?: CallOverrides): Promise<BigNumber>;
@@ -538,20 +589,20 @@ export interface IAToken extends BaseContract {
       receiverOfUnderlying: string,
       amount: BigNumberish,
       index: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     getIncentivesController(overrides?: CallOverrides): Promise<string>;
 
     getScaledUserBalanceAndSupply(
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber, BigNumber]>;
 
     handleRepayment(
       user: string,
       amount: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     initialize(
@@ -563,25 +614,25 @@ export interface IAToken extends BaseContract {
       aTokenName: string,
       aTokenSymbol: string,
       params: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     mint(
       user: string,
       amount: BigNumberish,
       index: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     mintToTreasury(
       amount: BigNumberish,
       index: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     scaledBalanceOf(
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     scaledTotalSupply(overrides?: CallOverrides): Promise<BigNumber>;
@@ -591,27 +642,27 @@ export interface IAToken extends BaseContract {
     transfer(
       to: string,
       amount: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     transferFrom(
       from: string,
       to: string,
       amount: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     transferOnLiquidation(
       from: string,
       to: string,
       value: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     transferUnderlyingTo(
       user: string,
       amount: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
   };
 
@@ -619,38 +670,38 @@ export interface IAToken extends BaseContract {
     "Approval(address,address,uint256)"(
       owner?: string | null,
       spender?: string | null,
-      value?: null
+      value?: null,
     ): ApprovalEventFilter;
     Approval(
       owner?: string | null,
       spender?: string | null,
-      value?: null
+      value?: null,
     ): ApprovalEventFilter;
 
     "BalanceTransfer(address,address,uint256,uint256)"(
       from?: string | null,
       to?: string | null,
       value?: null,
-      index?: null
+      index?: null,
     ): BalanceTransferEventFilter;
     BalanceTransfer(
       from?: string | null,
       to?: string | null,
       value?: null,
-      index?: null
+      index?: null,
     ): BalanceTransferEventFilter;
 
     "Burn(address,address,uint256,uint256)"(
       from?: string | null,
       target?: string | null,
       value?: null,
-      index?: null
+      index?: null,
     ): BurnEventFilter;
     Burn(
       from?: string | null,
       target?: string | null,
       value?: null,
-      index?: null
+      index?: null,
     ): BurnEventFilter;
 
     "Initialized(address,address,address,address,uint8,string,string,bytes)"(
@@ -661,7 +712,7 @@ export interface IAToken extends BaseContract {
       aTokenDecimals?: null,
       aTokenName?: null,
       aTokenSymbol?: null,
-      params?: null
+      params?: null,
     ): InitializedEventFilter;
     Initialized(
       underlyingAsset?: string | null,
@@ -671,25 +722,25 @@ export interface IAToken extends BaseContract {
       aTokenDecimals?: null,
       aTokenName?: null,
       aTokenSymbol?: null,
-      params?: null
+      params?: null,
     ): InitializedEventFilter;
 
     "Mint(address,uint256,uint256)"(
       from?: string | null,
       value?: null,
-      index?: null
+      index?: null,
     ): MintEventFilter;
     Mint(from?: string | null, value?: null, index?: null): MintEventFilter;
 
     "Transfer(address,address,uint256)"(
       from?: string | null,
       to?: string | null,
-      value?: null
+      value?: null,
     ): TransferEventFilter;
     Transfer(
       from?: string | null,
       to?: string | null,
-      value?: null
+      value?: null,
     ): TransferEventFilter;
   };
 
@@ -699,13 +750,13 @@ export interface IAToken extends BaseContract {
     allowance(
       owner: string,
       spender: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     balanceOf(account: string, overrides?: CallOverrides): Promise<BigNumber>;
@@ -715,20 +766,20 @@ export interface IAToken extends BaseContract {
       receiverOfUnderlying: string,
       amount: BigNumberish,
       index: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     getIncentivesController(overrides?: CallOverrides): Promise<BigNumber>;
 
     getScaledUserBalanceAndSupply(
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     handleRepayment(
       user: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     initialize(
@@ -740,25 +791,25 @@ export interface IAToken extends BaseContract {
       aTokenName: string,
       aTokenSymbol: string,
       params: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     mint(
       user: string,
       amount: BigNumberish,
       index: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     mintToTreasury(
       amount: BigNumberish,
       index: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     scaledBalanceOf(
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     scaledTotalSupply(overrides?: CallOverrides): Promise<BigNumber>;
@@ -768,50 +819,50 @@ export interface IAToken extends BaseContract {
     transfer(
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     transferFrom(
       from: string,
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     transferOnLiquidation(
       from: string,
       to: string,
       value: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     transferUnderlyingTo(
       user: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
     UNDERLYING_ASSET_ADDRESS(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     allowance(
       owner: string,
       spender: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     balanceOf(
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     burn(
@@ -819,22 +870,22 @@ export interface IAToken extends BaseContract {
       receiverOfUnderlying: string,
       amount: BigNumberish,
       index: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     getIncentivesController(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     getScaledUserBalanceAndSupply(
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     handleRepayment(
       user: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     initialize(
@@ -846,25 +897,25 @@ export interface IAToken extends BaseContract {
       aTokenName: string,
       aTokenSymbol: string,
       params: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     mint(
       user: string,
       amount: BigNumberish,
       index: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     mintToTreasury(
       amount: BigNumberish,
       index: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     scaledBalanceOf(
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     scaledTotalSupply(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -874,27 +925,27 @@ export interface IAToken extends BaseContract {
     transfer(
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     transferFrom(
       from: string,
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     transferOnLiquidation(
       from: string,
       to: string,
       value: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     transferUnderlyingTo(
       user: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
   };
 }

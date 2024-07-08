@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { Contract, Signer, utils } from "ethers";
-import type { Provider } from "@ethersproject/providers";
-import type { IStEth, IStEthInterface } from "../IStEth";
+import {Contract, Signer, utils} from "ethers";
+import type {Provider} from "@ethersproject/providers";
+import type {IStEth, IStEthInterface} from "../IStEth";
 
 const _abi = [
   {
@@ -349,9 +349,11 @@ const _abi = [
 
 export class IStEth__factory {
   static readonly abi = _abi;
+
   static createInterface(): IStEthInterface {
     return new utils.Interface(_abi) as IStEthInterface;
   }
+
   static connect(address: string, signerOrProvider: Signer | Provider): IStEth {
     return new Contract(address, _abi, signerOrProvider) as IStEth;
   }

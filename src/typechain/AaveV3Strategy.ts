@@ -45,51 +45,67 @@ export interface AaveV3StrategyInterface extends utils.Interface {
       | "lendingPool"
       | "sweep"
       | "totalLockedValue"
-      | "vault"
+      | "vault",
   ): FunctionFragment;
 
   encodeFunctionData(functionFragment: "aToken", values?: undefined): string;
+
   encodeFunctionData(functionFragment: "asset", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "balanceOfAsset",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "divest",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "invest",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "lendingPool",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "sweep", values: [string]): string;
+
   encodeFunctionData(
     functionFragment: "totalLockedValue",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "vault", values?: undefined): string;
 
   decodeFunctionResult(functionFragment: "aToken", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "asset", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "balanceOfAsset",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "divest", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "invest", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "lendingPool",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "sweep", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "totalLockedValue",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "vault", data: BytesLike): Result;
 
   events: {};
@@ -97,7 +113,9 @@ export interface AaveV3StrategyInterface extends utils.Interface {
 
 export interface AaveV3Strategy extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: AaveV3StrategyInterface;
@@ -105,17 +123,21 @@ export interface AaveV3Strategy extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -127,24 +149,24 @@ export interface AaveV3Strategy extends BaseContract {
     asset(overrides?: CallOverrides): Promise<[string]>;
 
     balanceOfAsset(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber] & { assets: BigNumber }>;
 
     divest(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     invest(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     lendingPool(overrides?: CallOverrides): Promise<[string]>;
 
     sweep(
       token: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     totalLockedValue(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -160,19 +182,19 @@ export interface AaveV3Strategy extends BaseContract {
 
   divest(
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   invest(
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   lendingPool(overrides?: CallOverrides): Promise<string>;
 
   sweep(
     token: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   totalLockedValue(overrides?: CallOverrides): Promise<BigNumber>;
@@ -210,19 +232,19 @@ export interface AaveV3Strategy extends BaseContract {
 
     divest(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     invest(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     lendingPool(overrides?: CallOverrides): Promise<BigNumber>;
 
     sweep(
       token: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     totalLockedValue(overrides?: CallOverrides): Promise<BigNumber>;
@@ -239,19 +261,19 @@ export interface AaveV3Strategy extends BaseContract {
 
     divest(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     invest(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     lendingPool(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     sweep(
       token: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     totalLockedValue(overrides?: CallOverrides): Promise<PopulatedTransaction>;

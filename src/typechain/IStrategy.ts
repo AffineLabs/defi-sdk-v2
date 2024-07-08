@@ -35,43 +35,51 @@ export interface IStrategyInterface extends utils.Interface {
       | "sharesToUnderlying"
       | "sharesToUnderlyingView"
       | "underlyingToShares"
-      | "userUnderlyingView"
+      | "userUnderlyingView",
   ): FunctionFragment;
 
   encodeFunctionData(functionFragment: "shares", values: [string]): string;
+
   encodeFunctionData(
     functionFragment: "sharesToUnderlying",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "sharesToUnderlyingView",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "underlyingToShares",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "userUnderlyingView",
-    values: [string]
+    values: [string],
   ): string;
 
   decodeFunctionResult(functionFragment: "shares", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "sharesToUnderlying",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "sharesToUnderlyingView",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "underlyingToShares",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "userUnderlyingView",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
 
   events: {};
@@ -79,7 +87,9 @@ export interface IStrategyInterface extends utils.Interface {
 
 export interface IStrategy extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: IStrategyInterface;
@@ -87,17 +97,21 @@ export interface IStrategy extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -108,22 +122,22 @@ export interface IStrategy extends BaseContract {
 
     sharesToUnderlying(
       arg0: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     sharesToUnderlyingView(
       arg0: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     underlyingToShares(
       arg0: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     userUnderlyingView(
       arg0: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
   };
 
@@ -131,22 +145,22 @@ export interface IStrategy extends BaseContract {
 
   sharesToUnderlying(
     arg0: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   sharesToUnderlyingView(
     arg0: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   underlyingToShares(
     arg0: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   userUnderlyingView(
     arg0: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   callStatic: {
@@ -154,22 +168,22 @@ export interface IStrategy extends BaseContract {
 
     sharesToUnderlying(
       arg0: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     sharesToUnderlyingView(
       arg0: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     underlyingToShares(
       arg0: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     userUnderlyingView(
       arg0: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
   };
 
@@ -180,49 +194,49 @@ export interface IStrategy extends BaseContract {
 
     sharesToUnderlying(
       arg0: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     sharesToUnderlyingView(
       arg0: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     underlyingToShares(
       arg0: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     userUnderlyingView(
       arg0: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
     shares(
       arg0: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     sharesToUnderlying(
       arg0: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     sharesToUnderlyingView(
       arg0: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     underlyingToShares(
       arg0: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     userUnderlyingView(
       arg0: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
   };
 }

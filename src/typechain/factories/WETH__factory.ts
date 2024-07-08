@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { Contract, Signer, utils } from "ethers";
-import type { Provider } from "@ethersproject/providers";
-import type { WETH, WETHInterface } from "../WETH";
+import {Contract, Signer, utils} from "ethers";
+import type {Provider} from "@ethersproject/providers";
+import type {WETH, WETHInterface} from "../WETH";
 
 const _abi = [
   {
@@ -370,9 +370,11 @@ const _abi = [
 
 export class WETH__factory {
   static readonly abi = _abi;
+
   static createInterface(): WETHInterface {
     return new utils.Interface(_abi) as WETHInterface;
   }
+
   static connect(address: string, signerOrProvider: Signer | Provider): WETH {
     return new Contract(address, _abi, signerOrProvider) as WETH;
   }

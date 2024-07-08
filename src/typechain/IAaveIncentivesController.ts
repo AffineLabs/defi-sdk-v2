@@ -41,65 +41,77 @@ export interface IAaveIncentivesControllerInterface extends utils.Interface {
       | "getAssetData"
       | "getDistributionEnd"
       | "getRewardsBalance"
-      | "getUserUnclaimedRewards"
+      | "getUserUnclaimedRewards",
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "REWARD_TOKEN",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "claimRewards",
-    values: [string[], BigNumberish, string]
+    values: [string[], BigNumberish, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "claimRewardsOnBehalf",
-    values: [string[], BigNumberish, string, string]
+    values: [string[], BigNumberish, string, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "getAssetData",
-    values: [string]
+    values: [string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "getDistributionEnd",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "getRewardsBalance",
-    values: [string[], string]
+    values: [string[], string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "getUserUnclaimedRewards",
-    values: [string]
+    values: [string],
   ): string;
 
   decodeFunctionResult(
     functionFragment: "REWARD_TOKEN",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "claimRewards",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "claimRewardsOnBehalf",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "getAssetData",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "getDistributionEnd",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "getRewardsBalance",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "getUserUnclaimedRewards",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
 
   events: {};
@@ -107,7 +119,9 @@ export interface IAaveIncentivesControllerInterface extends utils.Interface {
 
 export interface IAaveIncentivesController extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: IAaveIncentivesControllerInterface;
@@ -115,17 +129,21 @@ export interface IAaveIncentivesController extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -138,7 +156,7 @@ export interface IAaveIncentivesController extends BaseContract {
       assets: string[],
       amount: BigNumberish,
       to: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     claimRewardsOnBehalf(
@@ -146,12 +164,12 @@ export interface IAaveIncentivesController extends BaseContract {
       amount: BigNumberish,
       user: string,
       to: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     getAssetData(
       asset: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber, BigNumber, BigNumber]>;
 
     getDistributionEnd(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -159,12 +177,12 @@ export interface IAaveIncentivesController extends BaseContract {
     getRewardsBalance(
       assets: string[],
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     getUserUnclaimedRewards(
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
   };
 
@@ -174,7 +192,7 @@ export interface IAaveIncentivesController extends BaseContract {
     assets: string[],
     amount: BigNumberish,
     to: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   claimRewardsOnBehalf(
@@ -182,12 +200,12 @@ export interface IAaveIncentivesController extends BaseContract {
     amount: BigNumberish,
     user: string,
     to: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   getAssetData(
     asset: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<[BigNumber, BigNumber, BigNumber]>;
 
   getDistributionEnd(overrides?: CallOverrides): Promise<BigNumber>;
@@ -195,12 +213,12 @@ export interface IAaveIncentivesController extends BaseContract {
   getRewardsBalance(
     assets: string[],
     user: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   getUserUnclaimedRewards(
     user: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   callStatic: {
@@ -210,7 +228,7 @@ export interface IAaveIncentivesController extends BaseContract {
       assets: string[],
       amount: BigNumberish,
       to: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     claimRewardsOnBehalf(
@@ -218,12 +236,12 @@ export interface IAaveIncentivesController extends BaseContract {
       amount: BigNumberish,
       user: string,
       to: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     getAssetData(
       asset: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber, BigNumber, BigNumber]>;
 
     getDistributionEnd(overrides?: CallOverrides): Promise<BigNumber>;
@@ -231,12 +249,12 @@ export interface IAaveIncentivesController extends BaseContract {
     getRewardsBalance(
       assets: string[],
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     getUserUnclaimedRewards(
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
   };
 
@@ -249,7 +267,7 @@ export interface IAaveIncentivesController extends BaseContract {
       assets: string[],
       amount: BigNumberish,
       to: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     claimRewardsOnBehalf(
@@ -257,7 +275,7 @@ export interface IAaveIncentivesController extends BaseContract {
       amount: BigNumberish,
       user: string,
       to: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     getAssetData(asset: string, overrides?: CallOverrides): Promise<BigNumber>;
@@ -267,12 +285,12 @@ export interface IAaveIncentivesController extends BaseContract {
     getRewardsBalance(
       assets: string[],
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     getUserUnclaimedRewards(
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
   };
 
@@ -283,7 +301,7 @@ export interface IAaveIncentivesController extends BaseContract {
       assets: string[],
       amount: BigNumberish,
       to: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     claimRewardsOnBehalf(
@@ -291,27 +309,27 @@ export interface IAaveIncentivesController extends BaseContract {
       amount: BigNumberish,
       user: string,
       to: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     getAssetData(
       asset: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     getDistributionEnd(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     getRewardsBalance(
       assets: string[],
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     getUserUnclaimedRewards(
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
   };
 }

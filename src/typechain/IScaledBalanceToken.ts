@@ -30,33 +30,37 @@ export interface IScaledBalanceTokenInterface extends utils.Interface {
     nameOrSignatureOrTopic:
       | "getScaledUserBalanceAndSupply"
       | "scaledBalanceOf"
-      | "scaledTotalSupply"
+      | "scaledTotalSupply",
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "getScaledUserBalanceAndSupply",
-    values: [string]
+    values: [string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "scaledBalanceOf",
-    values: [string]
+    values: [string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "scaledTotalSupply",
-    values?: undefined
+    values?: undefined,
   ): string;
 
   decodeFunctionResult(
     functionFragment: "getScaledUserBalanceAndSupply",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "scaledBalanceOf",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "scaledTotalSupply",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
 
   events: {};
@@ -64,7 +68,9 @@ export interface IScaledBalanceTokenInterface extends utils.Interface {
 
 export interface IScaledBalanceToken extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: IScaledBalanceTokenInterface;
@@ -72,17 +78,21 @@ export interface IScaledBalanceToken extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -91,12 +101,12 @@ export interface IScaledBalanceToken extends BaseContract {
   functions: {
     getScaledUserBalanceAndSupply(
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber, BigNumber]>;
 
     scaledBalanceOf(
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     scaledTotalSupply(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -104,7 +114,7 @@ export interface IScaledBalanceToken extends BaseContract {
 
   getScaledUserBalanceAndSupply(
     user: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<[BigNumber, BigNumber]>;
 
   scaledBalanceOf(user: string, overrides?: CallOverrides): Promise<BigNumber>;
@@ -114,12 +124,12 @@ export interface IScaledBalanceToken extends BaseContract {
   callStatic: {
     getScaledUserBalanceAndSupply(
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber, BigNumber]>;
 
     scaledBalanceOf(
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     scaledTotalSupply(overrides?: CallOverrides): Promise<BigNumber>;
@@ -130,12 +140,12 @@ export interface IScaledBalanceToken extends BaseContract {
   estimateGas: {
     getScaledUserBalanceAndSupply(
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     scaledBalanceOf(
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     scaledTotalSupply(overrides?: CallOverrides): Promise<BigNumber>;
@@ -144,12 +154,12 @@ export interface IScaledBalanceToken extends BaseContract {
   populateTransaction: {
     getScaledUserBalanceAndSupply(
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     scaledBalanceOf(
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     scaledTotalSupply(overrides?: CallOverrides): Promise<PopulatedTransaction>;

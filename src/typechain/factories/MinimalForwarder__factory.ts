@@ -155,12 +155,14 @@ const _abi = [
 
 export class MinimalForwarder__factory {
   static readonly abi = _abi;
+
   static createInterface(): MinimalForwarderInterface {
     return new utils.Interface(_abi) as MinimalForwarderInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): MinimalForwarder {
     return new Contract(address, _abi, signerOrProvider) as MinimalForwarder;
   }

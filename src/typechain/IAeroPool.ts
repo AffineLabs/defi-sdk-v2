@@ -137,200 +137,290 @@ export interface IAeroPoolInterface extends utils.Interface {
       | "tokens"
       | "totalSupply"
       | "transfer"
-      | "transferFrom"
+      | "transferFrom",
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "allowance",
-    values: [string, string]
+    values: [string, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "approve",
-    values: [string, BigNumberish]
+    values: [string, BigNumberish],
   ): string;
+
   encodeFunctionData(functionFragment: "balanceOf", values: [string]): string;
+
   encodeFunctionData(
     functionFragment: "blockTimestampLast",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "burn", values: [string]): string;
+
   encodeFunctionData(functionFragment: "claimFees", values?: undefined): string;
+
   encodeFunctionData(functionFragment: "claimable0", values: [string]): string;
+
   encodeFunctionData(functionFragment: "claimable1", values: [string]): string;
+
   encodeFunctionData(
     functionFragment: "currentCumulativePrices",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "decimals", values?: undefined): string;
+
   encodeFunctionData(functionFragment: "factory", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "getAmountOut",
-    values: [BigNumberish, string]
+    values: [BigNumberish, string],
   ): string;
+
   encodeFunctionData(functionFragment: "getK", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "getReserves",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "index0", values?: undefined): string;
+
   encodeFunctionData(functionFragment: "index1", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "initialize",
-    values: [string, string, boolean]
+    values: [string, string, boolean],
   ): string;
+
   encodeFunctionData(
     functionFragment: "lastObservation",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "metadata", values?: undefined): string;
+
   encodeFunctionData(functionFragment: "mint", values: [string]): string;
+
   encodeFunctionData(functionFragment: "name", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "observationLength",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "periodSize",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "poolFees", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "prices",
-    values: [string, BigNumberish, BigNumberish]
+    values: [string, BigNumberish, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "quote",
-    values: [string, BigNumberish, BigNumberish]
+    values: [string, BigNumberish, BigNumberish],
   ): string;
+
   encodeFunctionData(functionFragment: "reserve0", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "reserve0CumulativeLast",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "reserve1", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "reserve1CumulativeLast",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "sample",
-    values: [string, BigNumberish, BigNumberish, BigNumberish]
+    values: [string, BigNumberish, BigNumberish, BigNumberish],
   ): string;
+
   encodeFunctionData(functionFragment: "setName", values: [string]): string;
+
   encodeFunctionData(functionFragment: "setSymbol", values: [string]): string;
+
   encodeFunctionData(functionFragment: "skim", values: [string]): string;
+
   encodeFunctionData(functionFragment: "stable", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "supplyIndex0",
-    values: [string]
+    values: [string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "supplyIndex1",
-    values: [string]
+    values: [string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "swap",
-    values: [BigNumberish, BigNumberish, string, BytesLike]
+    values: [BigNumberish, BigNumberish, string, BytesLike],
   ): string;
+
   encodeFunctionData(functionFragment: "symbol", values?: undefined): string;
+
   encodeFunctionData(functionFragment: "sync", values?: undefined): string;
+
   encodeFunctionData(functionFragment: "token0", values?: undefined): string;
+
   encodeFunctionData(functionFragment: "token1", values?: undefined): string;
+
   encodeFunctionData(functionFragment: "tokens", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "totalSupply",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "transfer",
-    values: [string, BigNumberish]
+    values: [string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "transferFrom",
-    values: [string, string, BigNumberish]
+    values: [string, string, BigNumberish],
   ): string;
 
   decodeFunctionResult(functionFragment: "allowance", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "blockTimestampLast",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "burn", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "claimFees", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "claimable0", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "claimable1", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "currentCumulativePrices",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "decimals", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "factory", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "getAmountOut",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "getK", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "getReserves",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "index0", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "index1", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "lastObservation",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "metadata", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "mint", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "name", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "observationLength",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "periodSize", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "poolFees", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "prices", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "quote", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "reserve0", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "reserve0CumulativeLast",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "reserve1", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "reserve1CumulativeLast",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "sample", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "setName", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "setSymbol", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "skim", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "stable", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "supplyIndex0",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "supplyIndex1",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "swap", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "symbol", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "sync", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "token0", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "token1", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "tokens", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "totalSupply",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "transfer", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "transferFrom",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
 
   events: {
@@ -345,12 +435,19 @@ export interface IAeroPoolInterface extends utils.Interface {
   };
 
   getEvent(nameOrSignatureOrTopic: "Approval"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Burn"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Claim"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Fees"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Mint"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Swap"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Sync"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Transfer"): EventFragment;
 }
 
@@ -359,6 +456,7 @@ export interface ApprovalEventObject {
   spender: string;
   value: BigNumber;
 }
+
 export type ApprovalEvent = TypedEvent<
   [string, string, BigNumber],
   ApprovalEventObject
@@ -372,6 +470,7 @@ export interface BurnEventObject {
   amount0: BigNumber;
   amount1: BigNumber;
 }
+
 export type BurnEvent = TypedEvent<
   [string, string, BigNumber, BigNumber],
   BurnEventObject
@@ -385,6 +484,7 @@ export interface ClaimEventObject {
   amount0: BigNumber;
   amount1: BigNumber;
 }
+
 export type ClaimEvent = TypedEvent<
   [string, string, BigNumber, BigNumber],
   ClaimEventObject
@@ -397,6 +497,7 @@ export interface FeesEventObject {
   amount0: BigNumber;
   amount1: BigNumber;
 }
+
 export type FeesEvent = TypedEvent<
   [string, BigNumber, BigNumber],
   FeesEventObject
@@ -409,6 +510,7 @@ export interface MintEventObject {
   amount0: BigNumber;
   amount1: BigNumber;
 }
+
 export type MintEvent = TypedEvent<
   [string, BigNumber, BigNumber],
   MintEventObject
@@ -424,6 +526,7 @@ export interface SwapEventObject {
   amount0Out: BigNumber;
   amount1Out: BigNumber;
 }
+
 export type SwapEvent = TypedEvent<
   [string, string, BigNumber, BigNumber, BigNumber, BigNumber],
   SwapEventObject
@@ -435,6 +538,7 @@ export interface SyncEventObject {
   reserve0: BigNumber;
   reserve1: BigNumber;
 }
+
 export type SyncEvent = TypedEvent<[BigNumber, BigNumber], SyncEventObject>;
 
 export type SyncEventFilter = TypedEventFilter<SyncEvent>;
@@ -444,6 +548,7 @@ export interface TransferEventObject {
   to: string;
   value: BigNumber;
 }
+
 export type TransferEvent = TypedEvent<
   [string, string, BigNumber],
   TransferEventObject
@@ -453,7 +558,9 @@ export type TransferEventFilter = TypedEventFilter<TransferEvent>;
 
 export interface IAeroPool extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: IAeroPoolInterface;
@@ -461,17 +568,21 @@ export interface IAeroPool extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -481,13 +592,13 @@ export interface IAeroPool extends BaseContract {
     allowance(
       owner: string,
       spender: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     balanceOf(account: string, overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -496,20 +607,18 @@ export interface IAeroPool extends BaseContract {
 
     burn(
       to: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     claimFees(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     claimable0(arg0: string, overrides?: CallOverrides): Promise<[BigNumber]>;
 
     claimable1(arg0: string, overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    currentCumulativePrices(
-      overrides?: CallOverrides
-    ): Promise<
+    currentCumulativePrices(overrides?: CallOverrides): Promise<
       [BigNumber, BigNumber, BigNumber] & {
         reserve0Cumulative: BigNumber;
         reserve1Cumulative: BigNumber;
@@ -524,16 +633,14 @@ export interface IAeroPool extends BaseContract {
     getAmountOut(
       amountIn: BigNumberish,
       tokenIn: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     getK(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
-    getReserves(
-      overrides?: CallOverrides
-    ): Promise<
+    getReserves(overrides?: CallOverrides): Promise<
       [BigNumber, BigNumber, BigNumber] & {
         _reserve0: BigNumber;
         _reserve1: BigNumber;
@@ -549,16 +656,14 @@ export interface IAeroPool extends BaseContract {
       _token0: string,
       _token1: string,
       _stable: boolean,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     lastObservation(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[IAeroPool.ObservationStructOutput]>;
 
-    metadata(
-      overrides?: CallOverrides
-    ): Promise<
+    metadata(overrides?: CallOverrides): Promise<
       [BigNumber, BigNumber, BigNumber, BigNumber, boolean, string, string] & {
         dec0: BigNumber;
         dec1: BigNumber;
@@ -572,7 +677,7 @@ export interface IAeroPool extends BaseContract {
 
     mint(
       to: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     name(overrides?: CallOverrides): Promise<[string]>;
@@ -587,14 +692,14 @@ export interface IAeroPool extends BaseContract {
       tokenIn: string,
       amountIn: BigNumberish,
       points: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber[]]>;
 
     quote(
       tokenIn: string,
       amountIn: BigNumberish,
       granularity: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber] & { amountOut: BigNumber }>;
 
     reserve0(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -610,22 +715,22 @@ export interface IAeroPool extends BaseContract {
       amountIn: BigNumberish,
       points: BigNumberish,
       window: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber[]]>;
 
     setName(
       __name: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     setSymbol(
       __symbol: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     skim(
       to: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     stable(overrides?: CallOverrides): Promise<[boolean]>;
@@ -639,13 +744,13 @@ export interface IAeroPool extends BaseContract {
       amount1Out: BigNumberish,
       to: string,
       data: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     symbol(overrides?: CallOverrides): Promise<[string]>;
 
     sync(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     token0(overrides?: CallOverrides): Promise<[string]>;
@@ -659,27 +764,27 @@ export interface IAeroPool extends BaseContract {
     transfer(
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     transferFrom(
       from: string,
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
   };
 
   allowance(
     owner: string,
     spender: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   approve(
     spender: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   balanceOf(account: string, overrides?: CallOverrides): Promise<BigNumber>;
@@ -688,20 +793,18 @@ export interface IAeroPool extends BaseContract {
 
   burn(
     to: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   claimFees(
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   claimable0(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
   claimable1(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-  currentCumulativePrices(
-    overrides?: CallOverrides
-  ): Promise<
+  currentCumulativePrices(overrides?: CallOverrides): Promise<
     [BigNumber, BigNumber, BigNumber] & {
       reserve0Cumulative: BigNumber;
       reserve1Cumulative: BigNumber;
@@ -716,14 +819,12 @@ export interface IAeroPool extends BaseContract {
   getAmountOut(
     amountIn: BigNumberish,
     tokenIn: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   getK(overrides?: Overrides & { from?: string }): Promise<ContractTransaction>;
 
-  getReserves(
-    overrides?: CallOverrides
-  ): Promise<
+  getReserves(overrides?: CallOverrides): Promise<
     [BigNumber, BigNumber, BigNumber] & {
       _reserve0: BigNumber;
       _reserve1: BigNumber;
@@ -739,16 +840,14 @@ export interface IAeroPool extends BaseContract {
     _token0: string,
     _token1: string,
     _stable: boolean,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   lastObservation(
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<IAeroPool.ObservationStructOutput>;
 
-  metadata(
-    overrides?: CallOverrides
-  ): Promise<
+  metadata(overrides?: CallOverrides): Promise<
     [BigNumber, BigNumber, BigNumber, BigNumber, boolean, string, string] & {
       dec0: BigNumber;
       dec1: BigNumber;
@@ -762,7 +861,7 @@ export interface IAeroPool extends BaseContract {
 
   mint(
     to: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   name(overrides?: CallOverrides): Promise<string>;
@@ -777,14 +876,14 @@ export interface IAeroPool extends BaseContract {
     tokenIn: string,
     amountIn: BigNumberish,
     points: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber[]>;
 
   quote(
     tokenIn: string,
     amountIn: BigNumberish,
     granularity: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   reserve0(overrides?: CallOverrides): Promise<BigNumber>;
@@ -800,22 +899,22 @@ export interface IAeroPool extends BaseContract {
     amountIn: BigNumberish,
     points: BigNumberish,
     window: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber[]>;
 
   setName(
     __name: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   setSymbol(
     __symbol: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   skim(
     to: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   stable(overrides?: CallOverrides): Promise<boolean>;
@@ -829,7 +928,7 @@ export interface IAeroPool extends BaseContract {
     amount1Out: BigNumberish,
     to: string,
     data: BytesLike,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   symbol(overrides?: CallOverrides): Promise<string>;
@@ -847,27 +946,27 @@ export interface IAeroPool extends BaseContract {
   transfer(
     to: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   transferFrom(
     from: string,
     to: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   callStatic: {
     allowance(
       owner: string,
       spender: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     balanceOf(account: string, overrides?: CallOverrides): Promise<BigNumber>;
@@ -876,7 +975,7 @@ export interface IAeroPool extends BaseContract {
 
     burn(
       to: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber] & { amount0: BigNumber; amount1: BigNumber }
     >;
@@ -887,9 +986,7 @@ export interface IAeroPool extends BaseContract {
 
     claimable1(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
-    currentCumulativePrices(
-      overrides?: CallOverrides
-    ): Promise<
+    currentCumulativePrices(overrides?: CallOverrides): Promise<
       [BigNumber, BigNumber, BigNumber] & {
         reserve0Cumulative: BigNumber;
         reserve1Cumulative: BigNumber;
@@ -904,14 +1001,12 @@ export interface IAeroPool extends BaseContract {
     getAmountOut(
       amountIn: BigNumberish,
       tokenIn: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     getK(overrides?: CallOverrides): Promise<BigNumber>;
 
-    getReserves(
-      overrides?: CallOverrides
-    ): Promise<
+    getReserves(overrides?: CallOverrides): Promise<
       [BigNumber, BigNumber, BigNumber] & {
         _reserve0: BigNumber;
         _reserve1: BigNumber;
@@ -927,16 +1022,14 @@ export interface IAeroPool extends BaseContract {
       _token0: string,
       _token1: string,
       _stable: boolean,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     lastObservation(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<IAeroPool.ObservationStructOutput>;
 
-    metadata(
-      overrides?: CallOverrides
-    ): Promise<
+    metadata(overrides?: CallOverrides): Promise<
       [BigNumber, BigNumber, BigNumber, BigNumber, boolean, string, string] & {
         dec0: BigNumber;
         dec1: BigNumber;
@@ -962,14 +1055,14 @@ export interface IAeroPool extends BaseContract {
       tokenIn: string,
       amountIn: BigNumberish,
       points: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber[]>;
 
     quote(
       tokenIn: string,
       amountIn: BigNumberish,
       granularity: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     reserve0(overrides?: CallOverrides): Promise<BigNumber>;
@@ -985,7 +1078,7 @@ export interface IAeroPool extends BaseContract {
       amountIn: BigNumberish,
       points: BigNumberish,
       window: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber[]>;
 
     setName(__name: string, overrides?: CallOverrides): Promise<void>;
@@ -1005,7 +1098,7 @@ export interface IAeroPool extends BaseContract {
       amount1Out: BigNumberish,
       to: string,
       data: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     symbol(overrides?: CallOverrides): Promise<string>;
@@ -1023,14 +1116,14 @@ export interface IAeroPool extends BaseContract {
     transfer(
       to: string,
       amount: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     transferFrom(
       from: string,
       to: string,
       amount: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
   };
 
@@ -1038,60 +1131,60 @@ export interface IAeroPool extends BaseContract {
     "Approval(address,address,uint256)"(
       owner?: string | null,
       spender?: string | null,
-      value?: null
+      value?: null,
     ): ApprovalEventFilter;
     Approval(
       owner?: string | null,
       spender?: string | null,
-      value?: null
+      value?: null,
     ): ApprovalEventFilter;
 
     "Burn(address,address,uint256,uint256)"(
       sender?: string | null,
       to?: string | null,
       amount0?: null,
-      amount1?: null
+      amount1?: null,
     ): BurnEventFilter;
     Burn(
       sender?: string | null,
       to?: string | null,
       amount0?: null,
-      amount1?: null
+      amount1?: null,
     ): BurnEventFilter;
 
     "Claim(address,address,uint256,uint256)"(
       sender?: string | null,
       recipient?: string | null,
       amount0?: null,
-      amount1?: null
+      amount1?: null,
     ): ClaimEventFilter;
     Claim(
       sender?: string | null,
       recipient?: string | null,
       amount0?: null,
-      amount1?: null
+      amount1?: null,
     ): ClaimEventFilter;
 
     "Fees(address,uint256,uint256)"(
       sender?: string | null,
       amount0?: null,
-      amount1?: null
+      amount1?: null,
     ): FeesEventFilter;
     Fees(
       sender?: string | null,
       amount0?: null,
-      amount1?: null
+      amount1?: null,
     ): FeesEventFilter;
 
     "Mint(address,uint256,uint256)"(
       sender?: string | null,
       amount0?: null,
-      amount1?: null
+      amount1?: null,
     ): MintEventFilter;
     Mint(
       sender?: string | null,
       amount0?: null,
-      amount1?: null
+      amount1?: null,
     ): MintEventFilter;
 
     "Swap(address,address,uint256,uint256,uint256,uint256)"(
@@ -1100,7 +1193,7 @@ export interface IAeroPool extends BaseContract {
       amount0In?: null,
       amount1In?: null,
       amount0Out?: null,
-      amount1Out?: null
+      amount1Out?: null,
     ): SwapEventFilter;
     Swap(
       sender?: string | null,
@@ -1108,7 +1201,7 @@ export interface IAeroPool extends BaseContract {
       amount0In?: null,
       amount1In?: null,
       amount0Out?: null,
-      amount1Out?: null
+      amount1Out?: null,
     ): SwapEventFilter;
 
     "Sync(uint256,uint256)"(reserve0?: null, reserve1?: null): SyncEventFilter;
@@ -1117,12 +1210,12 @@ export interface IAeroPool extends BaseContract {
     "Transfer(address,address,uint256)"(
       from?: string | null,
       to?: string | null,
-      value?: null
+      value?: null,
     ): TransferEventFilter;
     Transfer(
       from?: string | null,
       to?: string | null,
-      value?: null
+      value?: null,
     ): TransferEventFilter;
   };
 
@@ -1130,13 +1223,13 @@ export interface IAeroPool extends BaseContract {
     allowance(
       owner: string,
       spender: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     balanceOf(account: string, overrides?: CallOverrides): Promise<BigNumber>;
@@ -1145,7 +1238,7 @@ export interface IAeroPool extends BaseContract {
 
     burn(
       to: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     claimFees(overrides?: Overrides & { from?: string }): Promise<BigNumber>;
@@ -1163,7 +1256,7 @@ export interface IAeroPool extends BaseContract {
     getAmountOut(
       amountIn: BigNumberish,
       tokenIn: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     getK(overrides?: Overrides & { from?: string }): Promise<BigNumber>;
@@ -1178,7 +1271,7 @@ export interface IAeroPool extends BaseContract {
       _token0: string,
       _token1: string,
       _stable: boolean,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     lastObservation(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1187,7 +1280,7 @@ export interface IAeroPool extends BaseContract {
 
     mint(
       to: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     name(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1202,14 +1295,14 @@ export interface IAeroPool extends BaseContract {
       tokenIn: string,
       amountIn: BigNumberish,
       points: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     quote(
       tokenIn: string,
       amountIn: BigNumberish,
       granularity: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     reserve0(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1225,22 +1318,22 @@ export interface IAeroPool extends BaseContract {
       amountIn: BigNumberish,
       points: BigNumberish,
       window: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     setName(
       __name: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     setSymbol(
       __symbol: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     skim(
       to: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     stable(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1254,7 +1347,7 @@ export interface IAeroPool extends BaseContract {
       amount1Out: BigNumberish,
       to: string,
       data: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     symbol(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1272,14 +1365,14 @@ export interface IAeroPool extends BaseContract {
     transfer(
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     transferFrom(
       from: string,
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
   };
 
@@ -1287,45 +1380,45 @@ export interface IAeroPool extends BaseContract {
     allowance(
       owner: string,
       spender: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     balanceOf(
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     blockTimestampLast(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     burn(
       to: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     claimFees(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     claimable0(
       arg0: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     claimable1(
       arg0: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     currentCumulativePrices(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     decimals(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -1335,11 +1428,11 @@ export interface IAeroPool extends BaseContract {
     getAmountOut(
       amountIn: BigNumberish,
       tokenIn: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     getK(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     getReserves(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -1352,7 +1445,7 @@ export interface IAeroPool extends BaseContract {
       _token0: string,
       _token1: string,
       _stable: boolean,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     lastObservation(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -1361,7 +1454,7 @@ export interface IAeroPool extends BaseContract {
 
     mint(
       to: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     name(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -1376,26 +1469,26 @@ export interface IAeroPool extends BaseContract {
       tokenIn: string,
       amountIn: BigNumberish,
       points: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     quote(
       tokenIn: string,
       amountIn: BigNumberish,
       granularity: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     reserve0(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     reserve0CumulativeLast(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     reserve1(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     reserve1CumulativeLast(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     sample(
@@ -1403,34 +1496,34 @@ export interface IAeroPool extends BaseContract {
       amountIn: BigNumberish,
       points: BigNumberish,
       window: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     setName(
       __name: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     setSymbol(
       __symbol: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     skim(
       to: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     stable(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     supplyIndex0(
       arg0: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     supplyIndex1(
       arg0: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     swap(
@@ -1438,13 +1531,13 @@ export interface IAeroPool extends BaseContract {
       amount1Out: BigNumberish,
       to: string,
       data: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     symbol(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     sync(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     token0(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -1458,14 +1551,14 @@ export interface IAeroPool extends BaseContract {
     transfer(
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     transferFrom(
       from: string,
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
   };
 }

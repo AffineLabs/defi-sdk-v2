@@ -43,7 +43,7 @@ export declare namespace Client {
     string,
     Client.EVMTokenAmountStructOutput[],
     string,
-    string
+    string,
   ] & {
     receiver: string;
     data: string;
@@ -66,35 +66,41 @@ export interface IRouterClientInterface extends utils.Interface {
       | "ccipSend"
       | "getFee"
       | "getSupportedTokens"
-      | "isChainSupported"
+      | "isChainSupported",
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "ccipSend",
-    values: [BigNumberish, Client.EVM2AnyMessageStruct]
+    values: [BigNumberish, Client.EVM2AnyMessageStruct],
   ): string;
+
   encodeFunctionData(
     functionFragment: "getFee",
-    values: [BigNumberish, Client.EVM2AnyMessageStruct]
+    values: [BigNumberish, Client.EVM2AnyMessageStruct],
   ): string;
+
   encodeFunctionData(
     functionFragment: "getSupportedTokens",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "isChainSupported",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
 
   decodeFunctionResult(functionFragment: "ccipSend", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "getFee", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "getSupportedTokens",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "isChainSupported",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
 
   events: {};
@@ -102,7 +108,9 @@ export interface IRouterClientInterface extends utils.Interface {
 
 export interface IRouterClient extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: IRouterClientInterface;
@@ -110,17 +118,21 @@ export interface IRouterClient extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -130,69 +142,69 @@ export interface IRouterClient extends BaseContract {
     ccipSend(
       destinationChainSelector: BigNumberish,
       message: Client.EVM2AnyMessageStruct,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     getFee(
       destinationChainSelector: BigNumberish,
       message: Client.EVM2AnyMessageStruct,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber] & { fee: BigNumber }>;
 
     getSupportedTokens(
       chainSelector: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[string[]] & { tokens: string[] }>;
 
     isChainSupported(
       chainSelector: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[boolean] & { supported: boolean }>;
   };
 
   ccipSend(
     destinationChainSelector: BigNumberish,
     message: Client.EVM2AnyMessageStruct,
-    overrides?: PayableOverrides & { from?: string }
+    overrides?: PayableOverrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   getFee(
     destinationChainSelector: BigNumberish,
     message: Client.EVM2AnyMessageStruct,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   getSupportedTokens(
     chainSelector: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<string[]>;
 
   isChainSupported(
     chainSelector: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<boolean>;
 
   callStatic: {
     ccipSend(
       destinationChainSelector: BigNumberish,
       message: Client.EVM2AnyMessageStruct,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<string>;
 
     getFee(
       destinationChainSelector: BigNumberish,
       message: Client.EVM2AnyMessageStruct,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     getSupportedTokens(
       chainSelector: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<string[]>;
 
     isChainSupported(
       chainSelector: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
   };
 
@@ -202,23 +214,23 @@ export interface IRouterClient extends BaseContract {
     ccipSend(
       destinationChainSelector: BigNumberish,
       message: Client.EVM2AnyMessageStruct,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<BigNumber>;
 
     getFee(
       destinationChainSelector: BigNumberish,
       message: Client.EVM2AnyMessageStruct,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     getSupportedTokens(
       chainSelector: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     isChainSupported(
       chainSelector: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
   };
 
@@ -226,23 +238,23 @@ export interface IRouterClient extends BaseContract {
     ccipSend(
       destinationChainSelector: BigNumberish,
       message: Client.EVM2AnyMessageStruct,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     getFee(
       destinationChainSelector: BigNumberish,
       message: Client.EVM2AnyMessageStruct,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     getSupportedTokens(
       chainSelector: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     isChainSupported(
       chainSelector: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
   };
 }

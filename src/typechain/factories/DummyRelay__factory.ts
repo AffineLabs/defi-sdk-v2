@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { Contract, Signer, utils } from "ethers";
-import type { Provider } from "@ethersproject/providers";
-import type { DummyRelay, DummyRelayInterface } from "../DummyRelay";
+import {Contract, Signer, utils} from "ethers";
+import type {Provider} from "@ethersproject/providers";
+import type {DummyRelay, DummyRelayInterface} from "../DummyRelay";
 
 const _abi = [
   {
@@ -24,12 +24,14 @@ const _abi = [
 
 export class DummyRelay__factory {
   static readonly abi = _abi;
+
   static createInterface(): DummyRelayInterface {
     return new utils.Interface(_abi) as DummyRelayInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): DummyRelay {
     return new Contract(address, _abi, signerOrProvider) as DummyRelay;
   }

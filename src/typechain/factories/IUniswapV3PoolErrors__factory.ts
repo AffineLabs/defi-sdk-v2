@@ -74,17 +74,19 @@ const _abi = [
 
 export class IUniswapV3PoolErrors__factory {
   static readonly abi = _abi;
+
   static createInterface(): IUniswapV3PoolErrorsInterface {
     return new utils.Interface(_abi) as IUniswapV3PoolErrorsInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): IUniswapV3PoolErrors {
     return new Contract(
       address,
       _abi,
-      signerOrProvider
+      signerOrProvider,
     ) as IUniswapV3PoolErrors;
   }
 }

@@ -1,4 +1,4 @@
-import { ethers, providers, BigNumber } from "ethers";
+import { BigNumber, ethers, providers } from "ethers";
 import {
   AllowanceProvider,
   PERMIT2_ADDRESS,
@@ -7,17 +7,17 @@ import {
 } from "@uniswap/permit2-sdk";
 
 import {
-  EscrowAddress,
-  StETHAddress,
   EigenDelegatorAddress,
   EigenStETHStrategy,
-  UltraLRTAddress,
+  EscrowAddress,
+  EthRPC,
+  RouterAddress,
+  StETHAddress,
   SymbioticEscrow,
   SymbioticVault,
-  WStEthAddress,
-  RouterAddress,
+  UltraLRTAddress,
   WEthAddress,
-  EthRPC,
+  WStEthAddress,
 } from "./constants";
 
 // ABIs
@@ -27,17 +27,15 @@ import ULTRAETH_ABI from "./abis/ultraEth.json";
 import ESCROW_ABI from "./abis/withdrawalEscrow.json";
 import DELEGATION_MANAGER_ABI from "./abis/delegationManager.json";
 import {
-  MockERC20__factory,
-  UltraLRTRouter__factory,
-  UltraLRT__factory,
   ISignatureTransfer__factory,
-  ISignatureTransfer,
-  DelegatorFactory__factory,
   IWSTETH__factory,
-  IStEth__factory,
+  MockERC20__factory,
+  UltraLRT__factory,
+  UltraLRTRouter__factory,
   WithdrawalEscrowV2__factory,
 } from "./typechain";
 import { WithdrawalInfoStruct } from "./typechain/EigenDelegator";
+import { bridgePass, ccipFee } from "./pass";
 
 export class AffineRestakingSDK {
   private provider: providers.JsonRpcProvider;
@@ -88,7 +86,7 @@ export class AffineRestakingSDK {
     const eigenStETH = new ethers.Contract(
       EigenStETHStrategy,
       EIGENSTETH_ABI,
-      this.signer
+      this.signer,
     );
     const value = await eigenStETH.userUnderlyingView(address);
     return parseFloat(_removeDecimals(value, 18));
@@ -99,12 +97,12 @@ export class AffineRestakingSDK {
     const eigenStETH = new ethers.Contract(
       EigenStETHStrategy,
       EIGENSTETH_ABI,
-      this.signer
+      this.signer,
     );
     const eigenDelegator = new ethers.Contract(
       EigenDelegatorAddress,
       DELEGATION_MANAGER_ABI,
-      this.signer
+      this.signer,
     );
 
     const assetUnits = ethers.utils.parseUnits(assets, 18);
@@ -130,7 +128,7 @@ export class AffineRestakingSDK {
     delegator: string,
     nonce: string,
     blockNumber: string,
-    shares: string
+    shares: string,
   ) {
     // Validate addresses
     if (
@@ -161,7 +159,7 @@ export class AffineRestakingSDK {
     const eigenDelegator = new ethers.Contract(
       EigenDelegatorAddress,
       DELEGATION_MANAGER_ABI,
-      this.signer
+      this.signer,
     );
 
     const withdrawalInfos: WithdrawalInfoStruct[] = [
@@ -193,7 +191,7 @@ export class AffineRestakingSDK {
           assetsArray,
           middlewareTimesIndex,
           receiveAsTokens,
-          { from: await this.signer.getAddress() }
+          { from: await this.signer.getAddress() },
         );
 
       console.log("Estimated Gas:", gasEstimate.toString());
@@ -203,7 +201,7 @@ export class AffineRestakingSDK {
         assetsArray,
         middlewareTimesIndex,
         receiveAsTokens,
-        { from: await this.signer.getAddress(), gasLimit: gasEstimate }
+        { from: await this.signer.getAddress(), gasLimit: gasEstimate },
       );
 
       console.log("Transaction successful:", tx);
@@ -219,10 +217,10 @@ export class AffineRestakingSDK {
     const lrtVault = new ethers.Contract(
       UltraLRTAddress,
       ULTRAETH_ABI,
-      this.signer
+      this.signer,
     );
     const value = await lrtVault.canWithdraw(
-      _addDecimals(amount.toString(), await asset.decimals())
+      _addDecimals(amount.toString(), await asset.decimals()),
     );
     return value;
   }
@@ -232,10 +230,10 @@ export class AffineRestakingSDK {
     const lrtVault = new ethers.Contract(
       SymbioticVault,
       ULTRAETH_ABI,
-      this.signer
+      this.signer,
     );
     const value = await lrtVault.canWithdraw(
-      _addDecimals(amount.toString(), await asset.decimals())
+      _addDecimals(amount.toString(), await asset.decimals()),
     );
     return value;
   }
@@ -245,13 +243,13 @@ export class AffineRestakingSDK {
     const lrtVault = new ethers.Contract(
       UltraLRTAddress,
       ULTRAETH_ABI,
-      this.signer
+      this.signer,
     );
 
     const assetUnits = _addDecimals(amount, await asset.decimals());
     const tx = await lrtVault.deposit(
       assetUnits,
-      await this.signer.getAddress()
+      await this.signer.getAddress(),
     );
     return tx;
   }
@@ -261,7 +259,7 @@ export class AffineRestakingSDK {
     const lrtVault = new ethers.Contract(
       UltraLRTAddress,
       ULTRAETH_ABI,
-      this.signer
+      this.signer,
     );
     const receiver = await this.signer.getAddress();
 
@@ -275,7 +273,7 @@ export class AffineRestakingSDK {
     const lrtVault = new ethers.Contract(
       SymbioticVault,
       ULTRAETH_ABI,
-      this.signer
+      this.signer,
     );
     const receiver = await this.signer.getAddress();
 
@@ -302,10 +300,11 @@ export class AffineRestakingSDK {
 
     const tx = await asset.approve(
       PERMIT2_ADDRESS,
-      BigNumber.from("2").pow(256).sub(1)
+      BigNumber.from("2").pow(256).sub(1),
     );
     return tx;
   }
+
   async depositERC20Any(token: string, amount: string, vault: string) {
     const asset = MockERC20__factory.connect(token, this.signer);
     const router = UltraLRTRouter__factory.connect(RouterAddress, this.signer);
@@ -320,7 +319,7 @@ export class AffineRestakingSDK {
     }
     const allowanceProvider = new AllowanceProvider(
       this.provider,
-      PERMIT2_ADDRESS
+      PERMIT2_ADDRESS,
     );
 
     const nonce = await this._getRandomNonce();
@@ -339,7 +338,7 @@ export class AffineRestakingSDK {
     const { domain, types, values } = SignatureTransfer.getPermitData(
       permit,
       PERMIT2_ADDRESS,
-      await this.signer.getChainId()
+      await this.signer.getChainId(),
     );
     const signature = await this.provider
       .getSigner()
@@ -354,7 +353,7 @@ export class AffineRestakingSDK {
         receiver,
         nonce,
         deadline,
-        signature
+        signature,
       );
     } else if (token === WStEthAddress) {
       tx = await router.depositWStEth(
@@ -363,7 +362,7 @@ export class AffineRestakingSDK {
         receiver,
         nonce,
         deadline,
-        signature
+        signature,
       );
     } else if (token === WEthAddress) {
       tx = await router.depositWeth(
@@ -372,7 +371,7 @@ export class AffineRestakingSDK {
         receiver,
         nonce,
         deadline,
-        signature
+        signature,
       );
     } else {
       throw Error("Invalid token");
@@ -396,7 +395,7 @@ export class AffineRestakingSDK {
     const lrtVault = new ethers.Contract(
       SymbioticVault,
       ULTRAETH_ABI,
-      this.signer
+      this.signer,
     );
     const receiver = await this.signer.getAddress();
 
@@ -410,7 +409,7 @@ export class AffineRestakingSDK {
     const asset = MockERC20__factory.connect(await vault.asset(), this.signer);
     const withdrawalEscrowV2 = WithdrawalEscrowV2__factory.connect(
       await vault.escrow(),
-      this.signer
+      this.signer,
     );
 
     const vaultDecimals = await vault.decimals();
@@ -426,7 +425,7 @@ export class AffineRestakingSDK {
     for (let i = 0; i <= currentEpoch; i++) {
       const shares = await withdrawalEscrowV2.userDebtShare(
         ethers.BigNumber.from(i),
-        address
+        address,
       );
       if (shares.eq(0)) continue;
       const assets = await withdrawalEscrowV2.withdrawableAssets(address, i);
@@ -451,7 +450,7 @@ export class AffineRestakingSDK {
     const withdrawalEscrowV2 = new ethers.Contract(
       EscrowAddress,
       ESCROW_ABI,
-      this.signer
+      this.signer,
     );
     const value = await withdrawalEscrowV2.canWithdraw(epoch);
     return value;
@@ -461,7 +460,7 @@ export class AffineRestakingSDK {
     const withdrawalEscrowV2 = new ethers.Contract(
       SymbioticEscrow,
       ESCROW_ABI,
-      this.signer
+      this.signer,
     );
     const value = await withdrawalEscrowV2.canWithdraw(epoch);
     return value;
@@ -470,7 +469,7 @@ export class AffineRestakingSDK {
   async redeem(epoch: string): Promise<ethers.providers.TransactionResponse> {
     const withdrawalEscrowV2 = WithdrawalEscrowV2__factory.connect(
       EscrowAddress,
-      this.signer
+      this.signer,
     );
     const receiver = await this.signer.getAddress();
 
@@ -479,11 +478,11 @@ export class AffineRestakingSDK {
   }
 
   async redeemSymbiotic(
-    epoch: string
+    epoch: string,
   ): Promise<ethers.providers.TransactionResponse> {
     const withdrawalEscrowV2 = WithdrawalEscrowV2__factory.connect(
       SymbioticEscrow,
-      this.signer
+      this.signer,
     );
     const receiver = await this.signer.getAddress();
 
@@ -494,20 +493,20 @@ export class AffineRestakingSDK {
   async isApproved(
     contractAddress: string,
     spenderAddress: string,
-    amount: number
+    amount: number,
   ): Promise<boolean> {
     const erc20Contract = new ethers.Contract(
       contractAddress,
       ERC20_ABI,
-      this.signer
+      this.signer,
     );
     const units = _addDecimals(
       amount.toString(),
-      await erc20Contract.decimals()
+      await erc20Contract.decimals(),
     );
     const allowance = await erc20Contract.allowance(
       await this.signer.getAddress(),
-      spenderAddress
+      spenderAddress,
     );
     return ethers.BigNumber.from(allowance).gte(units);
   }
@@ -515,16 +514,16 @@ export class AffineRestakingSDK {
   async approve(
     contractAddress: string,
     spenderAddress: string,
-    amount: number
+    amount: number,
   ): Promise<ethers.providers.TransactionResponse> {
     const erc20Contract = new ethers.Contract(
       contractAddress,
       ERC20_ABI,
-      this.signer
+      this.signer,
     );
     const units = _addDecimals(
       amount.toString(),
-      await erc20Contract.decimals()
+      await erc20Contract.decimals(),
     );
     const tx = await erc20Contract.approve(spenderAddress, units);
     return tx;
@@ -534,13 +533,32 @@ export class AffineRestakingSDK {
     const wethContract = new ethers.Contract(
       WEthAddress,
       ["function deposit() payable"],
-      this.signer
+      this.signer,
     );
     const tx = await wethContract.deposit({
       value: ethers.utils.parseEther(amountInEther),
     });
     await tx.wait();
     console.log(`Wrapped ${amountInEther} ETH to WETH`);
+  }
+
+  async getCCIPFee(destinationChainId: 1 | 137) {
+    return await ccipFee(destinationChainId, this.provider);
+  }
+
+  async bridgeAffinePass(
+    destinationChainId: 1 | 137,
+    destinationAddress: string,
+    tokenId: number,
+    fee: number,
+  ) {
+    return await bridgePass(
+      destinationChainId,
+      destinationAddress,
+      tokenId,
+      fee,
+      this.provider,
+    );
   }
 
   _toDeadline(expiration: number): number {
@@ -550,7 +568,7 @@ export class AffineRestakingSDK {
   async _getRandomNonce(): Promise<BigNumber> {
     const nonceProvider = ISignatureTransfer__factory.connect(
       PERMIT2_ADDRESS,
-      this.signer
+      this.signer,
     );
     const byteSize = 32; // 256 bits
     for (let i = 0; i < 10; i++) {
@@ -561,7 +579,7 @@ export class AffineRestakingSDK {
 
       const bitMap = await nonceProvider.nonceBitmap(
         await nonceProvider.signer.getAddress(),
-        word
+        word,
       );
 
       if (bitMap.and(ethers.BigNumber.from(2).pow(bitPos)).eq(0)) {
@@ -574,7 +592,7 @@ export class AffineRestakingSDK {
 
 export function _removeDecimals(
   amount: ethers.BigNumber,
-  decimals: ethers.BigNumberish
+  decimals: ethers.BigNumberish,
 ): string {
   const parsed = ethers.utils.formatUnits(amount, decimals);
   const decimalIndex = parsed.indexOf(".");
@@ -586,14 +604,14 @@ export function _removeDecimals(
 
 export function _addDecimals(
   amount: string,
-  decimals: number
+  decimals: number,
 ): ethers.BigNumber {
   return ethers.utils.parseUnits(amount, decimals);
 }
 
 async function _getVaultTVL(
   vaultAddress: string,
-  provider: providers.JsonRpcProvider
+  provider: providers.JsonRpcProvider,
 ): Promise<string> {
   const vault = UltraLRT__factory.connect(vaultAddress, provider);
   const asset = MockERC20__factory.connect(await vault.asset(), provider);
@@ -604,6 +622,7 @@ async function _getVaultTVL(
 export async function getUltraEthTVL(): Promise<string> {
   return _getVaultTVL(UltraLRTAddress, new providers.JsonRpcProvider(EthRPC));
 }
+
 export async function getSymbioticTVL(): Promise<string> {
   return _getVaultTVL(SymbioticVault, new providers.JsonRpcProvider(EthRPC));
 }

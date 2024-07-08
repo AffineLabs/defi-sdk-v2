@@ -89,17 +89,19 @@ const _abi = [
 
 export class IERC20PermitUpgradeable__factory {
   static readonly abi = _abi;
+
   static createInterface(): IERC20PermitUpgradeableInterface {
     return new utils.Interface(_abi) as IERC20PermitUpgradeableInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): IERC20PermitUpgradeable {
     return new Contract(
       address,
       _abi,
-      signerOrProvider
+      signerOrProvider,
     ) as IERC20PermitUpgradeable;
   }
 }

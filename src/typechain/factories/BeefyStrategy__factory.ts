@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { Contract, Signer, utils } from "ethers";
-import type { Provider } from "@ethersproject/providers";
-import type { BeefyStrategy, BeefyStrategyInterface } from "../BeefyStrategy";
+import {Contract, Signer, utils} from "ethers";
+import type {Provider} from "@ethersproject/providers";
+import type {BeefyStrategy, BeefyStrategyInterface} from "../BeefyStrategy";
 
 const _abi = [
   {
@@ -501,12 +501,14 @@ const _abi = [
 
 export class BeefyStrategy__factory {
   static readonly abi = _abi;
+
   static createInterface(): BeefyStrategyInterface {
     return new utils.Interface(_abi) as BeefyStrategyInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): BeefyStrategy {
     return new Contract(address, _abi, signerOrProvider) as BeefyStrategy;
   }

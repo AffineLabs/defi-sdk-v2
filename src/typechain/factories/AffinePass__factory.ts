@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { Contract, Signer, utils } from "ethers";
-import type { Provider } from "@ethersproject/providers";
-import type { AffinePass, AffinePassInterface } from "../AffinePass";
+import {Contract, Signer, utils} from "ethers";
+import type {Provider} from "@ethersproject/providers";
+import type {AffinePass, AffinePassInterface} from "../AffinePass";
 
 const _abi = [
   {
@@ -864,12 +864,14 @@ const _abi = [
 
 export class AffinePass__factory {
   static readonly abi = _abi;
+
   static createInterface(): AffinePassInterface {
     return new utils.Interface(_abi) as AffinePassInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): AffinePass {
     return new Contract(address, _abi, signerOrProvider) as AffinePass;
   }

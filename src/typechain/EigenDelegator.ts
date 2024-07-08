@@ -43,7 +43,7 @@ export type WithdrawalInfoStructOutput = [
   BigNumber,
   number,
   string[],
-  BigNumber[]
+  BigNumber[],
 ] & {
   staker: string;
   delegatedTo: string;
@@ -97,128 +97,164 @@ export interface EigenDelegatorInterface extends utils.Interface {
       | "totalLockedValue"
       | "vault"
       | "withdraw"
-      | "withdrawableAssets"
+      | "withdrawableAssets",
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "DELEGATION_MANAGER",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "STAKED_ETH_STRATEGY",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "STRATEGY_MANAGER",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "asset", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "completeExternalWithdrawalRequest",
-    values: [WithdrawalInfoStruct[]]
+    values: [WithdrawalInfoStruct[]],
   ): string;
+
   encodeFunctionData(
     functionFragment: "completeWithdrawalRequest",
-    values: [WithdrawalInfoStruct[]]
+    values: [WithdrawalInfoStruct[]],
   ): string;
+
   encodeFunctionData(
     functionFragment: "currentOperator",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "delegate",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "governance",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "initialize",
-    values: [string, string]
+    values: [string, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "isDelegated",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "queuedAssets",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "queuedShares",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "requestWithdrawal",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(functionFragment: "stETH", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "totalLockedValue",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "vault", values?: undefined): string;
+
   encodeFunctionData(functionFragment: "withdraw", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "withdrawableAssets",
-    values?: undefined
+    values?: undefined,
   ): string;
 
   decodeFunctionResult(
     functionFragment: "DELEGATION_MANAGER",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "STAKED_ETH_STRATEGY",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "STRATEGY_MANAGER",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "asset", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "completeExternalWithdrawalRequest",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "completeWithdrawalRequest",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "currentOperator",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "delegate", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "governance", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "isDelegated",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "queuedAssets",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "queuedShares",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "requestWithdrawal",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "stETH", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "totalLockedValue",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "vault", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "withdraw", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "withdrawableAssets",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
 
   events: {
@@ -231,13 +267,16 @@ export interface EigenDelegatorInterface extends utils.Interface {
 export interface InitializedEventObject {
   version: number;
 }
+
 export type InitializedEvent = TypedEvent<[number], InitializedEventObject>;
 
 export type InitializedEventFilter = TypedEventFilter<InitializedEvent>;
 
 export interface EigenDelegator extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: EigenDelegatorInterface;
@@ -245,17 +284,21 @@ export interface EigenDelegator extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -272,19 +315,19 @@ export interface EigenDelegator extends BaseContract {
 
     completeExternalWithdrawalRequest(
       withdrawalInfo: WithdrawalInfoStruct[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     completeWithdrawalRequest(
       withdrawalInfo: WithdrawalInfoStruct[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     currentOperator(overrides?: CallOverrides): Promise<[string]>;
 
     delegate(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     governance(overrides?: CallOverrides): Promise<[string]>;
@@ -292,7 +335,7 @@ export interface EigenDelegator extends BaseContract {
     initialize(
       _vault: string,
       _operator: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     isDelegated(overrides?: CallOverrides): Promise<[boolean]>;
@@ -303,7 +346,7 @@ export interface EigenDelegator extends BaseContract {
 
     requestWithdrawal(
       assets: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     stETH(overrides?: CallOverrides): Promise<[string]>;
@@ -313,7 +356,7 @@ export interface EigenDelegator extends BaseContract {
     vault(overrides?: CallOverrides): Promise<[string]>;
 
     withdraw(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     withdrawableAssets(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -329,19 +372,19 @@ export interface EigenDelegator extends BaseContract {
 
   completeExternalWithdrawalRequest(
     withdrawalInfo: WithdrawalInfoStruct[],
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   completeWithdrawalRequest(
     withdrawalInfo: WithdrawalInfoStruct[],
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   currentOperator(overrides?: CallOverrides): Promise<string>;
 
   delegate(
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   governance(overrides?: CallOverrides): Promise<string>;
@@ -349,7 +392,7 @@ export interface EigenDelegator extends BaseContract {
   initialize(
     _vault: string,
     _operator: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   isDelegated(overrides?: CallOverrides): Promise<boolean>;
@@ -360,7 +403,7 @@ export interface EigenDelegator extends BaseContract {
 
   requestWithdrawal(
     assets: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   stETH(overrides?: CallOverrides): Promise<string>;
@@ -370,7 +413,7 @@ export interface EigenDelegator extends BaseContract {
   vault(overrides?: CallOverrides): Promise<string>;
 
   withdraw(
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   withdrawableAssets(overrides?: CallOverrides): Promise<BigNumber>;
@@ -386,12 +429,12 @@ export interface EigenDelegator extends BaseContract {
 
     completeExternalWithdrawalRequest(
       withdrawalInfo: WithdrawalInfoStruct[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     completeWithdrawalRequest(
       withdrawalInfo: WithdrawalInfoStruct[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     currentOperator(overrides?: CallOverrides): Promise<string>;
@@ -403,7 +446,7 @@ export interface EigenDelegator extends BaseContract {
     initialize(
       _vault: string,
       _operator: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     isDelegated(overrides?: CallOverrides): Promise<boolean>;
@@ -414,7 +457,7 @@ export interface EigenDelegator extends BaseContract {
 
     requestWithdrawal(
       assets: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     stETH(overrides?: CallOverrides): Promise<string>;
@@ -444,19 +487,19 @@ export interface EigenDelegator extends BaseContract {
 
     completeExternalWithdrawalRequest(
       withdrawalInfo: WithdrawalInfoStruct[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     completeWithdrawalRequest(
       withdrawalInfo: WithdrawalInfoStruct[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     currentOperator(overrides?: CallOverrides): Promise<BigNumber>;
 
     delegate(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     governance(overrides?: CallOverrides): Promise<BigNumber>;
@@ -464,7 +507,7 @@ export interface EigenDelegator extends BaseContract {
     initialize(
       _vault: string,
       _operator: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     isDelegated(overrides?: CallOverrides): Promise<BigNumber>;
@@ -475,7 +518,7 @@ export interface EigenDelegator extends BaseContract {
 
     requestWithdrawal(
       assets: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     stETH(overrides?: CallOverrides): Promise<BigNumber>;
@@ -491,11 +534,11 @@ export interface EigenDelegator extends BaseContract {
 
   populateTransaction: {
     DELEGATION_MANAGER(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     STAKED_ETH_STRATEGY(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     STRATEGY_MANAGER(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -504,19 +547,19 @@ export interface EigenDelegator extends BaseContract {
 
     completeExternalWithdrawalRequest(
       withdrawalInfo: WithdrawalInfoStruct[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     completeWithdrawalRequest(
       withdrawalInfo: WithdrawalInfoStruct[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     currentOperator(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     delegate(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     governance(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -524,7 +567,7 @@ export interface EigenDelegator extends BaseContract {
     initialize(
       _vault: string,
       _operator: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     isDelegated(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -535,7 +578,7 @@ export interface EigenDelegator extends BaseContract {
 
     requestWithdrawal(
       assets: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     stETH(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -545,11 +588,11 @@ export interface EigenDelegator extends BaseContract {
     vault(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     withdraw(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     withdrawableAssets(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
   };
 }

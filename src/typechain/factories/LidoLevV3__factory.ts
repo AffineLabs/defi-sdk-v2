@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { Contract, Signer, utils } from "ethers";
-import type { Provider } from "@ethersproject/providers";
-import type { LidoLevV3, LidoLevV3Interface } from "../LidoLevV3";
+import {Contract, Signer, utils} from "ethers";
+import type {Provider} from "@ethersproject/providers";
+import type {LidoLevV3, LidoLevV3Interface} from "../LidoLevV3";
 
 const _abi = [
   {
@@ -603,12 +603,14 @@ const _abi = [
 
 export class LidoLevV3__factory {
   static readonly abi = _abi;
+
   static createInterface(): LidoLevV3Interface {
     return new utils.Interface(_abi) as LidoLevV3Interface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): LidoLevV3 {
     return new Contract(address, _abi, signerOrProvider) as LidoLevV3;
   }

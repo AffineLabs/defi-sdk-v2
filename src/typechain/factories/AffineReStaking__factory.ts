@@ -671,12 +671,14 @@ const _abi = [
 
 export class AffineReStaking__factory {
   static readonly abi = _abi;
+
   static createInterface(): AffineReStakingInterface {
     return new utils.Interface(_abi) as AffineReStakingInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): AffineReStaking {
     return new Contract(address, _abi, signerOrProvider) as AffineReStaking;
   }

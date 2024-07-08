@@ -33,36 +33,52 @@ export interface ICropperInterface extends utils.Interface {
   };
 
   getFunction(
-    nameOrSignatureOrTopic: "exit" | "flux" | "frob" | "join" | "move" | "proxy"
+    nameOrSignatureOrTopic:
+      | "exit"
+      | "flux"
+      | "frob"
+      | "join"
+      | "move"
+      | "proxy",
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "exit",
-    values: [string, string, BigNumberish]
+    values: [string, string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "flux",
-    values: [string, string, string, BigNumberish]
+    values: [string, string, string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "frob",
-    values: [BytesLike, string, string, string, BigNumberish, BigNumberish]
+    values: [BytesLike, string, string, string, BigNumberish, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "join",
-    values: [string, string, BigNumberish]
+    values: [string, string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "move",
-    values: [string, string, BigNumberish]
+    values: [string, string, BigNumberish],
   ): string;
+
   encodeFunctionData(functionFragment: "proxy", values: [string]): string;
 
   decodeFunctionResult(functionFragment: "exit", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "flux", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "frob", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "join", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "move", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "proxy", data: BytesLike): Result;
 
   events: {};
@@ -70,7 +86,9 @@ export interface ICropperInterface extends utils.Interface {
 
 export interface ICropper extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: ICropperInterface;
@@ -78,17 +96,21 @@ export interface ICropper extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -99,7 +121,7 @@ export interface ICropper extends BaseContract {
       crop: string,
       usr: string,
       val: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     flux(
@@ -107,7 +129,7 @@ export interface ICropper extends BaseContract {
       src: string,
       dst: string,
       wad: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     frob(
@@ -117,26 +139,26 @@ export interface ICropper extends BaseContract {
       w: string,
       dink: BigNumberish,
       dart: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     join(
       crop: string,
       usr: string,
       val: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     move(
       u: string,
       dst: string,
       rad: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     proxy(
       user: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
   };
 
@@ -144,7 +166,7 @@ export interface ICropper extends BaseContract {
     crop: string,
     usr: string,
     val: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   flux(
@@ -152,7 +174,7 @@ export interface ICropper extends BaseContract {
     src: string,
     dst: string,
     wad: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   frob(
@@ -162,26 +184,26 @@ export interface ICropper extends BaseContract {
     w: string,
     dink: BigNumberish,
     dart: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   join(
     crop: string,
     usr: string,
     val: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   move(
     u: string,
     dst: string,
     rad: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   proxy(
     user: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -189,7 +211,7 @@ export interface ICropper extends BaseContract {
       crop: string,
       usr: string,
       val: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     flux(
@@ -197,7 +219,7 @@ export interface ICropper extends BaseContract {
       src: string,
       dst: string,
       wad: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     frob(
@@ -207,21 +229,21 @@ export interface ICropper extends BaseContract {
       w: string,
       dink: BigNumberish,
       dart: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     join(
       crop: string,
       usr: string,
       val: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     move(
       u: string,
       dst: string,
       rad: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     proxy(user: string, overrides?: CallOverrides): Promise<string>;
@@ -234,7 +256,7 @@ export interface ICropper extends BaseContract {
       crop: string,
       usr: string,
       val: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     flux(
@@ -242,7 +264,7 @@ export interface ICropper extends BaseContract {
       src: string,
       dst: string,
       wad: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     frob(
@@ -252,26 +274,26 @@ export interface ICropper extends BaseContract {
       w: string,
       dink: BigNumberish,
       dart: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     join(
       crop: string,
       usr: string,
       val: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     move(
       u: string,
       dst: string,
       rad: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     proxy(
       user: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
   };
 
@@ -280,7 +302,7 @@ export interface ICropper extends BaseContract {
       crop: string,
       usr: string,
       val: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     flux(
@@ -288,7 +310,7 @@ export interface ICropper extends BaseContract {
       src: string,
       dst: string,
       wad: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     frob(
@@ -298,26 +320,26 @@ export interface ICropper extends BaseContract {
       w: string,
       dink: BigNumberish,
       dart: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     join(
       crop: string,
       usr: string,
       val: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     move(
       u: string,
       dst: string,
       rad: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     proxy(
       user: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
   };
 }

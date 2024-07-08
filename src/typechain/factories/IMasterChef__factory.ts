@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { Contract, Signer, utils } from "ethers";
-import type { Provider } from "@ethersproject/providers";
-import type { IMasterChef, IMasterChefInterface } from "../IMasterChef";
+import {Contract, Signer, utils} from "ethers";
+import type {Provider} from "@ethersproject/providers";
+import type {IMasterChef, IMasterChefInterface} from "../IMasterChef";
 
 const _abi = [
   {
@@ -274,12 +274,14 @@ const _abi = [
 
 export class IMasterChef__factory {
   static readonly abi = _abi;
+
   static createInterface(): IMasterChefInterface {
     return new utils.Interface(_abi) as IMasterChefInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): IMasterChef {
     return new Contract(address, _abi, signerOrProvider) as IMasterChef;
   }

@@ -75,122 +75,164 @@ export interface CompoundV3StrategyInterface extends utils.Interface {
       | "sweep"
       | "totalLockedValue"
       | "vault"
-      | "weth"
+      | "weth",
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "DEFAULT_ADMIN_ROLE",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "STRATEGIST_ROLE",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "asset", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "balanceOfAsset",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "cToken", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "claimAndSellRewards",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "claimRewards",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "comp", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "divest",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "getRoleAdmin",
-    values: [BytesLike]
+    values: [BytesLike],
   ): string;
+
   encodeFunctionData(
     functionFragment: "grantRole",
-    values: [BytesLike, string]
+    values: [BytesLike, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "hasRole",
-    values: [BytesLike, string]
+    values: [BytesLike, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "invest",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "renounceRole",
-    values: [BytesLike, string]
+    values: [BytesLike, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "revokeRole",
-    values: [BytesLike, string]
+    values: [BytesLike, string],
   ): string;
+
   encodeFunctionData(functionFragment: "rewards", values?: undefined): string;
+
   encodeFunctionData(functionFragment: "router", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "supportsInterface",
-    values: [BytesLike]
+    values: [BytesLike],
   ): string;
+
   encodeFunctionData(functionFragment: "sweep", values: [string]): string;
+
   encodeFunctionData(
     functionFragment: "totalLockedValue",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "vault", values?: undefined): string;
+
   encodeFunctionData(functionFragment: "weth", values?: undefined): string;
 
   decodeFunctionResult(
     functionFragment: "DEFAULT_ADMIN_ROLE",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "STRATEGIST_ROLE",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "asset", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "balanceOfAsset",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "cToken", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "claimAndSellRewards",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "claimRewards",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "comp", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "divest", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "getRoleAdmin",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "grantRole", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "hasRole", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "invest", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "renounceRole",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "revokeRole", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "rewards", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "router", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "supportsInterface",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "sweep", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "totalLockedValue",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "vault", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "weth", data: BytesLike): Result;
 
   events: {
@@ -200,7 +242,9 @@ export interface CompoundV3StrategyInterface extends utils.Interface {
   };
 
   getEvent(nameOrSignatureOrTopic: "RoleAdminChanged"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "RoleGranted"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "RoleRevoked"): EventFragment;
 }
 
@@ -209,6 +253,7 @@ export interface RoleAdminChangedEventObject {
   previousAdminRole: string;
   newAdminRole: string;
 }
+
 export type RoleAdminChangedEvent = TypedEvent<
   [string, string, string],
   RoleAdminChangedEventObject
@@ -222,6 +267,7 @@ export interface RoleGrantedEventObject {
   account: string;
   sender: string;
 }
+
 export type RoleGrantedEvent = TypedEvent<
   [string, string, string],
   RoleGrantedEventObject
@@ -234,6 +280,7 @@ export interface RoleRevokedEventObject {
   account: string;
   sender: string;
 }
+
 export type RoleRevokedEvent = TypedEvent<
   [string, string, string],
   RoleRevokedEventObject
@@ -243,7 +290,9 @@ export type RoleRevokedEventFilter = TypedEventFilter<RoleRevokedEvent>;
 
 export interface CompoundV3Strategy extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: CompoundV3StrategyInterface;
@@ -251,17 +300,21 @@ export interface CompoundV3Strategy extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -275,25 +328,25 @@ export interface CompoundV3Strategy extends BaseContract {
     asset(overrides?: CallOverrides): Promise<[string]>;
 
     balanceOfAsset(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber] & { assets: BigNumber }>;
 
     cToken(overrides?: CallOverrides): Promise<[string]>;
 
     claimAndSellRewards(
       minAssetsFromReward: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     claimRewards(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     comp(overrides?: CallOverrides): Promise<[string]>;
 
     divest(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     getRoleAdmin(role: BytesLike, overrides?: CallOverrides): Promise<[string]>;
@@ -301,30 +354,30 @@ export interface CompoundV3Strategy extends BaseContract {
     grantRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     hasRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[boolean]>;
 
     invest(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     renounceRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     revokeRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     rewards(overrides?: CallOverrides): Promise<[string]>;
@@ -333,16 +386,16 @@ export interface CompoundV3Strategy extends BaseContract {
 
     supportsInterface(
       interfaceId: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[boolean]>;
 
     sweep(
       token: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     totalLockedValue(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     vault(overrides?: CallOverrides): Promise<[string]>;
@@ -362,18 +415,18 @@ export interface CompoundV3Strategy extends BaseContract {
 
   claimAndSellRewards(
     minAssetsFromReward: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   claimRewards(
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   comp(overrides?: CallOverrides): Promise<string>;
 
   divest(
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   getRoleAdmin(role: BytesLike, overrides?: CallOverrides): Promise<string>;
@@ -381,30 +434,30 @@ export interface CompoundV3Strategy extends BaseContract {
   grantRole(
     role: BytesLike,
     account: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   hasRole(
     role: BytesLike,
     account: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<boolean>;
 
   invest(
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   renounceRole(
     role: BytesLike,
     account: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   revokeRole(
     role: BytesLike,
     account: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   rewards(overrides?: CallOverrides): Promise<string>;
@@ -413,16 +466,16 @@ export interface CompoundV3Strategy extends BaseContract {
 
   supportsInterface(
     interfaceId: BytesLike,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<boolean>;
 
   sweep(
     token: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   totalLockedValue(
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   vault(overrides?: CallOverrides): Promise<string>;
@@ -442,7 +495,7 @@ export interface CompoundV3Strategy extends BaseContract {
 
     claimAndSellRewards(
       minAssetsFromReward: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     claimRewards(overrides?: CallOverrides): Promise<void>;
@@ -456,13 +509,13 @@ export interface CompoundV3Strategy extends BaseContract {
     grantRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     hasRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     invest(amount: BigNumberish, overrides?: CallOverrides): Promise<void>;
@@ -470,13 +523,13 @@ export interface CompoundV3Strategy extends BaseContract {
     renounceRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     revokeRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     rewards(overrides?: CallOverrides): Promise<string>;
@@ -485,7 +538,7 @@ export interface CompoundV3Strategy extends BaseContract {
 
     supportsInterface(
       interfaceId: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     sweep(token: string, overrides?: CallOverrides): Promise<void>;
@@ -501,34 +554,34 @@ export interface CompoundV3Strategy extends BaseContract {
     "RoleAdminChanged(bytes32,bytes32,bytes32)"(
       role?: BytesLike | null,
       previousAdminRole?: BytesLike | null,
-      newAdminRole?: BytesLike | null
+      newAdminRole?: BytesLike | null,
     ): RoleAdminChangedEventFilter;
     RoleAdminChanged(
       role?: BytesLike | null,
       previousAdminRole?: BytesLike | null,
-      newAdminRole?: BytesLike | null
+      newAdminRole?: BytesLike | null,
     ): RoleAdminChangedEventFilter;
 
     "RoleGranted(bytes32,address,address)"(
       role?: BytesLike | null,
       account?: string | null,
-      sender?: string | null
+      sender?: string | null,
     ): RoleGrantedEventFilter;
     RoleGranted(
       role?: BytesLike | null,
       account?: string | null,
-      sender?: string | null
+      sender?: string | null,
     ): RoleGrantedEventFilter;
 
     "RoleRevoked(bytes32,address,address)"(
       role?: BytesLike | null,
       account?: string | null,
-      sender?: string | null
+      sender?: string | null,
     ): RoleRevokedEventFilter;
     RoleRevoked(
       role?: BytesLike | null,
       account?: string | null,
-      sender?: string | null
+      sender?: string | null,
     ): RoleRevokedEventFilter;
   };
 
@@ -545,7 +598,7 @@ export interface CompoundV3Strategy extends BaseContract {
 
     claimAndSellRewards(
       minAssetsFromReward: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     claimRewards(overrides?: Overrides & { from?: string }): Promise<BigNumber>;
@@ -554,41 +607,41 @@ export interface CompoundV3Strategy extends BaseContract {
 
     divest(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     getRoleAdmin(
       role: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     grantRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     hasRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     invest(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     renounceRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     revokeRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     rewards(overrides?: CallOverrides): Promise<BigNumber>;
@@ -597,16 +650,16 @@ export interface CompoundV3Strategy extends BaseContract {
 
     supportsInterface(
       interfaceId: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     sweep(
       token: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     totalLockedValue(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     vault(overrides?: CallOverrides): Promise<BigNumber>;
@@ -616,7 +669,7 @@ export interface CompoundV3Strategy extends BaseContract {
 
   populateTransaction: {
     DEFAULT_ADMIN_ROLE(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     STRATEGIST_ROLE(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -629,52 +682,52 @@ export interface CompoundV3Strategy extends BaseContract {
 
     claimAndSellRewards(
       minAssetsFromReward: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     claimRewards(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     comp(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     divest(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     getRoleAdmin(
       role: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     grantRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     hasRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     invest(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     renounceRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     revokeRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     rewards(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -683,16 +736,16 @@ export interface CompoundV3Strategy extends BaseContract {
 
     supportsInterface(
       interfaceId: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     sweep(
       token: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     totalLockedValue(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     vault(overrides?: CallOverrides): Promise<PopulatedTransaction>;

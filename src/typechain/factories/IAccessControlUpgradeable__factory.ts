@@ -186,17 +186,19 @@ const _abi = [
 
 export class IAccessControlUpgradeable__factory {
   static readonly abi = _abi;
+
   static createInterface(): IAccessControlUpgradeableInterface {
     return new utils.Interface(_abi) as IAccessControlUpgradeableInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): IAccessControlUpgradeable {
     return new Contract(
       address,
       _abi,
-      signerOrProvider
+      signerOrProvider,
     ) as IAccessControlUpgradeable;
   }
 }

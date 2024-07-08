@@ -169,12 +169,14 @@ const _abi = [
 
 export class IConvexRewards__factory {
   static readonly abi = _abi;
+
   static createInterface(): IConvexRewardsInterface {
     return new utils.Interface(_abi) as IConvexRewardsInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): IConvexRewards {
     return new Contract(address, _abi, signerOrProvider) as IConvexRewards;
   }

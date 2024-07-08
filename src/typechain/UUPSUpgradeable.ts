@@ -34,27 +34,31 @@ export interface UUPSUpgradeableInterface extends utils.Interface {
   };
 
   getFunction(
-    nameOrSignatureOrTopic: "proxiableUUID" | "upgradeTo" | "upgradeToAndCall"
+    nameOrSignatureOrTopic: "proxiableUUID" | "upgradeTo" | "upgradeToAndCall",
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "proxiableUUID",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "upgradeTo", values: [string]): string;
+
   encodeFunctionData(
     functionFragment: "upgradeToAndCall",
-    values: [string, BytesLike]
+    values: [string, BytesLike],
   ): string;
 
   decodeFunctionResult(
     functionFragment: "proxiableUUID",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "upgradeTo", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "upgradeToAndCall",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
 
   events: {
@@ -65,8 +69,11 @@ export interface UUPSUpgradeableInterface extends utils.Interface {
   };
 
   getEvent(nameOrSignatureOrTopic: "AdminChanged"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "BeaconUpgraded"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Initialized"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Upgraded"): EventFragment;
 }
 
@@ -74,6 +81,7 @@ export interface AdminChangedEventObject {
   previousAdmin: string;
   newAdmin: string;
 }
+
 export type AdminChangedEvent = TypedEvent<
   [string, string],
   AdminChangedEventObject
@@ -84,6 +92,7 @@ export type AdminChangedEventFilter = TypedEventFilter<AdminChangedEvent>;
 export interface BeaconUpgradedEventObject {
   beacon: string;
 }
+
 export type BeaconUpgradedEvent = TypedEvent<
   [string],
   BeaconUpgradedEventObject
@@ -94,6 +103,7 @@ export type BeaconUpgradedEventFilter = TypedEventFilter<BeaconUpgradedEvent>;
 export interface InitializedEventObject {
   version: number;
 }
+
 export type InitializedEvent = TypedEvent<[number], InitializedEventObject>;
 
 export type InitializedEventFilter = TypedEventFilter<InitializedEvent>;
@@ -101,13 +111,16 @@ export type InitializedEventFilter = TypedEventFilter<InitializedEvent>;
 export interface UpgradedEventObject {
   implementation: string;
 }
+
 export type UpgradedEvent = TypedEvent<[string], UpgradedEventObject>;
 
 export type UpgradedEventFilter = TypedEventFilter<UpgradedEvent>;
 
 export interface UUPSUpgradeable extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: UUPSUpgradeableInterface;
@@ -115,17 +128,21 @@ export interface UUPSUpgradeable extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -136,13 +153,13 @@ export interface UUPSUpgradeable extends BaseContract {
 
     upgradeTo(
       newImplementation: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     upgradeToAndCall(
       newImplementation: string,
       data: BytesLike,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<ContractTransaction>;
   };
 
@@ -150,13 +167,13 @@ export interface UUPSUpgradeable extends BaseContract {
 
   upgradeTo(
     newImplementation: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   upgradeToAndCall(
     newImplementation: string,
     data: BytesLike,
-    overrides?: PayableOverrides & { from?: string }
+    overrides?: PayableOverrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -164,28 +181,28 @@ export interface UUPSUpgradeable extends BaseContract {
 
     upgradeTo(
       newImplementation: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     upgradeToAndCall(
       newImplementation: string,
       data: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
   };
 
   filters: {
     "AdminChanged(address,address)"(
       previousAdmin?: null,
-      newAdmin?: null
+      newAdmin?: null,
     ): AdminChangedEventFilter;
     AdminChanged(
       previousAdmin?: null,
-      newAdmin?: null
+      newAdmin?: null,
     ): AdminChangedEventFilter;
 
     "BeaconUpgraded(address)"(
-      beacon?: string | null
+      beacon?: string | null,
     ): BeaconUpgradedEventFilter;
     BeaconUpgraded(beacon?: string | null): BeaconUpgradedEventFilter;
 
@@ -201,13 +218,13 @@ export interface UUPSUpgradeable extends BaseContract {
 
     upgradeTo(
       newImplementation: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     upgradeToAndCall(
       newImplementation: string,
       data: BytesLike,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<BigNumber>;
   };
 
@@ -216,13 +233,13 @@ export interface UUPSUpgradeable extends BaseContract {
 
     upgradeTo(
       newImplementation: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     upgradeToAndCall(
       newImplementation: string,
       data: BytesLike,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<PopulatedTransaction>;
   };
 }

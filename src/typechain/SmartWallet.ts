@@ -57,63 +57,79 @@ export interface SmartWalletInterface extends utils.Interface {
       | "hasRole"
       | "renounceRole"
       | "revokeRole"
-      | "supportsInterface"
+      | "supportsInterface",
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "DEFAULT_ADMIN_ROLE",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "OWNER", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "aggregate",
-    values: [SmartWallet.CallStruct[]]
+    values: [SmartWallet.CallStruct[]],
   ): string;
+
   encodeFunctionData(
     functionFragment: "getRoleAdmin",
-    values: [BytesLike]
+    values: [BytesLike],
   ): string;
+
   encodeFunctionData(
     functionFragment: "grantRole",
-    values: [BytesLike, string]
+    values: [BytesLike, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "hasRole",
-    values: [BytesLike, string]
+    values: [BytesLike, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "renounceRole",
-    values: [BytesLike, string]
+    values: [BytesLike, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "revokeRole",
-    values: [BytesLike, string]
+    values: [BytesLike, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "supportsInterface",
-    values: [BytesLike]
+    values: [BytesLike],
   ): string;
 
   decodeFunctionResult(
     functionFragment: "DEFAULT_ADMIN_ROLE",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "OWNER", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "aggregate", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "getRoleAdmin",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "grantRole", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "hasRole", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "renounceRole",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "revokeRole", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "supportsInterface",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
 
   events: {
@@ -123,7 +139,9 @@ export interface SmartWalletInterface extends utils.Interface {
   };
 
   getEvent(nameOrSignatureOrTopic: "RoleAdminChanged"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "RoleGranted"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "RoleRevoked"): EventFragment;
 }
 
@@ -132,6 +150,7 @@ export interface RoleAdminChangedEventObject {
   previousAdminRole: string;
   newAdminRole: string;
 }
+
 export type RoleAdminChangedEvent = TypedEvent<
   [string, string, string],
   RoleAdminChangedEventObject
@@ -145,6 +164,7 @@ export interface RoleGrantedEventObject {
   account: string;
   sender: string;
 }
+
 export type RoleGrantedEvent = TypedEvent<
   [string, string, string],
   RoleGrantedEventObject
@@ -157,6 +177,7 @@ export interface RoleRevokedEventObject {
   account: string;
   sender: string;
 }
+
 export type RoleRevokedEvent = TypedEvent<
   [string, string, string],
   RoleRevokedEventObject
@@ -166,7 +187,9 @@ export type RoleRevokedEventFilter = TypedEventFilter<RoleRevokedEvent>;
 
 export interface SmartWallet extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: SmartWalletInterface;
@@ -174,17 +197,21 @@ export interface SmartWallet extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -197,7 +224,7 @@ export interface SmartWallet extends BaseContract {
 
     aggregate(
       calls: SmartWallet.CallStruct[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     getRoleAdmin(role: BytesLike, overrides?: CallOverrides): Promise<[string]>;
@@ -205,30 +232,30 @@ export interface SmartWallet extends BaseContract {
     grantRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     hasRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[boolean]>;
 
     renounceRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     revokeRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     supportsInterface(
       interfaceId: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[boolean]>;
   };
 
@@ -238,7 +265,7 @@ export interface SmartWallet extends BaseContract {
 
   aggregate(
     calls: SmartWallet.CallStruct[],
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   getRoleAdmin(role: BytesLike, overrides?: CallOverrides): Promise<string>;
@@ -246,30 +273,30 @@ export interface SmartWallet extends BaseContract {
   grantRole(
     role: BytesLike,
     account: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   hasRole(
     role: BytesLike,
     account: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<boolean>;
 
   renounceRole(
     role: BytesLike,
     account: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   revokeRole(
     role: BytesLike,
     account: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   supportsInterface(
     interfaceId: BytesLike,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<boolean>;
 
   callStatic: {
@@ -279,7 +306,7 @@ export interface SmartWallet extends BaseContract {
 
     aggregate(
       calls: SmartWallet.CallStruct[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     getRoleAdmin(role: BytesLike, overrides?: CallOverrides): Promise<string>;
@@ -287,30 +314,30 @@ export interface SmartWallet extends BaseContract {
     grantRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     hasRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     renounceRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     revokeRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     supportsInterface(
       interfaceId: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
   };
 
@@ -318,34 +345,34 @@ export interface SmartWallet extends BaseContract {
     "RoleAdminChanged(bytes32,bytes32,bytes32)"(
       role?: BytesLike | null,
       previousAdminRole?: BytesLike | null,
-      newAdminRole?: BytesLike | null
+      newAdminRole?: BytesLike | null,
     ): RoleAdminChangedEventFilter;
     RoleAdminChanged(
       role?: BytesLike | null,
       previousAdminRole?: BytesLike | null,
-      newAdminRole?: BytesLike | null
+      newAdminRole?: BytesLike | null,
     ): RoleAdminChangedEventFilter;
 
     "RoleGranted(bytes32,address,address)"(
       role?: BytesLike | null,
       account?: string | null,
-      sender?: string | null
+      sender?: string | null,
     ): RoleGrantedEventFilter;
     RoleGranted(
       role?: BytesLike | null,
       account?: string | null,
-      sender?: string | null
+      sender?: string | null,
     ): RoleGrantedEventFilter;
 
     "RoleRevoked(bytes32,address,address)"(
       role?: BytesLike | null,
       account?: string | null,
-      sender?: string | null
+      sender?: string | null,
     ): RoleRevokedEventFilter;
     RoleRevoked(
       role?: BytesLike | null,
       account?: string | null,
-      sender?: string | null
+      sender?: string | null,
     ): RoleRevokedEventFilter;
   };
 
@@ -356,88 +383,88 @@ export interface SmartWallet extends BaseContract {
 
     aggregate(
       calls: SmartWallet.CallStruct[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     getRoleAdmin(
       role: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     grantRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     hasRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     renounceRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     revokeRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     supportsInterface(
       interfaceId: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
     DEFAULT_ADMIN_ROLE(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     OWNER(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     aggregate(
       calls: SmartWallet.CallStruct[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     getRoleAdmin(
       role: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     grantRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     hasRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     renounceRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     revokeRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     supportsInterface(
       interfaceId: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
   };
 }

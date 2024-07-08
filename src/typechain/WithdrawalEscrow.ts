@@ -53,76 +53,96 @@ export interface WithdrawalEscrowInterface extends utils.Interface {
       | "userDebtShare"
       | "vault"
       | "withdrawableAssets"
-      | "withdrawableShares"
+      | "withdrawableShares",
   ): FunctionFragment;
 
   encodeFunctionData(functionFragment: "asset", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "canWithdraw",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "epochInfo",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "getAssets",
-    values: [string, BigNumberish[]]
+    values: [string, BigNumberish[]],
   ): string;
+
   encodeFunctionData(
     functionFragment: "redeem",
-    values: [string, BigNumberish]
+    values: [string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "registerWithdrawalRequest",
-    values: [string, BigNumberish]
+    values: [string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "resolveDebtShares",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "userDebtShare",
-    values: [BigNumberish, string]
+    values: [BigNumberish, string],
   ): string;
+
   encodeFunctionData(functionFragment: "vault", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "withdrawableAssets",
-    values: [string, BigNumberish]
+    values: [string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "withdrawableShares",
-    values: [string, BigNumberish]
+    values: [string, BigNumberish],
   ): string;
 
   decodeFunctionResult(functionFragment: "asset", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "canWithdraw",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "epochInfo", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "getAssets", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "redeem", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "registerWithdrawalRequest",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "resolveDebtShares",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "userDebtShare",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "vault", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "withdrawableAssets",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "withdrawableShares",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
 
   events: {
@@ -137,6 +157,7 @@ export interface WithdrawalRequestEventObject {
   epoch: BigNumber;
   shares: BigNumber;
 }
+
 export type WithdrawalRequestEvent = TypedEvent<
   [string, BigNumber, BigNumber],
   WithdrawalRequestEventObject
@@ -147,7 +168,9 @@ export type WithdrawalRequestEventFilter =
 
 export interface WithdrawalEscrow extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: WithdrawalEscrowInterface;
@@ -155,17 +178,21 @@ export interface WithdrawalEscrow extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -176,12 +203,12 @@ export interface WithdrawalEscrow extends BaseContract {
 
     canWithdraw(
       epoch: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[boolean]>;
 
     epochInfo(
       arg0: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber] & { shares: BigNumber; assets: BigNumber }
     >;
@@ -189,29 +216,29 @@ export interface WithdrawalEscrow extends BaseContract {
     getAssets(
       user: string,
       epochs: BigNumberish[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber] & { assets: BigNumber }>;
 
     redeem(
       user: string,
       epoch: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     registerWithdrawalRequest(
       user: string,
       shares: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     resolveDebtShares(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     userDebtShare(
       arg0: BigNumberish,
       arg1: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     vault(overrides?: CallOverrides): Promise<[string]>;
@@ -219,13 +246,13 @@ export interface WithdrawalEscrow extends BaseContract {
     withdrawableAssets(
       user: string,
       epoch: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     withdrawableShares(
       user: string,
       epoch: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
   };
 
@@ -235,35 +262,35 @@ export interface WithdrawalEscrow extends BaseContract {
 
   epochInfo(
     arg0: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<[BigNumber, BigNumber] & { shares: BigNumber; assets: BigNumber }>;
 
   getAssets(
     user: string,
     epochs: BigNumberish[],
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   redeem(
     user: string,
     epoch: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   registerWithdrawalRequest(
     user: string,
     shares: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   resolveDebtShares(
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   userDebtShare(
     arg0: BigNumberish,
     arg1: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   vault(overrides?: CallOverrides): Promise<string>;
@@ -271,13 +298,13 @@ export interface WithdrawalEscrow extends BaseContract {
   withdrawableAssets(
     user: string,
     epoch: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   withdrawableShares(
     user: string,
     epoch: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   callStatic: {
@@ -285,12 +312,12 @@ export interface WithdrawalEscrow extends BaseContract {
 
     canWithdraw(
       epoch: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     epochInfo(
       arg0: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber] & { shares: BigNumber; assets: BigNumber }
     >;
@@ -298,19 +325,19 @@ export interface WithdrawalEscrow extends BaseContract {
     getAssets(
       user: string,
       epochs: BigNumberish[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     redeem(
       user: string,
       epoch: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     registerWithdrawalRequest(
       user: string,
       shares: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     resolveDebtShares(overrides?: CallOverrides): Promise<void>;
@@ -318,7 +345,7 @@ export interface WithdrawalEscrow extends BaseContract {
     userDebtShare(
       arg0: BigNumberish,
       arg1: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     vault(overrides?: CallOverrides): Promise<string>;
@@ -326,13 +353,13 @@ export interface WithdrawalEscrow extends BaseContract {
     withdrawableAssets(
       user: string,
       epoch: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     withdrawableShares(
       user: string,
       epoch: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
   };
 
@@ -340,12 +367,12 @@ export interface WithdrawalEscrow extends BaseContract {
     "WithdrawalRequest(address,uint256,uint256)"(
       user?: string | null,
       epoch?: null,
-      shares?: null
+      shares?: null,
     ): WithdrawalRequestEventFilter;
     WithdrawalRequest(
       user?: string | null,
       epoch?: null,
-      shares?: null
+      shares?: null,
     ): WithdrawalRequestEventFilter;
   };
 
@@ -354,40 +381,40 @@ export interface WithdrawalEscrow extends BaseContract {
 
     canWithdraw(
       epoch: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     epochInfo(
       arg0: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     getAssets(
       user: string,
       epochs: BigNumberish[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     redeem(
       user: string,
       epoch: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     registerWithdrawalRequest(
       user: string,
       shares: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     resolveDebtShares(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     userDebtShare(
       arg0: BigNumberish,
       arg1: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     vault(overrides?: CallOverrides): Promise<BigNumber>;
@@ -395,13 +422,13 @@ export interface WithdrawalEscrow extends BaseContract {
     withdrawableAssets(
       user: string,
       epoch: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     withdrawableShares(
       user: string,
       epoch: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
   };
 
@@ -410,40 +437,40 @@ export interface WithdrawalEscrow extends BaseContract {
 
     canWithdraw(
       epoch: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     epochInfo(
       arg0: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     getAssets(
       user: string,
       epochs: BigNumberish[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     redeem(
       user: string,
       epoch: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     registerWithdrawalRequest(
       user: string,
       shares: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     resolveDebtShares(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     userDebtShare(
       arg0: BigNumberish,
       arg1: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     vault(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -451,13 +478,13 @@ export interface WithdrawalEscrow extends BaseContract {
     withdrawableAssets(
       user: string,
       epoch: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     withdrawableShares(
       user: string,
       epoch: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
   };
 }

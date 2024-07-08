@@ -828,12 +828,14 @@ const _abi = [
 
 export class DeltaNeutralLp__factory {
   static readonly abi = _abi;
+
   static createInterface(): DeltaNeutralLpInterface {
     return new utils.Interface(_abi) as DeltaNeutralLpInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): DeltaNeutralLp {
     return new Contract(address, _abi, signerOrProvider) as DeltaNeutralLp;
   }

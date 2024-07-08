@@ -38,7 +38,7 @@ export declare namespace MinimalForwarder {
     BigNumber,
     BigNumber,
     BigNumber,
-    string
+    string,
   ] & {
     from: string;
     to: string;
@@ -58,29 +58,35 @@ export interface ForwarderInterface extends utils.Interface {
   };
 
   getFunction(
-    nameOrSignatureOrTopic: "execute" | "executeBatch" | "getNonce" | "verify"
+    nameOrSignatureOrTopic: "execute" | "executeBatch" | "getNonce" | "verify",
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "execute",
-    values: [MinimalForwarder.ForwardRequestStruct, BytesLike]
+    values: [MinimalForwarder.ForwardRequestStruct, BytesLike],
   ): string;
+
   encodeFunctionData(
     functionFragment: "executeBatch",
-    values: [MinimalForwarder.ForwardRequestStruct[], BytesLike]
+    values: [MinimalForwarder.ForwardRequestStruct[], BytesLike],
   ): string;
+
   encodeFunctionData(functionFragment: "getNonce", values: [string]): string;
+
   encodeFunctionData(
     functionFragment: "verify",
-    values: [MinimalForwarder.ForwardRequestStruct, BytesLike]
+    values: [MinimalForwarder.ForwardRequestStruct, BytesLike],
   ): string;
 
   decodeFunctionResult(functionFragment: "execute", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "executeBatch",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "getNonce", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "verify", data: BytesLike): Result;
 
   events: {};
@@ -88,7 +94,9 @@ export interface ForwarderInterface extends utils.Interface {
 
 export interface Forwarder extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: ForwarderInterface;
@@ -96,17 +104,21 @@ export interface Forwarder extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -116,13 +128,13 @@ export interface Forwarder extends BaseContract {
     execute(
       req: MinimalForwarder.ForwardRequestStruct,
       signature: BytesLike,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     executeBatch(
       requests: MinimalForwarder.ForwardRequestStruct[],
       signatures: BytesLike,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     getNonce(from: string, overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -130,20 +142,20 @@ export interface Forwarder extends BaseContract {
     verify(
       req: MinimalForwarder.ForwardRequestStruct,
       signature: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[boolean]>;
   };
 
   execute(
     req: MinimalForwarder.ForwardRequestStruct,
     signature: BytesLike,
-    overrides?: PayableOverrides & { from?: string }
+    overrides?: PayableOverrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   executeBatch(
     requests: MinimalForwarder.ForwardRequestStruct[],
     signatures: BytesLike,
-    overrides?: PayableOverrides & { from?: string }
+    overrides?: PayableOverrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   getNonce(from: string, overrides?: CallOverrides): Promise<BigNumber>;
@@ -151,20 +163,20 @@ export interface Forwarder extends BaseContract {
   verify(
     req: MinimalForwarder.ForwardRequestStruct,
     signature: BytesLike,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<boolean>;
 
   callStatic: {
     execute(
       req: MinimalForwarder.ForwardRequestStruct,
       signature: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[boolean, string]>;
 
     executeBatch(
       requests: MinimalForwarder.ForwardRequestStruct[],
       signatures: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     getNonce(from: string, overrides?: CallOverrides): Promise<BigNumber>;
@@ -172,7 +184,7 @@ export interface Forwarder extends BaseContract {
     verify(
       req: MinimalForwarder.ForwardRequestStruct,
       signature: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
   };
 
@@ -182,13 +194,13 @@ export interface Forwarder extends BaseContract {
     execute(
       req: MinimalForwarder.ForwardRequestStruct,
       signature: BytesLike,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<BigNumber>;
 
     executeBatch(
       requests: MinimalForwarder.ForwardRequestStruct[],
       signatures: BytesLike,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<BigNumber>;
 
     getNonce(from: string, overrides?: CallOverrides): Promise<BigNumber>;
@@ -196,7 +208,7 @@ export interface Forwarder extends BaseContract {
     verify(
       req: MinimalForwarder.ForwardRequestStruct,
       signature: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
   };
 
@@ -204,24 +216,24 @@ export interface Forwarder extends BaseContract {
     execute(
       req: MinimalForwarder.ForwardRequestStruct,
       signature: BytesLike,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     executeBatch(
       requests: MinimalForwarder.ForwardRequestStruct[],
       signatures: BytesLike,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     getNonce(
       from: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     verify(
       req: MinimalForwarder.ForwardRequestStruct,
       signature: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
   };
 }

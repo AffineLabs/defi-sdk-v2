@@ -10,6 +10,7 @@ let _SymbioticVault = "0x0D53bc2BA508dFdf47084d511F13Bb2eb3f8317B";
 let _SymbioticEscrow = "0x02f5289e7dBF17E49631A160bdE5BaDDd36163Dd";
 let _RouterAddress = "0x379a56089623AE0c22F56417AB28319AD8DCF1Cc";
 let _WEthAddress = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2";
+
 export let EthRPC =
   "https://eth-mainnet.g.alchemy.com/v2/T8JHI8jMGKrO88j6qvZwjk8d1IxOPqtk";
 
@@ -25,6 +26,14 @@ if (process.env.NEXT_PUBLIC_NETWORK_TYPE === "holesky") {
   _RouterAddress = "0xB56aC485418304f20F21e8169db757c2261532e2";
   _WEthAddress = "0x94373a4919B3240D86eA41593D5eBa789FEF3848";
 }
+
+// AFFINE PASS
+export const PassPolygonAddress = "0x962e765a68c12e5c890589ba66bfd848d0ee52c5";
+export const PassPolygonBridgeAddress =
+  "0xd1B45F273Db3156110cB363325331337BB1deD14";
+export const PassEthAddress = "0x9244d2cf73861Ee7aA79Ffe90fe4eDF925482795";
+export const PassEthBridgeAddress =
+  "0xA473fDfdBBaf3a31f14F5b69f0Dfc31cc5a14e83";
 
 export const EigenStETHStrategy = _EigenStETHStrategy;
 export const EigenDelegatorAddress = _EigenDelegatorAddress;

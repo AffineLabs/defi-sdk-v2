@@ -194,498 +194,658 @@ export interface UltraLRTInterface extends utils.Interface {
       | "upgradeToAndCall"
       | "vaultAssets"
       | "withdraw"
-      | "withdrawalFee"
+      | "withdrawalFee",
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "DEFAULT_ADMIN_ROLE",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "GUARDIAN_ROLE",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "HARVESTER", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "LOCK_INTERVAL",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "MAX_BPS", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "MAX_DELEGATOR",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "STETH", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "ST_ETH_TRANSFER_BUFFER",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "allowance",
-    values: [string, string]
+    values: [string, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "approve",
-    values: [string, BigNumberish]
+    values: [string, BigNumberish],
   ): string;
+
   encodeFunctionData(functionFragment: "asset", values?: undefined): string;
+
   encodeFunctionData(functionFragment: "balanceOf", values: [string]): string;
+
   encodeFunctionData(functionFragment: "beacon", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "canWithdraw",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "collectDelegatorDebt",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "convertToAssets",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "convertToShares",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "createDelegator",
-    values: [string]
+    values: [string],
   ): string;
+
   encodeFunctionData(functionFragment: "decimals", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "decreaseAllowance",
-    values: [string, BigNumberish]
+    values: [string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "delegateToDelegator",
-    values: [string, BigNumberish]
+    values: [string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "delegatorAssets",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "delegatorCount",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "delegatorFactory",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "delegatorMap",
-    values: [string]
+    values: [string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "delegatorQueue",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "delegatorWithdrawRequest",
-    values: [string, BigNumberish]
+    values: [string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "deposit",
-    values: [BigNumberish, string]
+    values: [BigNumberish, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "depositPaused",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "dropDelegator",
-    values: [string]
+    values: [string],
   ): string;
+
   encodeFunctionData(functionFragment: "endEpoch", values?: undefined): string;
+
   encodeFunctionData(functionFragment: "escrow", values?: undefined): string;
+
   encodeFunctionData(functionFragment: "getRate", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "getRoleAdmin",
-    values: [BytesLike]
+    values: [BytesLike],
   ): string;
+
   encodeFunctionData(
     functionFragment: "governance",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "grantRole",
-    values: [BytesLike, string]
+    values: [BytesLike, string],
   ): string;
+
   encodeFunctionData(functionFragment: "harvest", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "hasRole",
-    values: [BytesLike, string]
+    values: [BytesLike, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "increaseAllowance",
-    values: [string, BigNumberish]
+    values: [string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "initialSharesPerAsset",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "initialize",
-    values: [string, string, string, string, string]
+    values: [string, string, string, string, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "lastHarvest",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "liquidationRequest",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "lockedProfit",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "managementFee",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "maxDeposit", values: [string]): string;
+
   encodeFunctionData(
     functionFragment: "maxLockedProfit",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "maxMint", values: [string]): string;
+
   encodeFunctionData(functionFragment: "maxRedeem", values: [string]): string;
+
   encodeFunctionData(functionFragment: "maxWithdraw", values: [string]): string;
+
   encodeFunctionData(
     functionFragment: "mint",
-    values: [BigNumberish, string]
+    values: [BigNumberish, string],
   ): string;
+
   encodeFunctionData(functionFragment: "name", values?: undefined): string;
+
   encodeFunctionData(functionFragment: "pause", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "pauseDeposit",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "paused", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "previewDeposit",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "previewMint",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "previewRedeem",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "previewWithdraw",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "proxiableUUID",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "redeem",
-    values: [BigNumberish, string, string]
+    values: [BigNumberish, string, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "renounceRole",
-    values: [BytesLike, string]
+    values: [BytesLike, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "resolveDebt",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "revokeRole",
-    values: [BytesLike, string]
+    values: [BytesLike, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "setDelegatorFactory",
-    values: [string]
+    values: [string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "setManagementFee",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "setWithdrawalEscrow",
-    values: [string]
+    values: [string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "setWithdrawalFee",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "supportsInterface",
-    values: [BytesLike]
+    values: [BytesLike],
   ): string;
+
   encodeFunctionData(functionFragment: "symbol", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "totalAssets",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "totalSupply",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "transfer",
-    values: [string, BigNumberish]
+    values: [string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "transferFrom",
-    values: [string, string, BigNumberish]
+    values: [string, string, BigNumberish],
   ): string;
+
   encodeFunctionData(functionFragment: "unpause", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "unpauseDeposit",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "upgradeTo", values: [string]): string;
+
   encodeFunctionData(
     functionFragment: "upgradeToAndCall",
-    values: [string, BytesLike]
+    values: [string, BytesLike],
   ): string;
+
   encodeFunctionData(
     functionFragment: "vaultAssets",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "withdraw",
-    values: [BigNumberish, string, string]
+    values: [BigNumberish, string, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "withdrawalFee",
-    values?: undefined
+    values?: undefined,
   ): string;
 
   decodeFunctionResult(
     functionFragment: "DEFAULT_ADMIN_ROLE",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "GUARDIAN_ROLE",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "HARVESTER", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "LOCK_INTERVAL",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "MAX_BPS", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "MAX_DELEGATOR",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "STETH", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "ST_ETH_TRANSFER_BUFFER",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "allowance", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "asset", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "beacon", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "canWithdraw",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "collectDelegatorDebt",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "convertToAssets",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "convertToShares",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "createDelegator",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "decimals", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "decreaseAllowance",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "delegateToDelegator",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "delegatorAssets",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "delegatorCount",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "delegatorFactory",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "delegatorMap",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "delegatorQueue",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "delegatorWithdrawRequest",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "deposit", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "depositPaused",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "dropDelegator",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "endEpoch", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "escrow", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "getRate", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "getRoleAdmin",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "governance", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "grantRole", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "harvest", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "hasRole", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "increaseAllowance",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "initialSharesPerAsset",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "lastHarvest",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "liquidationRequest",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "lockedProfit",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "managementFee",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "maxDeposit", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "maxLockedProfit",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "maxMint", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "maxRedeem", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "maxWithdraw",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "mint", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "name", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "pause", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "pauseDeposit",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "paused", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "previewDeposit",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "previewMint",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "previewRedeem",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "previewWithdraw",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "proxiableUUID",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "redeem", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "renounceRole",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "resolveDebt",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "revokeRole", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "setDelegatorFactory",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "setManagementFee",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "setWithdrawalEscrow",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "setWithdrawalFee",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "supportsInterface",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "symbol", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "totalAssets",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "totalSupply",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "transfer", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "transferFrom",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "unpause", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "unpauseDeposit",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "upgradeTo", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "upgradeToAndCall",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "vaultAssets",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "withdraw", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "withdrawalFee",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
 
   events: {
@@ -705,17 +865,29 @@ export interface UltraLRTInterface extends utils.Interface {
   };
 
   getEvent(nameOrSignatureOrTopic: "AdminChanged"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Approval"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "BeaconUpgraded"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Deposit"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Initialized"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Paused"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "RoleAdminChanged"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "RoleGranted"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "RoleRevoked"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Transfer"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Unpaused"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Upgraded"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Withdraw"): EventFragment;
 }
 
@@ -723,6 +895,7 @@ export interface AdminChangedEventObject {
   previousAdmin: string;
   newAdmin: string;
 }
+
 export type AdminChangedEvent = TypedEvent<
   [string, string],
   AdminChangedEventObject
@@ -735,6 +908,7 @@ export interface ApprovalEventObject {
   spender: string;
   value: BigNumber;
 }
+
 export type ApprovalEvent = TypedEvent<
   [string, string, BigNumber],
   ApprovalEventObject
@@ -745,6 +919,7 @@ export type ApprovalEventFilter = TypedEventFilter<ApprovalEvent>;
 export interface BeaconUpgradedEventObject {
   beacon: string;
 }
+
 export type BeaconUpgradedEvent = TypedEvent<
   [string],
   BeaconUpgradedEventObject
@@ -758,6 +933,7 @@ export interface DepositEventObject {
   assets: BigNumber;
   shares: BigNumber;
 }
+
 export type DepositEvent = TypedEvent<
   [string, string, BigNumber, BigNumber],
   DepositEventObject
@@ -768,6 +944,7 @@ export type DepositEventFilter = TypedEventFilter<DepositEvent>;
 export interface InitializedEventObject {
   version: number;
 }
+
 export type InitializedEvent = TypedEvent<[number], InitializedEventObject>;
 
 export type InitializedEventFilter = TypedEventFilter<InitializedEvent>;
@@ -775,6 +952,7 @@ export type InitializedEventFilter = TypedEventFilter<InitializedEvent>;
 export interface PausedEventObject {
   account: string;
 }
+
 export type PausedEvent = TypedEvent<[string], PausedEventObject>;
 
 export type PausedEventFilter = TypedEventFilter<PausedEvent>;
@@ -784,6 +962,7 @@ export interface RoleAdminChangedEventObject {
   previousAdminRole: string;
   newAdminRole: string;
 }
+
 export type RoleAdminChangedEvent = TypedEvent<
   [string, string, string],
   RoleAdminChangedEventObject
@@ -797,6 +976,7 @@ export interface RoleGrantedEventObject {
   account: string;
   sender: string;
 }
+
 export type RoleGrantedEvent = TypedEvent<
   [string, string, string],
   RoleGrantedEventObject
@@ -809,6 +989,7 @@ export interface RoleRevokedEventObject {
   account: string;
   sender: string;
 }
+
 export type RoleRevokedEvent = TypedEvent<
   [string, string, string],
   RoleRevokedEventObject
@@ -821,6 +1002,7 @@ export interface TransferEventObject {
   to: string;
   value: BigNumber;
 }
+
 export type TransferEvent = TypedEvent<
   [string, string, BigNumber],
   TransferEventObject
@@ -831,6 +1013,7 @@ export type TransferEventFilter = TypedEventFilter<TransferEvent>;
 export interface UnpausedEventObject {
   account: string;
 }
+
 export type UnpausedEvent = TypedEvent<[string], UnpausedEventObject>;
 
 export type UnpausedEventFilter = TypedEventFilter<UnpausedEvent>;
@@ -838,6 +1021,7 @@ export type UnpausedEventFilter = TypedEventFilter<UnpausedEvent>;
 export interface UpgradedEventObject {
   implementation: string;
 }
+
 export type UpgradedEvent = TypedEvent<[string], UpgradedEventObject>;
 
 export type UpgradedEventFilter = TypedEventFilter<UpgradedEvent>;
@@ -849,6 +1033,7 @@ export interface WithdrawEventObject {
   assets: BigNumber;
   shares: BigNumber;
 }
+
 export type WithdrawEvent = TypedEvent<
   [string, string, string, BigNumber, BigNumber],
   WithdrawEventObject
@@ -858,7 +1043,9 @@ export type WithdrawEventFilter = TypedEventFilter<WithdrawEvent>;
 
 export interface UltraLRT extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: UltraLRTInterface;
@@ -866,17 +1053,21 @@ export interface UltraLRT extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -902,13 +1093,13 @@ export interface UltraLRT extends BaseContract {
     allowance(
       owner: string,
       spender: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     asset(overrides?: CallOverrides): Promise<[string]>;
@@ -919,26 +1110,26 @@ export interface UltraLRT extends BaseContract {
 
     canWithdraw(
       assets: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[boolean]>;
 
     collectDelegatorDebt(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     convertToAssets(
       shares: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber] & { assets: BigNumber }>;
 
     convertToShares(
       assets: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber] & { shares: BigNumber }>;
 
     createDelegator(
       _operator: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     decimals(overrides?: CallOverrides): Promise<[number]>;
@@ -946,13 +1137,13 @@ export interface UltraLRT extends BaseContract {
     decreaseAllowance(
       spender: string,
       subtractedValue: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     delegateToDelegator(
       _delegator: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     delegatorAssets(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -963,37 +1154,37 @@ export interface UltraLRT extends BaseContract {
 
     delegatorMap(
       arg0: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [boolean, BigNumber] & { isActive: boolean; balance: BigNumber }
     >;
 
     delegatorQueue(
       arg0: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[string]>;
 
     delegatorWithdrawRequest(
       delegator: string,
       assets: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     deposit(
       assets: BigNumberish,
       receiver: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     depositPaused(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     dropDelegator(
       _delegator: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     endEpoch(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     escrow(overrides?: CallOverrides): Promise<[string]>;
@@ -1007,23 +1198,23 @@ export interface UltraLRT extends BaseContract {
     grantRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     harvest(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     hasRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[boolean]>;
 
     increaseAllowance(
       spender: string,
       addedValue: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     initialSharesPerAsset(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -1034,14 +1225,14 @@ export interface UltraLRT extends BaseContract {
       _delegatorBeacon: string,
       _name: string,
       _symbol: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     lastHarvest(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     liquidationRequest(
       assets: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     lockedProfit(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -1061,39 +1252,39 @@ export interface UltraLRT extends BaseContract {
     mint(
       shares: BigNumberish,
       receiver: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     name(overrides?: CallOverrides): Promise<[string]>;
 
     pause(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     pauseDeposit(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     paused(overrides?: CallOverrides): Promise<[boolean]>;
 
     previewDeposit(
       assets: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     previewMint(
       shares: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     previewRedeem(
       shares: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     previewWithdraw(
       assets: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     proxiableUUID(overrides?: CallOverrides): Promise<[string]>;
@@ -1102,48 +1293,48 @@ export interface UltraLRT extends BaseContract {
       shares: BigNumberish,
       receiver: string,
       owner: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     renounceRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     resolveDebt(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     revokeRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     setDelegatorFactory(
       _factory: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     setManagementFee(
       feeBps: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     setWithdrawalEscrow(
       _escrow: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     setWithdrawalFee(
       feeBps: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     supportsInterface(
       interfaceId: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[boolean]>;
 
     symbol(overrides?: CallOverrides): Promise<[string]>;
@@ -1155,33 +1346,33 @@ export interface UltraLRT extends BaseContract {
     transfer(
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     transferFrom(
       from: string,
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     unpause(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     unpauseDeposit(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     upgradeTo(
       newImplementation: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     upgradeToAndCall(
       newImplementation: string,
       data: BytesLike,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     vaultAssets(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -1190,7 +1381,7 @@ export interface UltraLRT extends BaseContract {
       assets: BigNumberish,
       receiver: string,
       owner: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     withdrawalFee(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -1215,13 +1406,13 @@ export interface UltraLRT extends BaseContract {
   allowance(
     owner: string,
     spender: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   approve(
     spender: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   asset(overrides?: CallOverrides): Promise<string>;
@@ -1232,26 +1423,26 @@ export interface UltraLRT extends BaseContract {
 
   canWithdraw(
     assets: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<boolean>;
 
   collectDelegatorDebt(
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   convertToAssets(
     shares: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   convertToShares(
     assets: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   createDelegator(
     _operator: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   decimals(overrides?: CallOverrides): Promise<number>;
@@ -1259,13 +1450,13 @@ export interface UltraLRT extends BaseContract {
   decreaseAllowance(
     spender: string,
     subtractedValue: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   delegateToDelegator(
     _delegator: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   delegatorAssets(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1276,35 +1467,35 @@ export interface UltraLRT extends BaseContract {
 
   delegatorMap(
     arg0: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<[boolean, BigNumber] & { isActive: boolean; balance: BigNumber }>;
 
   delegatorQueue(
     arg0: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<string>;
 
   delegatorWithdrawRequest(
     delegator: string,
     assets: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   deposit(
     assets: BigNumberish,
     receiver: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   depositPaused(overrides?: CallOverrides): Promise<BigNumber>;
 
   dropDelegator(
     _delegator: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   endEpoch(
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   escrow(overrides?: CallOverrides): Promise<string>;
@@ -1318,23 +1509,23 @@ export interface UltraLRT extends BaseContract {
   grantRole(
     role: BytesLike,
     account: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   harvest(
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   hasRole(
     role: BytesLike,
     account: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<boolean>;
 
   increaseAllowance(
     spender: string,
     addedValue: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   initialSharesPerAsset(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1345,14 +1536,14 @@ export interface UltraLRT extends BaseContract {
     _delegatorBeacon: string,
     _name: string,
     _symbol: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   lastHarvest(overrides?: CallOverrides): Promise<BigNumber>;
 
   liquidationRequest(
     assets: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   lockedProfit(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1372,39 +1563,39 @@ export interface UltraLRT extends BaseContract {
   mint(
     shares: BigNumberish,
     receiver: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   name(overrides?: CallOverrides): Promise<string>;
 
   pause(
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   pauseDeposit(
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   paused(overrides?: CallOverrides): Promise<boolean>;
 
   previewDeposit(
     assets: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   previewMint(
     shares: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   previewRedeem(
     shares: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   previewWithdraw(
     assets: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   proxiableUUID(overrides?: CallOverrides): Promise<string>;
@@ -1413,48 +1604,48 @@ export interface UltraLRT extends BaseContract {
     shares: BigNumberish,
     receiver: string,
     owner: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   renounceRole(
     role: BytesLike,
     account: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   resolveDebt(
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   revokeRole(
     role: BytesLike,
     account: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   setDelegatorFactory(
     _factory: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   setManagementFee(
     feeBps: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   setWithdrawalEscrow(
     _escrow: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   setWithdrawalFee(
     feeBps: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   supportsInterface(
     interfaceId: BytesLike,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<boolean>;
 
   symbol(overrides?: CallOverrides): Promise<string>;
@@ -1466,33 +1657,33 @@ export interface UltraLRT extends BaseContract {
   transfer(
     to: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   transferFrom(
     from: string,
     to: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   unpause(
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   unpauseDeposit(
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   upgradeTo(
     newImplementation: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   upgradeToAndCall(
     newImplementation: string,
     data: BytesLike,
-    overrides?: PayableOverrides & { from?: string }
+    overrides?: PayableOverrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   vaultAssets(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1501,7 +1692,7 @@ export interface UltraLRT extends BaseContract {
     assets: BigNumberish,
     receiver: string,
     owner: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   withdrawalFee(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1526,13 +1717,13 @@ export interface UltraLRT extends BaseContract {
     allowance(
       owner: string,
       spender: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     asset(overrides?: CallOverrides): Promise<string>;
@@ -1543,24 +1734,24 @@ export interface UltraLRT extends BaseContract {
 
     canWithdraw(
       assets: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     collectDelegatorDebt(overrides?: CallOverrides): Promise<void>;
 
     convertToAssets(
       shares: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     convertToShares(
       assets: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     createDelegator(
       _operator: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     decimals(overrides?: CallOverrides): Promise<number>;
@@ -1568,13 +1759,13 @@ export interface UltraLRT extends BaseContract {
     decreaseAllowance(
       spender: string,
       subtractedValue: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     delegateToDelegator(
       _delegator: string,
       amount: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     delegatorAssets(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1585,26 +1776,26 @@ export interface UltraLRT extends BaseContract {
 
     delegatorMap(
       arg0: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [boolean, BigNumber] & { isActive: boolean; balance: BigNumber }
     >;
 
     delegatorQueue(
       arg0: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<string>;
 
     delegatorWithdrawRequest(
       delegator: string,
       assets: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     deposit(
       assets: BigNumberish,
       receiver: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     depositPaused(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1624,7 +1815,7 @@ export interface UltraLRT extends BaseContract {
     grantRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     harvest(overrides?: CallOverrides): Promise<void>;
@@ -1632,13 +1823,13 @@ export interface UltraLRT extends BaseContract {
     hasRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     increaseAllowance(
       spender: string,
       addedValue: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     initialSharesPerAsset(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1649,14 +1840,14 @@ export interface UltraLRT extends BaseContract {
       _delegatorBeacon: string,
       _name: string,
       _symbol: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     lastHarvest(overrides?: CallOverrides): Promise<BigNumber>;
 
     liquidationRequest(
       assets: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     lockedProfit(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1676,7 +1867,7 @@ export interface UltraLRT extends BaseContract {
     mint(
       shares: BigNumberish,
       receiver: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     name(overrides?: CallOverrides): Promise<string>;
@@ -1689,22 +1880,22 @@ export interface UltraLRT extends BaseContract {
 
     previewDeposit(
       assets: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     previewMint(
       shares: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     previewRedeem(
       shares: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     previewWithdraw(
       assets: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     proxiableUUID(overrides?: CallOverrides): Promise<string>;
@@ -1713,13 +1904,13 @@ export interface UltraLRT extends BaseContract {
       shares: BigNumberish,
       receiver: string,
       owner: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     renounceRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     resolveDebt(overrides?: CallOverrides): Promise<void>;
@@ -1727,32 +1918,32 @@ export interface UltraLRT extends BaseContract {
     revokeRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     setDelegatorFactory(
       _factory: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     setManagementFee(
       feeBps: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     setWithdrawalEscrow(
       _escrow: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     setWithdrawalFee(
       feeBps: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     supportsInterface(
       interfaceId: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     symbol(overrides?: CallOverrides): Promise<string>;
@@ -1764,14 +1955,14 @@ export interface UltraLRT extends BaseContract {
     transfer(
       to: string,
       amount: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     transferFrom(
       from: string,
       to: string,
       amount: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     unpause(overrides?: CallOverrides): Promise<void>;
@@ -1780,13 +1971,13 @@ export interface UltraLRT extends BaseContract {
 
     upgradeTo(
       newImplementation: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     upgradeToAndCall(
       newImplementation: string,
       data: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     vaultAssets(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1795,7 +1986,7 @@ export interface UltraLRT extends BaseContract {
       assets: BigNumberish,
       receiver: string,
       owner: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     withdrawalFee(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1804,26 +1995,26 @@ export interface UltraLRT extends BaseContract {
   filters: {
     "AdminChanged(address,address)"(
       previousAdmin?: null,
-      newAdmin?: null
+      newAdmin?: null,
     ): AdminChangedEventFilter;
     AdminChanged(
       previousAdmin?: null,
-      newAdmin?: null
+      newAdmin?: null,
     ): AdminChangedEventFilter;
 
     "Approval(address,address,uint256)"(
       owner?: string | null,
       spender?: string | null,
-      value?: null
+      value?: null,
     ): ApprovalEventFilter;
     Approval(
       owner?: string | null,
       spender?: string | null,
-      value?: null
+      value?: null,
     ): ApprovalEventFilter;
 
     "BeaconUpgraded(address)"(
-      beacon?: string | null
+      beacon?: string | null,
     ): BeaconUpgradedEventFilter;
     BeaconUpgraded(beacon?: string | null): BeaconUpgradedEventFilter;
 
@@ -1831,13 +2022,13 @@ export interface UltraLRT extends BaseContract {
       caller?: string | null,
       owner?: string | null,
       assets?: null,
-      shares?: null
+      shares?: null,
     ): DepositEventFilter;
     Deposit(
       caller?: string | null,
       owner?: string | null,
       assets?: null,
-      shares?: null
+      shares?: null,
     ): DepositEventFilter;
 
     "Initialized(uint8)"(version?: null): InitializedEventFilter;
@@ -1849,45 +2040,45 @@ export interface UltraLRT extends BaseContract {
     "RoleAdminChanged(bytes32,bytes32,bytes32)"(
       role?: BytesLike | null,
       previousAdminRole?: BytesLike | null,
-      newAdminRole?: BytesLike | null
+      newAdminRole?: BytesLike | null,
     ): RoleAdminChangedEventFilter;
     RoleAdminChanged(
       role?: BytesLike | null,
       previousAdminRole?: BytesLike | null,
-      newAdminRole?: BytesLike | null
+      newAdminRole?: BytesLike | null,
     ): RoleAdminChangedEventFilter;
 
     "RoleGranted(bytes32,address,address)"(
       role?: BytesLike | null,
       account?: string | null,
-      sender?: string | null
+      sender?: string | null,
     ): RoleGrantedEventFilter;
     RoleGranted(
       role?: BytesLike | null,
       account?: string | null,
-      sender?: string | null
+      sender?: string | null,
     ): RoleGrantedEventFilter;
 
     "RoleRevoked(bytes32,address,address)"(
       role?: BytesLike | null,
       account?: string | null,
-      sender?: string | null
+      sender?: string | null,
     ): RoleRevokedEventFilter;
     RoleRevoked(
       role?: BytesLike | null,
       account?: string | null,
-      sender?: string | null
+      sender?: string | null,
     ): RoleRevokedEventFilter;
 
     "Transfer(address,address,uint256)"(
       from?: string | null,
       to?: string | null,
-      value?: null
+      value?: null,
     ): TransferEventFilter;
     Transfer(
       from?: string | null,
       to?: string | null,
-      value?: null
+      value?: null,
     ): TransferEventFilter;
 
     "Unpaused(address)"(account?: null): UnpausedEventFilter;
@@ -1901,14 +2092,14 @@ export interface UltraLRT extends BaseContract {
       receiver?: string | null,
       owner?: string | null,
       assets?: null,
-      shares?: null
+      shares?: null,
     ): WithdrawEventFilter;
     Withdraw(
       caller?: string | null,
       receiver?: string | null,
       owner?: string | null,
       assets?: null,
-      shares?: null
+      shares?: null,
     ): WithdrawEventFilter;
   };
 
@@ -1932,13 +2123,13 @@ export interface UltraLRT extends BaseContract {
     allowance(
       owner: string,
       spender: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     asset(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1949,26 +2140,26 @@ export interface UltraLRT extends BaseContract {
 
     canWithdraw(
       assets: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     collectDelegatorDebt(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     convertToAssets(
       shares: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     convertToShares(
       assets: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     createDelegator(
       _operator: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     decimals(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1976,13 +2167,13 @@ export interface UltraLRT extends BaseContract {
     decreaseAllowance(
       spender: string,
       subtractedValue: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     delegateToDelegator(
       _delegator: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     delegatorAssets(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1995,26 +2186,26 @@ export interface UltraLRT extends BaseContract {
 
     delegatorQueue(
       arg0: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     delegatorWithdrawRequest(
       delegator: string,
       assets: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     deposit(
       assets: BigNumberish,
       receiver: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     depositPaused(overrides?: CallOverrides): Promise<BigNumber>;
 
     dropDelegator(
       _delegator: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     endEpoch(overrides?: Overrides & { from?: string }): Promise<BigNumber>;
@@ -2025,7 +2216,7 @@ export interface UltraLRT extends BaseContract {
 
     getRoleAdmin(
       role: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     governance(overrides?: CallOverrides): Promise<BigNumber>;
@@ -2033,7 +2224,7 @@ export interface UltraLRT extends BaseContract {
     grantRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     harvest(overrides?: Overrides & { from?: string }): Promise<BigNumber>;
@@ -2041,13 +2232,13 @@ export interface UltraLRT extends BaseContract {
     hasRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     increaseAllowance(
       spender: string,
       addedValue: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     initialSharesPerAsset(overrides?: CallOverrides): Promise<BigNumber>;
@@ -2058,14 +2249,14 @@ export interface UltraLRT extends BaseContract {
       _delegatorBeacon: string,
       _name: string,
       _symbol: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     lastHarvest(overrides?: CallOverrides): Promise<BigNumber>;
 
     liquidationRequest(
       assets: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     lockedProfit(overrides?: CallOverrides): Promise<BigNumber>;
@@ -2085,7 +2276,7 @@ export interface UltraLRT extends BaseContract {
     mint(
       shares: BigNumberish,
       receiver: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     name(overrides?: CallOverrides): Promise<BigNumber>;
@@ -2098,22 +2289,22 @@ export interface UltraLRT extends BaseContract {
 
     previewDeposit(
       assets: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     previewMint(
       shares: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     previewRedeem(
       shares: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     previewWithdraw(
       assets: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     proxiableUUID(overrides?: CallOverrides): Promise<BigNumber>;
@@ -2122,13 +2313,13 @@ export interface UltraLRT extends BaseContract {
       shares: BigNumberish,
       receiver: string,
       owner: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     renounceRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     resolveDebt(overrides?: Overrides & { from?: string }): Promise<BigNumber>;
@@ -2136,32 +2327,32 @@ export interface UltraLRT extends BaseContract {
     revokeRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     setDelegatorFactory(
       _factory: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     setManagementFee(
       feeBps: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     setWithdrawalEscrow(
       _escrow: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     setWithdrawalFee(
       feeBps: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     supportsInterface(
       interfaceId: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     symbol(overrides?: CallOverrides): Promise<BigNumber>;
@@ -2173,31 +2364,31 @@ export interface UltraLRT extends BaseContract {
     transfer(
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     transferFrom(
       from: string,
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     unpause(overrides?: Overrides & { from?: string }): Promise<BigNumber>;
 
     unpauseDeposit(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     upgradeTo(
       newImplementation: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     upgradeToAndCall(
       newImplementation: string,
       data: BytesLike,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<BigNumber>;
 
     vaultAssets(overrides?: CallOverrides): Promise<BigNumber>;
@@ -2206,7 +2397,7 @@ export interface UltraLRT extends BaseContract {
       assets: BigNumberish,
       receiver: string,
       owner: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     withdrawalFee(overrides?: CallOverrides): Promise<BigNumber>;
@@ -2214,7 +2405,7 @@ export interface UltraLRT extends BaseContract {
 
   populateTransaction: {
     DEFAULT_ADMIN_ROLE(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     GUARDIAN_ROLE(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -2230,52 +2421,52 @@ export interface UltraLRT extends BaseContract {
     STETH(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     ST_ETH_TRANSFER_BUFFER(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     allowance(
       owner: string,
       spender: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     asset(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     balanceOf(
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     beacon(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     canWithdraw(
       assets: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     collectDelegatorDebt(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     convertToAssets(
       shares: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     convertToShares(
       assets: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     createDelegator(
       _operator: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     decimals(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -2283,13 +2474,13 @@ export interface UltraLRT extends BaseContract {
     decreaseAllowance(
       spender: string,
       subtractedValue: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     delegateToDelegator(
       _delegator: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     delegatorAssets(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -2300,35 +2491,35 @@ export interface UltraLRT extends BaseContract {
 
     delegatorMap(
       arg0: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     delegatorQueue(
       arg0: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     delegatorWithdrawRequest(
       delegator: string,
       assets: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     deposit(
       assets: BigNumberish,
       receiver: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     depositPaused(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     dropDelegator(
       _delegator: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     endEpoch(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     escrow(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -2337,7 +2528,7 @@ export interface UltraLRT extends BaseContract {
 
     getRoleAdmin(
       role: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     governance(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -2345,27 +2536,27 @@ export interface UltraLRT extends BaseContract {
     grantRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     harvest(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     hasRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     increaseAllowance(
       spender: string,
       addedValue: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     initialSharesPerAsset(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     initialize(
@@ -2374,14 +2565,14 @@ export interface UltraLRT extends BaseContract {
       _delegatorBeacon: string,
       _name: string,
       _symbol: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     lastHarvest(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     liquidationRequest(
       assets: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     lockedProfit(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -2390,62 +2581,62 @@ export interface UltraLRT extends BaseContract {
 
     maxDeposit(
       arg0: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     maxLockedProfit(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     maxMint(
       arg0: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     maxRedeem(
       owner: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     maxWithdraw(
       owner: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     mint(
       shares: BigNumberish,
       receiver: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     name(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     pause(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     pauseDeposit(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     paused(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     previewDeposit(
       assets: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     previewMint(
       shares: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     previewRedeem(
       shares: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     previewWithdraw(
       assets: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     proxiableUUID(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -2454,48 +2645,48 @@ export interface UltraLRT extends BaseContract {
       shares: BigNumberish,
       receiver: string,
       owner: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     renounceRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     resolveDebt(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     revokeRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     setDelegatorFactory(
       _factory: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     setManagementFee(
       feeBps: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     setWithdrawalEscrow(
       _escrow: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     setWithdrawalFee(
       feeBps: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     supportsInterface(
       interfaceId: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     symbol(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -2507,33 +2698,33 @@ export interface UltraLRT extends BaseContract {
     transfer(
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     transferFrom(
       from: string,
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     unpause(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     unpauseDeposit(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     upgradeTo(
       newImplementation: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     upgradeToAndCall(
       newImplementation: string,
       data: BytesLike,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     vaultAssets(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -2542,7 +2733,7 @@ export interface UltraLRT extends BaseContract {
       assets: BigNumberish,
       receiver: string,
       owner: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     withdrawalFee(overrides?: CallOverrides): Promise<PopulatedTransaction>;

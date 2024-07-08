@@ -116,12 +116,14 @@ const _abi = [
 
 export class UUPSUpgradeable__factory {
   static readonly abi = _abi;
+
   static createInterface(): UUPSUpgradeableInterface {
     return new utils.Interface(_abi) as UUPSUpgradeableInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): UUPSUpgradeable {
     return new Contract(address, _abi, signerOrProvider) as UUPSUpgradeable;
   }

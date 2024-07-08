@@ -121,12 +121,14 @@ const _abi = [
 
 export class DelegatorBeacon__factory {
   static readonly abi = _abi;
+
   static createInterface(): DelegatorBeaconInterface {
     return new utils.Interface(_abi) as DelegatorBeaconInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): DelegatorBeacon {
     return new Contract(address, _abi, signerOrProvider) as DelegatorBeacon;
   }

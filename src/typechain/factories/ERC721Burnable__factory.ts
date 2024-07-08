@@ -357,12 +357,14 @@ const _abi = [
 
 export class ERC721Burnable__factory {
   static readonly abi = _abi;
+
   static createInterface(): ERC721BurnableInterface {
     return new utils.Interface(_abi) as ERC721BurnableInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): ERC721Burnable {
     return new Contract(address, _abi, signerOrProvider) as ERC721Burnable;
   }

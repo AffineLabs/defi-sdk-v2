@@ -79,12 +79,14 @@ const _abi = [
 
 export class OwnableUpgradeable__factory {
   static readonly abi = _abi;
+
   static createInterface(): OwnableUpgradeableInterface {
     return new utils.Interface(_abi) as OwnableUpgradeableInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): OwnableUpgradeable {
     return new Contract(address, _abi, signerOrProvider) as OwnableUpgradeable;
   }

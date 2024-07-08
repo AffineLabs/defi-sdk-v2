@@ -422,12 +422,14 @@ const _abi = [
 
 export class L1CompoundStrategy__factory {
   static readonly abi = _abi;
+
   static createInterface(): L1CompoundStrategyInterface {
     return new utils.Interface(_abi) as L1CompoundStrategyInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): L1CompoundStrategy {
     return new Contract(address, _abi, signerOrProvider) as L1CompoundStrategy;
   }

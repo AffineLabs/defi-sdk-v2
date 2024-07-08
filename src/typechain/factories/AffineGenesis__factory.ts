@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { Contract, Signer, utils } from "ethers";
-import type { Provider } from "@ethersproject/providers";
-import type { AffineGenesis, AffineGenesisInterface } from "../AffineGenesis";
+import {Contract, Signer, utils} from "ethers";
+import type {Provider} from "@ethersproject/providers";
+import type {AffineGenesis, AffineGenesisInterface} from "../AffineGenesis";
 
 const _abi = [
   {
@@ -797,12 +797,14 @@ const _abi = [
 
 export class AffineGenesis__factory {
   static readonly abi = _abi;
+
   static createInterface(): AffineGenesisInterface {
     return new utils.Interface(_abi) as AffineGenesisInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): AffineGenesis {
     return new Contract(address, _abi, signerOrProvider) as AffineGenesis;
   }

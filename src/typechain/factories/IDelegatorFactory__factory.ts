@@ -46,12 +46,14 @@ const _abi = [
 
 export class IDelegatorFactory__factory {
   static readonly abi = _abi;
+
   static createInterface(): IDelegatorFactoryInterface {
     return new utils.Interface(_abi) as IDelegatorFactoryInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): IDelegatorFactory {
     return new Contract(address, _abi, signerOrProvider) as IDelegatorFactory;
   }

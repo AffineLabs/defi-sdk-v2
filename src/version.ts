@@ -1,1 +1,1 @@
-export const AFFINE_SDK_VALUE = "TEST"
+export const AFFINE_SDK_VALUE = "TEST";

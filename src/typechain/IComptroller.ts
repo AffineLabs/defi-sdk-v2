@@ -40,53 +40,65 @@ export interface IComptrollerInterface extends utils.Interface {
       | "compAccrued"
       | "enterMarkets"
       | "getAccountLiquidity"
-      | "markets"
+      | "markets",
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "claimComp",
-    values: [string, string[]]
+    values: [string, string[]],
   ): string;
+
   encodeFunctionData(
     functionFragment: "claimStrike(address)",
-    values: [string]
+    values: [string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "claimStrike(address,address[])",
-    values: [string, string[]]
+    values: [string, string[]],
   ): string;
+
   encodeFunctionData(functionFragment: "compAccrued", values: [string]): string;
+
   encodeFunctionData(
     functionFragment: "enterMarkets",
-    values: [string[]]
+    values: [string[]],
   ): string;
+
   encodeFunctionData(
     functionFragment: "getAccountLiquidity",
-    values: [string]
+    values: [string],
   ): string;
+
   encodeFunctionData(functionFragment: "markets", values: [string]): string;
 
   decodeFunctionResult(functionFragment: "claimComp", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "claimStrike(address)",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "claimStrike(address,address[])",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "compAccrued",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "enterMarkets",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "getAccountLiquidity",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "markets", data: BytesLike): Result;
 
   events: {};
@@ -94,7 +106,9 @@ export interface IComptrollerInterface extends utils.Interface {
 
 export interface IComptroller extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: IComptrollerInterface;
@@ -102,17 +116,21 @@ export interface IComptroller extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -122,105 +140,105 @@ export interface IComptroller extends BaseContract {
     claimComp(
       holder: string,
       cTokens: string[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     "claimStrike(address)"(
       holder: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     "claimStrike(address,address[])"(
       holder: string,
       cTokens: string[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     compAccrued(arg0: string, overrides?: CallOverrides): Promise<[BigNumber]>;
 
     enterMarkets(
       arg0: string[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     getAccountLiquidity(
       arg0: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber, BigNumber, BigNumber]>;
 
     markets(
       arg0: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
   };
 
   claimComp(
     holder: string,
     cTokens: string[],
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   "claimStrike(address)"(
     holder: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   "claimStrike(address,address[])"(
     holder: string,
     cTokens: string[],
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   compAccrued(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
   enterMarkets(
     arg0: string[],
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   getAccountLiquidity(
     arg0: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<[BigNumber, BigNumber, BigNumber]>;
 
   markets(
     arg0: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   callStatic: {
     claimComp(
       holder: string,
       cTokens: string[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     "claimStrike(address)"(
       holder: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     "claimStrike(address,address[])"(
       holder: string,
       cTokens: string[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     compAccrued(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     enterMarkets(
       arg0: string[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber[]>;
 
     getAccountLiquidity(
       arg0: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber, BigNumber, BigNumber]>;
 
     markets(
       arg0: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[boolean, BigNumber]>;
   };
 
@@ -230,35 +248,35 @@ export interface IComptroller extends BaseContract {
     claimComp(
       holder: string,
       cTokens: string[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     "claimStrike(address)"(
       holder: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     "claimStrike(address,address[])"(
       holder: string,
       cTokens: string[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     compAccrued(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     enterMarkets(
       arg0: string[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     getAccountLiquidity(
       arg0: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     markets(
       arg0: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
   };
 
@@ -266,38 +284,38 @@ export interface IComptroller extends BaseContract {
     claimComp(
       holder: string,
       cTokens: string[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     "claimStrike(address)"(
       holder: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     "claimStrike(address,address[])"(
       holder: string,
       cTokens: string[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     compAccrued(
       arg0: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     enterMarkets(
       arg0: string[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     getAccountLiquidity(
       arg0: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     markets(
       arg0: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
   };
 }

@@ -278,12 +278,14 @@ const _abi = [
 
 export class UltraLRTStorage__factory {
   static readonly abi = _abi;
+
   static createInterface(): UltraLRTStorageInterface {
     return new utils.Interface(_abi) as UltraLRTStorageInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): UltraLRTStorage {
     return new Contract(address, _abi, signerOrProvider) as UltraLRTStorage;
   }

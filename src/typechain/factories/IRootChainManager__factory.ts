@@ -50,12 +50,14 @@ const _abi = [
 
 export class IRootChainManager__factory {
   static readonly abi = _abi;
+
   static createInterface(): IRootChainManagerInterface {
     return new utils.Interface(_abi) as IRootChainManagerInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): IRootChainManager {
     return new Contract(address, _abi, signerOrProvider) as IRootChainManager;
   }

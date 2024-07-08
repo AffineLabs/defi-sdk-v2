@@ -186,12 +186,14 @@ const _abi = [
 
 export class IAccessControl__factory {
   static readonly abi = _abi;
+
   static createInterface(): IAccessControlInterface {
     return new utils.Interface(_abi) as IAccessControlInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): IAccessControl {
     return new Contract(address, _abi, signerOrProvider) as IAccessControl;
   }

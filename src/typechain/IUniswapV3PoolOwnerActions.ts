@@ -29,25 +29,27 @@ export interface IUniswapV3PoolOwnerActionsInterface extends utils.Interface {
   };
 
   getFunction(
-    nameOrSignatureOrTopic: "collectProtocol" | "setFeeProtocol"
+    nameOrSignatureOrTopic: "collectProtocol" | "setFeeProtocol",
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "collectProtocol",
-    values: [string, BigNumberish, BigNumberish]
+    values: [string, BigNumberish, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "setFeeProtocol",
-    values: [BigNumberish, BigNumberish]
+    values: [BigNumberish, BigNumberish],
   ): string;
 
   decodeFunctionResult(
     functionFragment: "collectProtocol",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "setFeeProtocol",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
 
   events: {};
@@ -55,7 +57,9 @@ export interface IUniswapV3PoolOwnerActionsInterface extends utils.Interface {
 
 export interface IUniswapV3PoolOwnerActions extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: IUniswapV3PoolOwnerActionsInterface;
@@ -63,17 +67,21 @@ export interface IUniswapV3PoolOwnerActions extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -84,13 +92,13 @@ export interface IUniswapV3PoolOwnerActions extends BaseContract {
       recipient: string,
       amount0Requested: BigNumberish,
       amount1Requested: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     setFeeProtocol(
       feeProtocol0: BigNumberish,
       feeProtocol1: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
   };
 
@@ -98,13 +106,13 @@ export interface IUniswapV3PoolOwnerActions extends BaseContract {
     recipient: string,
     amount0Requested: BigNumberish,
     amount1Requested: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   setFeeProtocol(
     feeProtocol0: BigNumberish,
     feeProtocol1: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -112,7 +120,7 @@ export interface IUniswapV3PoolOwnerActions extends BaseContract {
       recipient: string,
       amount0Requested: BigNumberish,
       amount1Requested: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber] & { amount0: BigNumber; amount1: BigNumber }
     >;
@@ -120,7 +128,7 @@ export interface IUniswapV3PoolOwnerActions extends BaseContract {
     setFeeProtocol(
       feeProtocol0: BigNumberish,
       feeProtocol1: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
   };
 
@@ -131,13 +139,13 @@ export interface IUniswapV3PoolOwnerActions extends BaseContract {
       recipient: string,
       amount0Requested: BigNumberish,
       amount1Requested: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     setFeeProtocol(
       feeProtocol0: BigNumberish,
       feeProtocol1: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
   };
 
@@ -146,13 +154,13 @@ export interface IUniswapV3PoolOwnerActions extends BaseContract {
       recipient: string,
       amount0Requested: BigNumberish,
       amount1Requested: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     setFeeProtocol(
       feeProtocol0: BigNumberish,
       feeProtocol1: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
   };
 }

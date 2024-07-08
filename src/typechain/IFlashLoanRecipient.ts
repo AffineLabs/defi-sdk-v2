@@ -31,12 +31,12 @@ export interface IFlashLoanRecipientInterface extends utils.Interface {
 
   encodeFunctionData(
     functionFragment: "receiveFlashLoan",
-    values: [string[], BigNumberish[], BigNumberish[], BytesLike]
+    values: [string[], BigNumberish[], BigNumberish[], BytesLike],
   ): string;
 
   decodeFunctionResult(
     functionFragment: "receiveFlashLoan",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
 
   events: {};
@@ -44,7 +44,9 @@ export interface IFlashLoanRecipientInterface extends utils.Interface {
 
 export interface IFlashLoanRecipient extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: IFlashLoanRecipientInterface;
@@ -52,17 +54,21 @@ export interface IFlashLoanRecipient extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -74,7 +80,7 @@ export interface IFlashLoanRecipient extends BaseContract {
       amounts: BigNumberish[],
       feeAmounts: BigNumberish[],
       userData: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
   };
 
@@ -83,7 +89,7 @@ export interface IFlashLoanRecipient extends BaseContract {
     amounts: BigNumberish[],
     feeAmounts: BigNumberish[],
     userData: BytesLike,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -92,7 +98,7 @@ export interface IFlashLoanRecipient extends BaseContract {
       amounts: BigNumberish[],
       feeAmounts: BigNumberish[],
       userData: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
   };
 
@@ -104,7 +110,7 @@ export interface IFlashLoanRecipient extends BaseContract {
       amounts: BigNumberish[],
       feeAmounts: BigNumberish[],
       userData: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
   };
 
@@ -114,7 +120,7 @@ export interface IFlashLoanRecipient extends BaseContract {
       amounts: BigNumberish[],
       feeAmounts: BigNumberish[],
       userData: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
   };
 }

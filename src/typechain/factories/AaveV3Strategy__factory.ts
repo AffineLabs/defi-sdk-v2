@@ -153,12 +153,14 @@ const _abi = [
 
 export class AaveV3Strategy__factory {
   static readonly abi = _abi;
+
   static createInterface(): AaveV3StrategyInterface {
     return new utils.Interface(_abi) as AaveV3StrategyInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): AaveV3Strategy {
     return new Contract(address, _abi, signerOrProvider) as AaveV3Strategy;
   }

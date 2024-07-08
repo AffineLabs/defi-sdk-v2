@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { Contract, Signer, utils } from "ethers";
-import type { Provider } from "@ethersproject/providers";
-import type { MockERC20, MockERC20Interface } from "../MockERC20";
+import {Contract, Signer, utils} from "ethers";
+import type {Provider} from "@ethersproject/providers";
+import type {MockERC20, MockERC20Interface} from "../MockERC20";
 
 const _abi = [
   {
@@ -347,12 +347,14 @@ const _abi = [
 
 export class MockERC20__factory {
   static readonly abi = _abi;
+
   static createInterface(): MockERC20Interface {
     return new utils.Interface(_abi) as MockERC20Interface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): MockERC20 {
     return new Contract(address, _abi, signerOrProvider) as MockERC20;
   }

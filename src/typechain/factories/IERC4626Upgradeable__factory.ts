@@ -626,12 +626,14 @@ const _abi = [
 
 export class IERC4626Upgradeable__factory {
   static readonly abi = _abi;
+
   static createInterface(): IERC4626UpgradeableInterface {
     return new utils.Interface(_abi) as IERC4626UpgradeableInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): IERC4626Upgradeable {
     return new Contract(address, _abi, signerOrProvider) as IERC4626Upgradeable;
   }

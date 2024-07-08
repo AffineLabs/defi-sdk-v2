@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { Contract, Signer, utils } from "ethers";
-import type { Provider } from "@ethersproject/providers";
-import type { CCIPReceiver, CCIPReceiverInterface } from "../CCIPReceiver";
+import {Contract, Signer, utils} from "ethers";
+import type {Provider} from "@ethersproject/providers";
+import type {CCIPReceiver, CCIPReceiverInterface} from "../CCIPReceiver";
 
 const _abi = [
   {
@@ -106,12 +106,14 @@ const _abi = [
 
 export class CCIPReceiver__factory {
   static readonly abi = _abi;
+
   static createInterface(): CCIPReceiverInterface {
     return new utils.Interface(_abi) as CCIPReceiverInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): CCIPReceiver {
     return new Contract(address, _abi, signerOrProvider) as CCIPReceiver;
   }

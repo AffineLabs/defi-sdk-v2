@@ -57,7 +57,7 @@ export declare namespace IAeroRouter {
     BigNumber,
     BigNumber,
     BigNumber,
-    BigNumber
+    BigNumber,
   ] & {
     tokenA: string;
     tokenB: string;
@@ -129,14 +129,16 @@ export interface IAeroRouterInterface extends utils.Interface {
       | "swapExactTokensForTokensSupportingFeeOnTransferTokens"
       | "voter"
       | "zapIn"
-      | "zapOut"
+      | "zapOut",
   ): FunctionFragment;
 
   encodeFunctionData(functionFragment: "ETHER", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "UNSAFE_swapExactTokensForTokens",
-    values: [BigNumberish[], IAeroRouter.RouteStruct[], string, BigNumberish]
+    values: [BigNumberish[], IAeroRouter.RouteStruct[], string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "addLiquidity",
     values: [
@@ -148,9 +150,10 @@ export interface IAeroRouterInterface extends utils.Interface {
       BigNumberish,
       BigNumberish,
       string,
-      BigNumberish
-    ]
+      BigNumberish,
+    ],
   ): string;
+
   encodeFunctionData(
     functionFragment: "addLiquidityETH",
     values: [
@@ -160,17 +163,20 @@ export interface IAeroRouterInterface extends utils.Interface {
       BigNumberish,
       BigNumberish,
       string,
-      BigNumberish
-    ]
+      BigNumberish,
+    ],
   ): string;
+
   encodeFunctionData(
     functionFragment: "defaultFactory",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "factoryRegistry",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "generateZapInParams",
     values: [
@@ -181,9 +187,10 @@ export interface IAeroRouterInterface extends utils.Interface {
       BigNumberish,
       BigNumberish,
       IAeroRouter.RouteStruct[],
-      IAeroRouter.RouteStruct[]
-    ]
+      IAeroRouter.RouteStruct[],
+    ],
   ): string;
+
   encodeFunctionData(
     functionFragment: "generateZapOutParams",
     values: [
@@ -193,33 +200,40 @@ export interface IAeroRouterInterface extends utils.Interface {
       string,
       BigNumberish,
       IAeroRouter.RouteStruct[],
-      IAeroRouter.RouteStruct[]
-    ]
+      IAeroRouter.RouteStruct[],
+    ],
   ): string;
+
   encodeFunctionData(
     functionFragment: "getAmountsOut",
-    values: [BigNumberish, IAeroRouter.RouteStruct[]]
+    values: [BigNumberish, IAeroRouter.RouteStruct[]],
   ): string;
+
   encodeFunctionData(
     functionFragment: "getReserves",
-    values: [string, string, boolean, string]
+    values: [string, string, boolean, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "poolFor",
-    values: [string, string, boolean, string]
+    values: [string, string, boolean, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "quoteAddLiquidity",
-    values: [string, string, boolean, string, BigNumberish, BigNumberish]
+    values: [string, string, boolean, string, BigNumberish, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "quoteRemoveLiquidity",
-    values: [string, string, boolean, string, BigNumberish]
+    values: [string, string, boolean, string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "quoteStableLiquidityRatio",
-    values: [string, string, string]
+    values: [string, string, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "removeLiquidity",
     values: [
@@ -230,9 +244,10 @@ export interface IAeroRouterInterface extends utils.Interface {
       BigNumberish,
       BigNumberish,
       string,
-      BigNumberish
-    ]
+      BigNumberish,
+    ],
   ): string;
+
   encodeFunctionData(
     functionFragment: "removeLiquidityETH",
     values: [
@@ -242,9 +257,10 @@ export interface IAeroRouterInterface extends utils.Interface {
       BigNumberish,
       BigNumberish,
       string,
-      BigNumberish
-    ]
+      BigNumberish,
+    ],
   ): string;
+
   encodeFunctionData(
     functionFragment: "removeLiquidityETHSupportingFeeOnTransferTokens",
     values: [
@@ -254,21 +270,25 @@ export interface IAeroRouterInterface extends utils.Interface {
       BigNumberish,
       BigNumberish,
       string,
-      BigNumberish
-    ]
+      BigNumberish,
+    ],
   ): string;
+
   encodeFunctionData(
     functionFragment: "sortTokens",
-    values: [string, string]
+    values: [string, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "swapExactETHForTokens",
-    values: [BigNumberish, IAeroRouter.RouteStruct[], string, BigNumberish]
+    values: [BigNumberish, IAeroRouter.RouteStruct[], string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "swapExactETHForTokensSupportingFeeOnTransferTokens",
-    values: [BigNumberish, IAeroRouter.RouteStruct[], string, BigNumberish]
+    values: [BigNumberish, IAeroRouter.RouteStruct[], string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "swapExactTokensForETH",
     values: [
@@ -276,9 +296,10 @@ export interface IAeroRouterInterface extends utils.Interface {
       BigNumberish,
       IAeroRouter.RouteStruct[],
       string,
-      BigNumberish
-    ]
+      BigNumberish,
+    ],
   ): string;
+
   encodeFunctionData(
     functionFragment: "swapExactTokensForETHSupportingFeeOnTransferTokens",
     values: [
@@ -286,9 +307,10 @@ export interface IAeroRouterInterface extends utils.Interface {
       BigNumberish,
       IAeroRouter.RouteStruct[],
       string,
-      BigNumberish
-    ]
+      BigNumberish,
+    ],
   ): string;
+
   encodeFunctionData(
     functionFragment: "swapExactTokensForTokens",
     values: [
@@ -296,9 +318,10 @@ export interface IAeroRouterInterface extends utils.Interface {
       BigNumberish,
       IAeroRouter.RouteStruct[],
       string,
-      BigNumberish
-    ]
+      BigNumberish,
+    ],
   ): string;
+
   encodeFunctionData(
     functionFragment: "swapExactTokensForTokensSupportingFeeOnTransferTokens",
     values: [
@@ -306,10 +329,12 @@ export interface IAeroRouterInterface extends utils.Interface {
       BigNumberish,
       IAeroRouter.RouteStruct[],
       string,
-      BigNumberish
-    ]
+      BigNumberish,
+    ],
   ): string;
+
   encodeFunctionData(functionFragment: "voter", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "zapIn",
     values: [
@@ -320,9 +345,10 @@ export interface IAeroRouterInterface extends utils.Interface {
       IAeroRouter.RouteStruct[],
       IAeroRouter.RouteStruct[],
       string,
-      boolean
-    ]
+      boolean,
+    ],
   ): string;
+
   encodeFunctionData(
     functionFragment: "zapOut",
     values: [
@@ -330,99 +356,125 @@ export interface IAeroRouterInterface extends utils.Interface {
       BigNumberish,
       IAeroRouter.ZapStruct,
       IAeroRouter.RouteStruct[],
-      IAeroRouter.RouteStruct[]
-    ]
+      IAeroRouter.RouteStruct[],
+    ],
   ): string;
 
   decodeFunctionResult(functionFragment: "ETHER", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "UNSAFE_swapExactTokensForTokens",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "addLiquidity",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "addLiquidityETH",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "defaultFactory",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "factoryRegistry",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "generateZapInParams",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "generateZapOutParams",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "getAmountsOut",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "getReserves",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "poolFor", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "quoteAddLiquidity",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "quoteRemoveLiquidity",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "quoteStableLiquidityRatio",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "removeLiquidity",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "removeLiquidityETH",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "removeLiquidityETHSupportingFeeOnTransferTokens",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "sortTokens", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "swapExactETHForTokens",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "swapExactETHForTokensSupportingFeeOnTransferTokens",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "swapExactTokensForETH",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "swapExactTokensForETHSupportingFeeOnTransferTokens",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "swapExactTokensForTokens",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "swapExactTokensForTokensSupportingFeeOnTransferTokens",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "voter", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "zapIn", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "zapOut", data: BytesLike): Result;
 
   events: {};
@@ -430,7 +482,9 @@ export interface IAeroRouterInterface extends utils.Interface {
 
 export interface IAeroRouter extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: IAeroRouterInterface;
@@ -438,17 +492,21 @@ export interface IAeroRouter extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -462,7 +520,7 @@ export interface IAeroRouter extends BaseContract {
       routes: IAeroRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     addLiquidity(
@@ -475,7 +533,7 @@ export interface IAeroRouter extends BaseContract {
       amountBMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     addLiquidityETH(
@@ -486,7 +544,7 @@ export interface IAeroRouter extends BaseContract {
       amountETHMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     defaultFactory(overrides?: CallOverrides): Promise<[string]>;
@@ -502,7 +560,7 @@ export interface IAeroRouter extends BaseContract {
       amountInB: BigNumberish,
       routesA: IAeroRouter.RouteStruct[],
       routesB: IAeroRouter.RouteStruct[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber, BigNumber, BigNumber] & {
         amountOutMinA: BigNumber;
@@ -520,7 +578,7 @@ export interface IAeroRouter extends BaseContract {
       liquidity: BigNumberish,
       routesA: IAeroRouter.RouteStruct[],
       routesB: IAeroRouter.RouteStruct[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber, BigNumber, BigNumber] & {
         amountOutMinA: BigNumber;
@@ -533,7 +591,7 @@ export interface IAeroRouter extends BaseContract {
     getAmountsOut(
       amountIn: BigNumberish,
       routes: IAeroRouter.RouteStruct[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber[]] & { amounts: BigNumber[] }>;
 
     getReserves(
@@ -541,7 +599,7 @@ export interface IAeroRouter extends BaseContract {
       tokenB: string,
       stable: boolean,
       _factory: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber] & { reserveA: BigNumber; reserveB: BigNumber }
     >;
@@ -551,7 +609,7 @@ export interface IAeroRouter extends BaseContract {
       tokenB: string,
       stable: boolean,
       _factory: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[string] & { pool: string }>;
 
     quoteAddLiquidity(
@@ -561,7 +619,7 @@ export interface IAeroRouter extends BaseContract {
       _factory: string,
       amountADesired: BigNumberish,
       amountBDesired: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber, BigNumber] & {
         amountA: BigNumber;
@@ -576,7 +634,7 @@ export interface IAeroRouter extends BaseContract {
       stable: boolean,
       _factory: string,
       liquidity: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber] & { amountA: BigNumber; amountB: BigNumber }
     >;
@@ -585,7 +643,7 @@ export interface IAeroRouter extends BaseContract {
       tokenA: string,
       tokenB: string,
       factory: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber] & { ratio: BigNumber }>;
 
     removeLiquidity(
@@ -597,7 +655,7 @@ export interface IAeroRouter extends BaseContract {
       amountBMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     removeLiquidityETH(
@@ -608,7 +666,7 @@ export interface IAeroRouter extends BaseContract {
       amountETHMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     removeLiquidityETHSupportingFeeOnTransferTokens(
@@ -619,13 +677,13 @@ export interface IAeroRouter extends BaseContract {
       amountETHMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     sortTokens(
       tokenA: string,
       tokenB: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[string, string] & { token0: string; token1: string }>;
 
     swapExactETHForTokens(
@@ -633,7 +691,7 @@ export interface IAeroRouter extends BaseContract {
       routes: IAeroRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     swapExactETHForTokensSupportingFeeOnTransferTokens(
@@ -641,7 +699,7 @@ export interface IAeroRouter extends BaseContract {
       routes: IAeroRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     swapExactTokensForETH(
@@ -650,7 +708,7 @@ export interface IAeroRouter extends BaseContract {
       routes: IAeroRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     swapExactTokensForETHSupportingFeeOnTransferTokens(
@@ -659,7 +717,7 @@ export interface IAeroRouter extends BaseContract {
       routes: IAeroRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     swapExactTokensForTokens(
@@ -668,7 +726,7 @@ export interface IAeroRouter extends BaseContract {
       routes: IAeroRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     swapExactTokensForTokensSupportingFeeOnTransferTokens(
@@ -677,7 +735,7 @@ export interface IAeroRouter extends BaseContract {
       routes: IAeroRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     voter(overrides?: CallOverrides): Promise<[string]>;
@@ -691,7 +749,7 @@ export interface IAeroRouter extends BaseContract {
       routesB: IAeroRouter.RouteStruct[],
       to: string,
       stake: boolean,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     zapOut(
@@ -700,7 +758,7 @@ export interface IAeroRouter extends BaseContract {
       zapOutPool: IAeroRouter.ZapStruct,
       routesA: IAeroRouter.RouteStruct[],
       routesB: IAeroRouter.RouteStruct[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
   };
 
@@ -711,7 +769,7 @@ export interface IAeroRouter extends BaseContract {
     routes: IAeroRouter.RouteStruct[],
     to: string,
     deadline: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   addLiquidity(
@@ -724,7 +782,7 @@ export interface IAeroRouter extends BaseContract {
     amountBMin: BigNumberish,
     to: string,
     deadline: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   addLiquidityETH(
@@ -735,7 +793,7 @@ export interface IAeroRouter extends BaseContract {
     amountETHMin: BigNumberish,
     to: string,
     deadline: BigNumberish,
-    overrides?: PayableOverrides & { from?: string }
+    overrides?: PayableOverrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   defaultFactory(overrides?: CallOverrides): Promise<string>;
@@ -751,7 +809,7 @@ export interface IAeroRouter extends BaseContract {
     amountInB: BigNumberish,
     routesA: IAeroRouter.RouteStruct[],
     routesB: IAeroRouter.RouteStruct[],
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<
     [BigNumber, BigNumber, BigNumber, BigNumber] & {
       amountOutMinA: BigNumber;
@@ -769,7 +827,7 @@ export interface IAeroRouter extends BaseContract {
     liquidity: BigNumberish,
     routesA: IAeroRouter.RouteStruct[],
     routesB: IAeroRouter.RouteStruct[],
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<
     [BigNumber, BigNumber, BigNumber, BigNumber] & {
       amountOutMinA: BigNumber;
@@ -782,7 +840,7 @@ export interface IAeroRouter extends BaseContract {
   getAmountsOut(
     amountIn: BigNumberish,
     routes: IAeroRouter.RouteStruct[],
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber[]>;
 
   getReserves(
@@ -790,7 +848,7 @@ export interface IAeroRouter extends BaseContract {
     tokenB: string,
     stable: boolean,
     _factory: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<
     [BigNumber, BigNumber] & { reserveA: BigNumber; reserveB: BigNumber }
   >;
@@ -800,7 +858,7 @@ export interface IAeroRouter extends BaseContract {
     tokenB: string,
     stable: boolean,
     _factory: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<string>;
 
   quoteAddLiquidity(
@@ -810,7 +868,7 @@ export interface IAeroRouter extends BaseContract {
     _factory: string,
     amountADesired: BigNumberish,
     amountBDesired: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<
     [BigNumber, BigNumber, BigNumber] & {
       amountA: BigNumber;
@@ -825,7 +883,7 @@ export interface IAeroRouter extends BaseContract {
     stable: boolean,
     _factory: string,
     liquidity: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<
     [BigNumber, BigNumber] & { amountA: BigNumber; amountB: BigNumber }
   >;
@@ -834,7 +892,7 @@ export interface IAeroRouter extends BaseContract {
     tokenA: string,
     tokenB: string,
     factory: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   removeLiquidity(
@@ -846,7 +904,7 @@ export interface IAeroRouter extends BaseContract {
     amountBMin: BigNumberish,
     to: string,
     deadline: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   removeLiquidityETH(
@@ -857,7 +915,7 @@ export interface IAeroRouter extends BaseContract {
     amountETHMin: BigNumberish,
     to: string,
     deadline: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   removeLiquidityETHSupportingFeeOnTransferTokens(
@@ -868,13 +926,13 @@ export interface IAeroRouter extends BaseContract {
     amountETHMin: BigNumberish,
     to: string,
     deadline: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   sortTokens(
     tokenA: string,
     tokenB: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<[string, string] & { token0: string; token1: string }>;
 
   swapExactETHForTokens(
@@ -882,7 +940,7 @@ export interface IAeroRouter extends BaseContract {
     routes: IAeroRouter.RouteStruct[],
     to: string,
     deadline: BigNumberish,
-    overrides?: PayableOverrides & { from?: string }
+    overrides?: PayableOverrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   swapExactETHForTokensSupportingFeeOnTransferTokens(
@@ -890,7 +948,7 @@ export interface IAeroRouter extends BaseContract {
     routes: IAeroRouter.RouteStruct[],
     to: string,
     deadline: BigNumberish,
-    overrides?: PayableOverrides & { from?: string }
+    overrides?: PayableOverrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   swapExactTokensForETH(
@@ -899,7 +957,7 @@ export interface IAeroRouter extends BaseContract {
     routes: IAeroRouter.RouteStruct[],
     to: string,
     deadline: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   swapExactTokensForETHSupportingFeeOnTransferTokens(
@@ -908,7 +966,7 @@ export interface IAeroRouter extends BaseContract {
     routes: IAeroRouter.RouteStruct[],
     to: string,
     deadline: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   swapExactTokensForTokens(
@@ -917,7 +975,7 @@ export interface IAeroRouter extends BaseContract {
     routes: IAeroRouter.RouteStruct[],
     to: string,
     deadline: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   swapExactTokensForTokensSupportingFeeOnTransferTokens(
@@ -926,7 +984,7 @@ export interface IAeroRouter extends BaseContract {
     routes: IAeroRouter.RouteStruct[],
     to: string,
     deadline: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   voter(overrides?: CallOverrides): Promise<string>;
@@ -940,7 +998,7 @@ export interface IAeroRouter extends BaseContract {
     routesB: IAeroRouter.RouteStruct[],
     to: string,
     stake: boolean,
-    overrides?: PayableOverrides & { from?: string }
+    overrides?: PayableOverrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   zapOut(
@@ -949,7 +1007,7 @@ export interface IAeroRouter extends BaseContract {
     zapOutPool: IAeroRouter.ZapStruct,
     routesA: IAeroRouter.RouteStruct[],
     routesB: IAeroRouter.RouteStruct[],
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -960,7 +1018,7 @@ export interface IAeroRouter extends BaseContract {
       routes: IAeroRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber[]>;
 
     addLiquidity(
@@ -973,7 +1031,7 @@ export interface IAeroRouter extends BaseContract {
       amountBMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber, BigNumber] & {
         amountA: BigNumber;
@@ -990,7 +1048,7 @@ export interface IAeroRouter extends BaseContract {
       amountETHMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber, BigNumber] & {
         amountToken: BigNumber;
@@ -1012,7 +1070,7 @@ export interface IAeroRouter extends BaseContract {
       amountInB: BigNumberish,
       routesA: IAeroRouter.RouteStruct[],
       routesB: IAeroRouter.RouteStruct[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber, BigNumber, BigNumber] & {
         amountOutMinA: BigNumber;
@@ -1030,7 +1088,7 @@ export interface IAeroRouter extends BaseContract {
       liquidity: BigNumberish,
       routesA: IAeroRouter.RouteStruct[],
       routesB: IAeroRouter.RouteStruct[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber, BigNumber, BigNumber] & {
         amountOutMinA: BigNumber;
@@ -1043,7 +1101,7 @@ export interface IAeroRouter extends BaseContract {
     getAmountsOut(
       amountIn: BigNumberish,
       routes: IAeroRouter.RouteStruct[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber[]>;
 
     getReserves(
@@ -1051,7 +1109,7 @@ export interface IAeroRouter extends BaseContract {
       tokenB: string,
       stable: boolean,
       _factory: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber] & { reserveA: BigNumber; reserveB: BigNumber }
     >;
@@ -1061,7 +1119,7 @@ export interface IAeroRouter extends BaseContract {
       tokenB: string,
       stable: boolean,
       _factory: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<string>;
 
     quoteAddLiquidity(
@@ -1071,7 +1129,7 @@ export interface IAeroRouter extends BaseContract {
       _factory: string,
       amountADesired: BigNumberish,
       amountBDesired: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber, BigNumber] & {
         amountA: BigNumber;
@@ -1086,7 +1144,7 @@ export interface IAeroRouter extends BaseContract {
       stable: boolean,
       _factory: string,
       liquidity: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber] & { amountA: BigNumber; amountB: BigNumber }
     >;
@@ -1095,7 +1153,7 @@ export interface IAeroRouter extends BaseContract {
       tokenA: string,
       tokenB: string,
       factory: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     removeLiquidity(
@@ -1107,7 +1165,7 @@ export interface IAeroRouter extends BaseContract {
       amountBMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber] & { amountA: BigNumber; amountB: BigNumber }
     >;
@@ -1120,7 +1178,7 @@ export interface IAeroRouter extends BaseContract {
       amountETHMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber] & { amountToken: BigNumber; amountETH: BigNumber }
     >;
@@ -1133,13 +1191,13 @@ export interface IAeroRouter extends BaseContract {
       amountETHMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     sortTokens(
       tokenA: string,
       tokenB: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[string, string] & { token0: string; token1: string }>;
 
     swapExactETHForTokens(
@@ -1147,7 +1205,7 @@ export interface IAeroRouter extends BaseContract {
       routes: IAeroRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber[]>;
 
     swapExactETHForTokensSupportingFeeOnTransferTokens(
@@ -1155,7 +1213,7 @@ export interface IAeroRouter extends BaseContract {
       routes: IAeroRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     swapExactTokensForETH(
@@ -1164,7 +1222,7 @@ export interface IAeroRouter extends BaseContract {
       routes: IAeroRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber[]>;
 
     swapExactTokensForETHSupportingFeeOnTransferTokens(
@@ -1173,7 +1231,7 @@ export interface IAeroRouter extends BaseContract {
       routes: IAeroRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     swapExactTokensForTokens(
@@ -1182,7 +1240,7 @@ export interface IAeroRouter extends BaseContract {
       routes: IAeroRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber[]>;
 
     swapExactTokensForTokensSupportingFeeOnTransferTokens(
@@ -1191,7 +1249,7 @@ export interface IAeroRouter extends BaseContract {
       routes: IAeroRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     voter(overrides?: CallOverrides): Promise<string>;
@@ -1205,7 +1263,7 @@ export interface IAeroRouter extends BaseContract {
       routesB: IAeroRouter.RouteStruct[],
       to: string,
       stake: boolean,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     zapOut(
@@ -1214,7 +1272,7 @@ export interface IAeroRouter extends BaseContract {
       zapOutPool: IAeroRouter.ZapStruct,
       routesA: IAeroRouter.RouteStruct[],
       routesB: IAeroRouter.RouteStruct[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
   };
 
@@ -1228,7 +1286,7 @@ export interface IAeroRouter extends BaseContract {
       routes: IAeroRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     addLiquidity(
@@ -1241,7 +1299,7 @@ export interface IAeroRouter extends BaseContract {
       amountBMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     addLiquidityETH(
@@ -1252,7 +1310,7 @@ export interface IAeroRouter extends BaseContract {
       amountETHMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<BigNumber>;
 
     defaultFactory(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1268,7 +1326,7 @@ export interface IAeroRouter extends BaseContract {
       amountInB: BigNumberish,
       routesA: IAeroRouter.RouteStruct[],
       routesB: IAeroRouter.RouteStruct[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     generateZapOutParams(
@@ -1279,13 +1337,13 @@ export interface IAeroRouter extends BaseContract {
       liquidity: BigNumberish,
       routesA: IAeroRouter.RouteStruct[],
       routesB: IAeroRouter.RouteStruct[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     getAmountsOut(
       amountIn: BigNumberish,
       routes: IAeroRouter.RouteStruct[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     getReserves(
@@ -1293,7 +1351,7 @@ export interface IAeroRouter extends BaseContract {
       tokenB: string,
       stable: boolean,
       _factory: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     poolFor(
@@ -1301,7 +1359,7 @@ export interface IAeroRouter extends BaseContract {
       tokenB: string,
       stable: boolean,
       _factory: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     quoteAddLiquidity(
@@ -1311,7 +1369,7 @@ export interface IAeroRouter extends BaseContract {
       _factory: string,
       amountADesired: BigNumberish,
       amountBDesired: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     quoteRemoveLiquidity(
@@ -1320,14 +1378,14 @@ export interface IAeroRouter extends BaseContract {
       stable: boolean,
       _factory: string,
       liquidity: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     quoteStableLiquidityRatio(
       tokenA: string,
       tokenB: string,
       factory: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     removeLiquidity(
@@ -1339,7 +1397,7 @@ export interface IAeroRouter extends BaseContract {
       amountBMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     removeLiquidityETH(
@@ -1350,7 +1408,7 @@ export interface IAeroRouter extends BaseContract {
       amountETHMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     removeLiquidityETHSupportingFeeOnTransferTokens(
@@ -1361,13 +1419,13 @@ export interface IAeroRouter extends BaseContract {
       amountETHMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     sortTokens(
       tokenA: string,
       tokenB: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     swapExactETHForTokens(
@@ -1375,7 +1433,7 @@ export interface IAeroRouter extends BaseContract {
       routes: IAeroRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<BigNumber>;
 
     swapExactETHForTokensSupportingFeeOnTransferTokens(
@@ -1383,7 +1441,7 @@ export interface IAeroRouter extends BaseContract {
       routes: IAeroRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<BigNumber>;
 
     swapExactTokensForETH(
@@ -1392,7 +1450,7 @@ export interface IAeroRouter extends BaseContract {
       routes: IAeroRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     swapExactTokensForETHSupportingFeeOnTransferTokens(
@@ -1401,7 +1459,7 @@ export interface IAeroRouter extends BaseContract {
       routes: IAeroRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     swapExactTokensForTokens(
@@ -1410,7 +1468,7 @@ export interface IAeroRouter extends BaseContract {
       routes: IAeroRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     swapExactTokensForTokensSupportingFeeOnTransferTokens(
@@ -1419,7 +1477,7 @@ export interface IAeroRouter extends BaseContract {
       routes: IAeroRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     voter(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1433,7 +1491,7 @@ export interface IAeroRouter extends BaseContract {
       routesB: IAeroRouter.RouteStruct[],
       to: string,
       stake: boolean,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<BigNumber>;
 
     zapOut(
@@ -1442,7 +1500,7 @@ export interface IAeroRouter extends BaseContract {
       zapOutPool: IAeroRouter.ZapStruct,
       routesA: IAeroRouter.RouteStruct[],
       routesB: IAeroRouter.RouteStruct[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
   };
 
@@ -1454,7 +1512,7 @@ export interface IAeroRouter extends BaseContract {
       routes: IAeroRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     addLiquidity(
@@ -1467,7 +1525,7 @@ export interface IAeroRouter extends BaseContract {
       amountBMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     addLiquidityETH(
@@ -1478,7 +1536,7 @@ export interface IAeroRouter extends BaseContract {
       amountETHMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     defaultFactory(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -1494,7 +1552,7 @@ export interface IAeroRouter extends BaseContract {
       amountInB: BigNumberish,
       routesA: IAeroRouter.RouteStruct[],
       routesB: IAeroRouter.RouteStruct[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     generateZapOutParams(
@@ -1505,13 +1563,13 @@ export interface IAeroRouter extends BaseContract {
       liquidity: BigNumberish,
       routesA: IAeroRouter.RouteStruct[],
       routesB: IAeroRouter.RouteStruct[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     getAmountsOut(
       amountIn: BigNumberish,
       routes: IAeroRouter.RouteStruct[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     getReserves(
@@ -1519,7 +1577,7 @@ export interface IAeroRouter extends BaseContract {
       tokenB: string,
       stable: boolean,
       _factory: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     poolFor(
@@ -1527,7 +1585,7 @@ export interface IAeroRouter extends BaseContract {
       tokenB: string,
       stable: boolean,
       _factory: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     quoteAddLiquidity(
@@ -1537,7 +1595,7 @@ export interface IAeroRouter extends BaseContract {
       _factory: string,
       amountADesired: BigNumberish,
       amountBDesired: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     quoteRemoveLiquidity(
@@ -1546,14 +1604,14 @@ export interface IAeroRouter extends BaseContract {
       stable: boolean,
       _factory: string,
       liquidity: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     quoteStableLiquidityRatio(
       tokenA: string,
       tokenB: string,
       factory: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     removeLiquidity(
@@ -1565,7 +1623,7 @@ export interface IAeroRouter extends BaseContract {
       amountBMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     removeLiquidityETH(
@@ -1576,7 +1634,7 @@ export interface IAeroRouter extends BaseContract {
       amountETHMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     removeLiquidityETHSupportingFeeOnTransferTokens(
@@ -1587,13 +1645,13 @@ export interface IAeroRouter extends BaseContract {
       amountETHMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     sortTokens(
       tokenA: string,
       tokenB: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     swapExactETHForTokens(
@@ -1601,7 +1659,7 @@ export interface IAeroRouter extends BaseContract {
       routes: IAeroRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     swapExactETHForTokensSupportingFeeOnTransferTokens(
@@ -1609,7 +1667,7 @@ export interface IAeroRouter extends BaseContract {
       routes: IAeroRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     swapExactTokensForETH(
@@ -1618,7 +1676,7 @@ export interface IAeroRouter extends BaseContract {
       routes: IAeroRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     swapExactTokensForETHSupportingFeeOnTransferTokens(
@@ -1627,7 +1685,7 @@ export interface IAeroRouter extends BaseContract {
       routes: IAeroRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     swapExactTokensForTokens(
@@ -1636,7 +1694,7 @@ export interface IAeroRouter extends BaseContract {
       routes: IAeroRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     swapExactTokensForTokensSupportingFeeOnTransferTokens(
@@ -1645,7 +1703,7 @@ export interface IAeroRouter extends BaseContract {
       routes: IAeroRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     voter(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -1659,7 +1717,7 @@ export interface IAeroRouter extends BaseContract {
       routesB: IAeroRouter.RouteStruct[],
       to: string,
       stake: boolean,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     zapOut(
@@ -1668,7 +1726,7 @@ export interface IAeroRouter extends BaseContract {
       zapOutPool: IAeroRouter.ZapStruct,
       routesA: IAeroRouter.RouteStruct[],
       routesB: IAeroRouter.RouteStruct[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
   };
 }

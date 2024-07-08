@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { Contract, Signer, utils } from "ethers";
-import type { Provider } from "@ethersproject/providers";
-import type { IAeroRouter, IAeroRouterInterface } from "../IAeroRouter";
+import {Contract, Signer, utils} from "ethers";
+import type {Provider} from "@ethersproject/providers";
+import type {IAeroRouter, IAeroRouterInterface} from "../IAeroRouter";
 
 const _abi = [
   {
@@ -1602,12 +1602,14 @@ const _abi = [
 
 export class IAeroRouter__factory {
   static readonly abi = _abi;
+
   static createInterface(): IAeroRouterInterface {
     return new utils.Interface(_abi) as IAeroRouterInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): IAeroRouter {
     return new Contract(address, _abi, signerOrProvider) as IAeroRouter;
   }

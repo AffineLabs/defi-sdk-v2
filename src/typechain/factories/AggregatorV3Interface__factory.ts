@@ -125,17 +125,19 @@ const _abi = [
 
 export class AggregatorV3Interface__factory {
   static readonly abi = _abi;
+
   static createInterface(): AggregatorV3InterfaceInterface {
     return new utils.Interface(_abi) as AggregatorV3InterfaceInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): AggregatorV3Interface {
     return new Contract(
       address,
       _abi,
-      signerOrProvider
+      signerOrProvider,
     ) as AggregatorV3Interface;
   }
 }

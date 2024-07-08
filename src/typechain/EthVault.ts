@@ -185,432 +185,574 @@ export interface EthVaultInterface extends utils.Interface {
       | "withdraw"
       | "withdrawFromStrategy"
       | "withdrawalFee"
-      | "withdrawalQueue"
+      | "withdrawalQueue",
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "DEFAULT_ADMIN_ROLE",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "GUARDIAN_ROLE",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "HARVESTER", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "LOCK_INTERVAL",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "addStrategy",
-    values: [string, BigNumberish]
+    values: [string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "allowance",
-    values: [string, string]
+    values: [string, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "approve",
-    values: [string, BigNumberish]
+    values: [string, BigNumberish],
   ): string;
+
   encodeFunctionData(functionFragment: "asset", values?: undefined): string;
+
   encodeFunctionData(functionFragment: "balanceOf", values: [string]): string;
+
   encodeFunctionData(
     functionFragment: "convertToAssets",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "convertToShares",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(functionFragment: "decimals", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "decreaseAllowance",
-    values: [string, BigNumberish]
+    values: [string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "deposit",
-    values: [BigNumberish, string]
+    values: [BigNumberish, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "depositIntoStrategies",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "depositIntoStrategy",
-    values: [string, BigNumberish]
+    values: [string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "detailedPrice",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "detailedTVL",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "detailedTotalSupply",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "getRoleAdmin",
-    values: [BytesLike]
+    values: [BytesLike],
   ): string;
+
   encodeFunctionData(
     functionFragment: "getWithdrawalQueue",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "governance",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "grantRole",
-    values: [BytesLike, string]
+    values: [BytesLike, string],
   ): string;
+
   encodeFunctionData(functionFragment: "harvest", values: [string[]]): string;
+
   encodeFunctionData(
     functionFragment: "hasRole",
-    values: [BytesLike, string]
+    values: [BytesLike, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "increaseAllowance",
-    values: [string, BigNumberish]
+    values: [string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "initialSharesPerAsset",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "initialize",
-    values: [string, string, string, string]
+    values: [string, string, string, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "lastHarvest",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "lockedProfit",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "managementFee",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "maxDeposit", values: [string]): string;
+
   encodeFunctionData(
     functionFragment: "maxLockedProfit",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "maxMint", values: [string]): string;
+
   encodeFunctionData(functionFragment: "maxRedeem", values: [string]): string;
+
   encodeFunctionData(functionFragment: "maxWithdraw", values: [string]): string;
+
   encodeFunctionData(
     functionFragment: "mint",
-    values: [BigNumberish, string]
+    values: [BigNumberish, string],
   ): string;
+
   encodeFunctionData(functionFragment: "name", values?: undefined): string;
+
   encodeFunctionData(functionFragment: "pause", values?: undefined): string;
+
   encodeFunctionData(functionFragment: "paused", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "previewDeposit",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "previewMint",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "previewRedeem",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "previewWithdraw",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "proxiableUUID",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "rebalance", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "redeem",
-    values: [BigNumberish, string, string]
+    values: [BigNumberish, string, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "removeStrategy",
-    values: [string]
+    values: [string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "renounceRole",
-    values: [BytesLike, string]
+    values: [BytesLike, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "revokeRole",
-    values: [BytesLike, string]
+    values: [BytesLike, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "setManagementFee",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "setWithdrawalFee",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "setWithdrawalQueue",
-    values: [string[]]
+    values: [string[]],
   ): string;
+
   encodeFunctionData(functionFragment: "strategies", values: [string]): string;
+
   encodeFunctionData(
     functionFragment: "supportsInterface",
-    values: [BytesLike]
+    values: [BytesLike],
   ): string;
+
   encodeFunctionData(functionFragment: "symbol", values?: undefined): string;
+
   encodeFunctionData(functionFragment: "tearDown", values: [BytesLike]): string;
+
   encodeFunctionData(
     functionFragment: "totalAssets",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(functionFragment: "totalBps", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "totalStrategyHoldings",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "totalSupply",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "transfer",
-    values: [string, BigNumberish]
+    values: [string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "transferFrom",
-    values: [string, string, BigNumberish]
+    values: [string, string, BigNumberish],
   ): string;
+
   encodeFunctionData(functionFragment: "unpause", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "updateStrategyAllocations",
-    values: [string[], BigNumberish[]]
+    values: [string[], BigNumberish[]],
   ): string;
+
   encodeFunctionData(functionFragment: "upgradeTo", values: [string]): string;
+
   encodeFunctionData(
     functionFragment: "upgradeToAndCall",
-    values: [string, BytesLike]
+    values: [string, BytesLike],
   ): string;
+
   encodeFunctionData(functionFragment: "vaultTVL", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "withdraw",
-    values: [BigNumberish, string, string]
+    values: [BigNumberish, string, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "withdrawFromStrategy",
-    values: [string, BigNumberish]
+    values: [string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "withdrawalFee",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "withdrawalQueue",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
 
   decodeFunctionResult(
     functionFragment: "DEFAULT_ADMIN_ROLE",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "GUARDIAN_ROLE",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "HARVESTER", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "LOCK_INTERVAL",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "addStrategy",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "allowance", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "asset", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "convertToAssets",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "convertToShares",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "decimals", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "decreaseAllowance",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "deposit", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "depositIntoStrategies",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "depositIntoStrategy",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "detailedPrice",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "detailedTVL",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "detailedTotalSupply",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "getRoleAdmin",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "getWithdrawalQueue",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "governance", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "grantRole", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "harvest", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "hasRole", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "increaseAllowance",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "initialSharesPerAsset",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "lastHarvest",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "lockedProfit",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "managementFee",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "maxDeposit", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "maxLockedProfit",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "maxMint", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "maxRedeem", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "maxWithdraw",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "mint", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "name", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "pause", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "paused", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "previewDeposit",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "previewMint",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "previewRedeem",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "previewWithdraw",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "proxiableUUID",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "rebalance", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "redeem", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "removeStrategy",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "renounceRole",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "revokeRole", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "setManagementFee",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "setWithdrawalFee",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "setWithdrawalQueue",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "strategies", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "supportsInterface",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "symbol", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "tearDown", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "totalAssets",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "totalBps", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "totalStrategyHoldings",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "totalSupply",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "transfer", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "transferFrom",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "unpause", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "updateStrategyAllocations",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "upgradeTo", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "upgradeToAndCall",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "vaultTVL", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "withdraw", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "withdrawFromStrategy",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "withdrawalFee",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "withdrawalQueue",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
 
   events: {
@@ -641,28 +783,51 @@ export interface EthVaultInterface extends utils.Interface {
   };
 
   getEvent(nameOrSignatureOrTopic: "AdminChanged"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Approval"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "BeaconUpgraded"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Deposit"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Harvest"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Initialized"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Liquidation"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "ManagementFeeSet"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Paused"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Rebalance"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "RoleAdminChanged"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "RoleGranted"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "RoleRevoked"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "StrategyAdded"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "StrategyAllocsUpdated"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "StrategyDeposit"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "StrategyRemoved"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "StrategyWithdrawal"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Transfer"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Unpaused"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Upgraded"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Withdraw"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "WithdrawalFeeSet"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "WithdrawalQueueSet"): EventFragment;
 }
 
@@ -670,6 +835,7 @@ export interface AdminChangedEventObject {
   previousAdmin: string;
   newAdmin: string;
 }
+
 export type AdminChangedEvent = TypedEvent<
   [string, string],
   AdminChangedEventObject
@@ -682,6 +848,7 @@ export interface ApprovalEventObject {
   spender: string;
   value: BigNumber;
 }
+
 export type ApprovalEvent = TypedEvent<
   [string, string, BigNumber],
   ApprovalEventObject
@@ -692,6 +859,7 @@ export type ApprovalEventFilter = TypedEventFilter<ApprovalEvent>;
 export interface BeaconUpgradedEventObject {
   beacon: string;
 }
+
 export type BeaconUpgradedEvent = TypedEvent<
   [string],
   BeaconUpgradedEventObject
@@ -705,6 +873,7 @@ export interface DepositEventObject {
   assets: BigNumber;
   shares: BigNumber;
 }
+
 export type DepositEvent = TypedEvent<
   [string, string, BigNumber, BigNumber],
   DepositEventObject
@@ -716,6 +885,7 @@ export interface HarvestEventObject {
   user: string;
   strategies: string[];
 }
+
 export type HarvestEvent = TypedEvent<[string, string[]], HarvestEventObject>;
 
 export type HarvestEventFilter = TypedEventFilter<HarvestEvent>;
@@ -723,6 +893,7 @@ export type HarvestEventFilter = TypedEventFilter<HarvestEvent>;
 export interface InitializedEventObject {
   version: number;
 }
+
 export type InitializedEvent = TypedEvent<[number], InitializedEventObject>;
 
 export type InitializedEventFilter = TypedEventFilter<InitializedEvent>;
@@ -731,6 +902,7 @@ export interface LiquidationEventObject {
   assetsRequested: BigNumber;
   assetsLiquidated: BigNumber;
 }
+
 export type LiquidationEvent = TypedEvent<
   [BigNumber, BigNumber],
   LiquidationEventObject
@@ -742,6 +914,7 @@ export interface ManagementFeeSetEventObject {
   oldFee: BigNumber;
   newFee: BigNumber;
 }
+
 export type ManagementFeeSetEvent = TypedEvent<
   [BigNumber, BigNumber],
   ManagementFeeSetEventObject
@@ -753,6 +926,7 @@ export type ManagementFeeSetEventFilter =
 export interface PausedEventObject {
   account: string;
 }
+
 export type PausedEvent = TypedEvent<[string], PausedEventObject>;
 
 export type PausedEventFilter = TypedEventFilter<PausedEvent>;
@@ -760,6 +934,7 @@ export type PausedEventFilter = TypedEventFilter<PausedEvent>;
 export interface RebalanceEventObject {
   caller: string;
 }
+
 export type RebalanceEvent = TypedEvent<[string], RebalanceEventObject>;
 
 export type RebalanceEventFilter = TypedEventFilter<RebalanceEvent>;
@@ -769,6 +944,7 @@ export interface RoleAdminChangedEventObject {
   previousAdminRole: string;
   newAdminRole: string;
 }
+
 export type RoleAdminChangedEvent = TypedEvent<
   [string, string, string],
   RoleAdminChangedEventObject
@@ -782,6 +958,7 @@ export interface RoleGrantedEventObject {
   account: string;
   sender: string;
 }
+
 export type RoleGrantedEvent = TypedEvent<
   [string, string, string],
   RoleGrantedEventObject
@@ -794,6 +971,7 @@ export interface RoleRevokedEventObject {
   account: string;
   sender: string;
 }
+
 export type RoleRevokedEvent = TypedEvent<
   [string, string, string],
   RoleRevokedEventObject
@@ -804,6 +982,7 @@ export type RoleRevokedEventFilter = TypedEventFilter<RoleRevokedEvent>;
 export interface StrategyAddedEventObject {
   strategy: string;
 }
+
 export type StrategyAddedEvent = TypedEvent<[string], StrategyAddedEventObject>;
 
 export type StrategyAddedEventFilter = TypedEventFilter<StrategyAddedEvent>;
@@ -812,6 +991,7 @@ export interface StrategyAllocsUpdatedEventObject {
   strategyList: string[];
   strategyBps: number[];
 }
+
 export type StrategyAllocsUpdatedEvent = TypedEvent<
   [string[], number[]],
   StrategyAllocsUpdatedEventObject
@@ -824,6 +1004,7 @@ export interface StrategyDepositEventObject {
   strategy: string;
   assets: BigNumber;
 }
+
 export type StrategyDepositEvent = TypedEvent<
   [string, BigNumber],
   StrategyDepositEventObject
@@ -834,6 +1015,7 @@ export type StrategyDepositEventFilter = TypedEventFilter<StrategyDepositEvent>;
 export interface StrategyRemovedEventObject {
   strategy: string;
 }
+
 export type StrategyRemovedEvent = TypedEvent<
   [string],
   StrategyRemovedEventObject
@@ -846,6 +1028,7 @@ export interface StrategyWithdrawalEventObject {
   assetsRequested: BigNumber;
   assetsReceived: BigNumber;
 }
+
 export type StrategyWithdrawalEvent = TypedEvent<
   [string, BigNumber, BigNumber],
   StrategyWithdrawalEventObject
@@ -859,6 +1042,7 @@ export interface TransferEventObject {
   to: string;
   value: BigNumber;
 }
+
 export type TransferEvent = TypedEvent<
   [string, string, BigNumber],
   TransferEventObject
@@ -869,6 +1053,7 @@ export type TransferEventFilter = TypedEventFilter<TransferEvent>;
 export interface UnpausedEventObject {
   account: string;
 }
+
 export type UnpausedEvent = TypedEvent<[string], UnpausedEventObject>;
 
 export type UnpausedEventFilter = TypedEventFilter<UnpausedEvent>;
@@ -876,6 +1061,7 @@ export type UnpausedEventFilter = TypedEventFilter<UnpausedEvent>;
 export interface UpgradedEventObject {
   implementation: string;
 }
+
 export type UpgradedEvent = TypedEvent<[string], UpgradedEventObject>;
 
 export type UpgradedEventFilter = TypedEventFilter<UpgradedEvent>;
@@ -887,6 +1073,7 @@ export interface WithdrawEventObject {
   assets: BigNumber;
   shares: BigNumber;
 }
+
 export type WithdrawEvent = TypedEvent<
   [string, string, string, BigNumber, BigNumber],
   WithdrawEventObject
@@ -898,6 +1085,7 @@ export interface WithdrawalFeeSetEventObject {
   oldFee: BigNumber;
   newFee: BigNumber;
 }
+
 export type WithdrawalFeeSetEvent = TypedEvent<
   [BigNumber, BigNumber],
   WithdrawalFeeSetEventObject
@@ -909,6 +1097,7 @@ export type WithdrawalFeeSetEventFilter =
 export interface WithdrawalQueueSetEventObject {
   newQueue: string[];
 }
+
 export type WithdrawalQueueSetEvent = TypedEvent<
   [string[]],
   WithdrawalQueueSetEventObject
@@ -919,7 +1108,9 @@ export type WithdrawalQueueSetEventFilter =
 
 export interface EthVault extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: EthVaultInterface;
@@ -927,17 +1118,21 @@ export interface EthVault extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -955,19 +1150,19 @@ export interface EthVault extends BaseContract {
     addStrategy(
       strategy: string,
       tvlBps: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     allowance(
       owner: string,
       spender: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     asset(overrides?: CallOverrides): Promise<[string]>;
@@ -976,12 +1171,12 @@ export interface EthVault extends BaseContract {
 
     convertToAssets(
       shares: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber] & { assets: BigNumber }>;
 
     convertToShares(
       assets: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber] & { shares: BigNumber }>;
 
     decimals(overrides?: CallOverrides): Promise<[number]>;
@@ -989,45 +1184,39 @@ export interface EthVault extends BaseContract {
     decreaseAllowance(
       spender: string,
       subtractedValue: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     deposit(
       assets: BigNumberish,
       receiver: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     depositIntoStrategies(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     depositIntoStrategy(
       strategy: string,
       assets: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
-    detailedPrice(
-      overrides?: CallOverrides
-    ): Promise<
+    detailedPrice(overrides?: CallOverrides): Promise<
       [DetailedShare.NumberStructOutput] & {
         price: DetailedShare.NumberStructOutput;
       }
     >;
 
-    detailedTVL(
-      overrides?: CallOverrides
-    ): Promise<
+    detailedTVL(overrides?: CallOverrides): Promise<
       [DetailedShare.NumberStructOutput] & {
         tvl: DetailedShare.NumberStructOutput;
       }
     >;
 
-    detailedTotalSupply(
-      overrides?: CallOverrides
-    ): Promise<
+    detailedTotalSupply(overrides?: CallOverrides): Promise<
       [DetailedShare.NumberStructOutput] & {
         supply: DetailedShare.NumberStructOutput;
       }
@@ -1042,24 +1231,24 @@ export interface EthVault extends BaseContract {
     grantRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     harvest(
       strategyList: string[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     hasRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[boolean]>;
 
     increaseAllowance(
       spender: string,
       addedValue: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     initialSharesPerAsset(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -1069,7 +1258,7 @@ export interface EthVault extends BaseContract {
       vaultAsset: string,
       _name: string,
       _symbol: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     lastHarvest(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -1091,85 +1280,85 @@ export interface EthVault extends BaseContract {
     mint(
       shares: BigNumberish,
       receiver: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     name(overrides?: CallOverrides): Promise<[string]>;
 
     pause(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     paused(overrides?: CallOverrides): Promise<[boolean]>;
 
     previewDeposit(
       assets: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     previewMint(
       shares: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     previewRedeem(
       shares: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     previewWithdraw(
       assetsToUser: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     proxiableUUID(overrides?: CallOverrides): Promise<[string]>;
 
     rebalance(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     redeem(
       shares: BigNumberish,
       receiver: string,
       owner: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     removeStrategy(
       strategy: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     renounceRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     revokeRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     setManagementFee(
       feeBps: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     setWithdrawalFee(
       feeBps: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     setWithdrawalQueue(
       newQueue: string[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     strategies(
       arg0: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [boolean, number, BigNumber] & {
         isActive: boolean;
@@ -1180,14 +1369,14 @@ export interface EthVault extends BaseContract {
 
     supportsInterface(
       interfaceId: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[boolean]>;
 
     symbol(overrides?: CallOverrides): Promise<[string]>;
 
     tearDown(
       users: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     totalAssets(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -1201,35 +1390,35 @@ export interface EthVault extends BaseContract {
     transfer(
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     transferFrom(
       from: string,
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     unpause(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     updateStrategyAllocations(
       strategyList: string[],
       strategyBps: BigNumberish[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     upgradeTo(
       newImplementation: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     upgradeToAndCall(
       newImplementation: string,
       data: BytesLike,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     vaultTVL(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -1238,20 +1427,20 @@ export interface EthVault extends BaseContract {
       assets: BigNumberish,
       receiver: string,
       owner: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     withdrawFromStrategy(
       strategy: string,
       assets: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     withdrawalFee(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     withdrawalQueue(
       arg0: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[string]>;
   };
 
@@ -1266,19 +1455,19 @@ export interface EthVault extends BaseContract {
   addStrategy(
     strategy: string,
     tvlBps: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   allowance(
     owner: string,
     spender: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   approve(
     spender: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   asset(overrides?: CallOverrides): Promise<string>;
@@ -1287,12 +1476,12 @@ export interface EthVault extends BaseContract {
 
   convertToAssets(
     shares: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   convertToShares(
     assets: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   decimals(overrides?: CallOverrides): Promise<number>;
@@ -1300,36 +1489,36 @@ export interface EthVault extends BaseContract {
   decreaseAllowance(
     spender: string,
     subtractedValue: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   deposit(
     assets: BigNumberish,
     receiver: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   depositIntoStrategies(
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   depositIntoStrategy(
     strategy: string,
     assets: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   detailedPrice(
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<DetailedShare.NumberStructOutput>;
 
   detailedTVL(
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<DetailedShare.NumberStructOutput>;
 
   detailedTotalSupply(
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<DetailedShare.NumberStructOutput>;
 
   getRoleAdmin(role: BytesLike, overrides?: CallOverrides): Promise<string>;
@@ -1341,24 +1530,24 @@ export interface EthVault extends BaseContract {
   grantRole(
     role: BytesLike,
     account: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   harvest(
     strategyList: string[],
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   hasRole(
     role: BytesLike,
     account: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<boolean>;
 
   increaseAllowance(
     spender: string,
     addedValue: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   initialSharesPerAsset(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1368,7 +1557,7 @@ export interface EthVault extends BaseContract {
     vaultAsset: string,
     _name: string,
     _symbol: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   lastHarvest(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1390,85 +1579,85 @@ export interface EthVault extends BaseContract {
   mint(
     shares: BigNumberish,
     receiver: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   name(overrides?: CallOverrides): Promise<string>;
 
   pause(
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   paused(overrides?: CallOverrides): Promise<boolean>;
 
   previewDeposit(
     assets: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   previewMint(
     shares: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   previewRedeem(
     shares: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   previewWithdraw(
     assetsToUser: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   proxiableUUID(overrides?: CallOverrides): Promise<string>;
 
   rebalance(
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   redeem(
     shares: BigNumberish,
     receiver: string,
     owner: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   removeStrategy(
     strategy: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   renounceRole(
     role: BytesLike,
     account: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   revokeRole(
     role: BytesLike,
     account: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   setManagementFee(
     feeBps: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   setWithdrawalFee(
     feeBps: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   setWithdrawalQueue(
     newQueue: string[],
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   strategies(
     arg0: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<
     [boolean, number, BigNumber] & {
       isActive: boolean;
@@ -1479,14 +1668,14 @@ export interface EthVault extends BaseContract {
 
   supportsInterface(
     interfaceId: BytesLike,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<boolean>;
 
   symbol(overrides?: CallOverrides): Promise<string>;
 
   tearDown(
     users: BytesLike,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   totalAssets(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1500,35 +1689,35 @@ export interface EthVault extends BaseContract {
   transfer(
     to: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   transferFrom(
     from: string,
     to: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   unpause(
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   updateStrategyAllocations(
     strategyList: string[],
     strategyBps: BigNumberish[],
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   upgradeTo(
     newImplementation: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   upgradeToAndCall(
     newImplementation: string,
     data: BytesLike,
-    overrides?: PayableOverrides & { from?: string }
+    overrides?: PayableOverrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   vaultTVL(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1537,20 +1726,20 @@ export interface EthVault extends BaseContract {
     assets: BigNumberish,
     receiver: string,
     owner: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   withdrawFromStrategy(
     strategy: string,
     assets: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   withdrawalFee(overrides?: CallOverrides): Promise<BigNumber>;
 
   withdrawalQueue(
     arg0: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<string>;
 
   callStatic: {
@@ -1565,19 +1754,19 @@ export interface EthVault extends BaseContract {
     addStrategy(
       strategy: string,
       tvlBps: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     allowance(
       owner: string,
       spender: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     asset(overrides?: CallOverrides): Promise<string>;
@@ -1586,12 +1775,12 @@ export interface EthVault extends BaseContract {
 
     convertToAssets(
       shares: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     convertToShares(
       assets: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     decimals(overrides?: CallOverrides): Promise<number>;
@@ -1599,36 +1788,36 @@ export interface EthVault extends BaseContract {
     decreaseAllowance(
       spender: string,
       subtractedValue: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     deposit(
       assets: BigNumberish,
       receiver: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     depositIntoStrategies(
       amount: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     depositIntoStrategy(
       strategy: string,
       assets: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     detailedPrice(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<DetailedShare.NumberStructOutput>;
 
     detailedTVL(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<DetailedShare.NumberStructOutput>;
 
     detailedTotalSupply(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<DetailedShare.NumberStructOutput>;
 
     getRoleAdmin(role: BytesLike, overrides?: CallOverrides): Promise<string>;
@@ -1640,7 +1829,7 @@ export interface EthVault extends BaseContract {
     grantRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     harvest(strategyList: string[], overrides?: CallOverrides): Promise<void>;
@@ -1648,13 +1837,13 @@ export interface EthVault extends BaseContract {
     hasRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     increaseAllowance(
       spender: string,
       addedValue: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     initialSharesPerAsset(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1664,7 +1853,7 @@ export interface EthVault extends BaseContract {
       vaultAsset: string,
       _name: string,
       _symbol: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     lastHarvest(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1686,7 +1875,7 @@ export interface EthVault extends BaseContract {
     mint(
       shares: BigNumberish,
       receiver: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     name(overrides?: CallOverrides): Promise<string>;
@@ -1697,22 +1886,22 @@ export interface EthVault extends BaseContract {
 
     previewDeposit(
       assets: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     previewMint(
       shares: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     previewRedeem(
       shares: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     previewWithdraw(
       assetsToUser: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     proxiableUUID(overrides?: CallOverrides): Promise<string>;
@@ -1723,7 +1912,7 @@ export interface EthVault extends BaseContract {
       shares: BigNumberish,
       receiver: string,
       owner: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     removeStrategy(strategy: string, overrides?: CallOverrides): Promise<void>;
@@ -1731,33 +1920,33 @@ export interface EthVault extends BaseContract {
     renounceRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     revokeRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     setManagementFee(
       feeBps: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     setWithdrawalFee(
       feeBps: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     setWithdrawalQueue(
       newQueue: string[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     strategies(
       arg0: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [boolean, number, BigNumber] & {
         isActive: boolean;
@@ -1768,7 +1957,7 @@ export interface EthVault extends BaseContract {
 
     supportsInterface(
       interfaceId: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     symbol(overrides?: CallOverrides): Promise<string>;
@@ -1786,14 +1975,14 @@ export interface EthVault extends BaseContract {
     transfer(
       to: string,
       amount: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     transferFrom(
       from: string,
       to: string,
       amount: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     unpause(overrides?: CallOverrides): Promise<void>;
@@ -1801,18 +1990,18 @@ export interface EthVault extends BaseContract {
     updateStrategyAllocations(
       strategyList: string[],
       strategyBps: BigNumberish[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     upgradeTo(
       newImplementation: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     upgradeToAndCall(
       newImplementation: string,
       data: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     vaultTVL(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1821,46 +2010,46 @@ export interface EthVault extends BaseContract {
       assets: BigNumberish,
       receiver: string,
       owner: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     withdrawFromStrategy(
       strategy: string,
       assets: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     withdrawalFee(overrides?: CallOverrides): Promise<BigNumber>;
 
     withdrawalQueue(
       arg0: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<string>;
   };
 
   filters: {
     "AdminChanged(address,address)"(
       previousAdmin?: null,
-      newAdmin?: null
+      newAdmin?: null,
     ): AdminChangedEventFilter;
     AdminChanged(
       previousAdmin?: null,
-      newAdmin?: null
+      newAdmin?: null,
     ): AdminChangedEventFilter;
 
     "Approval(address,address,uint256)"(
       owner?: string | null,
       spender?: string | null,
-      value?: null
+      value?: null,
     ): ApprovalEventFilter;
     Approval(
       owner?: string | null,
       spender?: string | null,
-      value?: null
+      value?: null,
     ): ApprovalEventFilter;
 
     "BeaconUpgraded(address)"(
-      beacon?: string | null
+      beacon?: string | null,
     ): BeaconUpgradedEventFilter;
     BeaconUpgraded(beacon?: string | null): BeaconUpgradedEventFilter;
 
@@ -1868,18 +2057,18 @@ export interface EthVault extends BaseContract {
       caller?: string | null,
       owner?: string | null,
       assets?: null,
-      shares?: null
+      shares?: null,
     ): DepositEventFilter;
     Deposit(
       caller?: string | null,
       owner?: string | null,
       assets?: null,
-      shares?: null
+      shares?: null,
     ): DepositEventFilter;
 
     "Harvest(address,address[])"(
       user?: string | null,
-      strategies?: null
+      strategies?: null,
     ): HarvestEventFilter;
     Harvest(user?: string | null, strategies?: null): HarvestEventFilter;
 
@@ -1888,16 +2077,16 @@ export interface EthVault extends BaseContract {
 
     "Liquidation(uint256,uint256)"(
       assetsRequested?: null,
-      assetsLiquidated?: null
+      assetsLiquidated?: null,
     ): LiquidationEventFilter;
     Liquidation(
       assetsRequested?: null,
-      assetsLiquidated?: null
+      assetsLiquidated?: null,
     ): LiquidationEventFilter;
 
     "ManagementFeeSet(uint256,uint256)"(
       oldFee?: null,
-      newFee?: null
+      newFee?: null,
     ): ManagementFeeSetEventFilter;
     ManagementFeeSet(oldFee?: null, newFee?: null): ManagementFeeSetEventFilter;
 
@@ -1910,84 +2099,84 @@ export interface EthVault extends BaseContract {
     "RoleAdminChanged(bytes32,bytes32,bytes32)"(
       role?: BytesLike | null,
       previousAdminRole?: BytesLike | null,
-      newAdminRole?: BytesLike | null
+      newAdminRole?: BytesLike | null,
     ): RoleAdminChangedEventFilter;
     RoleAdminChanged(
       role?: BytesLike | null,
       previousAdminRole?: BytesLike | null,
-      newAdminRole?: BytesLike | null
+      newAdminRole?: BytesLike | null,
     ): RoleAdminChangedEventFilter;
 
     "RoleGranted(bytes32,address,address)"(
       role?: BytesLike | null,
       account?: string | null,
-      sender?: string | null
+      sender?: string | null,
     ): RoleGrantedEventFilter;
     RoleGranted(
       role?: BytesLike | null,
       account?: string | null,
-      sender?: string | null
+      sender?: string | null,
     ): RoleGrantedEventFilter;
 
     "RoleRevoked(bytes32,address,address)"(
       role?: BytesLike | null,
       account?: string | null,
-      sender?: string | null
+      sender?: string | null,
     ): RoleRevokedEventFilter;
     RoleRevoked(
       role?: BytesLike | null,
       account?: string | null,
-      sender?: string | null
+      sender?: string | null,
     ): RoleRevokedEventFilter;
 
     "StrategyAdded(address)"(
-      strategy?: string | null
+      strategy?: string | null,
     ): StrategyAddedEventFilter;
     StrategyAdded(strategy?: string | null): StrategyAddedEventFilter;
 
     "StrategyAllocsUpdated(address[],uint16[])"(
       strategyList?: null,
-      strategyBps?: null
+      strategyBps?: null,
     ): StrategyAllocsUpdatedEventFilter;
     StrategyAllocsUpdated(
       strategyList?: null,
-      strategyBps?: null
+      strategyBps?: null,
     ): StrategyAllocsUpdatedEventFilter;
 
     "StrategyDeposit(address,uint256)"(
       strategy?: string | null,
-      assets?: null
+      assets?: null,
     ): StrategyDepositEventFilter;
     StrategyDeposit(
       strategy?: string | null,
-      assets?: null
+      assets?: null,
     ): StrategyDepositEventFilter;
 
     "StrategyRemoved(address)"(
-      strategy?: string | null
+      strategy?: string | null,
     ): StrategyRemovedEventFilter;
     StrategyRemoved(strategy?: string | null): StrategyRemovedEventFilter;
 
     "StrategyWithdrawal(address,uint256,uint256)"(
       strategy?: string | null,
       assetsRequested?: null,
-      assetsReceived?: null
+      assetsReceived?: null,
     ): StrategyWithdrawalEventFilter;
     StrategyWithdrawal(
       strategy?: string | null,
       assetsRequested?: null,
-      assetsReceived?: null
+      assetsReceived?: null,
     ): StrategyWithdrawalEventFilter;
 
     "Transfer(address,address,uint256)"(
       from?: string | null,
       to?: string | null,
-      value?: null
+      value?: null,
     ): TransferEventFilter;
     Transfer(
       from?: string | null,
       to?: string | null,
-      value?: null
+      value?: null,
     ): TransferEventFilter;
 
     "Unpaused(address)"(account?: null): UnpausedEventFilter;
@@ -2001,24 +2190,24 @@ export interface EthVault extends BaseContract {
       receiver?: string | null,
       owner?: string | null,
       assets?: null,
-      shares?: null
+      shares?: null,
     ): WithdrawEventFilter;
     Withdraw(
       caller?: string | null,
       receiver?: string | null,
       owner?: string | null,
       assets?: null,
-      shares?: null
+      shares?: null,
     ): WithdrawEventFilter;
 
     "WithdrawalFeeSet(uint256,uint256)"(
       oldFee?: null,
-      newFee?: null
+      newFee?: null,
     ): WithdrawalFeeSetEventFilter;
     WithdrawalFeeSet(oldFee?: null, newFee?: null): WithdrawalFeeSetEventFilter;
 
     "WithdrawalQueueSet(address[20])"(
-      newQueue?: null
+      newQueue?: null,
     ): WithdrawalQueueSetEventFilter;
     WithdrawalQueueSet(newQueue?: null): WithdrawalQueueSetEventFilter;
   };
@@ -2035,19 +2224,19 @@ export interface EthVault extends BaseContract {
     addStrategy(
       strategy: string,
       tvlBps: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     allowance(
       owner: string,
       spender: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     asset(overrides?: CallOverrides): Promise<BigNumber>;
@@ -2056,12 +2245,12 @@ export interface EthVault extends BaseContract {
 
     convertToAssets(
       shares: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     convertToShares(
       assets: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     decimals(overrides?: CallOverrides): Promise<BigNumber>;
@@ -2069,24 +2258,24 @@ export interface EthVault extends BaseContract {
     decreaseAllowance(
       spender: string,
       subtractedValue: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     deposit(
       assets: BigNumberish,
       receiver: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     depositIntoStrategies(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     depositIntoStrategy(
       strategy: string,
       assets: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     detailedPrice(overrides?: CallOverrides): Promise<BigNumber>;
@@ -2097,7 +2286,7 @@ export interface EthVault extends BaseContract {
 
     getRoleAdmin(
       role: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     getWithdrawalQueue(overrides?: CallOverrides): Promise<BigNumber>;
@@ -2107,24 +2296,24 @@ export interface EthVault extends BaseContract {
     grantRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     harvest(
       strategyList: string[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     hasRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     increaseAllowance(
       spender: string,
       addedValue: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     initialSharesPerAsset(overrides?: CallOverrides): Promise<BigNumber>;
@@ -2134,7 +2323,7 @@ export interface EthVault extends BaseContract {
       vaultAsset: string,
       _name: string,
       _symbol: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     lastHarvest(overrides?: CallOverrides): Promise<BigNumber>;
@@ -2156,7 +2345,7 @@ export interface EthVault extends BaseContract {
     mint(
       shares: BigNumberish,
       receiver: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     name(overrides?: CallOverrides): Promise<BigNumber>;
@@ -2167,22 +2356,22 @@ export interface EthVault extends BaseContract {
 
     previewDeposit(
       assets: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     previewMint(
       shares: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     previewRedeem(
       shares: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     previewWithdraw(
       assetsToUser: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     proxiableUUID(overrides?: CallOverrides): Promise<BigNumber>;
@@ -2193,53 +2382,53 @@ export interface EthVault extends BaseContract {
       shares: BigNumberish,
       receiver: string,
       owner: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     removeStrategy(
       strategy: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     renounceRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     revokeRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     setManagementFee(
       feeBps: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     setWithdrawalFee(
       feeBps: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     setWithdrawalQueue(
       newQueue: string[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     strategies(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     supportsInterface(
       interfaceId: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     symbol(overrides?: CallOverrides): Promise<BigNumber>;
 
     tearDown(
       users: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     totalAssets(overrides?: CallOverrides): Promise<BigNumber>;
@@ -2253,14 +2442,14 @@ export interface EthVault extends BaseContract {
     transfer(
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     transferFrom(
       from: string,
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     unpause(overrides?: Overrides & { from?: string }): Promise<BigNumber>;
@@ -2268,18 +2457,18 @@ export interface EthVault extends BaseContract {
     updateStrategyAllocations(
       strategyList: string[],
       strategyBps: BigNumberish[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     upgradeTo(
       newImplementation: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     upgradeToAndCall(
       newImplementation: string,
       data: BytesLike,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<BigNumber>;
 
     vaultTVL(overrides?: CallOverrides): Promise<BigNumber>;
@@ -2288,26 +2477,26 @@ export interface EthVault extends BaseContract {
       assets: BigNumberish,
       receiver: string,
       owner: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     withdrawFromStrategy(
       strategy: string,
       assets: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     withdrawalFee(overrides?: CallOverrides): Promise<BigNumber>;
 
     withdrawalQueue(
       arg0: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
     DEFAULT_ADMIN_ROLE(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     GUARDIAN_ROLE(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -2319,36 +2508,36 @@ export interface EthVault extends BaseContract {
     addStrategy(
       strategy: string,
       tvlBps: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     allowance(
       owner: string,
       spender: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     asset(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     balanceOf(
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     convertToAssets(
       shares: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     convertToShares(
       assets: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     decimals(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -2356,24 +2545,24 @@ export interface EthVault extends BaseContract {
     decreaseAllowance(
       spender: string,
       subtractedValue: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     deposit(
       assets: BigNumberish,
       receiver: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     depositIntoStrategies(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     depositIntoStrategy(
       strategy: string,
       assets: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     detailedPrice(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -2381,16 +2570,16 @@ export interface EthVault extends BaseContract {
     detailedTVL(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     detailedTotalSupply(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     getRoleAdmin(
       role: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     getWithdrawalQueue(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     governance(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -2398,28 +2587,28 @@ export interface EthVault extends BaseContract {
     grantRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     harvest(
       strategyList: string[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     hasRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     increaseAllowance(
       spender: string,
       addedValue: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     initialSharesPerAsset(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     initialize(
@@ -2427,7 +2616,7 @@ export interface EthVault extends BaseContract {
       vaultAsset: string,
       _name: string,
       _symbol: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     lastHarvest(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -2438,120 +2627,120 @@ export interface EthVault extends BaseContract {
 
     maxDeposit(
       arg0: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     maxLockedProfit(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     maxMint(
       arg0: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     maxRedeem(
       owner: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     maxWithdraw(
       owner: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     mint(
       shares: BigNumberish,
       receiver: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     name(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     pause(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     paused(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     previewDeposit(
       assets: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     previewMint(
       shares: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     previewRedeem(
       shares: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     previewWithdraw(
       assetsToUser: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     proxiableUUID(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     rebalance(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     redeem(
       shares: BigNumberish,
       receiver: string,
       owner: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     removeStrategy(
       strategy: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     renounceRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     revokeRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     setManagementFee(
       feeBps: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     setWithdrawalFee(
       feeBps: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     setWithdrawalQueue(
       newQueue: string[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     strategies(
       arg0: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     supportsInterface(
       interfaceId: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     symbol(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     tearDown(
       users: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     totalAssets(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -2559,7 +2748,7 @@ export interface EthVault extends BaseContract {
     totalBps(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     totalStrategyHoldings(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     totalSupply(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -2567,35 +2756,35 @@ export interface EthVault extends BaseContract {
     transfer(
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     transferFrom(
       from: string,
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     unpause(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     updateStrategyAllocations(
       strategyList: string[],
       strategyBps: BigNumberish[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     upgradeTo(
       newImplementation: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     upgradeToAndCall(
       newImplementation: string,
       data: BytesLike,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     vaultTVL(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -2604,20 +2793,20 @@ export interface EthVault extends BaseContract {
       assets: BigNumberish,
       receiver: string,
       owner: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     withdrawFromStrategy(
       strategy: string,
       assets: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     withdrawalFee(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     withdrawalQueue(
       arg0: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
   };
 }

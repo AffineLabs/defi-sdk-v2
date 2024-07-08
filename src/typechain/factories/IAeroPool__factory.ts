@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { Contract, Signer, utils } from "ethers";
-import type { Provider } from "@ethersproject/providers";
-import type { IAeroPool, IAeroPoolInterface } from "../IAeroPool";
+import {Contract, Signer, utils} from "ethers";
+import type {Provider} from "@ethersproject/providers";
+import type {IAeroPool, IAeroPoolInterface} from "../IAeroPool";
 
 const _abi = [
   {
@@ -1149,12 +1149,14 @@ const _abi = [
 
 export class IAeroPool__factory {
   static readonly abi = _abi;
+
   static createInterface(): IAeroPoolInterface {
     return new utils.Interface(_abi) as IAeroPoolInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): IAeroPool {
     return new Contract(address, _abi, signerOrProvider) as IAeroPool;
   }

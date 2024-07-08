@@ -298,17 +298,19 @@ const _abi = [
 
 export class IProtocolDataProvider__factory {
   static readonly abi = _abi;
+
   static createInterface(): IProtocolDataProviderInterface {
     return new utils.Interface(_abi) as IProtocolDataProviderInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): IProtocolDataProvider {
     return new Contract(
       address,
       _abi,
-      signerOrProvider
+      signerOrProvider,
     ) as IProtocolDataProvider;
   }
 }

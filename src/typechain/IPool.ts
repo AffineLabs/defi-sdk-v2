@@ -2,29 +2,20 @@
 /* tslint:disable */
 /* eslint-disable */
 import type {
-  BaseContract,
-  BigNumber,
-  BigNumberish,
-  BytesLike,
-  CallOverrides,
-  ContractTransaction,
-  Overrides,
-  PopulatedTransaction,
-  Signer,
-  utils,
+    BaseContract,
+    BigNumber,
+    BigNumberish,
+    BytesLike,
+    CallOverrides,
+    ContractTransaction,
+    Overrides,
+    PopulatedTransaction,
+    Signer,
+    utils,
 } from "ethers";
-import type {
-  FunctionFragment,
-  Result,
-  EventFragment,
-} from "@ethersproject/abi";
-import type { Listener, Provider } from "@ethersproject/providers";
-import type {
-  TypedEventFilter,
-  TypedEvent,
-  TypedListener,
-  OnEvent,
-} from "./common";
+import type {EventFragment, FunctionFragment, Result,} from "@ethersproject/abi";
+import type {Listener, Provider} from "@ethersproject/providers";
+import type {OnEvent, TypedEvent, TypedEventFilter, TypedListener,} from "./common";
 
 export declare namespace DataTypes {
   export type EModeCategoryStruct = {
@@ -40,7 +31,7 @@ export declare namespace DataTypes {
     number,
     number,
     string,
-    string
+    string,
   ] & {
     ltv: number;
     liquidationThreshold: number;
@@ -88,7 +79,7 @@ export declare namespace DataTypes {
     string,
     BigNumber,
     BigNumber,
-    BigNumber
+    BigNumber,
   ] & {
     configuration: DataTypes.ReserveConfigurationMapStructOutput;
     liquidityIndex: BigNumber;
@@ -207,54 +198,66 @@ export interface IPoolInterface extends utils.Interface {
       | "swapBorrowRateMode"
       | "updateBridgeProtocolFee"
       | "updateFlashloanPremiums"
-      | "withdraw"
+      | "withdraw",
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "ADDRESSES_PROVIDER",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "BRIDGE_PROTOCOL_FEE",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "FLASHLOAN_PREMIUM_TOTAL",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "FLASHLOAN_PREMIUM_TO_PROTOCOL",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "MAX_NUMBER_RESERVES",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "MAX_STABLE_RATE_BORROW_SIZE_PERCENT",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "backUnbacked",
-    values: [string, BigNumberish, BigNumberish]
+    values: [string, BigNumberish, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "borrow",
-    values: [string, BigNumberish, BigNumberish, BigNumberish, string]
+    values: [string, BigNumberish, BigNumberish, BigNumberish, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "configureEModeCategory",
-    values: [BigNumberish, DataTypes.EModeCategoryStruct]
+    values: [BigNumberish, DataTypes.EModeCategoryStruct],
   ): string;
+
   encodeFunctionData(
     functionFragment: "deposit",
-    values: [string, BigNumberish, string, BigNumberish]
+    values: [string, BigNumberish, string, BigNumberish],
   ): string;
+
   encodeFunctionData(functionFragment: "dropReserve", values: [string]): string;
+
   encodeFunctionData(
     functionFragment: "finalizeTransfer",
-    values: [string, string, string, BigNumberish, BigNumberish, BigNumberish]
+    values: [string, string, string, BigNumberish, BigNumberish, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "flashLoan",
     values: [
@@ -264,81 +267,100 @@ export interface IPoolInterface extends utils.Interface {
       BigNumberish[],
       string,
       BytesLike,
-      BigNumberish
-    ]
+      BigNumberish,
+    ],
   ): string;
+
   encodeFunctionData(
     functionFragment: "flashLoanSimple",
-    values: [string, string, BigNumberish, BytesLike, BigNumberish]
+    values: [string, string, BigNumberish, BytesLike, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "getConfiguration",
-    values: [string]
+    values: [string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "getEModeCategoryData",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "getReserveAddressById",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "getReserveData",
-    values: [string]
+    values: [string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "getReserveNormalizedIncome",
-    values: [string]
+    values: [string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "getReserveNormalizedVariableDebt",
-    values: [string]
+    values: [string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "getReservesList",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "getUserAccountData",
-    values: [string]
+    values: [string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "getUserConfiguration",
-    values: [string]
+    values: [string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "getUserEMode",
-    values: [string]
+    values: [string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "initReserve",
-    values: [string, string, string, string, string]
+    values: [string, string, string, string, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "liquidationCall",
-    values: [string, string, string, BigNumberish, boolean]
+    values: [string, string, string, BigNumberish, boolean],
   ): string;
+
   encodeFunctionData(
     functionFragment: "mintToTreasury",
-    values: [string[]]
+    values: [string[]],
   ): string;
+
   encodeFunctionData(
     functionFragment: "mintUnbacked",
-    values: [string, BigNumberish, string, BigNumberish]
+    values: [string, BigNumberish, string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "rebalanceStableBorrowRate",
-    values: [string, string]
+    values: [string, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "repay",
-    values: [string, BigNumberish, BigNumberish, string]
+    values: [string, BigNumberish, BigNumberish, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "repayWithATokens",
-    values: [string, BigNumberish, BigNumberish]
+    values: [string, BigNumberish, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "repayWithPermit",
     values: [
@@ -349,37 +371,45 @@ export interface IPoolInterface extends utils.Interface {
       BigNumberish,
       BigNumberish,
       BytesLike,
-      BytesLike
-    ]
+      BytesLike,
+    ],
   ): string;
+
   encodeFunctionData(
     functionFragment: "rescueTokens",
-    values: [string, string, BigNumberish]
+    values: [string, string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "resetIsolationModeTotalDebt",
-    values: [string]
+    values: [string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "setConfiguration",
-    values: [string, DataTypes.ReserveConfigurationMapStruct]
+    values: [string, DataTypes.ReserveConfigurationMapStruct],
   ): string;
+
   encodeFunctionData(
     functionFragment: "setReserveInterestRateStrategyAddress",
-    values: [string, string]
+    values: [string, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "setUserEMode",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "setUserUseReserveAsCollateral",
-    values: [string, boolean]
+    values: [string, boolean],
   ): string;
+
   encodeFunctionData(
     functionFragment: "supply",
-    values: [string, BigNumberish, string, BigNumberish]
+    values: [string, BigNumberish, string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "supplyWithPermit",
     values: [
@@ -390,183 +420,230 @@ export interface IPoolInterface extends utils.Interface {
       BigNumberish,
       BigNumberish,
       BytesLike,
-      BytesLike
-    ]
+      BytesLike,
+    ],
   ): string;
+
   encodeFunctionData(
     functionFragment: "swapBorrowRateMode",
-    values: [string, BigNumberish]
+    values: [string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "updateBridgeProtocolFee",
-    values: [BigNumberish]
+    values: [BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "updateFlashloanPremiums",
-    values: [BigNumberish, BigNumberish]
+    values: [BigNumberish, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "withdraw",
-    values: [string, BigNumberish, string]
+    values: [string, BigNumberish, string],
   ): string;
 
   decodeFunctionResult(
     functionFragment: "ADDRESSES_PROVIDER",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "BRIDGE_PROTOCOL_FEE",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "FLASHLOAN_PREMIUM_TOTAL",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "FLASHLOAN_PREMIUM_TO_PROTOCOL",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "MAX_NUMBER_RESERVES",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "MAX_STABLE_RATE_BORROW_SIZE_PERCENT",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "backUnbacked",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "borrow", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "configureEModeCategory",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "deposit", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "dropReserve",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "finalizeTransfer",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "flashLoan", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "flashLoanSimple",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "getConfiguration",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "getEModeCategoryData",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "getReserveAddressById",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "getReserveData",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "getReserveNormalizedIncome",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "getReserveNormalizedVariableDebt",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "getReservesList",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "getUserAccountData",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "getUserConfiguration",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "getUserEMode",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "initReserve",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "liquidationCall",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "mintToTreasury",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "mintUnbacked",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "rebalanceStableBorrowRate",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "repay", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "repayWithATokens",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "repayWithPermit",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "rescueTokens",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "resetIsolationModeTotalDebt",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "setConfiguration",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "setReserveInterestRateStrategyAddress",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "setUserEMode",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "setUserUseReserveAsCollateral",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "supply", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "supplyWithPermit",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "swapBorrowRateMode",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "updateBridgeProtocolFee",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "updateFlashloanPremiums",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "withdraw", data: BytesLike): Result;
 
   events: {
@@ -589,26 +666,41 @@ export interface IPoolInterface extends utils.Interface {
   };
 
   getEvent(nameOrSignatureOrTopic: "BackUnbacked"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Borrow"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "FlashLoan"): EventFragment;
+
   getEvent(
-    nameOrSignatureOrTopic: "IsolationModeTotalDebtUpdated"
+    nameOrSignatureOrTopic: "IsolationModeTotalDebtUpdated",
   ): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "LiquidationCall"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "MintUnbacked"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "MintedToTreasury"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "RebalanceStableBorrowRate"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Repay"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "ReserveDataUpdated"): EventFragment;
+
   getEvent(
-    nameOrSignatureOrTopic: "ReserveUsedAsCollateralDisabled"
+    nameOrSignatureOrTopic: "ReserveUsedAsCollateralDisabled",
   ): EventFragment;
+
   getEvent(
-    nameOrSignatureOrTopic: "ReserveUsedAsCollateralEnabled"
+    nameOrSignatureOrTopic: "ReserveUsedAsCollateralEnabled",
   ): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Supply"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "SwapBorrowRateMode"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "UserEModeSet"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Withdraw"): EventFragment;
 }
 
@@ -618,6 +710,7 @@ export interface BackUnbackedEventObject {
   amount: BigNumber;
   fee: BigNumber;
 }
+
 export type BackUnbackedEvent = TypedEvent<
   [string, string, BigNumber, BigNumber],
   BackUnbackedEventObject
@@ -634,6 +727,7 @@ export interface BorrowEventObject {
   borrowRate: BigNumber;
   referralCode: number;
 }
+
 export type BorrowEvent = TypedEvent<
   [string, string, string, BigNumber, number, BigNumber, number],
   BorrowEventObject
@@ -650,6 +744,7 @@ export interface FlashLoanEventObject {
   premium: BigNumber;
   referralCode: number;
 }
+
 export type FlashLoanEvent = TypedEvent<
   [string, string, string, BigNumber, number, BigNumber, number],
   FlashLoanEventObject
@@ -661,6 +756,7 @@ export interface IsolationModeTotalDebtUpdatedEventObject {
   asset: string;
   totalDebt: BigNumber;
 }
+
 export type IsolationModeTotalDebtUpdatedEvent = TypedEvent<
   [string, BigNumber],
   IsolationModeTotalDebtUpdatedEventObject
@@ -678,6 +774,7 @@ export interface LiquidationCallEventObject {
   liquidator: string;
   receiveAToken: boolean;
 }
+
 export type LiquidationCallEvent = TypedEvent<
   [string, string, string, BigNumber, BigNumber, string, boolean],
   LiquidationCallEventObject
@@ -692,6 +789,7 @@ export interface MintUnbackedEventObject {
   amount: BigNumber;
   referralCode: number;
 }
+
 export type MintUnbackedEvent = TypedEvent<
   [string, string, string, BigNumber, number],
   MintUnbackedEventObject
@@ -703,6 +801,7 @@ export interface MintedToTreasuryEventObject {
   reserve: string;
   amountMinted: BigNumber;
 }
+
 export type MintedToTreasuryEvent = TypedEvent<
   [string, BigNumber],
   MintedToTreasuryEventObject
@@ -715,6 +814,7 @@ export interface RebalanceStableBorrowRateEventObject {
   reserve: string;
   user: string;
 }
+
 export type RebalanceStableBorrowRateEvent = TypedEvent<
   [string, string],
   RebalanceStableBorrowRateEventObject
@@ -730,6 +830,7 @@ export interface RepayEventObject {
   amount: BigNumber;
   useATokens: boolean;
 }
+
 export type RepayEvent = TypedEvent<
   [string, string, string, BigNumber, boolean],
   RepayEventObject
@@ -745,6 +846,7 @@ export interface ReserveDataUpdatedEventObject {
   liquidityIndex: BigNumber;
   variableBorrowIndex: BigNumber;
 }
+
 export type ReserveDataUpdatedEvent = TypedEvent<
   [string, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber],
   ReserveDataUpdatedEventObject
@@ -757,6 +859,7 @@ export interface ReserveUsedAsCollateralDisabledEventObject {
   reserve: string;
   user: string;
 }
+
 export type ReserveUsedAsCollateralDisabledEvent = TypedEvent<
   [string, string],
   ReserveUsedAsCollateralDisabledEventObject
@@ -769,6 +872,7 @@ export interface ReserveUsedAsCollateralEnabledEventObject {
   reserve: string;
   user: string;
 }
+
 export type ReserveUsedAsCollateralEnabledEvent = TypedEvent<
   [string, string],
   ReserveUsedAsCollateralEnabledEventObject
@@ -784,6 +888,7 @@ export interface SupplyEventObject {
   amount: BigNumber;
   referralCode: number;
 }
+
 export type SupplyEvent = TypedEvent<
   [string, string, string, BigNumber, number],
   SupplyEventObject
@@ -796,6 +901,7 @@ export interface SwapBorrowRateModeEventObject {
   user: string;
   interestRateMode: number;
 }
+
 export type SwapBorrowRateModeEvent = TypedEvent<
   [string, string, number],
   SwapBorrowRateModeEventObject
@@ -808,6 +914,7 @@ export interface UserEModeSetEventObject {
   user: string;
   categoryId: number;
 }
+
 export type UserEModeSetEvent = TypedEvent<
   [string, number],
   UserEModeSetEventObject
@@ -821,6 +928,7 @@ export interface WithdrawEventObject {
   to: string;
   amount: BigNumber;
 }
+
 export type WithdrawEvent = TypedEvent<
   [string, string, string, BigNumber],
   WithdrawEventObject
@@ -830,7 +938,9 @@ export type WithdrawEventFilter = TypedEventFilter<WithdrawEvent>;
 
 export interface IPool extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: IPoolInterface;
@@ -838,17 +948,21 @@ export interface IPool extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -862,20 +976,20 @@ export interface IPool extends BaseContract {
     FLASHLOAN_PREMIUM_TOTAL(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     FLASHLOAN_PREMIUM_TO_PROTOCOL(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     MAX_NUMBER_RESERVES(overrides?: CallOverrides): Promise<[number]>;
 
     MAX_STABLE_RATE_BORROW_SIZE_PERCENT(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     backUnbacked(
       asset: string,
       amount: BigNumberish,
       fee: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     borrow(
@@ -884,13 +998,13 @@ export interface IPool extends BaseContract {
       interestRateMode: BigNumberish,
       referralCode: BigNumberish,
       onBehalfOf: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     configureEModeCategory(
       id: BigNumberish,
       config: DataTypes.EModeCategoryStruct,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     deposit(
@@ -898,12 +1012,12 @@ export interface IPool extends BaseContract {
       amount: BigNumberish,
       onBehalfOf: string,
       referralCode: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     dropReserve(
       asset: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     finalizeTransfer(
@@ -913,7 +1027,7 @@ export interface IPool extends BaseContract {
       amount: BigNumberish,
       balanceFromBefore: BigNumberish,
       balanceToBefore: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     flashLoan(
@@ -924,7 +1038,7 @@ export interface IPool extends BaseContract {
       onBehalfOf: string,
       params: BytesLike,
       referralCode: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     flashLoanSimple(
@@ -933,44 +1047,44 @@ export interface IPool extends BaseContract {
       amount: BigNumberish,
       params: BytesLike,
       referralCode: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     getConfiguration(
       asset: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[DataTypes.ReserveConfigurationMapStructOutput]>;
 
     getEModeCategoryData(
       id: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[DataTypes.EModeCategoryStructOutput]>;
 
     getReserveAddressById(
       id: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[string]>;
 
     getReserveData(
       asset: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[DataTypes.ReserveDataStructOutput]>;
 
     getReserveNormalizedIncome(
       asset: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     getReserveNormalizedVariableDebt(
       asset: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     getReservesList(overrides?: CallOverrides): Promise<[string[]]>;
 
     getUserAccountData(
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
         totalCollateralBase: BigNumber;
@@ -984,7 +1098,7 @@ export interface IPool extends BaseContract {
 
     getUserConfiguration(
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[DataTypes.UserConfigurationMapStructOutput]>;
 
     getUserEMode(user: string, overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -995,7 +1109,7 @@ export interface IPool extends BaseContract {
       stableDebtAddress: string,
       variableDebtAddress: string,
       interestRateStrategyAddress: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     liquidationCall(
@@ -1004,12 +1118,12 @@ export interface IPool extends BaseContract {
       user: string,
       debtToCover: BigNumberish,
       receiveAToken: boolean,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     mintToTreasury(
       assets: string[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     mintUnbacked(
@@ -1017,13 +1131,13 @@ export interface IPool extends BaseContract {
       amount: BigNumberish,
       onBehalfOf: string,
       referralCode: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     rebalanceStableBorrowRate(
       asset: string,
       user: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     repay(
@@ -1031,14 +1145,14 @@ export interface IPool extends BaseContract {
       amount: BigNumberish,
       interestRateMode: BigNumberish,
       onBehalfOf: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     repayWithATokens(
       asset: string,
       amount: BigNumberish,
       interestRateMode: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     repayWithPermit(
@@ -1050,42 +1164,42 @@ export interface IPool extends BaseContract {
       permitV: BigNumberish,
       permitR: BytesLike,
       permitS: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     rescueTokens(
       token: string,
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     resetIsolationModeTotalDebt(
       asset: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     setConfiguration(
       asset: string,
       configuration: DataTypes.ReserveConfigurationMapStruct,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     setReserveInterestRateStrategyAddress(
       asset: string,
       rateStrategyAddress: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     setUserEMode(
       categoryId: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     setUserUseReserveAsCollateral(
       asset: string,
       useAsCollateral: boolean,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     supply(
@@ -1093,7 +1207,7 @@ export interface IPool extends BaseContract {
       amount: BigNumberish,
       onBehalfOf: string,
       referralCode: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     supplyWithPermit(
@@ -1105,31 +1219,31 @@ export interface IPool extends BaseContract {
       permitV: BigNumberish,
       permitR: BytesLike,
       permitS: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     swapBorrowRateMode(
       asset: string,
       interestRateMode: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     updateBridgeProtocolFee(
       bridgeProtocolFee: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     updateFlashloanPremiums(
       flashLoanPremiumTotal: BigNumberish,
       flashLoanPremiumToProtocol: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     withdraw(
       asset: string,
       amount: BigNumberish,
       to: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
   };
 
@@ -1144,14 +1258,14 @@ export interface IPool extends BaseContract {
   MAX_NUMBER_RESERVES(overrides?: CallOverrides): Promise<number>;
 
   MAX_STABLE_RATE_BORROW_SIZE_PERCENT(
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   backUnbacked(
     asset: string,
     amount: BigNumberish,
     fee: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   borrow(
@@ -1160,13 +1274,13 @@ export interface IPool extends BaseContract {
     interestRateMode: BigNumberish,
     referralCode: BigNumberish,
     onBehalfOf: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   configureEModeCategory(
     id: BigNumberish,
     config: DataTypes.EModeCategoryStruct,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   deposit(
@@ -1174,12 +1288,12 @@ export interface IPool extends BaseContract {
     amount: BigNumberish,
     onBehalfOf: string,
     referralCode: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   dropReserve(
     asset: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   finalizeTransfer(
@@ -1189,7 +1303,7 @@ export interface IPool extends BaseContract {
     amount: BigNumberish,
     balanceFromBefore: BigNumberish,
     balanceToBefore: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   flashLoan(
@@ -1200,7 +1314,7 @@ export interface IPool extends BaseContract {
     onBehalfOf: string,
     params: BytesLike,
     referralCode: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   flashLoanSimple(
@@ -1209,44 +1323,44 @@ export interface IPool extends BaseContract {
     amount: BigNumberish,
     params: BytesLike,
     referralCode: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   getConfiguration(
     asset: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<DataTypes.ReserveConfigurationMapStructOutput>;
 
   getEModeCategoryData(
     id: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<DataTypes.EModeCategoryStructOutput>;
 
   getReserveAddressById(
     id: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<string>;
 
   getReserveData(
     asset: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<DataTypes.ReserveDataStructOutput>;
 
   getReserveNormalizedIncome(
     asset: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   getReserveNormalizedVariableDebt(
     asset: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   getReservesList(overrides?: CallOverrides): Promise<string[]>;
 
   getUserAccountData(
     user: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<
     [BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
       totalCollateralBase: BigNumber;
@@ -1260,7 +1374,7 @@ export interface IPool extends BaseContract {
 
   getUserConfiguration(
     user: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<DataTypes.UserConfigurationMapStructOutput>;
 
   getUserEMode(user: string, overrides?: CallOverrides): Promise<BigNumber>;
@@ -1271,7 +1385,7 @@ export interface IPool extends BaseContract {
     stableDebtAddress: string,
     variableDebtAddress: string,
     interestRateStrategyAddress: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   liquidationCall(
@@ -1280,12 +1394,12 @@ export interface IPool extends BaseContract {
     user: string,
     debtToCover: BigNumberish,
     receiveAToken: boolean,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   mintToTreasury(
     assets: string[],
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   mintUnbacked(
@@ -1293,13 +1407,13 @@ export interface IPool extends BaseContract {
     amount: BigNumberish,
     onBehalfOf: string,
     referralCode: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   rebalanceStableBorrowRate(
     asset: string,
     user: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   repay(
@@ -1307,14 +1421,14 @@ export interface IPool extends BaseContract {
     amount: BigNumberish,
     interestRateMode: BigNumberish,
     onBehalfOf: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   repayWithATokens(
     asset: string,
     amount: BigNumberish,
     interestRateMode: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   repayWithPermit(
@@ -1326,42 +1440,42 @@ export interface IPool extends BaseContract {
     permitV: BigNumberish,
     permitR: BytesLike,
     permitS: BytesLike,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   rescueTokens(
     token: string,
     to: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   resetIsolationModeTotalDebt(
     asset: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   setConfiguration(
     asset: string,
     configuration: DataTypes.ReserveConfigurationMapStruct,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   setReserveInterestRateStrategyAddress(
     asset: string,
     rateStrategyAddress: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   setUserEMode(
     categoryId: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   setUserUseReserveAsCollateral(
     asset: string,
     useAsCollateral: boolean,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   supply(
@@ -1369,7 +1483,7 @@ export interface IPool extends BaseContract {
     amount: BigNumberish,
     onBehalfOf: string,
     referralCode: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   supplyWithPermit(
@@ -1381,31 +1495,31 @@ export interface IPool extends BaseContract {
     permitV: BigNumberish,
     permitR: BytesLike,
     permitS: BytesLike,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   swapBorrowRateMode(
     asset: string,
     interestRateMode: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   updateBridgeProtocolFee(
     bridgeProtocolFee: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   updateFlashloanPremiums(
     flashLoanPremiumTotal: BigNumberish,
     flashLoanPremiumToProtocol: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   withdraw(
     asset: string,
     amount: BigNumberish,
     to: string,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -1416,20 +1530,20 @@ export interface IPool extends BaseContract {
     FLASHLOAN_PREMIUM_TOTAL(overrides?: CallOverrides): Promise<BigNumber>;
 
     FLASHLOAN_PREMIUM_TO_PROTOCOL(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     MAX_NUMBER_RESERVES(overrides?: CallOverrides): Promise<number>;
 
     MAX_STABLE_RATE_BORROW_SIZE_PERCENT(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     backUnbacked(
       asset: string,
       amount: BigNumberish,
       fee: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     borrow(
@@ -1438,13 +1552,13 @@ export interface IPool extends BaseContract {
       interestRateMode: BigNumberish,
       referralCode: BigNumberish,
       onBehalfOf: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     configureEModeCategory(
       id: BigNumberish,
       config: DataTypes.EModeCategoryStruct,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     deposit(
@@ -1452,7 +1566,7 @@ export interface IPool extends BaseContract {
       amount: BigNumberish,
       onBehalfOf: string,
       referralCode: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     dropReserve(asset: string, overrides?: CallOverrides): Promise<void>;
@@ -1464,7 +1578,7 @@ export interface IPool extends BaseContract {
       amount: BigNumberish,
       balanceFromBefore: BigNumberish,
       balanceToBefore: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     flashLoan(
@@ -1475,7 +1589,7 @@ export interface IPool extends BaseContract {
       onBehalfOf: string,
       params: BytesLike,
       referralCode: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     flashLoanSimple(
@@ -1484,44 +1598,44 @@ export interface IPool extends BaseContract {
       amount: BigNumberish,
       params: BytesLike,
       referralCode: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     getConfiguration(
       asset: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<DataTypes.ReserveConfigurationMapStructOutput>;
 
     getEModeCategoryData(
       id: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<DataTypes.EModeCategoryStructOutput>;
 
     getReserveAddressById(
       id: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<string>;
 
     getReserveData(
       asset: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<DataTypes.ReserveDataStructOutput>;
 
     getReserveNormalizedIncome(
       asset: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     getReserveNormalizedVariableDebt(
       asset: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     getReservesList(overrides?: CallOverrides): Promise<string[]>;
 
     getUserAccountData(
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
         totalCollateralBase: BigNumber;
@@ -1535,7 +1649,7 @@ export interface IPool extends BaseContract {
 
     getUserConfiguration(
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<DataTypes.UserConfigurationMapStructOutput>;
 
     getUserEMode(user: string, overrides?: CallOverrides): Promise<BigNumber>;
@@ -1546,7 +1660,7 @@ export interface IPool extends BaseContract {
       stableDebtAddress: string,
       variableDebtAddress: string,
       interestRateStrategyAddress: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     liquidationCall(
@@ -1555,7 +1669,7 @@ export interface IPool extends BaseContract {
       user: string,
       debtToCover: BigNumberish,
       receiveAToken: boolean,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     mintToTreasury(assets: string[], overrides?: CallOverrides): Promise<void>;
@@ -1565,13 +1679,13 @@ export interface IPool extends BaseContract {
       amount: BigNumberish,
       onBehalfOf: string,
       referralCode: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     rebalanceStableBorrowRate(
       asset: string,
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     repay(
@@ -1579,14 +1693,14 @@ export interface IPool extends BaseContract {
       amount: BigNumberish,
       interestRateMode: BigNumberish,
       onBehalfOf: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     repayWithATokens(
       asset: string,
       amount: BigNumberish,
       interestRateMode: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     repayWithPermit(
@@ -1598,42 +1712,42 @@ export interface IPool extends BaseContract {
       permitV: BigNumberish,
       permitR: BytesLike,
       permitS: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     rescueTokens(
       token: string,
       to: string,
       amount: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     resetIsolationModeTotalDebt(
       asset: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     setConfiguration(
       asset: string,
       configuration: DataTypes.ReserveConfigurationMapStruct,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     setReserveInterestRateStrategyAddress(
       asset: string,
       rateStrategyAddress: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     setUserEMode(
       categoryId: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     setUserUseReserveAsCollateral(
       asset: string,
       useAsCollateral: boolean,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     supply(
@@ -1641,7 +1755,7 @@ export interface IPool extends BaseContract {
       amount: BigNumberish,
       onBehalfOf: string,
       referralCode: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     supplyWithPermit(
@@ -1653,31 +1767,31 @@ export interface IPool extends BaseContract {
       permitV: BigNumberish,
       permitR: BytesLike,
       permitS: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     swapBorrowRateMode(
       asset: string,
       interestRateMode: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     updateBridgeProtocolFee(
       bridgeProtocolFee: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     updateFlashloanPremiums(
       flashLoanPremiumTotal: BigNumberish,
       flashLoanPremiumToProtocol: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     withdraw(
       asset: string,
       amount: BigNumberish,
       to: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
   };
 
@@ -1686,13 +1800,13 @@ export interface IPool extends BaseContract {
       reserve?: string | null,
       backer?: string | null,
       amount?: null,
-      fee?: null
+      fee?: null,
     ): BackUnbackedEventFilter;
     BackUnbacked(
       reserve?: string | null,
       backer?: string | null,
       amount?: null,
-      fee?: null
+      fee?: null,
     ): BackUnbackedEventFilter;
 
     "Borrow(address,address,address,uint256,uint8,uint256,uint16)"(
@@ -1702,7 +1816,7 @@ export interface IPool extends BaseContract {
       amount?: null,
       interestRateMode?: null,
       borrowRate?: null,
-      referralCode?: BigNumberish | null
+      referralCode?: BigNumberish | null,
     ): BorrowEventFilter;
     Borrow(
       reserve?: string | null,
@@ -1711,7 +1825,7 @@ export interface IPool extends BaseContract {
       amount?: null,
       interestRateMode?: null,
       borrowRate?: null,
-      referralCode?: BigNumberish | null
+      referralCode?: BigNumberish | null,
     ): BorrowEventFilter;
 
     "FlashLoan(address,address,address,uint256,uint8,uint256,uint16)"(
@@ -1721,7 +1835,7 @@ export interface IPool extends BaseContract {
       amount?: null,
       interestRateMode?: null,
       premium?: null,
-      referralCode?: BigNumberish | null
+      referralCode?: BigNumberish | null,
     ): FlashLoanEventFilter;
     FlashLoan(
       target?: string | null,
@@ -1730,16 +1844,16 @@ export interface IPool extends BaseContract {
       amount?: null,
       interestRateMode?: null,
       premium?: null,
-      referralCode?: BigNumberish | null
+      referralCode?: BigNumberish | null,
     ): FlashLoanEventFilter;
 
     "IsolationModeTotalDebtUpdated(address,uint256)"(
       asset?: string | null,
-      totalDebt?: null
+      totalDebt?: null,
     ): IsolationModeTotalDebtUpdatedEventFilter;
     IsolationModeTotalDebtUpdated(
       asset?: string | null,
-      totalDebt?: null
+      totalDebt?: null,
     ): IsolationModeTotalDebtUpdatedEventFilter;
 
     "LiquidationCall(address,address,address,uint256,uint256,address,bool)"(
@@ -1749,7 +1863,7 @@ export interface IPool extends BaseContract {
       debtToCover?: null,
       liquidatedCollateralAmount?: null,
       liquidator?: null,
-      receiveAToken?: null
+      receiveAToken?: null,
     ): LiquidationCallEventFilter;
     LiquidationCall(
       collateralAsset?: string | null,
@@ -1758,7 +1872,7 @@ export interface IPool extends BaseContract {
       debtToCover?: null,
       liquidatedCollateralAmount?: null,
       liquidator?: null,
-      receiveAToken?: null
+      receiveAToken?: null,
     ): LiquidationCallEventFilter;
 
     "MintUnbacked(address,address,address,uint256,uint16)"(
@@ -1766,32 +1880,32 @@ export interface IPool extends BaseContract {
       user?: null,
       onBehalfOf?: string | null,
       amount?: null,
-      referralCode?: BigNumberish | null
+      referralCode?: BigNumberish | null,
     ): MintUnbackedEventFilter;
     MintUnbacked(
       reserve?: string | null,
       user?: null,
       onBehalfOf?: string | null,
       amount?: null,
-      referralCode?: BigNumberish | null
+      referralCode?: BigNumberish | null,
     ): MintUnbackedEventFilter;
 
     "MintedToTreasury(address,uint256)"(
       reserve?: string | null,
-      amountMinted?: null
+      amountMinted?: null,
     ): MintedToTreasuryEventFilter;
     MintedToTreasury(
       reserve?: string | null,
-      amountMinted?: null
+      amountMinted?: null,
     ): MintedToTreasuryEventFilter;
 
     "RebalanceStableBorrowRate(address,address)"(
       reserve?: string | null,
-      user?: string | null
+      user?: string | null,
     ): RebalanceStableBorrowRateEventFilter;
     RebalanceStableBorrowRate(
       reserve?: string | null,
-      user?: string | null
+      user?: string | null,
     ): RebalanceStableBorrowRateEventFilter;
 
     "Repay(address,address,address,uint256,bool)"(
@@ -1799,14 +1913,14 @@ export interface IPool extends BaseContract {
       user?: string | null,
       repayer?: string | null,
       amount?: null,
-      useATokens?: null
+      useATokens?: null,
     ): RepayEventFilter;
     Repay(
       reserve?: string | null,
       user?: string | null,
       repayer?: string | null,
       amount?: null,
-      useATokens?: null
+      useATokens?: null,
     ): RepayEventFilter;
 
     "ReserveDataUpdated(address,uint256,uint256,uint256,uint256,uint256)"(
@@ -1815,7 +1929,7 @@ export interface IPool extends BaseContract {
       stableBorrowRate?: null,
       variableBorrowRate?: null,
       liquidityIndex?: null,
-      variableBorrowIndex?: null
+      variableBorrowIndex?: null,
     ): ReserveDataUpdatedEventFilter;
     ReserveDataUpdated(
       reserve?: string | null,
@@ -1823,25 +1937,25 @@ export interface IPool extends BaseContract {
       stableBorrowRate?: null,
       variableBorrowRate?: null,
       liquidityIndex?: null,
-      variableBorrowIndex?: null
+      variableBorrowIndex?: null,
     ): ReserveDataUpdatedEventFilter;
 
     "ReserveUsedAsCollateralDisabled(address,address)"(
       reserve?: string | null,
-      user?: string | null
+      user?: string | null,
     ): ReserveUsedAsCollateralDisabledEventFilter;
     ReserveUsedAsCollateralDisabled(
       reserve?: string | null,
-      user?: string | null
+      user?: string | null,
     ): ReserveUsedAsCollateralDisabledEventFilter;
 
     "ReserveUsedAsCollateralEnabled(address,address)"(
       reserve?: string | null,
-      user?: string | null
+      user?: string | null,
     ): ReserveUsedAsCollateralEnabledEventFilter;
     ReserveUsedAsCollateralEnabled(
       reserve?: string | null,
-      user?: string | null
+      user?: string | null,
     ): ReserveUsedAsCollateralEnabledEventFilter;
 
     "Supply(address,address,address,uint256,uint16)"(
@@ -1849,47 +1963,47 @@ export interface IPool extends BaseContract {
       user?: null,
       onBehalfOf?: string | null,
       amount?: null,
-      referralCode?: BigNumberish | null
+      referralCode?: BigNumberish | null,
     ): SupplyEventFilter;
     Supply(
       reserve?: string | null,
       user?: null,
       onBehalfOf?: string | null,
       amount?: null,
-      referralCode?: BigNumberish | null
+      referralCode?: BigNumberish | null,
     ): SupplyEventFilter;
 
     "SwapBorrowRateMode(address,address,uint8)"(
       reserve?: string | null,
       user?: string | null,
-      interestRateMode?: null
+      interestRateMode?: null,
     ): SwapBorrowRateModeEventFilter;
     SwapBorrowRateMode(
       reserve?: string | null,
       user?: string | null,
-      interestRateMode?: null
+      interestRateMode?: null,
     ): SwapBorrowRateModeEventFilter;
 
     "UserEModeSet(address,uint8)"(
       user?: string | null,
-      categoryId?: null
+      categoryId?: null,
     ): UserEModeSetEventFilter;
     UserEModeSet(
       user?: string | null,
-      categoryId?: null
+      categoryId?: null,
     ): UserEModeSetEventFilter;
 
     "Withdraw(address,address,address,uint256)"(
       reserve?: string | null,
       user?: string | null,
       to?: string | null,
-      amount?: null
+      amount?: null,
     ): WithdrawEventFilter;
     Withdraw(
       reserve?: string | null,
       user?: string | null,
       to?: string | null,
-      amount?: null
+      amount?: null,
     ): WithdrawEventFilter;
   };
 
@@ -1901,20 +2015,20 @@ export interface IPool extends BaseContract {
     FLASHLOAN_PREMIUM_TOTAL(overrides?: CallOverrides): Promise<BigNumber>;
 
     FLASHLOAN_PREMIUM_TO_PROTOCOL(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     MAX_NUMBER_RESERVES(overrides?: CallOverrides): Promise<BigNumber>;
 
     MAX_STABLE_RATE_BORROW_SIZE_PERCENT(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     backUnbacked(
       asset: string,
       amount: BigNumberish,
       fee: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     borrow(
@@ -1923,13 +2037,13 @@ export interface IPool extends BaseContract {
       interestRateMode: BigNumberish,
       referralCode: BigNumberish,
       onBehalfOf: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     configureEModeCategory(
       id: BigNumberish,
       config: DataTypes.EModeCategoryStruct,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     deposit(
@@ -1937,12 +2051,12 @@ export interface IPool extends BaseContract {
       amount: BigNumberish,
       onBehalfOf: string,
       referralCode: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     dropReserve(
       asset: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     finalizeTransfer(
@@ -1952,7 +2066,7 @@ export interface IPool extends BaseContract {
       amount: BigNumberish,
       balanceFromBefore: BigNumberish,
       balanceToBefore: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     flashLoan(
@@ -1963,7 +2077,7 @@ export interface IPool extends BaseContract {
       onBehalfOf: string,
       params: BytesLike,
       referralCode: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     flashLoanSimple(
@@ -1972,49 +2086,49 @@ export interface IPool extends BaseContract {
       amount: BigNumberish,
       params: BytesLike,
       referralCode: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     getConfiguration(
       asset: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     getEModeCategoryData(
       id: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     getReserveAddressById(
       id: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     getReserveData(
       asset: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     getReserveNormalizedIncome(
       asset: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     getReserveNormalizedVariableDebt(
       asset: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     getReservesList(overrides?: CallOverrides): Promise<BigNumber>;
 
     getUserAccountData(
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     getUserConfiguration(
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     getUserEMode(user: string, overrides?: CallOverrides): Promise<BigNumber>;
@@ -2025,7 +2139,7 @@ export interface IPool extends BaseContract {
       stableDebtAddress: string,
       variableDebtAddress: string,
       interestRateStrategyAddress: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     liquidationCall(
@@ -2034,12 +2148,12 @@ export interface IPool extends BaseContract {
       user: string,
       debtToCover: BigNumberish,
       receiveAToken: boolean,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     mintToTreasury(
       assets: string[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     mintUnbacked(
@@ -2047,13 +2161,13 @@ export interface IPool extends BaseContract {
       amount: BigNumberish,
       onBehalfOf: string,
       referralCode: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     rebalanceStableBorrowRate(
       asset: string,
       user: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     repay(
@@ -2061,14 +2175,14 @@ export interface IPool extends BaseContract {
       amount: BigNumberish,
       interestRateMode: BigNumberish,
       onBehalfOf: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     repayWithATokens(
       asset: string,
       amount: BigNumberish,
       interestRateMode: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     repayWithPermit(
@@ -2080,42 +2194,42 @@ export interface IPool extends BaseContract {
       permitV: BigNumberish,
       permitR: BytesLike,
       permitS: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     rescueTokens(
       token: string,
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     resetIsolationModeTotalDebt(
       asset: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     setConfiguration(
       asset: string,
       configuration: DataTypes.ReserveConfigurationMapStruct,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     setReserveInterestRateStrategyAddress(
       asset: string,
       rateStrategyAddress: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     setUserEMode(
       categoryId: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     setUserUseReserveAsCollateral(
       asset: string,
       useAsCollateral: boolean,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     supply(
@@ -2123,7 +2237,7 @@ export interface IPool extends BaseContract {
       amount: BigNumberish,
       onBehalfOf: string,
       referralCode: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     supplyWithPermit(
@@ -2135,64 +2249,64 @@ export interface IPool extends BaseContract {
       permitV: BigNumberish,
       permitR: BytesLike,
       permitS: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     swapBorrowRateMode(
       asset: string,
       interestRateMode: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     updateBridgeProtocolFee(
       bridgeProtocolFee: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     updateFlashloanPremiums(
       flashLoanPremiumTotal: BigNumberish,
       flashLoanPremiumToProtocol: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     withdraw(
       asset: string,
       amount: BigNumberish,
       to: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
     ADDRESSES_PROVIDER(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     BRIDGE_PROTOCOL_FEE(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     FLASHLOAN_PREMIUM_TOTAL(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     FLASHLOAN_PREMIUM_TO_PROTOCOL(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     MAX_NUMBER_RESERVES(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     MAX_STABLE_RATE_BORROW_SIZE_PERCENT(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     backUnbacked(
       asset: string,
       amount: BigNumberish,
       fee: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     borrow(
@@ -2201,13 +2315,13 @@ export interface IPool extends BaseContract {
       interestRateMode: BigNumberish,
       referralCode: BigNumberish,
       onBehalfOf: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     configureEModeCategory(
       id: BigNumberish,
       config: DataTypes.EModeCategoryStruct,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     deposit(
@@ -2215,12 +2329,12 @@ export interface IPool extends BaseContract {
       amount: BigNumberish,
       onBehalfOf: string,
       referralCode: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     dropReserve(
       asset: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     finalizeTransfer(
@@ -2230,7 +2344,7 @@ export interface IPool extends BaseContract {
       amount: BigNumberish,
       balanceFromBefore: BigNumberish,
       balanceToBefore: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     flashLoan(
@@ -2241,7 +2355,7 @@ export interface IPool extends BaseContract {
       onBehalfOf: string,
       params: BytesLike,
       referralCode: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     flashLoanSimple(
@@ -2250,54 +2364,54 @@ export interface IPool extends BaseContract {
       amount: BigNumberish,
       params: BytesLike,
       referralCode: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     getConfiguration(
       asset: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     getEModeCategoryData(
       id: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     getReserveAddressById(
       id: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     getReserveData(
       asset: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     getReserveNormalizedIncome(
       asset: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     getReserveNormalizedVariableDebt(
       asset: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     getReservesList(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     getUserAccountData(
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     getUserConfiguration(
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     getUserEMode(
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     initReserve(
@@ -2306,7 +2420,7 @@ export interface IPool extends BaseContract {
       stableDebtAddress: string,
       variableDebtAddress: string,
       interestRateStrategyAddress: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     liquidationCall(
@@ -2315,12 +2429,12 @@ export interface IPool extends BaseContract {
       user: string,
       debtToCover: BigNumberish,
       receiveAToken: boolean,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     mintToTreasury(
       assets: string[],
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     mintUnbacked(
@@ -2328,13 +2442,13 @@ export interface IPool extends BaseContract {
       amount: BigNumberish,
       onBehalfOf: string,
       referralCode: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     rebalanceStableBorrowRate(
       asset: string,
       user: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     repay(
@@ -2342,14 +2456,14 @@ export interface IPool extends BaseContract {
       amount: BigNumberish,
       interestRateMode: BigNumberish,
       onBehalfOf: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     repayWithATokens(
       asset: string,
       amount: BigNumberish,
       interestRateMode: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     repayWithPermit(
@@ -2361,42 +2475,42 @@ export interface IPool extends BaseContract {
       permitV: BigNumberish,
       permitR: BytesLike,
       permitS: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     rescueTokens(
       token: string,
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     resetIsolationModeTotalDebt(
       asset: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     setConfiguration(
       asset: string,
       configuration: DataTypes.ReserveConfigurationMapStruct,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     setReserveInterestRateStrategyAddress(
       asset: string,
       rateStrategyAddress: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     setUserEMode(
       categoryId: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     setUserUseReserveAsCollateral(
       asset: string,
       useAsCollateral: boolean,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     supply(
@@ -2404,7 +2518,7 @@ export interface IPool extends BaseContract {
       amount: BigNumberish,
       onBehalfOf: string,
       referralCode: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     supplyWithPermit(
@@ -2416,31 +2530,31 @@ export interface IPool extends BaseContract {
       permitV: BigNumberish,
       permitR: BytesLike,
       permitS: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     swapBorrowRateMode(
       asset: string,
       interestRateMode: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     updateBridgeProtocolFee(
       bridgeProtocolFee: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     updateFlashloanPremiums(
       flashLoanPremiumTotal: BigNumberish,
       flashLoanPremiumToProtocol: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     withdraw(
       asset: string,
       amount: BigNumberish,
       to: string,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
   };
 }

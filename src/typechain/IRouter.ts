@@ -74,7 +74,7 @@ export interface IRouterInterface extends utils.Interface {
       | "swapExactETHForTokens"
       | "swapExactTokensForETH"
       | "swapExactTokensForTokens"
-      | "swapExactTokensForTokensSimple"
+      | "swapExactTokensForTokensSimple",
   ): FunctionFragment;
 
   encodeFunctionData(
@@ -88,9 +88,10 @@ export interface IRouterInterface extends utils.Interface {
       BigNumberish,
       BigNumberish,
       string,
-      BigNumberish
-    ]
+      BigNumberish,
+    ],
   ): string;
+
   encodeFunctionData(
     functionFragment: "addLiquidityETH",
     values: [
@@ -100,34 +101,42 @@ export interface IRouterInterface extends utils.Interface {
       BigNumberish,
       BigNumberish,
       string,
-      BigNumberish
-    ]
+      BigNumberish,
+    ],
   ): string;
+
   encodeFunctionData(
     functionFragment: "getAmountOut",
-    values: [BigNumberish, string, string]
+    values: [BigNumberish, string, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "getAmountsOut",
-    values: [BigNumberish, IRouter.RouteStruct[]]
+    values: [BigNumberish, IRouter.RouteStruct[]],
   ): string;
+
   encodeFunctionData(
     functionFragment: "getReserves",
-    values: [string, string, boolean]
+    values: [string, string, boolean],
   ): string;
+
   encodeFunctionData(functionFragment: "isPair", values: [string]): string;
+
   encodeFunctionData(
     functionFragment: "pairFor",
-    values: [string, string, boolean]
+    values: [string, string, boolean],
   ): string;
+
   encodeFunctionData(
     functionFragment: "quoteAddLiquidity",
-    values: [string, string, boolean, BigNumberish, BigNumberish]
+    values: [string, string, boolean, BigNumberish, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "quoteRemoveLiquidity",
-    values: [string, string, boolean, BigNumberish]
+    values: [string, string, boolean, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "removeLiquidity",
     values: [
@@ -138,9 +147,10 @@ export interface IRouterInterface extends utils.Interface {
       BigNumberish,
       BigNumberish,
       string,
-      BigNumberish
-    ]
+      BigNumberish,
+    ],
   ): string;
+
   encodeFunctionData(
     functionFragment: "removeLiquidityETH",
     values: [
@@ -150,9 +160,10 @@ export interface IRouterInterface extends utils.Interface {
       BigNumberish,
       BigNumberish,
       string,
-      BigNumberish
-    ]
+      BigNumberish,
+    ],
   ): string;
+
   encodeFunctionData(
     functionFragment: "removeLiquidityETHWithPermit",
     values: [
@@ -166,9 +177,10 @@ export interface IRouterInterface extends utils.Interface {
       boolean,
       BigNumberish,
       BytesLike,
-      BytesLike
-    ]
+      BytesLike,
+    ],
   ): string;
+
   encodeFunctionData(
     functionFragment: "removeLiquidityWithPermit",
     values: [
@@ -183,17 +195,20 @@ export interface IRouterInterface extends utils.Interface {
       boolean,
       BigNumberish,
       BytesLike,
-      BytesLike
-    ]
+      BytesLike,
+    ],
   ): string;
+
   encodeFunctionData(
     functionFragment: "sortTokens",
-    values: [string, string]
+    values: [string, string],
   ): string;
+
   encodeFunctionData(
     functionFragment: "swapExactETHForTokens",
-    values: [BigNumberish, IRouter.RouteStruct[], string, BigNumberish]
+    values: [BigNumberish, IRouter.RouteStruct[], string, BigNumberish],
   ): string;
+
   encodeFunctionData(
     functionFragment: "swapExactTokensForETH",
     values: [
@@ -201,9 +216,10 @@ export interface IRouterInterface extends utils.Interface {
       BigNumberish,
       IRouter.RouteStruct[],
       string,
-      BigNumberish
-    ]
+      BigNumberish,
+    ],
   ): string;
+
   encodeFunctionData(
     functionFragment: "swapExactTokensForTokens",
     values: [
@@ -211,9 +227,10 @@ export interface IRouterInterface extends utils.Interface {
       BigNumberish,
       IRouter.RouteStruct[],
       string,
-      BigNumberish
-    ]
+      BigNumberish,
+    ],
   ): string;
+
   encodeFunctionData(
     functionFragment: "swapExactTokensForTokensSimple",
     values: [
@@ -223,72 +240,89 @@ export interface IRouterInterface extends utils.Interface {
       string,
       boolean,
       string,
-      BigNumberish
-    ]
+      BigNumberish,
+    ],
   ): string;
 
   decodeFunctionResult(
     functionFragment: "addLiquidity",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "addLiquidityETH",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "getAmountOut",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "getAmountsOut",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "getReserves",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "isPair", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "pairFor", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "quoteAddLiquidity",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "quoteRemoveLiquidity",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "removeLiquidity",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "removeLiquidityETH",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "removeLiquidityETHWithPermit",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "removeLiquidityWithPermit",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(functionFragment: "sortTokens", data: BytesLike): Result;
+
   decodeFunctionResult(
     functionFragment: "swapExactETHForTokens",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "swapExactTokensForETH",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "swapExactTokensForTokens",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "swapExactTokensForTokensSimple",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
 
   events: {};
@@ -296,7 +330,9 @@ export interface IRouterInterface extends utils.Interface {
 
 export interface IRouter extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: IRouterInterface;
@@ -304,17 +340,21 @@ export interface IRouter extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -331,7 +371,7 @@ export interface IRouter extends BaseContract {
       amountBMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     addLiquidityETH(
@@ -342,27 +382,27 @@ export interface IRouter extends BaseContract {
       amountETHMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     getAmountOut(
       amountIn: BigNumberish,
       tokenIn: string,
       tokenOut: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber, boolean] & { amount: BigNumber; stable: boolean }>;
 
     getAmountsOut(
       amountIn: BigNumberish,
       routes: IRouter.RouteStruct[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber[]] & { amounts: BigNumber[] }>;
 
     getReserves(
       tokenA: string,
       tokenB: string,
       stable: boolean,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber] & { reserveA: BigNumber; reserveB: BigNumber }
     >;
@@ -373,7 +413,7 @@ export interface IRouter extends BaseContract {
       tokenA: string,
       tokenB: string,
       stable: boolean,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[string] & { pair: string }>;
 
     quoteAddLiquidity(
@@ -382,7 +422,7 @@ export interface IRouter extends BaseContract {
       stable: boolean,
       amountADesired: BigNumberish,
       amountBDesired: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber, BigNumber] & {
         amountA: BigNumber;
@@ -396,7 +436,7 @@ export interface IRouter extends BaseContract {
       tokenB: string,
       stable: boolean,
       liquidity: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber] & { amountA: BigNumber; amountB: BigNumber }
     >;
@@ -410,7 +450,7 @@ export interface IRouter extends BaseContract {
       amountBMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     removeLiquidityETH(
@@ -421,7 +461,7 @@ export interface IRouter extends BaseContract {
       amountETHMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     removeLiquidityETHWithPermit(
@@ -436,7 +476,7 @@ export interface IRouter extends BaseContract {
       v: BigNumberish,
       r: BytesLike,
       s: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     removeLiquidityWithPermit(
@@ -452,13 +492,13 @@ export interface IRouter extends BaseContract {
       v: BigNumberish,
       r: BytesLike,
       s: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     sortTokens(
       tokenA: string,
       tokenB: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[string, string] & { token0: string; token1: string }>;
 
     swapExactETHForTokens(
@@ -466,7 +506,7 @@ export interface IRouter extends BaseContract {
       routes: IRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     swapExactTokensForETH(
@@ -475,7 +515,7 @@ export interface IRouter extends BaseContract {
       routes: IRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     swapExactTokensForTokens(
@@ -484,7 +524,7 @@ export interface IRouter extends BaseContract {
       routes: IRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     swapExactTokensForTokensSimple(
@@ -495,7 +535,7 @@ export interface IRouter extends BaseContract {
       stable: boolean,
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
   };
 
@@ -509,7 +549,7 @@ export interface IRouter extends BaseContract {
     amountBMin: BigNumberish,
     to: string,
     deadline: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   addLiquidityETH(
@@ -520,27 +560,27 @@ export interface IRouter extends BaseContract {
     amountETHMin: BigNumberish,
     to: string,
     deadline: BigNumberish,
-    overrides?: PayableOverrides & { from?: string }
+    overrides?: PayableOverrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   getAmountOut(
     amountIn: BigNumberish,
     tokenIn: string,
     tokenOut: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<[BigNumber, boolean] & { amount: BigNumber; stable: boolean }>;
 
   getAmountsOut(
     amountIn: BigNumberish,
     routes: IRouter.RouteStruct[],
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber[]>;
 
   getReserves(
     tokenA: string,
     tokenB: string,
     stable: boolean,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<
     [BigNumber, BigNumber] & { reserveA: BigNumber; reserveB: BigNumber }
   >;
@@ -551,7 +591,7 @@ export interface IRouter extends BaseContract {
     tokenA: string,
     tokenB: string,
     stable: boolean,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<string>;
 
   quoteAddLiquidity(
@@ -560,7 +600,7 @@ export interface IRouter extends BaseContract {
     stable: boolean,
     amountADesired: BigNumberish,
     amountBDesired: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<
     [BigNumber, BigNumber, BigNumber] & {
       amountA: BigNumber;
@@ -574,7 +614,7 @@ export interface IRouter extends BaseContract {
     tokenB: string,
     stable: boolean,
     liquidity: BigNumberish,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<
     [BigNumber, BigNumber] & { amountA: BigNumber; amountB: BigNumber }
   >;
@@ -588,7 +628,7 @@ export interface IRouter extends BaseContract {
     amountBMin: BigNumberish,
     to: string,
     deadline: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   removeLiquidityETH(
@@ -599,7 +639,7 @@ export interface IRouter extends BaseContract {
     amountETHMin: BigNumberish,
     to: string,
     deadline: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   removeLiquidityETHWithPermit(
@@ -614,7 +654,7 @@ export interface IRouter extends BaseContract {
     v: BigNumberish,
     r: BytesLike,
     s: BytesLike,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   removeLiquidityWithPermit(
@@ -630,13 +670,13 @@ export interface IRouter extends BaseContract {
     v: BigNumberish,
     r: BytesLike,
     s: BytesLike,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   sortTokens(
     tokenA: string,
     tokenB: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<[string, string] & { token0: string; token1: string }>;
 
   swapExactETHForTokens(
@@ -644,7 +684,7 @@ export interface IRouter extends BaseContract {
     routes: IRouter.RouteStruct[],
     to: string,
     deadline: BigNumberish,
-    overrides?: PayableOverrides & { from?: string }
+    overrides?: PayableOverrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   swapExactTokensForETH(
@@ -653,7 +693,7 @@ export interface IRouter extends BaseContract {
     routes: IRouter.RouteStruct[],
     to: string,
     deadline: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   swapExactTokensForTokens(
@@ -662,7 +702,7 @@ export interface IRouter extends BaseContract {
     routes: IRouter.RouteStruct[],
     to: string,
     deadline: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   swapExactTokensForTokensSimple(
@@ -673,7 +713,7 @@ export interface IRouter extends BaseContract {
     stable: boolean,
     to: string,
     deadline: BigNumberish,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -687,7 +727,7 @@ export interface IRouter extends BaseContract {
       amountBMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber, BigNumber] & {
         amountA: BigNumber;
@@ -704,7 +744,7 @@ export interface IRouter extends BaseContract {
       amountETHMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber, BigNumber] & {
         amountToken: BigNumber;
@@ -717,20 +757,20 @@ export interface IRouter extends BaseContract {
       amountIn: BigNumberish,
       tokenIn: string,
       tokenOut: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber, boolean] & { amount: BigNumber; stable: boolean }>;
 
     getAmountsOut(
       amountIn: BigNumberish,
       routes: IRouter.RouteStruct[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber[]>;
 
     getReserves(
       tokenA: string,
       tokenB: string,
       stable: boolean,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber] & { reserveA: BigNumber; reserveB: BigNumber }
     >;
@@ -741,7 +781,7 @@ export interface IRouter extends BaseContract {
       tokenA: string,
       tokenB: string,
       stable: boolean,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<string>;
 
     quoteAddLiquidity(
@@ -750,7 +790,7 @@ export interface IRouter extends BaseContract {
       stable: boolean,
       amountADesired: BigNumberish,
       amountBDesired: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber, BigNumber] & {
         amountA: BigNumber;
@@ -764,7 +804,7 @@ export interface IRouter extends BaseContract {
       tokenB: string,
       stable: boolean,
       liquidity: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber] & { amountA: BigNumber; amountB: BigNumber }
     >;
@@ -778,7 +818,7 @@ export interface IRouter extends BaseContract {
       amountBMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber] & { amountA: BigNumber; amountB: BigNumber }
     >;
@@ -791,7 +831,7 @@ export interface IRouter extends BaseContract {
       amountETHMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber] & { amountToken: BigNumber; amountETH: BigNumber }
     >;
@@ -808,7 +848,7 @@ export interface IRouter extends BaseContract {
       v: BigNumberish,
       r: BytesLike,
       s: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber] & { amountToken: BigNumber; amountETH: BigNumber }
     >;
@@ -826,7 +866,7 @@ export interface IRouter extends BaseContract {
       v: BigNumberish,
       r: BytesLike,
       s: BytesLike,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber] & { amountA: BigNumber; amountB: BigNumber }
     >;
@@ -834,7 +874,7 @@ export interface IRouter extends BaseContract {
     sortTokens(
       tokenA: string,
       tokenB: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[string, string] & { token0: string; token1: string }>;
 
     swapExactETHForTokens(
@@ -842,7 +882,7 @@ export interface IRouter extends BaseContract {
       routes: IRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber[]>;
 
     swapExactTokensForETH(
@@ -851,7 +891,7 @@ export interface IRouter extends BaseContract {
       routes: IRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber[]>;
 
     swapExactTokensForTokens(
@@ -860,7 +900,7 @@ export interface IRouter extends BaseContract {
       routes: IRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber[]>;
 
     swapExactTokensForTokensSimple(
@@ -871,7 +911,7 @@ export interface IRouter extends BaseContract {
       stable: boolean,
       to: string,
       deadline: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber[]>;
   };
 
@@ -888,7 +928,7 @@ export interface IRouter extends BaseContract {
       amountBMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     addLiquidityETH(
@@ -899,27 +939,27 @@ export interface IRouter extends BaseContract {
       amountETHMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<BigNumber>;
 
     getAmountOut(
       amountIn: BigNumberish,
       tokenIn: string,
       tokenOut: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     getAmountsOut(
       amountIn: BigNumberish,
       routes: IRouter.RouteStruct[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     getReserves(
       tokenA: string,
       tokenB: string,
       stable: boolean,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     isPair(pair: string, overrides?: CallOverrides): Promise<BigNumber>;
@@ -928,7 +968,7 @@ export interface IRouter extends BaseContract {
       tokenA: string,
       tokenB: string,
       stable: boolean,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     quoteAddLiquidity(
@@ -937,7 +977,7 @@ export interface IRouter extends BaseContract {
       stable: boolean,
       amountADesired: BigNumberish,
       amountBDesired: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     quoteRemoveLiquidity(
@@ -945,7 +985,7 @@ export interface IRouter extends BaseContract {
       tokenB: string,
       stable: boolean,
       liquidity: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     removeLiquidity(
@@ -957,7 +997,7 @@ export interface IRouter extends BaseContract {
       amountBMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     removeLiquidityETH(
@@ -968,7 +1008,7 @@ export interface IRouter extends BaseContract {
       amountETHMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     removeLiquidityETHWithPermit(
@@ -983,7 +1023,7 @@ export interface IRouter extends BaseContract {
       v: BigNumberish,
       r: BytesLike,
       s: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     removeLiquidityWithPermit(
@@ -999,13 +1039,13 @@ export interface IRouter extends BaseContract {
       v: BigNumberish,
       r: BytesLike,
       s: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     sortTokens(
       tokenA: string,
       tokenB: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     swapExactETHForTokens(
@@ -1013,7 +1053,7 @@ export interface IRouter extends BaseContract {
       routes: IRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<BigNumber>;
 
     swapExactTokensForETH(
@@ -1022,7 +1062,7 @@ export interface IRouter extends BaseContract {
       routes: IRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     swapExactTokensForTokens(
@@ -1031,7 +1071,7 @@ export interface IRouter extends BaseContract {
       routes: IRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     swapExactTokensForTokensSimple(
@@ -1042,7 +1082,7 @@ export interface IRouter extends BaseContract {
       stable: boolean,
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
   };
 
@@ -1057,7 +1097,7 @@ export interface IRouter extends BaseContract {
       amountBMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     addLiquidityETH(
@@ -1068,39 +1108,39 @@ export interface IRouter extends BaseContract {
       amountETHMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     getAmountOut(
       amountIn: BigNumberish,
       tokenIn: string,
       tokenOut: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     getAmountsOut(
       amountIn: BigNumberish,
       routes: IRouter.RouteStruct[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     getReserves(
       tokenA: string,
       tokenB: string,
       stable: boolean,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     isPair(
       pair: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     pairFor(
       tokenA: string,
       tokenB: string,
       stable: boolean,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     quoteAddLiquidity(
@@ -1109,7 +1149,7 @@ export interface IRouter extends BaseContract {
       stable: boolean,
       amountADesired: BigNumberish,
       amountBDesired: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     quoteRemoveLiquidity(
@@ -1117,7 +1157,7 @@ export interface IRouter extends BaseContract {
       tokenB: string,
       stable: boolean,
       liquidity: BigNumberish,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     removeLiquidity(
@@ -1129,7 +1169,7 @@ export interface IRouter extends BaseContract {
       amountBMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     removeLiquidityETH(
@@ -1140,7 +1180,7 @@ export interface IRouter extends BaseContract {
       amountETHMin: BigNumberish,
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     removeLiquidityETHWithPermit(
@@ -1155,7 +1195,7 @@ export interface IRouter extends BaseContract {
       v: BigNumberish,
       r: BytesLike,
       s: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     removeLiquidityWithPermit(
@@ -1171,13 +1211,13 @@ export interface IRouter extends BaseContract {
       v: BigNumberish,
       r: BytesLike,
       s: BytesLike,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     sortTokens(
       tokenA: string,
       tokenB: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     swapExactETHForTokens(
@@ -1185,7 +1225,7 @@ export interface IRouter extends BaseContract {
       routes: IRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: PayableOverrides & { from?: string }
+      overrides?: PayableOverrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     swapExactTokensForETH(
@@ -1194,7 +1234,7 @@ export interface IRouter extends BaseContract {
       routes: IRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     swapExactTokensForTokens(
@@ -1203,7 +1243,7 @@ export interface IRouter extends BaseContract {
       routes: IRouter.RouteStruct[],
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     swapExactTokensForTokensSimple(
@@ -1214,7 +1254,7 @@ export interface IRouter extends BaseContract {
       stable: boolean,
       to: string,
       deadline: BigNumberish,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
   };
 }

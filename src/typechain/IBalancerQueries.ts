@@ -38,7 +38,7 @@ export declare namespace IBalancerVault {
     string,
     string,
     BigNumber,
-    string
+    string,
   ] & {
     poolId: string;
     kind: number;
@@ -59,7 +59,7 @@ export declare namespace IBalancerVault {
     string,
     boolean,
     string,
-    boolean
+    boolean,
   ] & {
     sender: string;
     fromInternalBalance: boolean;
@@ -79,8 +79,8 @@ export interface IBalancerQueriesInterface extends utils.Interface {
     functionFragment: "querySwap",
     values: [
       IBalancerVault.SingleSwapStruct,
-      IBalancerVault.FundManagementStruct
-    ]
+      IBalancerVault.FundManagementStruct,
+    ],
   ): string;
 
   decodeFunctionResult(functionFragment: "querySwap", data: BytesLike): Result;
@@ -90,7 +90,9 @@ export interface IBalancerQueriesInterface extends utils.Interface {
 
 export interface IBalancerQueries extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: IBalancerQueriesInterface;
@@ -98,17 +100,21 @@ export interface IBalancerQueries extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -118,21 +124,21 @@ export interface IBalancerQueries extends BaseContract {
     querySwap(
       singleSwap: IBalancerVault.SingleSwapStruct,
       funds: IBalancerVault.FundManagementStruct,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
   };
 
   querySwap(
     singleSwap: IBalancerVault.SingleSwapStruct,
     funds: IBalancerVault.FundManagementStruct,
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   callStatic: {
     querySwap(
       singleSwap: IBalancerVault.SingleSwapStruct,
       funds: IBalancerVault.FundManagementStruct,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
   };
 
@@ -142,7 +148,7 @@ export interface IBalancerQueries extends BaseContract {
     querySwap(
       singleSwap: IBalancerVault.SingleSwapStruct,
       funds: IBalancerVault.FundManagementStruct,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
   };
 
@@ -150,7 +156,7 @@ export interface IBalancerQueries extends BaseContract {
     querySwap(
       singleSwap: IBalancerVault.SingleSwapStruct,
       funds: IBalancerVault.FundManagementStruct,
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
   };
 }

@@ -197,12 +197,14 @@ const _abi = [
 
 export class IERC20Upgradeable__factory {
   static readonly abi = _abi;
+
   static createInterface(): IERC20UpgradeableInterface {
     return new utils.Interface(_abi) as IERC20UpgradeableInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): IERC20Upgradeable {
     return new Contract(address, _abi, signerOrProvider) as IERC20Upgradeable;
   }

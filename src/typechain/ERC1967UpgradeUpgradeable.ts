@@ -22,8 +22,11 @@ export interface ERC1967UpgradeUpgradeableInterface extends utils.Interface {
   };
 
   getEvent(nameOrSignatureOrTopic: "AdminChanged"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "BeaconUpgraded"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Initialized"): EventFragment;
+
   getEvent(nameOrSignatureOrTopic: "Upgraded"): EventFragment;
 }
 
@@ -31,6 +34,7 @@ export interface AdminChangedEventObject {
   previousAdmin: string;
   newAdmin: string;
 }
+
 export type AdminChangedEvent = TypedEvent<
   [string, string],
   AdminChangedEventObject
@@ -41,6 +45,7 @@ export type AdminChangedEventFilter = TypedEventFilter<AdminChangedEvent>;
 export interface BeaconUpgradedEventObject {
   beacon: string;
 }
+
 export type BeaconUpgradedEvent = TypedEvent<
   [string],
   BeaconUpgradedEventObject
@@ -51,6 +56,7 @@ export type BeaconUpgradedEventFilter = TypedEventFilter<BeaconUpgradedEvent>;
 export interface InitializedEventObject {
   version: number;
 }
+
 export type InitializedEvent = TypedEvent<[number], InitializedEventObject>;
 
 export type InitializedEventFilter = TypedEventFilter<InitializedEvent>;
@@ -58,13 +64,16 @@ export type InitializedEventFilter = TypedEventFilter<InitializedEvent>;
 export interface UpgradedEventObject {
   implementation: string;
 }
+
 export type UpgradedEvent = TypedEvent<[string], UpgradedEventObject>;
 
 export type UpgradedEventFilter = TypedEventFilter<UpgradedEvent>;
 
 export interface ERC1967UpgradeUpgradeable extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: ERC1967UpgradeUpgradeableInterface;
@@ -72,17 +81,21 @@ export interface ERC1967UpgradeUpgradeable extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -95,15 +108,15 @@ export interface ERC1967UpgradeUpgradeable extends BaseContract {
   filters: {
     "AdminChanged(address,address)"(
       previousAdmin?: null,
-      newAdmin?: null
+      newAdmin?: null,
     ): AdminChangedEventFilter;
     AdminChanged(
       previousAdmin?: null,
-      newAdmin?: null
+      newAdmin?: null,
     ): AdminChangedEventFilter;
 
     "BeaconUpgraded(address)"(
-      beacon?: string | null
+      beacon?: string | null,
     ): BeaconUpgradedEventFilter;
     BeaconUpgraded(beacon?: string | null): BeaconUpgradedEventFilter;
 

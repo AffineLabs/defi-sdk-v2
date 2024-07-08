@@ -207,27 +207,51 @@
   {
     "inputs": [],
     "name": "DEPOSIT_TYPEHASH",
-    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
     "name": "DOMAIN_TYPEHASH",
-    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "staker", "type": "address" },
-      { "internalType": "contract IERC20", "name": "token", "type": "address" },
+      {
+        "internalType": "address",
+        "name": "staker",
+        "type": "address"
+      },
+      {
+        "internalType": "contract IERC20",
+        "name": "token",
+        "type": "address"
+      },
       {
         "internalType": "contract IStrategy",
         "name": "strategy",
         "type": "address"
       },
-      { "internalType": "uint256", "name": "shares", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "shares",
+        "type": "uint256"
+      }
     ],
     "name": "addShares",
     "outputs": [],
@@ -266,7 +290,11 @@
             "name": "shares",
             "type": "uint256[]"
           },
-          { "internalType": "address", "name": "staker", "type": "address" },
+          {
+            "internalType": "address",
+            "name": "staker",
+            "type": "address"
+          },
           {
             "components": [
               {
@@ -274,7 +302,11 @@
                 "name": "withdrawer",
                 "type": "address"
               },
-              { "internalType": "uint96", "name": "nonce", "type": "uint96" }
+              {
+                "internalType": "uint96",
+                "name": "nonce",
+                "type": "uint96"
+              }
             ],
             "internalType": "struct IStrategyManager.DeprecatedStruct_WithdrawerAndNonce",
             "name": "withdrawerAndNonce",
@@ -297,7 +329,13 @@
       }
     ],
     "name": "calculateWithdrawalRoot",
-    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
     "stateMutability": "pure",
     "type": "function"
   },
@@ -321,12 +359,24 @@
         "name": "strategy",
         "type": "address"
       },
-      { "internalType": "contract IERC20", "name": "token", "type": "address" },
-      { "internalType": "uint256", "name": "amount", "type": "uint256" }
+      {
+        "internalType": "contract IERC20",
+        "name": "token",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
     ],
     "name": "depositIntoStrategy",
     "outputs": [
-      { "internalType": "uint256", "name": "shares", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "shares",
+        "type": "uint256"
+      }
     ],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -338,15 +388,39 @@
         "name": "strategy",
         "type": "address"
       },
-      { "internalType": "contract IERC20", "name": "token", "type": "address" },
-      { "internalType": "uint256", "name": "amount", "type": "uint256" },
-      { "internalType": "address", "name": "staker", "type": "address" },
-      { "internalType": "uint256", "name": "expiry", "type": "uint256" },
-      { "internalType": "bytes", "name": "signature", "type": "bytes" }
+      {
+        "internalType": "contract IERC20",
+        "name": "token",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "staker",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "expiry",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes",
+        "name": "signature",
+        "type": "bytes"
+      }
     ],
     "name": "depositIntoStrategyWithSignature",
     "outputs": [
-      { "internalType": "uint256", "name": "shares", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "shares",
+        "type": "uint256"
+      }
     ],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -354,7 +428,13 @@
   {
     "inputs": [],
     "name": "domainSeparator",
-    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
@@ -373,7 +453,11 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "staker", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "staker",
+        "type": "address"
+      }
     ],
     "name": "getDeposits",
     "outputs": [
@@ -382,14 +466,22 @@
         "name": "",
         "type": "address[]"
       },
-      { "internalType": "uint256[]", "name": "", "type": "uint256[]" }
+      {
+        "internalType": "uint256[]",
+        "name": "",
+        "type": "uint256[]"
+      }
     ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "initialOwner", "type": "address" },
+      {
+        "internalType": "address",
+        "name": "initialOwner",
+        "type": "address"
+      },
       {
         "internalType": "address",
         "name": "initialStrategyWhitelister",
@@ -425,7 +517,11 @@
             "name": "shares",
             "type": "uint256[]"
           },
-          { "internalType": "address", "name": "staker", "type": "address" },
+          {
+            "internalType": "address",
+            "name": "staker",
+            "type": "address"
+          },
           {
             "components": [
               {
@@ -433,7 +529,11 @@
                 "name": "withdrawer",
                 "type": "address"
               },
-              { "internalType": "uint96", "name": "nonce", "type": "uint96" }
+              {
+                "internalType": "uint96",
+                "name": "nonce",
+                "type": "uint96"
+              }
             ],
             "internalType": "struct IStrategyManager.DeprecatedStruct_WithdrawerAndNonce",
             "name": "withdrawerAndNonce",
@@ -457,23 +557,49 @@
     ],
     "name": "migrateQueuedWithdrawal",
     "outputs": [
-      { "internalType": "bool", "name": "", "type": "bool" },
-      { "internalType": "bytes32", "name": "", "type": "bytes32" }
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
     ],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
     "name": "nonces",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
     "name": "owner",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
@@ -498,16 +624,34 @@
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "uint8", "name": "index", "type": "uint8" }],
+    "inputs": [
+      {
+        "internalType": "uint8",
+        "name": "index",
+        "type": "uint8"
+      }
+    ],
     "name": "paused",
-    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
     "name": "paused",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
@@ -526,13 +670,21 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "staker", "type": "address" },
+      {
+        "internalType": "address",
+        "name": "staker",
+        "type": "address"
+      },
       {
         "internalType": "contract IStrategy",
         "name": "strategy",
         "type": "address"
       },
-      { "internalType": "uint256", "name": "shares", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "shares",
+        "type": "uint256"
+      }
     ],
     "name": "removeShares",
     "outputs": [],
@@ -592,7 +744,11 @@
         "name": "strategy",
         "type": "address"
       },
-      { "internalType": "bool", "name": "value", "type": "bool" }
+      {
+        "internalType": "bool",
+        "name": "value",
+        "type": "bool"
+      }
     ],
     "name": "setThirdPartyTransfersForbidden",
     "outputs": [],
@@ -603,70 +759,140 @@
     "inputs": [],
     "name": "slasher",
     "outputs": [
-      { "internalType": "contract ISlasher", "name": "", "type": "address" }
+      {
+        "internalType": "contract ISlasher",
+        "name": "",
+        "type": "address"
+      }
     ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "", "type": "address" },
-      { "internalType": "uint256", "name": "", "type": "uint256" }
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
     ],
     "name": "stakerStrategyList",
     "outputs": [
-      { "internalType": "contract IStrategy", "name": "", "type": "address" }
+      {
+        "internalType": "contract IStrategy",
+        "name": "",
+        "type": "address"
+      }
     ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "staker", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "staker",
+        "type": "address"
+      }
     ],
     "name": "stakerStrategyListLength",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "", "type": "address" },
-      { "internalType": "contract IStrategy", "name": "", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      },
+      {
+        "internalType": "contract IStrategy",
+        "name": "",
+        "type": "address"
+      }
     ],
     "name": "stakerStrategyShares",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "contract IStrategy", "name": "", "type": "address" }
+      {
+        "internalType": "contract IStrategy",
+        "name": "",
+        "type": "address"
+      }
     ],
     "name": "strategyIsWhitelistedForDeposit",
-    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [],
     "name": "strategyWhitelister",
-    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "contract IStrategy", "name": "", "type": "address" }
+      {
+        "internalType": "contract IStrategy",
+        "name": "",
+        "type": "address"
+      }
     ],
     "name": "thirdPartyTransfersForbidden",
-    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "newOwner", "type": "address" }
+      {
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
     ],
     "name": "transferOwnership",
     "outputs": [],
@@ -688,14 +914,26 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "recipient", "type": "address" },
+      {
+        "internalType": "address",
+        "name": "recipient",
+        "type": "address"
+      },
       {
         "internalType": "contract IStrategy",
         "name": "strategy",
         "type": "address"
       },
-      { "internalType": "uint256", "name": "shares", "type": "uint256" },
-      { "internalType": "contract IERC20", "name": "token", "type": "address" }
+      {
+        "internalType": "uint256",
+        "name": "shares",
+        "type": "uint256"
+      },
+      {
+        "internalType": "contract IERC20",
+        "name": "token",
+        "type": "address"
+      }
     ],
     "name": "withdrawSharesAsTokens",
     "outputs": [],
@@ -703,9 +941,21 @@
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
     "name": "withdrawalRootPending",
-    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
     "stateMutability": "view",
     "type": "function"
   }

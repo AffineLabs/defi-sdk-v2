@@ -42,33 +42,37 @@ export interface DetailedShareInterface extends utils.Interface {
     nameOrSignatureOrTopic:
       | "detailedPrice"
       | "detailedTVL"
-      | "detailedTotalSupply"
+      | "detailedTotalSupply",
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "detailedPrice",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "detailedTVL",
-    values?: undefined
+    values?: undefined,
   ): string;
+
   encodeFunctionData(
     functionFragment: "detailedTotalSupply",
-    values?: undefined
+    values?: undefined,
   ): string;
 
   decodeFunctionResult(
     functionFragment: "detailedPrice",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "detailedTVL",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
+
   decodeFunctionResult(
     functionFragment: "detailedTotalSupply",
-    data: BytesLike
+    data: BytesLike,
   ): Result;
 
   events: {};
@@ -76,7 +80,9 @@ export interface DetailedShareInterface extends utils.Interface {
 
 export interface DetailedShare extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: DetailedShareInterface;
@@ -84,17 +90,21 @@ export interface DetailedShare extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -102,41 +112,41 @@ export interface DetailedShare extends BaseContract {
 
   functions: {
     detailedPrice(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     detailedTVL(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
 
     detailedTotalSupply(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<ContractTransaction>;
   };
 
   detailedPrice(
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   detailedTVL(
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   detailedTotalSupply(
-    overrides?: Overrides & { from?: string }
+    overrides?: Overrides & { from?: string },
   ): Promise<ContractTransaction>;
 
   callStatic: {
     detailedPrice(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<DetailedShare.NumberStructOutput>;
 
     detailedTVL(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<DetailedShare.NumberStructOutput>;
 
     detailedTotalSupply(
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<DetailedShare.NumberStructOutput>;
   };
 
@@ -144,27 +154,27 @@ export interface DetailedShare extends BaseContract {
 
   estimateGas: {
     detailedPrice(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
 
     detailedTVL(overrides?: Overrides & { from?: string }): Promise<BigNumber>;
 
     detailedTotalSupply(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
     detailedPrice(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     detailedTVL(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
 
     detailedTotalSupply(
-      overrides?: Overrides & { from?: string }
+      overrides?: Overrides & { from?: string },
     ): Promise<PopulatedTransaction>;
   };
 }

@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { Contract, Signer, utils } from "ethers";
-import type { Provider } from "@ethersproject/providers";
-import type { IRouterClient, IRouterClientInterface } from "../IRouterClient";
+import {Contract, Signer, utils} from "ethers";
+import type {Provider} from "@ethersproject/providers";
+import type {IRouterClient, IRouterClientInterface} from "../IRouterClient";
 
 const _abi = [
   {
@@ -196,12 +196,14 @@ const _abi = [
 
 export class IRouterClient__factory {
   static readonly abi = _abi;
+
   static createInterface(): IRouterClientInterface {
     return new utils.Interface(_abi) as IRouterClientInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): IRouterClient {
     return new Contract(address, _abi, signerOrProvider) as IRouterClient;
   }

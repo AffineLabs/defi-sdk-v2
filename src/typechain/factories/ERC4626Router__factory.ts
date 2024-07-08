@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import { Contract, Signer, utils } from "ethers";
-import type { Provider } from "@ethersproject/providers";
-import type { ERC4626Router, ERC4626RouterInterface } from "../ERC4626Router";
+import {Contract, Signer, utils} from "ethers";
+import type {Provider} from "@ethersproject/providers";
+import type {ERC4626Router, ERC4626RouterInterface} from "../ERC4626Router";
 
 const _abi = [
   {
@@ -395,12 +395,14 @@ const _abi = [
 
 export class ERC4626Router__factory {
   static readonly abi = _abi;
+
   static createInterface(): ERC4626RouterInterface {
     return new utils.Interface(_abi) as ERC4626RouterInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): ERC4626Router {
     return new Contract(address, _abi, signerOrProvider) as ERC4626Router;
   }

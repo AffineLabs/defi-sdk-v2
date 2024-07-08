@@ -26,16 +26,18 @@ export interface IUltraLRTInterface extends utils.Interface {
   };
 
   getFunction(
-    nameOrSignatureOrTopic: "HARVESTER" | "hasRole"
+    nameOrSignatureOrTopic: "HARVESTER" | "hasRole",
   ): FunctionFragment;
 
   encodeFunctionData(functionFragment: "HARVESTER", values?: undefined): string;
+
   encodeFunctionData(
     functionFragment: "hasRole",
-    values: [BytesLike, string]
+    values: [BytesLike, string],
   ): string;
 
   decodeFunctionResult(functionFragment: "HARVESTER", data: BytesLike): Result;
+
   decodeFunctionResult(functionFragment: "hasRole", data: BytesLike): Result;
 
   events: {};
@@ -43,7 +45,9 @@ export interface IUltraLRTInterface extends utils.Interface {
 
 export interface IUltraLRT extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
+
   attach(addressOrName: string): this;
+
   deployed(): Promise<this>;
 
   interface: IUltraLRTInterface;
@@ -51,17 +55,21 @@ export interface IUltraLRT extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
+    eventFilter?: TypedEventFilter<TEvent>,
   ): Array<TypedListener<TEvent>>;
+
   listeners(eventName?: string): Array<Listener>;
+
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
+    eventFilter: TypedEventFilter<TEvent>,
   ): this;
+
   removeAllListeners(eventName?: string): this;
+
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -73,7 +81,7 @@ export interface IUltraLRT extends BaseContract {
     hasRole(
       role: BytesLike,
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[boolean]>;
   };
 
@@ -82,7 +90,7 @@ export interface IUltraLRT extends BaseContract {
   hasRole(
     role: BytesLike,
     user: string,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<boolean>;
 
   callStatic: {
@@ -91,7 +99,7 @@ export interface IUltraLRT extends BaseContract {
     hasRole(
       role: BytesLike,
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
   };
 
@@ -103,7 +111,7 @@ export interface IUltraLRT extends BaseContract {
     hasRole(
       role: BytesLike,
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
   };
 
@@ -113,7 +121,7 @@ export interface IUltraLRT extends BaseContract {
     hasRole(
       role: BytesLike,
       user: string,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
   };
 }

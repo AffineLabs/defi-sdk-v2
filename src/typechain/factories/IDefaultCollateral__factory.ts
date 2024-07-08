@@ -667,12 +667,14 @@ const _abi = [
 
 export class IDefaultCollateral__factory {
   static readonly abi = _abi;
+
   static createInterface(): IDefaultCollateralInterface {
     return new utils.Interface(_abi) as IDefaultCollateralInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): IDefaultCollateral {
     return new Contract(address, _abi, signerOrProvider) as IDefaultCollateral;
   }

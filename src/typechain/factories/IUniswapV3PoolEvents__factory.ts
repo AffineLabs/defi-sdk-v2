@@ -341,17 +341,19 @@ const _abi = [
 
 export class IUniswapV3PoolEvents__factory {
   static readonly abi = _abi;
+
   static createInterface(): IUniswapV3PoolEventsInterface {
     return new utils.Interface(_abi) as IUniswapV3PoolEventsInterface;
   }
+
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider
+    signerOrProvider: Signer | Provider,
   ): IUniswapV3PoolEvents {
     return new Contract(
       address,
       _abi,
-      signerOrProvider
+      signerOrProvider,
     ) as IUniswapV3PoolEvents;
   }
 }
