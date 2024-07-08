@@ -109,262 +109,186 @@ export interface LidoLevInterface extends utils.Interface {
       | "totalLockedValue"
       | "upgrade"
       | "urn"
-      | "vault",
+      | "vault"
   ): FunctionFragment;
 
   encodeFunctionData(functionFragment: "BALANCER", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "CDAI", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "CETH", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "CURVE", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "DAI", values?: undefined): string;
-
   encodeFunctionData(
     functionFragment: "DEFAULT_ADMIN_ROLE",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "ETH_DAI_FEED",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(functionFragment: "ILK", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "JOIN_DAI", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "MAKER", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "STETH", values?: undefined): string;
-
   encodeFunctionData(
     functionFragment: "STRATEGIST_ROLE",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "UNI_ROUTER",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(functionFragment: "VAT", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "WETH", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "WSTETH", values?: undefined): string;
-
   encodeFunctionData(
     functionFragment: "WSTETH_JOIN",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "addToPosition",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
-
   encodeFunctionData(functionFragment: "asset", values?: undefined): string;
-
   encodeFunctionData(
     functionFragment: "balanceOfAsset",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(functionFragment: "cdpId", values?: undefined): string;
-
   encodeFunctionData(
     functionFragment: "createCompoundDebt",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "divest",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "getPositionInfo",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "getRoleAdmin",
-    values: [BytesLike],
+    values: [BytesLike]
   ): string;
-
   encodeFunctionData(
     functionFragment: "grantRole",
-    values: [BytesLike, string],
+    values: [BytesLike, string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "hasRole",
-    values: [BytesLike, string],
+    values: [BytesLike, string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "invest",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
-
   encodeFunctionData(functionFragment: "leverage", values?: undefined): string;
-
   encodeFunctionData(
     functionFragment: "rebalance",
-    values: [BigNumberish, BigNumberish],
+    values: [BigNumberish, BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "receiveFlashLoan",
-    values: [string[], BigNumberish[], BigNumberish[], BytesLike],
+    values: [string[], BigNumberish[], BigNumberish[], BytesLike]
   ): string;
-
   encodeFunctionData(
     functionFragment: "renounceRole",
-    values: [BytesLike, string],
+    values: [BytesLike, string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "revokeRole",
-    values: [BytesLike, string],
+    values: [BytesLike, string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "supportsInterface",
-    values: [BytesLike],
+    values: [BytesLike]
   ): string;
-
   encodeFunctionData(functionFragment: "sweep", values: [string]): string;
-
   encodeFunctionData(
     functionFragment: "totalLockedValue",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(functionFragment: "upgrade", values: [string]): string;
-
   encodeFunctionData(functionFragment: "urn", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "vault", values?: undefined): string;
 
   decodeFunctionResult(functionFragment: "BALANCER", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "CDAI", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "CETH", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "CURVE", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "DAI", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "DEFAULT_ADMIN_ROLE",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "ETH_DAI_FEED",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "ILK", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "JOIN_DAI", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "MAKER", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "STETH", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "STRATEGIST_ROLE",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "UNI_ROUTER", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "VAT", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "WETH", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "WSTETH", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "WSTETH_JOIN",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "addToPosition",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "asset", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "balanceOfAsset",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "cdpId", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "createCompoundDebt",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "divest", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "getPositionInfo",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "getRoleAdmin",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "grantRole", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "hasRole", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "invest", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "leverage", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "rebalance", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "receiveFlashLoan",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "renounceRole",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "revokeRole", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "supportsInterface",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "sweep", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "totalLockedValue",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "upgrade", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "urn", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "vault", data: BytesLike): Result;
 
   events: {
@@ -374,9 +298,7 @@ export interface LidoLevInterface extends utils.Interface {
   };
 
   getEvent(nameOrSignatureOrTopic: "RoleAdminChanged"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "RoleGranted"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "RoleRevoked"): EventFragment;
 }
 
@@ -385,7 +307,6 @@ export interface RoleAdminChangedEventObject {
   previousAdminRole: string;
   newAdminRole: string;
 }
-
 export type RoleAdminChangedEvent = TypedEvent<
   [string, string, string],
   RoleAdminChangedEventObject
@@ -399,7 +320,6 @@ export interface RoleGrantedEventObject {
   account: string;
   sender: string;
 }
-
 export type RoleGrantedEvent = TypedEvent<
   [string, string, string],
   RoleGrantedEventObject
@@ -412,7 +332,6 @@ export interface RoleRevokedEventObject {
   account: string;
   sender: string;
 }
-
 export type RoleRevokedEvent = TypedEvent<
   [string, string, string],
   RoleRevokedEventObject
@@ -422,9 +341,7 @@ export type RoleRevokedEventFilter = TypedEventFilter<RoleRevokedEvent>;
 
 export interface LidoLev extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: LidoLevInterface;
@@ -432,21 +349,17 @@ export interface LidoLev extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -489,29 +402,29 @@ export interface LidoLev extends BaseContract {
 
     addToPosition(
       size: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     asset(overrides?: CallOverrides): Promise<[string]>;
 
     balanceOfAsset(
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[BigNumber] & { assets: BigNumber }>;
 
     cdpId(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     createCompoundDebt(
       ethToBorrow: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     divest(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     getPositionInfo(
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     getRoleAdmin(role: BytesLike, overrides?: CallOverrides): Promise<[string]>;
@@ -519,18 +432,18 @@ export interface LidoLev extends BaseContract {
     grantRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     hasRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[boolean]>;
 
     invest(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     leverage(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -538,7 +451,7 @@ export interface LidoLev extends BaseContract {
     rebalance(
       amountEth: BigNumberish,
       amountDai: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     receiveFlashLoan(
@@ -546,38 +459,38 @@ export interface LidoLev extends BaseContract {
       amounts: BigNumberish[],
       arg2: BigNumberish[],
       userData: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     renounceRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     revokeRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     supportsInterface(
       interfaceId: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[boolean]>;
 
     sweep(
       token: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     totalLockedValue(
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     upgrade(
       newStrategy: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     urn(overrides?: CallOverrides): Promise<[string]>;
@@ -621,7 +534,7 @@ export interface LidoLev extends BaseContract {
 
   addToPosition(
     size: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   asset(overrides?: CallOverrides): Promise<string>;
@@ -632,16 +545,16 @@ export interface LidoLev extends BaseContract {
 
   createCompoundDebt(
     ethToBorrow: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   divest(
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   getPositionInfo(
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   getRoleAdmin(role: BytesLike, overrides?: CallOverrides): Promise<string>;
@@ -649,18 +562,18 @@ export interface LidoLev extends BaseContract {
   grantRole(
     role: BytesLike,
     account: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   hasRole(
     role: BytesLike,
     account: string,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<boolean>;
 
   invest(
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   leverage(overrides?: CallOverrides): Promise<BigNumber>;
@@ -668,7 +581,7 @@ export interface LidoLev extends BaseContract {
   rebalance(
     amountEth: BigNumberish,
     amountDai: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   receiveFlashLoan(
@@ -676,38 +589,38 @@ export interface LidoLev extends BaseContract {
     amounts: BigNumberish[],
     arg2: BigNumberish[],
     userData: BytesLike,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   renounceRole(
     role: BytesLike,
     account: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   revokeRole(
     role: BytesLike,
     account: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   supportsInterface(
     interfaceId: BytesLike,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<boolean>;
 
   sweep(
     token: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   totalLockedValue(
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   upgrade(
     newStrategy: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   urn(overrides?: CallOverrides): Promise<string>;
@@ -759,12 +672,14 @@ export interface LidoLev extends BaseContract {
 
     createCompoundDebt(
       ethToBorrow: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     divest(amount: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
 
-    getPositionInfo(overrides?: CallOverrides): Promise<
+    getPositionInfo(
+      overrides?: CallOverrides
+    ): Promise<
       [BigNumber, BigNumber, BigNumber, BigNumber] & {
         makerCollateral: BigNumber;
         makerDebt: BigNumber;
@@ -778,13 +693,13 @@ export interface LidoLev extends BaseContract {
     grantRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     hasRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<boolean>;
 
     invest(amount: BigNumberish, overrides?: CallOverrides): Promise<void>;
@@ -794,7 +709,7 @@ export interface LidoLev extends BaseContract {
     rebalance(
       amountEth: BigNumberish,
       amountDai: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     receiveFlashLoan(
@@ -802,24 +717,24 @@ export interface LidoLev extends BaseContract {
       amounts: BigNumberish[],
       arg2: BigNumberish[],
       userData: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     renounceRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     revokeRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     supportsInterface(
       interfaceId: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<boolean>;
 
     sweep(token: string, overrides?: CallOverrides): Promise<void>;
@@ -837,34 +752,34 @@ export interface LidoLev extends BaseContract {
     "RoleAdminChanged(bytes32,bytes32,bytes32)"(
       role?: BytesLike | null,
       previousAdminRole?: BytesLike | null,
-      newAdminRole?: BytesLike | null,
+      newAdminRole?: BytesLike | null
     ): RoleAdminChangedEventFilter;
     RoleAdminChanged(
       role?: BytesLike | null,
       previousAdminRole?: BytesLike | null,
-      newAdminRole?: BytesLike | null,
+      newAdminRole?: BytesLike | null
     ): RoleAdminChangedEventFilter;
 
     "RoleGranted(bytes32,address,address)"(
       role?: BytesLike | null,
       account?: string | null,
-      sender?: string | null,
+      sender?: string | null
     ): RoleGrantedEventFilter;
     RoleGranted(
       role?: BytesLike | null,
       account?: string | null,
-      sender?: string | null,
+      sender?: string | null
     ): RoleGrantedEventFilter;
 
     "RoleRevoked(bytes32,address,address)"(
       role?: BytesLike | null,
       account?: string | null,
-      sender?: string | null,
+      sender?: string | null
     ): RoleRevokedEventFilter;
     RoleRevoked(
       role?: BytesLike | null,
       account?: string | null,
-      sender?: string | null,
+      sender?: string | null
     ): RoleRevokedEventFilter;
   };
 
@@ -905,7 +820,7 @@ export interface LidoLev extends BaseContract {
 
     addToPosition(
       size: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     asset(overrides?: CallOverrides): Promise<BigNumber>;
@@ -916,38 +831,38 @@ export interface LidoLev extends BaseContract {
 
     createCompoundDebt(
       ethToBorrow: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     divest(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     getPositionInfo(
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     getRoleAdmin(
       role: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     grantRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     hasRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     invest(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     leverage(overrides?: CallOverrides): Promise<BigNumber>;
@@ -955,7 +870,7 @@ export interface LidoLev extends BaseContract {
     rebalance(
       amountEth: BigNumberish,
       amountDai: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     receiveFlashLoan(
@@ -963,38 +878,38 @@ export interface LidoLev extends BaseContract {
       amounts: BigNumberish[],
       arg2: BigNumberish[],
       userData: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     renounceRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     revokeRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     supportsInterface(
       interfaceId: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     sweep(
       token: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     totalLockedValue(
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     upgrade(
       newStrategy: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     urn(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1014,7 +929,7 @@ export interface LidoLev extends BaseContract {
     DAI(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     DEFAULT_ADMIN_ROLE(
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     ETH_DAI_FEED(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -1041,7 +956,7 @@ export interface LidoLev extends BaseContract {
 
     addToPosition(
       size: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     asset(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -1052,38 +967,38 @@ export interface LidoLev extends BaseContract {
 
     createCompoundDebt(
       ethToBorrow: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     divest(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     getPositionInfo(
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     getRoleAdmin(
       role: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     grantRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     hasRole(
       role: BytesLike,
       account: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     invest(
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     leverage(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -1091,7 +1006,7 @@ export interface LidoLev extends BaseContract {
     rebalance(
       amountEth: BigNumberish,
       amountDai: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     receiveFlashLoan(
@@ -1099,38 +1014,38 @@ export interface LidoLev extends BaseContract {
       amounts: BigNumberish[],
       arg2: BigNumberish[],
       userData: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     renounceRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     revokeRole(
       role: BytesLike,
       account: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     supportsInterface(
       interfaceId: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     sweep(
       token: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     totalLockedValue(
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     upgrade(
       newStrategy: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     urn(overrides?: CallOverrides): Promise<PopulatedTransaction>;

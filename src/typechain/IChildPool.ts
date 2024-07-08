@@ -37,7 +37,7 @@ export declare namespace IChildPool {
   export type MaticXSwapRequestStructOutput = [
     BigNumber,
     BigNumber,
-    BigNumber,
+    BigNumber
   ] & { amount: BigNumber; requestTime: BigNumber; withdrawalTime: BigNumber };
 }
 
@@ -110,306 +110,244 @@ export interface IChildPoolInterface extends utils.Interface {
       | "version"
       | "withdrawInstantPoolMatic"
       | "withdrawInstantPoolMaticX"
-      | "withdrawInstantWithdrawalFees",
+      | "withdrawInstantWithdrawalFees"
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "claimMaticXSwap",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "claimedMatic",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "convertMaticToMaticX",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "convertMaticXToMatic",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "getAmountAfterInstantWithdrawalFees",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "getContracts",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "getMaticXSwapLockPeriod",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "getUserMaticXSwapRequests",
-    values: [string],
+    values: [string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "instantPoolMatic",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "instantPoolMaticX",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "instantPoolOwner",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "instantWithdrawalFeeBps",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "instantWithdrawalFees",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "maticXSwapLockPeriod",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "provideInstantPoolMatic",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "provideInstantPoolMaticX",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "requestMaticXSwap",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "setFxStateChildTunnel",
-    values: [string],
+    values: [string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "setInstantPoolOwner",
-    values: [string],
+    values: [string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "setInstantWithdrawalFeeBps",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "setMaticXSwapLockPeriod",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
-
   encodeFunctionData(functionFragment: "setTreasury", values: [string]): string;
-
   encodeFunctionData(
     functionFragment: "setTrustedForwarder",
-    values: [string],
+    values: [string]
   ): string;
-
   encodeFunctionData(functionFragment: "setVersion", values: [string]): string;
-
   encodeFunctionData(
     functionFragment: "swapMaticForMaticXViaInstantPool",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "swapMaticXForMaticViaInstantPool",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "togglePause",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(functionFragment: "treasury", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "version", values?: undefined): string;
-
   encodeFunctionData(
     functionFragment: "withdrawInstantPoolMatic",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "withdrawInstantPoolMaticX",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "withdrawInstantWithdrawalFees",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
 
   decodeFunctionResult(
     functionFragment: "claimMaticXSwap",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "claimedMatic",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "convertMaticToMaticX",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "convertMaticXToMatic",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "getAmountAfterInstantWithdrawalFees",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "getContracts",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "getMaticXSwapLockPeriod",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "getUserMaticXSwapRequests",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "instantPoolMatic",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "instantPoolMaticX",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "instantPoolOwner",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "instantWithdrawalFeeBps",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "instantWithdrawalFees",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "maticXSwapLockPeriod",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "provideInstantPoolMatic",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "provideInstantPoolMaticX",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "requestMaticXSwap",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "setFxStateChildTunnel",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "setInstantPoolOwner",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "setInstantWithdrawalFeeBps",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "setMaticXSwapLockPeriod",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "setTreasury",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "setTrustedForwarder",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "setVersion", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "swapMaticForMaticXViaInstantPool",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "swapMaticXForMaticViaInstantPool",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "togglePause",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "treasury", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "version", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "withdrawInstantPoolMatic",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "withdrawInstantPoolMaticX",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "withdrawInstantWithdrawalFees",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
 
   events: {
@@ -426,27 +364,18 @@ export interface IChildPoolInterface extends utils.Interface {
   };
 
   getEvent(nameOrSignatureOrTopic: "ClaimMaticXSwap"): EventFragment;
-
   getEvent(
-    nameOrSignatureOrTopic: "CollectedInstantWithdrawalFees",
+    nameOrSignatureOrTopic: "CollectedInstantWithdrawalFees"
   ): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "RequestMaticXSwap"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "SetFxStateChildTunnel"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "SetInstantPoolOwner"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "SetInstantWithdrawalFeeBps"): EventFragment;
-
   getEvent(
-    nameOrSignatureOrTopic: "SetMaticXSwapLockPeriodEvent",
+    nameOrSignatureOrTopic: "SetMaticXSwapLockPeriodEvent"
   ): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "SetTreasury"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "SetTrustedForwarder"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "SetVersion"): EventFragment;
 }
 
@@ -455,7 +384,6 @@ export interface ClaimMaticXSwapEventObject {
   _idx: BigNumber;
   _amountClaimed: BigNumber;
 }
-
 export type ClaimMaticXSwapEvent = TypedEvent<
   [string, BigNumber, BigNumber],
   ClaimMaticXSwapEventObject
@@ -466,7 +394,6 @@ export type ClaimMaticXSwapEventFilter = TypedEventFilter<ClaimMaticXSwapEvent>;
 export interface CollectedInstantWithdrawalFeesEventObject {
   _fees: BigNumber;
 }
-
 export type CollectedInstantWithdrawalFeesEvent = TypedEvent<
   [BigNumber],
   CollectedInstantWithdrawalFeesEventObject
@@ -481,7 +408,6 @@ export interface RequestMaticXSwapEventObject {
   _amountMatic: BigNumber;
   userSwapRequestsIndex: BigNumber;
 }
-
 export type RequestMaticXSwapEvent = TypedEvent<
   [string, BigNumber, BigNumber, BigNumber],
   RequestMaticXSwapEventObject
@@ -493,7 +419,6 @@ export type RequestMaticXSwapEventFilter =
 export interface SetFxStateChildTunnelEventObject {
   _address: string;
 }
-
 export type SetFxStateChildTunnelEvent = TypedEvent<
   [string],
   SetFxStateChildTunnelEventObject
@@ -505,7 +430,6 @@ export type SetFxStateChildTunnelEventFilter =
 export interface SetInstantPoolOwnerEventObject {
   _address: string;
 }
-
 export type SetInstantPoolOwnerEvent = TypedEvent<
   [string],
   SetInstantPoolOwnerEventObject
@@ -517,7 +441,6 @@ export type SetInstantPoolOwnerEventFilter =
 export interface SetInstantWithdrawalFeeBpsEventObject {
   _feeBps: BigNumber;
 }
-
 export type SetInstantWithdrawalFeeBpsEvent = TypedEvent<
   [BigNumber],
   SetInstantWithdrawalFeeBpsEventObject
@@ -529,7 +452,6 @@ export type SetInstantWithdrawalFeeBpsEventFilter =
 export interface SetMaticXSwapLockPeriodEventEventObject {
   _hours: BigNumber;
 }
-
 export type SetMaticXSwapLockPeriodEventEvent = TypedEvent<
   [BigNumber],
   SetMaticXSwapLockPeriodEventEventObject
@@ -541,7 +463,6 @@ export type SetMaticXSwapLockPeriodEventEventFilter =
 export interface SetTreasuryEventObject {
   _address: string;
 }
-
 export type SetTreasuryEvent = TypedEvent<[string], SetTreasuryEventObject>;
 
 export type SetTreasuryEventFilter = TypedEventFilter<SetTreasuryEvent>;
@@ -549,7 +470,6 @@ export type SetTreasuryEventFilter = TypedEventFilter<SetTreasuryEvent>;
 export interface SetTrustedForwarderEventObject {
   _address: string;
 }
-
 export type SetTrustedForwarderEvent = TypedEvent<
   [string],
   SetTrustedForwarderEventObject
@@ -561,16 +481,13 @@ export type SetTrustedForwarderEventFilter =
 export interface SetVersionEventObject {
   _version: string;
 }
-
 export type SetVersionEvent = TypedEvent<[string], SetVersionEventObject>;
 
 export type SetVersionEventFilter = TypedEventFilter<SetVersionEvent>;
 
 export interface IChildPool extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: IChildPoolInterface;
@@ -578,21 +495,17 @@ export interface IChildPool extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -601,27 +514,29 @@ export interface IChildPool extends BaseContract {
   functions: {
     claimMaticXSwap(
       _idx: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     claimedMatic(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     convertMaticToMaticX(
       _balance: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[BigNumber, BigNumber, BigNumber]>;
 
     convertMaticXToMatic(
       _balance: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[BigNumber, BigNumber, BigNumber]>;
 
     getAmountAfterInstantWithdrawalFees(
       _amount: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[BigNumber, BigNumber]>;
 
-    getContracts(overrides?: CallOverrides): Promise<
+    getContracts(
+      overrides?: CallOverrides
+    ): Promise<
       [string, string, string] & {
         _fxStateChildTunnel: string;
         _maticX: string;
@@ -633,7 +548,7 @@ export interface IChildPool extends BaseContract {
 
     getUserMaticXSwapRequests(
       _address: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[IChildPool.MaticXSwapRequestStructOutput[]]>;
 
     instantPoolMatic(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -649,65 +564,65 @@ export interface IChildPool extends BaseContract {
     maticXSwapLockPeriod(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     provideInstantPoolMatic(
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     provideInstantPoolMaticX(
       _amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     requestMaticXSwap(
       _amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     setFxStateChildTunnel(
       _address: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     setInstantPoolOwner(
       _address: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     setInstantWithdrawalFeeBps(
       _feeBps: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     setMaticXSwapLockPeriod(
       _hours: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     setTreasury(
       _address: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     setTrustedForwarder(
       _address: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     setVersion(
       _version: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     swapMaticForMaticXViaInstantPool(
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     swapMaticXForMaticViaInstantPool(
       _amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     togglePause(
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     treasury(overrides?: CallOverrides): Promise<[string]>;
@@ -716,43 +631,45 @@ export interface IChildPool extends BaseContract {
 
     withdrawInstantPoolMatic(
       _amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     withdrawInstantPoolMaticX(
       _amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     withdrawInstantWithdrawalFees(
       _amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
   };
 
   claimMaticXSwap(
     _idx: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   claimedMatic(overrides?: CallOverrides): Promise<BigNumber>;
 
   convertMaticToMaticX(
     _balance: BigNumberish,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<[BigNumber, BigNumber, BigNumber]>;
 
   convertMaticXToMatic(
     _balance: BigNumberish,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<[BigNumber, BigNumber, BigNumber]>;
 
   getAmountAfterInstantWithdrawalFees(
     _amount: BigNumberish,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<[BigNumber, BigNumber]>;
 
-  getContracts(overrides?: CallOverrides): Promise<
+  getContracts(
+    overrides?: CallOverrides
+  ): Promise<
     [string, string, string] & {
       _fxStateChildTunnel: string;
       _maticX: string;
@@ -764,7 +681,7 @@ export interface IChildPool extends BaseContract {
 
   getUserMaticXSwapRequests(
     _address: string,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<IChildPool.MaticXSwapRequestStructOutput[]>;
 
   instantPoolMatic(overrides?: CallOverrides): Promise<BigNumber>;
@@ -780,65 +697,65 @@ export interface IChildPool extends BaseContract {
   maticXSwapLockPeriod(overrides?: CallOverrides): Promise<BigNumber>;
 
   provideInstantPoolMatic(
-    overrides?: PayableOverrides & { from?: string },
+    overrides?: PayableOverrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   provideInstantPoolMaticX(
     _amount: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   requestMaticXSwap(
     _amount: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   setFxStateChildTunnel(
     _address: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   setInstantPoolOwner(
     _address: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   setInstantWithdrawalFeeBps(
     _feeBps: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   setMaticXSwapLockPeriod(
     _hours: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   setTreasury(
     _address: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   setTrustedForwarder(
     _address: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   setVersion(
     _version: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   swapMaticForMaticXViaInstantPool(
-    overrides?: PayableOverrides & { from?: string },
+    overrides?: PayableOverrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   swapMaticXForMaticViaInstantPool(
     _amount: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   togglePause(
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   treasury(overrides?: CallOverrides): Promise<string>;
@@ -847,43 +764,45 @@ export interface IChildPool extends BaseContract {
 
   withdrawInstantPoolMatic(
     _amount: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   withdrawInstantPoolMaticX(
     _amount: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   withdrawInstantWithdrawalFees(
     _amount: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   callStatic: {
     claimMaticXSwap(
       _idx: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     claimedMatic(overrides?: CallOverrides): Promise<BigNumber>;
 
     convertMaticToMaticX(
       _balance: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[BigNumber, BigNumber, BigNumber]>;
 
     convertMaticXToMatic(
       _balance: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[BigNumber, BigNumber, BigNumber]>;
 
     getAmountAfterInstantWithdrawalFees(
       _amount: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[BigNumber, BigNumber]>;
 
-    getContracts(overrides?: CallOverrides): Promise<
+    getContracts(
+      overrides?: CallOverrides
+    ): Promise<
       [string, string, string] & {
         _fxStateChildTunnel: string;
         _maticX: string;
@@ -895,7 +814,7 @@ export interface IChildPool extends BaseContract {
 
     getUserMaticXSwapRequests(
       _address: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<IChildPool.MaticXSwapRequestStructOutput[]>;
 
     instantPoolMatic(overrides?: CallOverrides): Promise<BigNumber>;
@@ -914,39 +833,39 @@ export interface IChildPool extends BaseContract {
 
     provideInstantPoolMaticX(
       _amount: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     requestMaticXSwap(
       _amount: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     setFxStateChildTunnel(
       _address: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     setInstantPoolOwner(
       _address: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     setInstantWithdrawalFeeBps(
       _feeBps: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     setMaticXSwapLockPeriod(
       _hours: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     setTreasury(_address: string, overrides?: CallOverrides): Promise<void>;
 
     setTrustedForwarder(
       _address: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     setVersion(_version: string, overrides?: CallOverrides): Promise<void>;
@@ -955,7 +874,7 @@ export interface IChildPool extends BaseContract {
 
     swapMaticXForMaticViaInstantPool(
       _amount: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     togglePause(overrides?: CallOverrides): Promise<void>;
@@ -966,17 +885,17 @@ export interface IChildPool extends BaseContract {
 
     withdrawInstantPoolMatic(
       _amount: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     withdrawInstantPoolMaticX(
       _amount: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     withdrawInstantWithdrawalFees(
       _amount: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
   };
 
@@ -984,63 +903,63 @@ export interface IChildPool extends BaseContract {
     "ClaimMaticXSwap(address,uint256,uint256)"(
       _from?: string | null,
       _idx?: BigNumberish | null,
-      _amountClaimed?: null,
+      _amountClaimed?: null
     ): ClaimMaticXSwapEventFilter;
     ClaimMaticXSwap(
       _from?: string | null,
       _idx?: BigNumberish | null,
-      _amountClaimed?: null,
+      _amountClaimed?: null
     ): ClaimMaticXSwapEventFilter;
 
     "CollectedInstantWithdrawalFees(uint256)"(
-      _fees?: null,
+      _fees?: null
     ): CollectedInstantWithdrawalFeesEventFilter;
     CollectedInstantWithdrawalFees(
-      _fees?: null,
+      _fees?: null
     ): CollectedInstantWithdrawalFeesEventFilter;
 
     "RequestMaticXSwap(address,uint256,uint256,uint256)"(
       _from?: string | null,
       _amountMaticX?: null,
       _amountMatic?: null,
-      userSwapRequestsIndex?: null,
+      userSwapRequestsIndex?: null
     ): RequestMaticXSwapEventFilter;
     RequestMaticXSwap(
       _from?: string | null,
       _amountMaticX?: null,
       _amountMatic?: null,
-      userSwapRequestsIndex?: null,
+      userSwapRequestsIndex?: null
     ): RequestMaticXSwapEventFilter;
 
     "SetFxStateChildTunnel(address)"(
-      _address?: null,
+      _address?: null
     ): SetFxStateChildTunnelEventFilter;
     SetFxStateChildTunnel(_address?: null): SetFxStateChildTunnelEventFilter;
 
     "SetInstantPoolOwner(address)"(
-      _address?: null,
+      _address?: null
     ): SetInstantPoolOwnerEventFilter;
     SetInstantPoolOwner(_address?: null): SetInstantPoolOwnerEventFilter;
 
     "SetInstantWithdrawalFeeBps(uint256)"(
-      _feeBps?: null,
+      _feeBps?: null
     ): SetInstantWithdrawalFeeBpsEventFilter;
     SetInstantWithdrawalFeeBps(
-      _feeBps?: null,
+      _feeBps?: null
     ): SetInstantWithdrawalFeeBpsEventFilter;
 
     "SetMaticXSwapLockPeriodEvent(uint256)"(
-      _hours?: null,
+      _hours?: null
     ): SetMaticXSwapLockPeriodEventEventFilter;
     SetMaticXSwapLockPeriodEvent(
-      _hours?: null,
+      _hours?: null
     ): SetMaticXSwapLockPeriodEventEventFilter;
 
     "SetTreasury(address)"(_address?: null): SetTreasuryEventFilter;
     SetTreasury(_address?: null): SetTreasuryEventFilter;
 
     "SetTrustedForwarder(address)"(
-      _address?: null,
+      _address?: null
     ): SetTrustedForwarderEventFilter;
     SetTrustedForwarder(_address?: null): SetTrustedForwarderEventFilter;
 
@@ -1051,24 +970,24 @@ export interface IChildPool extends BaseContract {
   estimateGas: {
     claimMaticXSwap(
       _idx: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     claimedMatic(overrides?: CallOverrides): Promise<BigNumber>;
 
     convertMaticToMaticX(
       _balance: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     convertMaticXToMatic(
       _balance: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     getAmountAfterInstantWithdrawalFees(
       _amount: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     getContracts(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1077,7 +996,7 @@ export interface IChildPool extends BaseContract {
 
     getUserMaticXSwapRequests(
       _address: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     instantPoolMatic(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1093,61 +1012,61 @@ export interface IChildPool extends BaseContract {
     maticXSwapLockPeriod(overrides?: CallOverrides): Promise<BigNumber>;
 
     provideInstantPoolMatic(
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<BigNumber>;
 
     provideInstantPoolMaticX(
       _amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     requestMaticXSwap(
       _amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     setFxStateChildTunnel(
       _address: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     setInstantPoolOwner(
       _address: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     setInstantWithdrawalFeeBps(
       _feeBps: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     setMaticXSwapLockPeriod(
       _hours: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     setTreasury(
       _address: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     setTrustedForwarder(
       _address: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     setVersion(
       _version: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     swapMaticForMaticXViaInstantPool(
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<BigNumber>;
 
     swapMaticXForMaticViaInstantPool(
       _amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     togglePause(overrides?: Overrides & { from?: string }): Promise<BigNumber>;
@@ -1158,52 +1077,52 @@ export interface IChildPool extends BaseContract {
 
     withdrawInstantPoolMatic(
       _amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     withdrawInstantPoolMaticX(
       _amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     withdrawInstantWithdrawalFees(
       _amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
     claimMaticXSwap(
       _idx: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     claimedMatic(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     convertMaticToMaticX(
       _balance: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     convertMaticXToMatic(
       _balance: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     getAmountAfterInstantWithdrawalFees(
       _amount: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     getContracts(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     getMaticXSwapLockPeriod(
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     getUserMaticXSwapRequests(
       _address: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     instantPoolMatic(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -1213,77 +1132,77 @@ export interface IChildPool extends BaseContract {
     instantPoolOwner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     instantWithdrawalFeeBps(
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     instantWithdrawalFees(
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     maticXSwapLockPeriod(
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     provideInstantPoolMatic(
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     provideInstantPoolMaticX(
       _amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     requestMaticXSwap(
       _amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     setFxStateChildTunnel(
       _address: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     setInstantPoolOwner(
       _address: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     setInstantWithdrawalFeeBps(
       _feeBps: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     setMaticXSwapLockPeriod(
       _hours: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     setTreasury(
       _address: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     setTrustedForwarder(
       _address: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     setVersion(
       _version: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     swapMaticForMaticXViaInstantPool(
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     swapMaticXForMaticViaInstantPool(
       _amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     togglePause(
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     treasury(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -1292,17 +1211,17 @@ export interface IChildPool extends BaseContract {
 
     withdrawInstantPoolMatic(
       _amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     withdrawInstantPoolMaticX(
       _amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     withdrawInstantWithdrawalFees(
       _amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
   };
 }

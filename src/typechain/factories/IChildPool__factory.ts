@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import {Contract, Signer, utils} from "ethers";
-import type {Provider} from "@ethersproject/providers";
-import type {IChildPool, IChildPoolInterface} from "../IChildPool";
+import { Contract, Signer, utils } from "ethers";
+import type { Provider } from "@ethersproject/providers";
+import type { IChildPool, IChildPoolInterface } from "../IChildPool";
 
 const _abi = [
   {
@@ -651,14 +651,12 @@ const _abi = [
 
 export class IChildPool__factory {
   static readonly abi = _abi;
-
   static createInterface(): IChildPoolInterface {
     return new utils.Interface(_abi) as IChildPoolInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): IChildPool {
     return new Contract(address, _abi, signerOrProvider) as IChildPool;
   }

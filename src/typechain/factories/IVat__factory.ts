@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import {Contract, Signer, utils} from "ethers";
-import type {Provider} from "@ethersproject/providers";
-import type {IVat, IVatInterface} from "../IVat";
+import { Contract, Signer, utils } from "ethers";
+import type { Provider } from "@ethersproject/providers";
+import type { IVat, IVatInterface } from "../IVat";
 
 const _abi = [
   {
@@ -591,11 +591,9 @@ const _abi = [
 
 export class IVat__factory {
   static readonly abi = _abi;
-
   static createInterface(): IVatInterface {
     return new utils.Interface(_abi) as IVatInterface;
   }
-
   static connect(address: string, signerOrProvider: Signer | Provider): IVat {
     return new Contract(address, _abi, signerOrProvider) as IVat;
   }

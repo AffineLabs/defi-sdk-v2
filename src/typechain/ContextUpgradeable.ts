@@ -24,16 +24,13 @@ export interface ContextUpgradeableInterface extends utils.Interface {
 export interface InitializedEventObject {
   version: number;
 }
-
 export type InitializedEvent = TypedEvent<[number], InitializedEventObject>;
 
 export type InitializedEventFilter = TypedEventFilter<InitializedEvent>;
 
 export interface ContextUpgradeable extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: ContextUpgradeableInterface;
@@ -41,21 +38,17 @@ export interface ContextUpgradeable extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;

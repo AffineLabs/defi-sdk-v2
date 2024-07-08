@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import {Contract, Signer, utils} from "ethers";
-import type {Provider} from "@ethersproject/providers";
-import type {BridgeEscrow, BridgeEscrowInterface} from "../BridgeEscrow";
+import { Contract, Signer, utils } from "ethers";
+import type { Provider } from "@ethersproject/providers";
+import type { BridgeEscrow, BridgeEscrowInterface } from "../BridgeEscrow";
 
 const _abi = [
   {
@@ -99,14 +99,12 @@ const _abi = [
 
 export class BridgeEscrow__factory {
   static readonly abi = _abi;
-
   static createInterface(): BridgeEscrowInterface {
     return new utils.Interface(_abi) as BridgeEscrowInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): BridgeEscrow {
     return new Contract(address, _abi, signerOrProvider) as BridgeEscrow;
   }

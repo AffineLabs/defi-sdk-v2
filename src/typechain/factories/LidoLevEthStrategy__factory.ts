@@ -606,14 +606,12 @@ const _abi = [
 
 export class LidoLevEthStrategy__factory {
   static readonly abi = _abi;
-
   static createInterface(): LidoLevEthStrategyInterface {
     return new utils.Interface(_abi) as LidoLevEthStrategyInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): LidoLevEthStrategy {
     return new Contract(address, _abi, signerOrProvider) as LidoLevEthStrategy;
   }

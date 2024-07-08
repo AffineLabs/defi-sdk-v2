@@ -57,14 +57,12 @@ const _abi = [
 
 export class SymDelegatorFactory__factory {
   static readonly abi = _abi;
-
   static createInterface(): SymDelegatorFactoryInterface {
     return new utils.Interface(_abi) as SymDelegatorFactoryInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): SymDelegatorFactory {
     return new Contract(address, _abi, signerOrProvider) as SymDelegatorFactory;
   }

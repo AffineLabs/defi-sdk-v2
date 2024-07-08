@@ -1,6 +1,11 @@
 import { ethers, providers } from "ethers";
-import { AffinePassBridge__factory } from "./typechain";
-import { PassEthBridgeAddress, PassPolygonBridgeAddress } from "./constants";
+import { AffinePass__factory, AffinePassBridge__factory } from "./typechain";
+import {
+  PassEthAddress,
+  PassEthBridgeAddress,
+  PassPolygonAddress,
+  PassPolygonBridgeAddress,
+} from "./constants";
 import { TransactionResponse } from "@ethersproject/abstract-provider";
 import { SmallTxReceipt } from "./sdk-v1-types";
 
@@ -26,6 +31,17 @@ export async function getAffinePassBridge(
     );
   } else {
     return AffinePassBridge__factory.connect(PassEthBridgeAddress, provider);
+  }
+}
+
+export async function getAffinePass(
+  chainId: number,
+  provider: providers.JsonRpcProvider,
+) {
+  if (chainId === 1) {
+    return AffinePass__factory.connect(PassPolygonAddress, provider);
+  } else {
+    return AffinePass__factory.connect(PassEthAddress, provider);
   }
 }
 
@@ -114,4 +130,12 @@ export async function bridgePass(
   } else {
     throw new Error("Bridge contract not found");
   }
+}
+
+export async function getPassBalance(
+  chainId: number,
+  provider: providers.JsonRpcProvider,
+) {
+  const affinePass = await getAffinePass(chainId, provider);
+  return affinePass.balanceOf(await provider.getSigner().getAddress());
 }

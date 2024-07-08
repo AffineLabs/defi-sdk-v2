@@ -236,14 +236,12 @@ const _abi = [
 
 export class IERC20Metadata__factory {
   static readonly abi = _abi;
-
   static createInterface(): IERC20MetadataInterface {
     return new utils.Interface(_abi) as IERC20MetadataInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): IERC20Metadata {
     return new Contract(address, _abi, signerOrProvider) as IERC20Metadata;
   }

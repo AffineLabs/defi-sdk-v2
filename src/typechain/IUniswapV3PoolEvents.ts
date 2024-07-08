@@ -33,23 +33,15 @@ export interface IUniswapV3PoolEventsInterface extends utils.Interface {
   };
 
   getEvent(nameOrSignatureOrTopic: "Burn"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "Collect"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "CollectProtocol"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "Flash"): EventFragment;
-
   getEvent(
-    nameOrSignatureOrTopic: "IncreaseObservationCardinalityNext",
+    nameOrSignatureOrTopic: "IncreaseObservationCardinalityNext"
   ): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "Initialize"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "Mint"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "SetFeeProtocol"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "Swap"): EventFragment;
 }
 
@@ -61,7 +53,6 @@ export interface BurnEventObject {
   amount0: BigNumber;
   amount1: BigNumber;
 }
-
 export type BurnEvent = TypedEvent<
   [string, number, number, BigNumber, BigNumber, BigNumber],
   BurnEventObject
@@ -77,7 +68,6 @@ export interface CollectEventObject {
   amount0: BigNumber;
   amount1: BigNumber;
 }
-
 export type CollectEvent = TypedEvent<
   [string, string, number, number, BigNumber, BigNumber],
   CollectEventObject
@@ -91,7 +81,6 @@ export interface CollectProtocolEventObject {
   amount0: BigNumber;
   amount1: BigNumber;
 }
-
 export type CollectProtocolEvent = TypedEvent<
   [string, string, BigNumber, BigNumber],
   CollectProtocolEventObject
@@ -107,7 +96,6 @@ export interface FlashEventObject {
   paid0: BigNumber;
   paid1: BigNumber;
 }
-
 export type FlashEvent = TypedEvent<
   [string, string, BigNumber, BigNumber, BigNumber, BigNumber],
   FlashEventObject
@@ -119,7 +107,6 @@ export interface IncreaseObservationCardinalityNextEventObject {
   observationCardinalityNextOld: number;
   observationCardinalityNextNew: number;
 }
-
 export type IncreaseObservationCardinalityNextEvent = TypedEvent<
   [number, number],
   IncreaseObservationCardinalityNextEventObject
@@ -132,7 +119,6 @@ export interface InitializeEventObject {
   sqrtPriceX96: BigNumber;
   tick: number;
 }
-
 export type InitializeEvent = TypedEvent<
   [BigNumber, number],
   InitializeEventObject
@@ -149,7 +135,6 @@ export interface MintEventObject {
   amount0: BigNumber;
   amount1: BigNumber;
 }
-
 export type MintEvent = TypedEvent<
   [string, string, number, number, BigNumber, BigNumber, BigNumber],
   MintEventObject
@@ -163,7 +148,6 @@ export interface SetFeeProtocolEventObject {
   feeProtocol0New: number;
   feeProtocol1New: number;
 }
-
 export type SetFeeProtocolEvent = TypedEvent<
   [number, number, number, number],
   SetFeeProtocolEventObject
@@ -180,7 +164,6 @@ export interface SwapEventObject {
   liquidity: BigNumber;
   tick: number;
 }
-
 export type SwapEvent = TypedEvent<
   [string, string, BigNumber, BigNumber, BigNumber, BigNumber, number],
   SwapEventObject
@@ -190,9 +173,7 @@ export type SwapEventFilter = TypedEventFilter<SwapEvent>;
 
 export interface IUniswapV3PoolEvents extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: IUniswapV3PoolEventsInterface;
@@ -200,21 +181,17 @@ export interface IUniswapV3PoolEvents extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -231,7 +208,7 @@ export interface IUniswapV3PoolEvents extends BaseContract {
       tickUpper?: BigNumberish | null,
       amount?: null,
       amount0?: null,
-      amount1?: null,
+      amount1?: null
     ): BurnEventFilter;
     Burn(
       owner?: string | null,
@@ -239,7 +216,7 @@ export interface IUniswapV3PoolEvents extends BaseContract {
       tickUpper?: BigNumberish | null,
       amount?: null,
       amount0?: null,
-      amount1?: null,
+      amount1?: null
     ): BurnEventFilter;
 
     "Collect(address,address,int24,int24,uint128,uint128)"(
@@ -248,7 +225,7 @@ export interface IUniswapV3PoolEvents extends BaseContract {
       tickLower?: BigNumberish | null,
       tickUpper?: BigNumberish | null,
       amount0?: null,
-      amount1?: null,
+      amount1?: null
     ): CollectEventFilter;
     Collect(
       owner?: string | null,
@@ -256,20 +233,20 @@ export interface IUniswapV3PoolEvents extends BaseContract {
       tickLower?: BigNumberish | null,
       tickUpper?: BigNumberish | null,
       amount0?: null,
-      amount1?: null,
+      amount1?: null
     ): CollectEventFilter;
 
     "CollectProtocol(address,address,uint128,uint128)"(
       sender?: string | null,
       recipient?: string | null,
       amount0?: null,
-      amount1?: null,
+      amount1?: null
     ): CollectProtocolEventFilter;
     CollectProtocol(
       sender?: string | null,
       recipient?: string | null,
       amount0?: null,
-      amount1?: null,
+      amount1?: null
     ): CollectProtocolEventFilter;
 
     "Flash(address,address,uint256,uint256,uint256,uint256)"(
@@ -278,7 +255,7 @@ export interface IUniswapV3PoolEvents extends BaseContract {
       amount0?: null,
       amount1?: null,
       paid0?: null,
-      paid1?: null,
+      paid1?: null
     ): FlashEventFilter;
     Flash(
       sender?: string | null,
@@ -286,21 +263,21 @@ export interface IUniswapV3PoolEvents extends BaseContract {
       amount0?: null,
       amount1?: null,
       paid0?: null,
-      paid1?: null,
+      paid1?: null
     ): FlashEventFilter;
 
     "IncreaseObservationCardinalityNext(uint16,uint16)"(
       observationCardinalityNextOld?: null,
-      observationCardinalityNextNew?: null,
+      observationCardinalityNextNew?: null
     ): IncreaseObservationCardinalityNextEventFilter;
     IncreaseObservationCardinalityNext(
       observationCardinalityNextOld?: null,
-      observationCardinalityNextNew?: null,
+      observationCardinalityNextNew?: null
     ): IncreaseObservationCardinalityNextEventFilter;
 
     "Initialize(uint160,int24)"(
       sqrtPriceX96?: null,
-      tick?: null,
+      tick?: null
     ): InitializeEventFilter;
     Initialize(sqrtPriceX96?: null, tick?: null): InitializeEventFilter;
 
@@ -311,7 +288,7 @@ export interface IUniswapV3PoolEvents extends BaseContract {
       tickUpper?: BigNumberish | null,
       amount?: null,
       amount0?: null,
-      amount1?: null,
+      amount1?: null
     ): MintEventFilter;
     Mint(
       sender?: null,
@@ -320,20 +297,20 @@ export interface IUniswapV3PoolEvents extends BaseContract {
       tickUpper?: BigNumberish | null,
       amount?: null,
       amount0?: null,
-      amount1?: null,
+      amount1?: null
     ): MintEventFilter;
 
     "SetFeeProtocol(uint8,uint8,uint8,uint8)"(
       feeProtocol0Old?: null,
       feeProtocol1Old?: null,
       feeProtocol0New?: null,
-      feeProtocol1New?: null,
+      feeProtocol1New?: null
     ): SetFeeProtocolEventFilter;
     SetFeeProtocol(
       feeProtocol0Old?: null,
       feeProtocol1Old?: null,
       feeProtocol0New?: null,
-      feeProtocol1New?: null,
+      feeProtocol1New?: null
     ): SetFeeProtocolEventFilter;
 
     "Swap(address,address,int256,int256,uint160,uint128,int24)"(
@@ -343,7 +320,7 @@ export interface IUniswapV3PoolEvents extends BaseContract {
       amount1?: null,
       sqrtPriceX96?: null,
       liquidity?: null,
-      tick?: null,
+      tick?: null
     ): SwapEventFilter;
     Swap(
       sender?: string | null,
@@ -352,7 +329,7 @@ export interface IUniswapV3PoolEvents extends BaseContract {
       amount1?: null,
       sqrtPriceX96?: null,
       liquidity?: null,
-      tick?: null,
+      tick?: null
     ): SwapEventFilter;
   };
 

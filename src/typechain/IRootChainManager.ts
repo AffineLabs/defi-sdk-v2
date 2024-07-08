@@ -31,13 +31,11 @@ export interface IRootChainManagerInterface extends utils.Interface {
 
   encodeFunctionData(
     functionFragment: "depositFor",
-    values: [string, string, BytesLike],
+    values: [string, string, BytesLike]
   ): string;
-
   encodeFunctionData(functionFragment: "exit", values: [BytesLike]): string;
 
   decodeFunctionResult(functionFragment: "depositFor", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "exit", data: BytesLike): Result;
 
   events: {};
@@ -45,9 +43,7 @@ export interface IRootChainManagerInterface extends utils.Interface {
 
 export interface IRootChainManager extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: IRootChainManagerInterface;
@@ -55,21 +51,17 @@ export interface IRootChainManager extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -80,12 +72,12 @@ export interface IRootChainManager extends BaseContract {
       user: string,
       rootToken: string,
       depositData: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     exit(
       _data: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
   };
 
@@ -93,12 +85,12 @@ export interface IRootChainManager extends BaseContract {
     user: string,
     rootToken: string,
     depositData: BytesLike,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   exit(
     _data: BytesLike,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -106,7 +98,7 @@ export interface IRootChainManager extends BaseContract {
       user: string,
       rootToken: string,
       depositData: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     exit(_data: BytesLike, overrides?: CallOverrides): Promise<void>;
@@ -119,12 +111,12 @@ export interface IRootChainManager extends BaseContract {
       user: string,
       rootToken: string,
       depositData: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     exit(
       _data: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
   };
 
@@ -133,12 +125,12 @@ export interface IRootChainManager extends BaseContract {
       user: string,
       rootToken: string,
       depositData: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     exit(
       _data: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
   };
 }

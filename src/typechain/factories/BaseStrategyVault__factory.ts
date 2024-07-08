@@ -524,14 +524,12 @@ const _abi = [
 
 export class BaseStrategyVault__factory {
   static readonly abi = _abi;
-
   static createInterface(): BaseStrategyVaultInterface {
     return new utils.Interface(_abi) as BaseStrategyVaultInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): BaseStrategyVault {
     return new Contract(address, _abi, signerOrProvider) as BaseStrategyVault;
   }

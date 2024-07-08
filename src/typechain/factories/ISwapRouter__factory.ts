@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import {Contract, Signer, utils} from "ethers";
-import type {Provider} from "@ethersproject/providers";
-import type {ISwapRouter, ISwapRouterInterface} from "../ISwapRouter";
+import { Contract, Signer, utils } from "ethers";
+import type { Provider } from "@ethersproject/providers";
+import type { ISwapRouter, ISwapRouterInterface } from "../ISwapRouter";
 
 const _abi = [
   {
@@ -248,14 +248,12 @@ const _abi = [
 
 export class ISwapRouter__factory {
   static readonly abi = _abi;
-
   static createInterface(): ISwapRouterInterface {
     return new utils.Interface(_abi) as ISwapRouterInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): ISwapRouter {
     return new Contract(address, _abi, signerOrProvider) as ISwapRouter;
   }

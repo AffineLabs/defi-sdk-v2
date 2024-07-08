@@ -39,44 +39,38 @@ export interface HarvestStorageInterface extends utils.Interface {
       | "accumulatedPerformanceFee"
       | "governance"
       | "performanceFeeBps"
-      | "setPerformanceFeeBps",
+      | "setPerformanceFeeBps"
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "accumulatedPerformanceFee",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "governance",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "performanceFeeBps",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "setPerformanceFeeBps",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
 
   decodeFunctionResult(
     functionFragment: "accumulatedPerformanceFee",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "governance", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "performanceFeeBps",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "setPerformanceFeeBps",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
 
   events: {
@@ -89,7 +83,6 @@ export interface HarvestStorageInterface extends utils.Interface {
 export interface PerformanceFeeWithdrawnEventObject {
   amount: BigNumber;
 }
-
 export type PerformanceFeeWithdrawnEvent = TypedEvent<
   [BigNumber],
   PerformanceFeeWithdrawnEventObject
@@ -100,9 +93,7 @@ export type PerformanceFeeWithdrawnEventFilter =
 
 export interface HarvestStorage extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: HarvestStorageInterface;
@@ -110,21 +101,17 @@ export interface HarvestStorage extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -139,7 +126,7 @@ export interface HarvestStorage extends BaseContract {
 
     setPerformanceFeeBps(
       _newFeeBps: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
   };
 
@@ -151,7 +138,7 @@ export interface HarvestStorage extends BaseContract {
 
   setPerformanceFeeBps(
     _newFeeBps: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -163,13 +150,13 @@ export interface HarvestStorage extends BaseContract {
 
     setPerformanceFeeBps(
       _newFeeBps: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
   };
 
   filters: {
     "PerformanceFeeWithdrawn(uint256)"(
-      amount?: null,
+      amount?: null
     ): PerformanceFeeWithdrawnEventFilter;
     PerformanceFeeWithdrawn(amount?: null): PerformanceFeeWithdrawnEventFilter;
   };
@@ -183,13 +170,13 @@ export interface HarvestStorage extends BaseContract {
 
     setPerformanceFeeBps(
       _newFeeBps: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
     accumulatedPerformanceFee(
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     governance(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -198,7 +185,7 @@ export interface HarvestStorage extends BaseContract {
 
     setPerformanceFeeBps(
       _newFeeBps: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
   };
 }

@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import {Contract, Signer, utils} from "ethers";
-import type {Provider} from "@ethersproject/providers";
-import type {SmartWallet, SmartWalletInterface} from "../SmartWallet";
+import { Contract, Signer, utils } from "ethers";
+import type { Provider } from "@ethersproject/providers";
+import type { SmartWallet, SmartWalletInterface } from "../SmartWallet";
 
 const _abi = [
   {
@@ -264,14 +264,12 @@ const _abi = [
 
 export class SmartWallet__factory {
   static readonly abi = _abi;
-
   static createInterface(): SmartWalletInterface {
     return new utils.Interface(_abi) as SmartWalletInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): SmartWallet {
     return new Contract(address, _abi, signerOrProvider) as SmartWallet;
   }

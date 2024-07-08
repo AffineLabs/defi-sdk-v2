@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import {Contract, Signer, utils} from "ethers";
-import type {Provider} from "@ethersproject/providers";
-import type {Router, RouterInterface} from "../Router";
+import { Contract, Signer, utils } from "ethers";
+import type { Provider } from "@ethersproject/providers";
+import type { Router, RouterInterface } from "../Router";
 
 const _abi = [
   {
@@ -420,11 +420,9 @@ const _abi = [
 
 export class Router__factory {
   static readonly abi = _abi;
-
   static createInterface(): RouterInterface {
     return new utils.Interface(_abi) as RouterInterface;
   }
-
   static connect(address: string, signerOrProvider: Signer | Provider): Router {
     return new Contract(address, _abi, signerOrProvider) as Router;
   }

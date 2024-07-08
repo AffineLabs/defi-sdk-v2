@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import {Contract, Signer, utils} from "ethers";
-import type {Provider} from "@ethersproject/providers";
-import type {DegenVault, DegenVaultInterface} from "../DegenVault";
+import { Contract, Signer, utils } from "ethers";
+import type { Provider } from "@ethersproject/providers";
+import type { DegenVault, DegenVaultInterface } from "../DegenVault";
 
 const _abi = [
   {
@@ -1635,14 +1635,12 @@ const _abi = [
 
 export class DegenVault__factory {
   static readonly abi = _abi;
-
   static createInterface(): DegenVaultInterface {
     return new utils.Interface(_abi) as DegenVaultInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): DegenVault {
     return new Contract(address, _abi, signerOrProvider) as DegenVault;
   }

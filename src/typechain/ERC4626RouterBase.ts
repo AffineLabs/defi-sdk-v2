@@ -37,42 +37,34 @@ export interface ERC4626RouterBaseInterface extends utils.Interface {
       | "mint"
       | "multicall"
       | "redeem"
-      | "withdraw",
+      | "withdraw"
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "deposit",
-    values: [string, string, BigNumberish, BigNumberish],
+    values: [string, string, BigNumberish, BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "mint",
-    values: [string, string, BigNumberish, BigNumberish],
+    values: [string, string, BigNumberish, BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "multicall",
-    values: [BytesLike[]],
+    values: [BytesLike[]]
   ): string;
-
   encodeFunctionData(
     functionFragment: "redeem",
-    values: [string, string, BigNumberish, BigNumberish],
+    values: [string, string, BigNumberish, BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "withdraw",
-    values: [string, string, BigNumberish, BigNumberish],
+    values: [string, string, BigNumberish, BigNumberish]
   ): string;
 
   decodeFunctionResult(functionFragment: "deposit", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "mint", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "multicall", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "redeem", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "withdraw", data: BytesLike): Result;
 
   events: {};
@@ -80,9 +72,7 @@ export interface ERC4626RouterBaseInterface extends utils.Interface {
 
 export interface ERC4626RouterBase extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: ERC4626RouterBaseInterface;
@@ -90,21 +80,17 @@ export interface ERC4626RouterBase extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -116,7 +102,7 @@ export interface ERC4626RouterBase extends BaseContract {
       to: string,
       amount: BigNumberish,
       minSharesOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     mint(
@@ -124,12 +110,12 @@ export interface ERC4626RouterBase extends BaseContract {
       to: string,
       shares: BigNumberish,
       maxAmountIn: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     multicall(
       data: BytesLike[],
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     redeem(
@@ -137,7 +123,7 @@ export interface ERC4626RouterBase extends BaseContract {
       to: string,
       shares: BigNumberish,
       minAmountOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     withdraw(
@@ -145,7 +131,7 @@ export interface ERC4626RouterBase extends BaseContract {
       to: string,
       amount: BigNumberish,
       maxSharesOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<ContractTransaction>;
   };
 
@@ -154,7 +140,7 @@ export interface ERC4626RouterBase extends BaseContract {
     to: string,
     amount: BigNumberish,
     minSharesOut: BigNumberish,
-    overrides?: PayableOverrides & { from?: string },
+    overrides?: PayableOverrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   mint(
@@ -162,12 +148,12 @@ export interface ERC4626RouterBase extends BaseContract {
     to: string,
     shares: BigNumberish,
     maxAmountIn: BigNumberish,
-    overrides?: PayableOverrides & { from?: string },
+    overrides?: PayableOverrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   multicall(
     data: BytesLike[],
-    overrides?: PayableOverrides & { from?: string },
+    overrides?: PayableOverrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   redeem(
@@ -175,7 +161,7 @@ export interface ERC4626RouterBase extends BaseContract {
     to: string,
     shares: BigNumberish,
     minAmountOut: BigNumberish,
-    overrides?: PayableOverrides & { from?: string },
+    overrides?: PayableOverrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   withdraw(
@@ -183,7 +169,7 @@ export interface ERC4626RouterBase extends BaseContract {
     to: string,
     amount: BigNumberish,
     maxSharesOut: BigNumberish,
-    overrides?: PayableOverrides & { from?: string },
+    overrides?: PayableOverrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -192,7 +178,7 @@ export interface ERC4626RouterBase extends BaseContract {
       to: string,
       amount: BigNumberish,
       minSharesOut: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     mint(
@@ -200,7 +186,7 @@ export interface ERC4626RouterBase extends BaseContract {
       to: string,
       shares: BigNumberish,
       maxAmountIn: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     multicall(data: BytesLike[], overrides?: CallOverrides): Promise<string[]>;
@@ -210,7 +196,7 @@ export interface ERC4626RouterBase extends BaseContract {
       to: string,
       shares: BigNumberish,
       minAmountOut: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     withdraw(
@@ -218,7 +204,7 @@ export interface ERC4626RouterBase extends BaseContract {
       to: string,
       amount: BigNumberish,
       maxSharesOut: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
   };
 
@@ -230,7 +216,7 @@ export interface ERC4626RouterBase extends BaseContract {
       to: string,
       amount: BigNumberish,
       minSharesOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<BigNumber>;
 
     mint(
@@ -238,12 +224,12 @@ export interface ERC4626RouterBase extends BaseContract {
       to: string,
       shares: BigNumberish,
       maxAmountIn: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<BigNumber>;
 
     multicall(
       data: BytesLike[],
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<BigNumber>;
 
     redeem(
@@ -251,7 +237,7 @@ export interface ERC4626RouterBase extends BaseContract {
       to: string,
       shares: BigNumberish,
       minAmountOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<BigNumber>;
 
     withdraw(
@@ -259,7 +245,7 @@ export interface ERC4626RouterBase extends BaseContract {
       to: string,
       amount: BigNumberish,
       maxSharesOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<BigNumber>;
   };
 
@@ -269,7 +255,7 @@ export interface ERC4626RouterBase extends BaseContract {
       to: string,
       amount: BigNumberish,
       minSharesOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     mint(
@@ -277,12 +263,12 @@ export interface ERC4626RouterBase extends BaseContract {
       to: string,
       shares: BigNumberish,
       maxAmountIn: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     multicall(
       data: BytesLike[],
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     redeem(
@@ -290,7 +276,7 @@ export interface ERC4626RouterBase extends BaseContract {
       to: string,
       shares: BigNumberish,
       minAmountOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     withdraw(
@@ -298,7 +284,7 @@ export interface ERC4626RouterBase extends BaseContract {
       to: string,
       amount: BigNumberish,
       maxSharesOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<PopulatedTransaction>;
   };
 }

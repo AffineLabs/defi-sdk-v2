@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import {Contract, Signer, utils} from "ethers";
-import type {Provider} from "@ethersproject/providers";
-import type {Client, ClientInterface} from "../Client";
+import { Contract, Signer, utils } from "ethers";
+import type { Provider } from "@ethersproject/providers";
+import type { Client, ClientInterface } from "../Client";
 
 const _abi = [
   {
@@ -24,11 +24,9 @@ const _abi = [
 
 export class Client__factory {
   static readonly abi = _abi;
-
   static createInterface(): ClientInterface {
     return new utils.Interface(_abi) as ClientInterface;
   }
-
   static connect(address: string, signerOrProvider: Signer | Provider): Client {
     return new Contract(address, _abi, signerOrProvider) as Client;
   }

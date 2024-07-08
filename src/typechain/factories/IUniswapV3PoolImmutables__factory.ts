@@ -92,19 +92,17 @@ const _abi = [
 
 export class IUniswapV3PoolImmutables__factory {
   static readonly abi = _abi;
-
   static createInterface(): IUniswapV3PoolImmutablesInterface {
     return new utils.Interface(_abi) as IUniswapV3PoolImmutablesInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): IUniswapV3PoolImmutables {
     return new Contract(
       address,
       _abi,
-      signerOrProvider,
+      signerOrProvider
     ) as IUniswapV3PoolImmutables;
   }
 }

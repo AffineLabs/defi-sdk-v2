@@ -51,59 +51,41 @@ export interface EmergencyWithdrawalQueueInterface extends utils.Interface {
       | "size"
       | "tailPtr"
       | "totalDebt"
-      | "vault",
+      | "vault"
   ): FunctionFragment;
 
   encodeFunctionData(functionFragment: "dequeue", values?: undefined): string;
-
   encodeFunctionData(
     functionFragment: "dequeueBatch",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "enqueue",
-    values: [string, string, BigNumberish],
+    values: [string, string, BigNumberish]
   ): string;
-
   encodeFunctionData(functionFragment: "headPtr", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "ownerToDebt", values: [string]): string;
-
   encodeFunctionData(functionFragment: "shareDebt", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "size", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "tailPtr", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "totalDebt", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "vault", values?: undefined): string;
 
   decodeFunctionResult(functionFragment: "dequeue", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "dequeueBatch",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "enqueue", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "headPtr", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "ownerToDebt",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "shareDebt", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "size", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "tailPtr", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "totalDebt", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "vault", data: BytesLike): Result;
 
   events: {
@@ -112,7 +94,6 @@ export interface EmergencyWithdrawalQueueInterface extends utils.Interface {
   };
 
   getEvent(nameOrSignatureOrTopic: "Pop"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "Push"): EventFragment;
 }
 
@@ -122,7 +103,6 @@ export interface PopEventObject {
   receiver: string;
   shares: BigNumber;
 }
-
 export type PopEvent = TypedEvent<
   [BigNumber, string, string, BigNumber],
   PopEventObject
@@ -136,7 +116,6 @@ export interface PushEventObject {
   receiver: string;
   shares: BigNumber;
 }
-
 export type PushEvent = TypedEvent<
   [BigNumber, string, string, BigNumber],
   PushEventObject
@@ -146,9 +125,7 @@ export type PushEventFilter = TypedEventFilter<PushEvent>;
 
 export interface EmergencyWithdrawalQueue extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: EmergencyWithdrawalQueueInterface;
@@ -156,21 +133,17 @@ export interface EmergencyWithdrawalQueue extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -178,19 +151,19 @@ export interface EmergencyWithdrawalQueue extends BaseContract {
 
   functions: {
     dequeue(
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     dequeueBatch(
       batchSize: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     enqueue(
       owner: string,
       receiver: string,
       shares: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     headPtr(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -209,19 +182,19 @@ export interface EmergencyWithdrawalQueue extends BaseContract {
   };
 
   dequeue(
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   dequeueBatch(
     batchSize: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   enqueue(
     owner: string,
     receiver: string,
     shares: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   headPtr(overrides?: CallOverrides): Promise<BigNumber>;
@@ -243,14 +216,14 @@ export interface EmergencyWithdrawalQueue extends BaseContract {
 
     dequeueBatch(
       batchSize: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     enqueue(
       owner: string,
       receiver: string,
       shares: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     headPtr(overrides?: CallOverrides): Promise<BigNumber>;
@@ -273,26 +246,26 @@ export interface EmergencyWithdrawalQueue extends BaseContract {
       pos?: BigNumberish | null,
       owner?: string | null,
       receiver?: string | null,
-      shares?: null,
+      shares?: null
     ): PopEventFilter;
     Pop(
       pos?: BigNumberish | null,
       owner?: string | null,
       receiver?: string | null,
-      shares?: null,
+      shares?: null
     ): PopEventFilter;
 
     "Push(uint256,address,address,uint256)"(
       pos?: BigNumberish | null,
       owner?: string | null,
       receiver?: string | null,
-      shares?: null,
+      shares?: null
     ): PushEventFilter;
     Push(
       pos?: BigNumberish | null,
       owner?: string | null,
       receiver?: string | null,
-      shares?: null,
+      shares?: null
     ): PushEventFilter;
   };
 
@@ -301,14 +274,14 @@ export interface EmergencyWithdrawalQueue extends BaseContract {
 
     dequeueBatch(
       batchSize: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     enqueue(
       owner: string,
       receiver: string,
       shares: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     headPtr(overrides?: CallOverrides): Promise<BigNumber>;
@@ -328,26 +301,26 @@ export interface EmergencyWithdrawalQueue extends BaseContract {
 
   populateTransaction: {
     dequeue(
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     dequeueBatch(
       batchSize: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     enqueue(
       owner: string,
       receiver: string,
       shares: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     headPtr(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     ownerToDebt(
       arg0: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     shareDebt(overrides?: CallOverrides): Promise<PopulatedTransaction>;

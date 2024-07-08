@@ -36,43 +36,33 @@ export interface IUniswapV3PoolImmutablesInterface extends utils.Interface {
       | "maxLiquidityPerTick"
       | "tickSpacing"
       | "token0"
-      | "token1",
+      | "token1"
   ): FunctionFragment;
 
   encodeFunctionData(functionFragment: "factory", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "fee", values?: undefined): string;
-
   encodeFunctionData(
     functionFragment: "maxLiquidityPerTick",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "tickSpacing",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(functionFragment: "token0", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "token1", values?: undefined): string;
 
   decodeFunctionResult(functionFragment: "factory", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "fee", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "maxLiquidityPerTick",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "tickSpacing",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "token0", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "token1", data: BytesLike): Result;
 
   events: {};
@@ -80,9 +70,7 @@ export interface IUniswapV3PoolImmutablesInterface extends utils.Interface {
 
 export interface IUniswapV3PoolImmutables extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: IUniswapV3PoolImmutablesInterface;
@@ -90,21 +78,17 @@ export interface IUniswapV3PoolImmutables extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -172,7 +156,7 @@ export interface IUniswapV3PoolImmutables extends BaseContract {
     fee(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     maxLiquidityPerTick(
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     tickSpacing(overrides?: CallOverrides): Promise<PopulatedTransaction>;

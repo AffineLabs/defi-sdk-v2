@@ -28,11 +28,9 @@ export interface IPeripheryImmutableStateInterface extends utils.Interface {
   getFunction(nameOrSignatureOrTopic: "WETH9" | "factory"): FunctionFragment;
 
   encodeFunctionData(functionFragment: "WETH9", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "factory", values?: undefined): string;
 
   decodeFunctionResult(functionFragment: "WETH9", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "factory", data: BytesLike): Result;
 
   events: {};
@@ -40,9 +38,7 @@ export interface IPeripheryImmutableStateInterface extends utils.Interface {
 
 export interface IPeripheryImmutableState extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: IPeripheryImmutableStateInterface;
@@ -50,21 +46,17 @@ export interface IPeripheryImmutableState extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;

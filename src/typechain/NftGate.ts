@@ -39,58 +39,48 @@ export interface NftGateInterface extends utils.Interface {
       | "setAccessNft"
       | "setNftProperties"
       | "setWithdrawalFeeWithNft"
-      | "withdrawalFeeWithNft",
+      | "withdrawalFeeWithNft"
   ): FunctionFragment;
 
   encodeFunctionData(functionFragment: "accessNft", values?: undefined): string;
-
   encodeFunctionData(
     functionFragment: "governance",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "setAccessNft",
-    values: [string],
+    values: [string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "setNftProperties",
-    values: [boolean, boolean],
+    values: [boolean, boolean]
   ): string;
-
   encodeFunctionData(
     functionFragment: "setWithdrawalFeeWithNft",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "withdrawalFeeWithNft",
-    values?: undefined,
+    values?: undefined
   ): string;
 
   decodeFunctionResult(functionFragment: "accessNft", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "governance", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "setAccessNft",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "setNftProperties",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "setWithdrawalFeeWithNft",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "withdrawalFeeWithNft",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
 
   events: {};
@@ -98,9 +88,7 @@ export interface NftGateInterface extends utils.Interface {
 
 export interface NftGate extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: NftGateInterface;
@@ -108,21 +96,17 @@ export interface NftGate extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -135,18 +119,18 @@ export interface NftGate extends BaseContract {
 
     setAccessNft(
       _accessNft: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     setNftProperties(
       _needNftToDeposit: boolean,
       _nftDiscountActive: boolean,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     setWithdrawalFeeWithNft(
       _newFee: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     withdrawalFeeWithNft(overrides?: CallOverrides): Promise<[number]>;
@@ -158,18 +142,18 @@ export interface NftGate extends BaseContract {
 
   setAccessNft(
     _accessNft: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   setNftProperties(
     _needNftToDeposit: boolean,
     _nftDiscountActive: boolean,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   setWithdrawalFeeWithNft(
     _newFee: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   withdrawalFeeWithNft(overrides?: CallOverrides): Promise<number>;
@@ -184,12 +168,12 @@ export interface NftGate extends BaseContract {
     setNftProperties(
       _needNftToDeposit: boolean,
       _nftDiscountActive: boolean,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     setWithdrawalFeeWithNft(
       _newFee: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     withdrawalFeeWithNft(overrides?: CallOverrides): Promise<number>;
@@ -204,18 +188,18 @@ export interface NftGate extends BaseContract {
 
     setAccessNft(
       _accessNft: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     setNftProperties(
       _needNftToDeposit: boolean,
       _nftDiscountActive: boolean,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     setWithdrawalFeeWithNft(
       _newFee: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     withdrawalFeeWithNft(overrides?: CallOverrides): Promise<BigNumber>;
@@ -228,22 +212,22 @@ export interface NftGate extends BaseContract {
 
     setAccessNft(
       _accessNft: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     setNftProperties(
       _needNftToDeposit: boolean,
       _nftDiscountActive: boolean,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     setWithdrawalFeeWithNft(
       _newFee: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     withdrawalFeeWithNft(
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
   };
 }

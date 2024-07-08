@@ -32,16 +32,14 @@ export interface IMakerAdapterInterface extends utils.Interface {
 
   encodeFunctionData(
     functionFragment: "exit",
-    values: [string, BigNumberish],
+    values: [string, BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "join",
-    values: [string, string, BigNumberish],
+    values: [string, string, BigNumberish]
   ): string;
 
   decodeFunctionResult(functionFragment: "exit", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "join", data: BytesLike): Result;
 
   events: {};
@@ -49,9 +47,7 @@ export interface IMakerAdapterInterface extends utils.Interface {
 
 export interface IMakerAdapter extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: IMakerAdapterInterface;
@@ -59,21 +55,17 @@ export interface IMakerAdapter extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -83,42 +75,42 @@ export interface IMakerAdapter extends BaseContract {
     exit(
       usr: string,
       val: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     join(
       urn: string,
       usr: string,
       val: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
   };
 
   exit(
     usr: string,
     val: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   join(
     urn: string,
     usr: string,
     val: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   callStatic: {
     exit(
       usr: string,
       val: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     join(
       urn: string,
       usr: string,
       val: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
   };
 
@@ -128,14 +120,14 @@ export interface IMakerAdapter extends BaseContract {
     exit(
       usr: string,
       val: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     join(
       urn: string,
       usr: string,
       val: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
   };
 
@@ -143,14 +135,14 @@ export interface IMakerAdapter extends BaseContract {
     exit(
       usr: string,
       val: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     join(
       urn: string,
       usr: string,
       val: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
   };
 }

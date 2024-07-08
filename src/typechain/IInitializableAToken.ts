@@ -43,8 +43,8 @@ export interface IInitializableATokenInterface extends utils.Interface {
       BigNumberish,
       string,
       string,
-      BytesLike,
-    ],
+      BytesLike
+    ]
   ): string;
 
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
@@ -66,7 +66,6 @@ export interface InitializedEventObject {
   aTokenSymbol: string;
   params: string;
 }
-
 export type InitializedEvent = TypedEvent<
   [string, string, string, string, number, string, string, string],
   InitializedEventObject
@@ -76,9 +75,7 @@ export type InitializedEventFilter = TypedEventFilter<InitializedEvent>;
 
 export interface IInitializableAToken extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: IInitializableATokenInterface;
@@ -86,21 +83,17 @@ export interface IInitializableAToken extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -116,7 +109,7 @@ export interface IInitializableAToken extends BaseContract {
       aTokenName: string,
       aTokenSymbol: string,
       params: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
   };
 
@@ -129,7 +122,7 @@ export interface IInitializableAToken extends BaseContract {
     aTokenName: string,
     aTokenSymbol: string,
     params: BytesLike,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -142,7 +135,7 @@ export interface IInitializableAToken extends BaseContract {
       aTokenName: string,
       aTokenSymbol: string,
       params: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
   };
 
@@ -155,7 +148,7 @@ export interface IInitializableAToken extends BaseContract {
       aTokenDecimals?: null,
       aTokenName?: null,
       aTokenSymbol?: null,
-      params?: null,
+      params?: null
     ): InitializedEventFilter;
     Initialized(
       underlyingAsset?: string | null,
@@ -165,7 +158,7 @@ export interface IInitializableAToken extends BaseContract {
       aTokenDecimals?: null,
       aTokenName?: null,
       aTokenSymbol?: null,
-      params?: null,
+      params?: null
     ): InitializedEventFilter;
   };
 
@@ -179,7 +172,7 @@ export interface IInitializableAToken extends BaseContract {
       aTokenName: string,
       aTokenSymbol: string,
       params: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
   };
 
@@ -193,7 +186,7 @@ export interface IInitializableAToken extends BaseContract {
       aTokenName: string,
       aTokenSymbol: string,
       params: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
   };
 }

@@ -62,14 +62,12 @@ const _abi = [
 
 export class ICREATE3Factory__factory {
   static readonly abi = _abi;
-
   static createInterface(): ICREATE3FactoryInterface {
     return new utils.Interface(_abi) as ICREATE3FactoryInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): ICREATE3Factory {
     return new Contract(address, _abi, signerOrProvider) as ICREATE3Factory;
   }

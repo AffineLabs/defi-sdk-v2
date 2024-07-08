@@ -85,205 +85,153 @@ export interface ERC4626UpgradeableInterface extends utils.Interface {
       | "totalSupply"
       | "transfer"
       | "transferFrom"
-      | "withdraw",
+      | "withdraw"
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "allowance",
-    values: [string, string],
+    values: [string, string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "approve",
-    values: [string, BigNumberish],
+    values: [string, BigNumberish]
   ): string;
-
   encodeFunctionData(functionFragment: "asset", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "balanceOf", values: [string]): string;
-
   encodeFunctionData(
     functionFragment: "convertToAssets",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "convertToShares",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
-
   encodeFunctionData(functionFragment: "decimals", values?: undefined): string;
-
   encodeFunctionData(
     functionFragment: "decreaseAllowance",
-    values: [string, BigNumberish],
+    values: [string, BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "deposit",
-    values: [BigNumberish, string],
+    values: [BigNumberish, string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "increaseAllowance",
-    values: [string, BigNumberish],
+    values: [string, BigNumberish]
   ): string;
-
   encodeFunctionData(functionFragment: "maxDeposit", values: [string]): string;
-
   encodeFunctionData(functionFragment: "maxMint", values: [string]): string;
-
   encodeFunctionData(functionFragment: "maxRedeem", values: [string]): string;
-
   encodeFunctionData(functionFragment: "maxWithdraw", values: [string]): string;
-
   encodeFunctionData(
     functionFragment: "mint",
-    values: [BigNumberish, string],
+    values: [BigNumberish, string]
   ): string;
-
   encodeFunctionData(functionFragment: "name", values?: undefined): string;
-
   encodeFunctionData(
     functionFragment: "previewDeposit",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "previewMint",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "previewRedeem",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "previewWithdraw",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "redeem",
-    values: [BigNumberish, string, string],
+    values: [BigNumberish, string, string]
   ): string;
-
   encodeFunctionData(functionFragment: "symbol", values?: undefined): string;
-
   encodeFunctionData(
     functionFragment: "totalAssets",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "totalSupply",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "transfer",
-    values: [string, BigNumberish],
+    values: [string, BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "transferFrom",
-    values: [string, string, BigNumberish],
+    values: [string, string, BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "withdraw",
-    values: [BigNumberish, string, string],
+    values: [BigNumberish, string, string]
   ): string;
 
   decodeFunctionResult(functionFragment: "allowance", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "asset", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "convertToAssets",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "convertToShares",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "decimals", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "decreaseAllowance",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "deposit", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "increaseAllowance",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "maxDeposit", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "maxMint", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "maxRedeem", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "maxWithdraw",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "mint", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "name", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "previewDeposit",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "previewMint",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "previewRedeem",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "previewWithdraw",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "redeem", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "symbol", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "totalAssets",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "totalSupply",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "transfer", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "transferFrom",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "withdraw", data: BytesLike): Result;
 
   events: {
@@ -295,13 +243,9 @@ export interface ERC4626UpgradeableInterface extends utils.Interface {
   };
 
   getEvent(nameOrSignatureOrTopic: "Approval"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "Deposit"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "Initialized"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "Transfer"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "Withdraw"): EventFragment;
 }
 
@@ -310,7 +254,6 @@ export interface ApprovalEventObject {
   spender: string;
   value: BigNumber;
 }
-
 export type ApprovalEvent = TypedEvent<
   [string, string, BigNumber],
   ApprovalEventObject
@@ -324,7 +267,6 @@ export interface DepositEventObject {
   assets: BigNumber;
   shares: BigNumber;
 }
-
 export type DepositEvent = TypedEvent<
   [string, string, BigNumber, BigNumber],
   DepositEventObject
@@ -335,7 +277,6 @@ export type DepositEventFilter = TypedEventFilter<DepositEvent>;
 export interface InitializedEventObject {
   version: number;
 }
-
 export type InitializedEvent = TypedEvent<[number], InitializedEventObject>;
 
 export type InitializedEventFilter = TypedEventFilter<InitializedEvent>;
@@ -345,7 +286,6 @@ export interface TransferEventObject {
   to: string;
   value: BigNumber;
 }
-
 export type TransferEvent = TypedEvent<
   [string, string, BigNumber],
   TransferEventObject
@@ -360,7 +300,6 @@ export interface WithdrawEventObject {
   assets: BigNumber;
   shares: BigNumber;
 }
-
 export type WithdrawEvent = TypedEvent<
   [string, string, string, BigNumber, BigNumber],
   WithdrawEventObject
@@ -370,9 +309,7 @@ export type WithdrawEventFilter = TypedEventFilter<WithdrawEvent>;
 
 export interface ERC4626Upgradeable extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: ERC4626UpgradeableInterface;
@@ -380,21 +317,17 @@ export interface ERC4626Upgradeable extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -404,13 +337,13 @@ export interface ERC4626Upgradeable extends BaseContract {
     allowance(
       owner: string,
       spender: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     asset(overrides?: CallOverrides): Promise<[string]>;
@@ -419,12 +352,12 @@ export interface ERC4626Upgradeable extends BaseContract {
 
     convertToAssets(
       shares: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[BigNumber] & { assets: BigNumber }>;
 
     convertToShares(
       assets: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[BigNumber] & { shares: BigNumber }>;
 
     decimals(overrides?: CallOverrides): Promise<[number]>;
@@ -432,19 +365,19 @@ export interface ERC4626Upgradeable extends BaseContract {
     decreaseAllowance(
       spender: string,
       subtractedValue: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     deposit(
       assets: BigNumberish,
       receiver: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     increaseAllowance(
       spender: string,
       addedValue: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     maxDeposit(arg0: string, overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -458,36 +391,36 @@ export interface ERC4626Upgradeable extends BaseContract {
     mint(
       shares: BigNumberish,
       receiver: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     name(overrides?: CallOverrides): Promise<[string]>;
 
     previewDeposit(
       assets: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
     previewMint(
       shares: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
     previewRedeem(
       shares: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
     previewWithdraw(
       assets: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
     redeem(
       shares: BigNumberish,
       receiver: string,
       owner: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     symbol(overrides?: CallOverrides): Promise<[string]>;
@@ -499,34 +432,34 @@ export interface ERC4626Upgradeable extends BaseContract {
     transfer(
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     transferFrom(
       from: string,
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     withdraw(
       assets: BigNumberish,
       receiver: string,
       owner: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
   };
 
   allowance(
     owner: string,
     spender: string,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<BigNumber>;
 
   approve(
     spender: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   asset(overrides?: CallOverrides): Promise<string>;
@@ -535,12 +468,12 @@ export interface ERC4626Upgradeable extends BaseContract {
 
   convertToAssets(
     shares: BigNumberish,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<BigNumber>;
 
   convertToShares(
     assets: BigNumberish,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<BigNumber>;
 
   decimals(overrides?: CallOverrides): Promise<number>;
@@ -548,19 +481,19 @@ export interface ERC4626Upgradeable extends BaseContract {
   decreaseAllowance(
     spender: string,
     subtractedValue: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   deposit(
     assets: BigNumberish,
     receiver: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   increaseAllowance(
     spender: string,
     addedValue: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   maxDeposit(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
@@ -574,36 +507,36 @@ export interface ERC4626Upgradeable extends BaseContract {
   mint(
     shares: BigNumberish,
     receiver: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   name(overrides?: CallOverrides): Promise<string>;
 
   previewDeposit(
     assets: BigNumberish,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<BigNumber>;
 
   previewMint(
     shares: BigNumberish,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<BigNumber>;
 
   previewRedeem(
     shares: BigNumberish,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<BigNumber>;
 
   previewWithdraw(
     assets: BigNumberish,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<BigNumber>;
 
   redeem(
     shares: BigNumberish,
     receiver: string,
     owner: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   symbol(overrides?: CallOverrides): Promise<string>;
@@ -615,34 +548,34 @@ export interface ERC4626Upgradeable extends BaseContract {
   transfer(
     to: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   transferFrom(
     from: string,
     to: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   withdraw(
     assets: BigNumberish,
     receiver: string,
     owner: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   callStatic: {
     allowance(
       owner: string,
       spender: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<boolean>;
 
     asset(overrides?: CallOverrides): Promise<string>;
@@ -651,12 +584,12 @@ export interface ERC4626Upgradeable extends BaseContract {
 
     convertToAssets(
       shares: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     convertToShares(
       assets: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     decimals(overrides?: CallOverrides): Promise<number>;
@@ -664,19 +597,19 @@ export interface ERC4626Upgradeable extends BaseContract {
     decreaseAllowance(
       spender: string,
       subtractedValue: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<boolean>;
 
     deposit(
       assets: BigNumberish,
       receiver: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     increaseAllowance(
       spender: string,
       addedValue: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<boolean>;
 
     maxDeposit(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
@@ -690,36 +623,36 @@ export interface ERC4626Upgradeable extends BaseContract {
     mint(
       shares: BigNumberish,
       receiver: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     name(overrides?: CallOverrides): Promise<string>;
 
     previewDeposit(
       assets: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     previewMint(
       shares: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     previewRedeem(
       shares: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     previewWithdraw(
       assets: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     redeem(
       shares: BigNumberish,
       receiver: string,
       owner: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     symbol(overrides?: CallOverrides): Promise<string>;
@@ -731,21 +664,21 @@ export interface ERC4626Upgradeable extends BaseContract {
     transfer(
       to: string,
       amount: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<boolean>;
 
     transferFrom(
       from: string,
       to: string,
       amount: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<boolean>;
 
     withdraw(
       assets: BigNumberish,
       receiver: string,
       owner: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
   };
 
@@ -753,25 +686,25 @@ export interface ERC4626Upgradeable extends BaseContract {
     "Approval(address,address,uint256)"(
       owner?: string | null,
       spender?: string | null,
-      value?: null,
+      value?: null
     ): ApprovalEventFilter;
     Approval(
       owner?: string | null,
       spender?: string | null,
-      value?: null,
+      value?: null
     ): ApprovalEventFilter;
 
     "Deposit(address,address,uint256,uint256)"(
       caller?: string | null,
       owner?: string | null,
       assets?: null,
-      shares?: null,
+      shares?: null
     ): DepositEventFilter;
     Deposit(
       caller?: string | null,
       owner?: string | null,
       assets?: null,
-      shares?: null,
+      shares?: null
     ): DepositEventFilter;
 
     "Initialized(uint8)"(version?: null): InitializedEventFilter;
@@ -780,12 +713,12 @@ export interface ERC4626Upgradeable extends BaseContract {
     "Transfer(address,address,uint256)"(
       from?: string | null,
       to?: string | null,
-      value?: null,
+      value?: null
     ): TransferEventFilter;
     Transfer(
       from?: string | null,
       to?: string | null,
-      value?: null,
+      value?: null
     ): TransferEventFilter;
 
     "Withdraw(address,address,address,uint256,uint256)"(
@@ -793,14 +726,14 @@ export interface ERC4626Upgradeable extends BaseContract {
       receiver?: string | null,
       owner?: string | null,
       assets?: null,
-      shares?: null,
+      shares?: null
     ): WithdrawEventFilter;
     Withdraw(
       caller?: string | null,
       receiver?: string | null,
       owner?: string | null,
       assets?: null,
-      shares?: null,
+      shares?: null
     ): WithdrawEventFilter;
   };
 
@@ -808,13 +741,13 @@ export interface ERC4626Upgradeable extends BaseContract {
     allowance(
       owner: string,
       spender: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     asset(overrides?: CallOverrides): Promise<BigNumber>;
@@ -823,12 +756,12 @@ export interface ERC4626Upgradeable extends BaseContract {
 
     convertToAssets(
       shares: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     convertToShares(
       assets: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     decimals(overrides?: CallOverrides): Promise<BigNumber>;
@@ -836,19 +769,19 @@ export interface ERC4626Upgradeable extends BaseContract {
     decreaseAllowance(
       spender: string,
       subtractedValue: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     deposit(
       assets: BigNumberish,
       receiver: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     increaseAllowance(
       spender: string,
       addedValue: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     maxDeposit(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
@@ -862,36 +795,36 @@ export interface ERC4626Upgradeable extends BaseContract {
     mint(
       shares: BigNumberish,
       receiver: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     name(overrides?: CallOverrides): Promise<BigNumber>;
 
     previewDeposit(
       assets: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     previewMint(
       shares: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     previewRedeem(
       shares: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     previewWithdraw(
       assets: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     redeem(
       shares: BigNumberish,
       receiver: string,
       owner: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     symbol(overrides?: CallOverrides): Promise<BigNumber>;
@@ -903,21 +836,21 @@ export interface ERC4626Upgradeable extends BaseContract {
     transfer(
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     transferFrom(
       from: string,
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     withdraw(
       assets: BigNumberish,
       receiver: string,
       owner: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
   };
 
@@ -925,30 +858,30 @@ export interface ERC4626Upgradeable extends BaseContract {
     allowance(
       owner: string,
       spender: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     asset(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     balanceOf(
       account: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     convertToAssets(
       shares: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     convertToShares(
       assets: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     decimals(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -956,74 +889,74 @@ export interface ERC4626Upgradeable extends BaseContract {
     decreaseAllowance(
       spender: string,
       subtractedValue: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     deposit(
       assets: BigNumberish,
       receiver: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     increaseAllowance(
       spender: string,
       addedValue: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     maxDeposit(
       arg0: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     maxMint(
       arg0: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     maxRedeem(
       owner: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     maxWithdraw(
       owner: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     mint(
       shares: BigNumberish,
       receiver: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     name(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     previewDeposit(
       assets: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     previewMint(
       shares: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     previewRedeem(
       shares: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     previewWithdraw(
       assets: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     redeem(
       shares: BigNumberish,
       receiver: string,
       owner: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     symbol(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -1035,21 +968,21 @@ export interface ERC4626Upgradeable extends BaseContract {
     transfer(
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     transferFrom(
       from: string,
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     withdraw(
       assets: BigNumberish,
       receiver: string,
       owner: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
   };
 }

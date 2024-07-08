@@ -499,14 +499,12 @@ const _abi = [
 
 export class BeefyPearlStrategy__factory {
   static readonly abi = _abi;
-
   static createInterface(): BeefyPearlStrategyInterface {
     return new utils.Interface(_abi) as BeefyPearlStrategyInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): BeefyPearlStrategy {
     return new Contract(address, _abi, signerOrProvider) as BeefyPearlStrategy;
   }

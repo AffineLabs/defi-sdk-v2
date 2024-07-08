@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import {Contract, Signer, utils} from "ethers";
-import type {Provider} from "@ethersproject/providers";
-import type {BeaconProxy, BeaconProxyInterface} from "../BeaconProxy";
+import { Contract, Signer, utils } from "ethers";
+import type { Provider } from "@ethersproject/providers";
+import type { BeaconProxy, BeaconProxyInterface } from "../BeaconProxy";
 
 const _abi = [
   {
@@ -80,14 +80,12 @@ const _abi = [
 
 export class BeaconProxy__factory {
   static readonly abi = _abi;
-
   static createInterface(): BeaconProxyInterface {
     return new utils.Interface(_abi) as BeaconProxyInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): BeaconProxy {
     return new Contract(address, _abi, signerOrProvider) as BeaconProxy;
   }

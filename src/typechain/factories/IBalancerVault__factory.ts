@@ -266,14 +266,12 @@ const _abi = [
 
 export class IBalancerVault__factory {
   static readonly abi = _abi;
-
   static createInterface(): IBalancerVaultInterface {
     return new utils.Interface(_abi) as IBalancerVaultInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): IBalancerVault {
     return new Contract(address, _abi, signerOrProvider) as IBalancerVault;
   }

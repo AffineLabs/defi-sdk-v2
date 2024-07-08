@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import {Contract, Signer, utils} from "ethers";
-import type {Provider} from "@ethersproject/providers";
-import type {IERC721Permit, IERC721PermitInterface} from "../IERC721Permit";
+import { Contract, Signer, utils } from "ethers";
+import type { Provider } from "@ethersproject/providers";
+import type { IERC721Permit, IERC721PermitInterface } from "../IERC721Permit";
 
 const _abi = [
   {
@@ -360,14 +360,12 @@ const _abi = [
 
 export class IERC721Permit__factory {
   static readonly abi = _abi;
-
   static createInterface(): IERC721PermitInterface {
     return new utils.Interface(_abi) as IERC721PermitInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): IERC721Permit {
     return new Contract(address, _abi, signerOrProvider) as IERC721Permit;
   }

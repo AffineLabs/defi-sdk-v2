@@ -105,14 +105,12 @@ const _abi = [
 
 export class WormholeRouter__factory {
   static readonly abi = _abi;
-
   static createInterface(): WormholeRouterInterface {
     return new utils.Interface(_abi) as WormholeRouterInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): WormholeRouter {
     return new Contract(address, _abi, signerOrProvider) as WormholeRouter;
   }

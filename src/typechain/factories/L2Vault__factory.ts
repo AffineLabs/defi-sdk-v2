@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import {Contract, Signer, utils} from "ethers";
-import type {Provider} from "@ethersproject/providers";
-import type {L2Vault, L2VaultInterface} from "../L2Vault";
+import { Contract, Signer, utils } from "ethers";
+import type { Provider } from "@ethersproject/providers";
+import type { L2Vault, L2VaultInterface } from "../L2Vault";
 
 const _abi = [
   {
@@ -2113,14 +2113,12 @@ const _abi = [
 
 export class L2Vault__factory {
   static readonly abi = _abi;
-
   static createInterface(): L2VaultInterface {
     return new utils.Interface(_abi) as L2VaultInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): L2Vault {
     return new Contract(address, _abi, signerOrProvider) as L2Vault;
   }

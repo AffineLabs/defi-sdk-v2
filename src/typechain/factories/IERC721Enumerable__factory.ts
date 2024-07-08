@@ -355,14 +355,12 @@ const _abi = [
 
 export class IERC721Enumerable__factory {
   static readonly abi = _abi;
-
   static createInterface(): IERC721EnumerableInterface {
     return new utils.Interface(_abi) as IERC721EnumerableInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): IERC721Enumerable {
     return new Contract(address, _abi, signerOrProvider) as IERC721Enumerable;
   }

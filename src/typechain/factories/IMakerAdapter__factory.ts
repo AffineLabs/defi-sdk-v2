@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import {Contract, Signer, utils} from "ethers";
-import type {Provider} from "@ethersproject/providers";
-import type {IMakerAdapter, IMakerAdapterInterface} from "../IMakerAdapter";
+import { Contract, Signer, utils } from "ethers";
+import type { Provider } from "@ethersproject/providers";
+import type { IMakerAdapter, IMakerAdapterInterface } from "../IMakerAdapter";
 
 const _abi = [
   {
@@ -52,14 +52,12 @@ const _abi = [
 
 export class IMakerAdapter__factory {
   static readonly abi = _abi;
-
   static createInterface(): IMakerAdapterInterface {
     return new utils.Interface(_abi) as IMakerAdapterInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): IMakerAdapter {
     return new Contract(address, _abi, signerOrProvider) as IMakerAdapter;
   }

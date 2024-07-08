@@ -28,21 +28,19 @@ export interface IDelegatorFactoryInterface extends utils.Interface {
   };
 
   getFunction(
-    nameOrSignatureOrTopic: "createDelegator" | "vault",
+    nameOrSignatureOrTopic: "createDelegator" | "vault"
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "createDelegator",
-    values: [string],
+    values: [string]
   ): string;
-
   encodeFunctionData(functionFragment: "vault", values?: undefined): string;
 
   decodeFunctionResult(
     functionFragment: "createDelegator",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "vault", data: BytesLike): Result;
 
   events: {};
@@ -50,9 +48,7 @@ export interface IDelegatorFactoryInterface extends utils.Interface {
 
 export interface IDelegatorFactory extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: IDelegatorFactoryInterface;
@@ -60,21 +56,17 @@ export interface IDelegatorFactory extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -83,27 +75,27 @@ export interface IDelegatorFactory extends BaseContract {
   functions: {
     createDelegator(
       _operator: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     vault(
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
   };
 
   createDelegator(
     _operator: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   vault(
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   callStatic: {
     createDelegator(
       _operator: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<string>;
 
     vault(overrides?: CallOverrides): Promise<string>;
@@ -114,7 +106,7 @@ export interface IDelegatorFactory extends BaseContract {
   estimateGas: {
     createDelegator(
       _operator: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     vault(overrides?: Overrides & { from?: string }): Promise<BigNumber>;
@@ -123,11 +115,11 @@ export interface IDelegatorFactory extends BaseContract {
   populateTransaction: {
     createDelegator(
       _operator: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     vault(
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
   };
 }

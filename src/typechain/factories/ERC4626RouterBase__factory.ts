@@ -189,14 +189,12 @@ const _abi = [
 
 export class ERC4626RouterBase__factory {
   static readonly abi = _abi;
-
   static createInterface(): ERC4626RouterBaseInterface {
     return new utils.Interface(_abi) as ERC4626RouterBaseInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): ERC4626RouterBase {
     return new Contract(address, _abi, signerOrProvider) as ERC4626RouterBase;
   }

@@ -389,14 +389,12 @@ const _abi = [
 
 export class UltraLRTRouter__factory {
   static readonly abi = _abi;
-
   static createInterface(): UltraLRTRouterInterface {
     return new utils.Interface(_abi) as UltraLRTRouterInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): UltraLRTRouter {
     return new Contract(address, _abi, signerOrProvider) as UltraLRTRouter;
   }

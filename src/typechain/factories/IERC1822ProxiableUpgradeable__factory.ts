@@ -27,19 +27,17 @@ const _abi = [
 
 export class IERC1822ProxiableUpgradeable__factory {
   static readonly abi = _abi;
-
   static createInterface(): IERC1822ProxiableUpgradeableInterface {
     return new utils.Interface(_abi) as IERC1822ProxiableUpgradeableInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): IERC1822ProxiableUpgradeable {
     return new Contract(
       address,
       _abi,
-      signerOrProvider,
+      signerOrProvider
     ) as IERC1822ProxiableUpgradeable;
   }
 }

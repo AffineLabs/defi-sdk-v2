@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import {Contract, Signer, utils} from "ethers";
-import type {Provider} from "@ethersproject/providers";
-import type {IWormhole, IWormholeInterface} from "../IWormhole";
+import { Contract, Signer, utils } from "ethers";
+import type { Provider } from "@ethersproject/providers";
+import type { IWormhole, IWormholeInterface } from "../IWormhole";
 
 const _abi = [
   {
@@ -167,14 +167,12 @@ const _abi = [
 
 export class IWormhole__factory {
   static readonly abi = _abi;
-
   static createInterface(): IWormholeInterface {
     return new utils.Interface(_abi) as IWormholeInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): IWormhole {
     return new Contract(address, _abi, signerOrProvider) as IWormhole;
   }

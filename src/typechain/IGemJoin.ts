@@ -49,57 +49,37 @@ export interface IGemJoinInterface extends utils.Interface {
       | "live"
       | "rely"
       | "vat"
-      | "wards",
+      | "wards"
   ): FunctionFragment;
 
   encodeFunctionData(functionFragment: "cage", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "dec", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "deny", values: [string]): string;
-
   encodeFunctionData(
     functionFragment: "exit",
-    values: [string, BigNumberish],
+    values: [string, BigNumberish]
   ): string;
-
   encodeFunctionData(functionFragment: "gem", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "ilk", values?: undefined): string;
-
   encodeFunctionData(
     functionFragment: "join",
-    values: [string, BigNumberish],
+    values: [string, BigNumberish]
   ): string;
-
   encodeFunctionData(functionFragment: "live", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "rely", values: [string]): string;
-
   encodeFunctionData(functionFragment: "vat", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "wards", values: [string]): string;
 
   decodeFunctionResult(functionFragment: "cage", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "dec", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "deny", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "exit", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "gem", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "ilk", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "join", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "live", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "rely", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "vat", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "wards", data: BytesLike): Result;
 
   events: {};
@@ -107,9 +87,7 @@ export interface IGemJoinInterface extends utils.Interface {
 
 export interface IGemJoin extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: IGemJoinInterface;
@@ -117,21 +95,17 @@ export interface IGemJoin extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -139,20 +113,20 @@ export interface IGemJoin extends BaseContract {
 
   functions: {
     cage(
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     dec(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     deny(
       arg0: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     exit(
       arg0: string,
       arg1: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     gem(overrides?: CallOverrides): Promise<[string]>;
@@ -162,14 +136,14 @@ export interface IGemJoin extends BaseContract {
     join(
       usr: string,
       wad: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     live(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     rely(
       arg0: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     vat(overrides?: CallOverrides): Promise<[string]>;
@@ -183,13 +157,13 @@ export interface IGemJoin extends BaseContract {
 
   deny(
     arg0: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   exit(
     arg0: string,
     arg1: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   gem(overrides?: CallOverrides): Promise<string>;
@@ -199,14 +173,14 @@ export interface IGemJoin extends BaseContract {
   join(
     usr: string,
     wad: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   live(overrides?: CallOverrides): Promise<BigNumber>;
 
   rely(
     arg0: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   vat(overrides?: CallOverrides): Promise<string>;
@@ -223,7 +197,7 @@ export interface IGemJoin extends BaseContract {
     exit(
       arg0: string,
       arg1: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     gem(overrides?: CallOverrides): Promise<string>;
@@ -233,7 +207,7 @@ export interface IGemJoin extends BaseContract {
     join(
       usr: string,
       wad: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     live(overrides?: CallOverrides): Promise<BigNumber>;
@@ -254,13 +228,13 @@ export interface IGemJoin extends BaseContract {
 
     deny(
       arg0: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     exit(
       arg0: string,
       arg1: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     gem(overrides?: CallOverrides): Promise<BigNumber>;
@@ -270,14 +244,14 @@ export interface IGemJoin extends BaseContract {
     join(
       usr: string,
       wad: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     live(overrides?: CallOverrides): Promise<BigNumber>;
 
     rely(
       arg0: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     vat(overrides?: CallOverrides): Promise<BigNumber>;
@@ -287,20 +261,20 @@ export interface IGemJoin extends BaseContract {
 
   populateTransaction: {
     cage(
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     dec(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     deny(
       arg0: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     exit(
       arg0: string,
       arg1: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     gem(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -310,21 +284,21 @@ export interface IGemJoin extends BaseContract {
     join(
       usr: string,
       wad: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     live(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     rely(
       arg0: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     vat(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     wards(
       arg0: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
   };
 }

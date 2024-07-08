@@ -297,14 +297,12 @@ const _abi = [
 
 export class ERC20Upgradeable__factory {
   static readonly abi = _abi;
-
   static createInterface(): ERC20UpgradeableInterface {
     return new utils.Interface(_abi) as ERC20UpgradeableInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): ERC20Upgradeable {
     return new Contract(address, _abi, signerOrProvider) as ERC20Upgradeable;
   }

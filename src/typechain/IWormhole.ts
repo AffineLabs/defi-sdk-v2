@@ -62,7 +62,7 @@ export declare namespace IWormhole {
     string,
     number,
     IWormhole.SignatureStructOutput[],
-    string,
+    string
   ] & {
     version: number;
     timestamp: number;
@@ -89,37 +89,33 @@ export interface IWormholeInterface extends utils.Interface {
     nameOrSignatureOrTopic:
       | "nextSequence"
       | "parseAndVerifyVM"
-      | "publishMessage",
+      | "publishMessage"
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "nextSequence",
-    values: [string],
+    values: [string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "parseAndVerifyVM",
-    values: [BytesLike],
+    values: [BytesLike]
   ): string;
-
   encodeFunctionData(
     functionFragment: "publishMessage",
-    values: [BigNumberish, BytesLike, BigNumberish],
+    values: [BigNumberish, BytesLike, BigNumberish]
   ): string;
 
   decodeFunctionResult(
     functionFragment: "nextSequence",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "parseAndVerifyVM",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "publishMessage",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
 
   events: {};
@@ -127,9 +123,7 @@ export interface IWormholeInterface extends utils.Interface {
 
 export interface IWormhole extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: IWormholeInterface;
@@ -137,21 +131,17 @@ export interface IWormhole extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -160,12 +150,12 @@ export interface IWormhole extends BaseContract {
   functions: {
     nextSequence(
       emitter: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
     parseAndVerifyVM(
       encodedVM: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [IWormhole.VMStructOutput, boolean, string] & {
         vm: IWormhole.VMStructOutput;
@@ -178,7 +168,7 @@ export interface IWormhole extends BaseContract {
       nonce: BigNumberish,
       payload: BytesLike,
       consistencyLevel: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<ContractTransaction>;
   };
 
@@ -186,7 +176,7 @@ export interface IWormhole extends BaseContract {
 
   parseAndVerifyVM(
     encodedVM: BytesLike,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<
     [IWormhole.VMStructOutput, boolean, string] & {
       vm: IWormhole.VMStructOutput;
@@ -199,18 +189,18 @@ export interface IWormhole extends BaseContract {
     nonce: BigNumberish,
     payload: BytesLike,
     consistencyLevel: BigNumberish,
-    overrides?: PayableOverrides & { from?: string },
+    overrides?: PayableOverrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   callStatic: {
     nextSequence(
       emitter: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     parseAndVerifyVM(
       encodedVM: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [IWormhole.VMStructOutput, boolean, string] & {
         vm: IWormhole.VMStructOutput;
@@ -223,7 +213,7 @@ export interface IWormhole extends BaseContract {
       nonce: BigNumberish,
       payload: BytesLike,
       consistencyLevel: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
   };
 
@@ -232,38 +222,38 @@ export interface IWormhole extends BaseContract {
   estimateGas: {
     nextSequence(
       emitter: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     parseAndVerifyVM(
       encodedVM: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     publishMessage(
       nonce: BigNumberish,
       payload: BytesLike,
       consistencyLevel: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
     nextSequence(
       emitter: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     parseAndVerifyVM(
       encodedVM: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     publishMessage(
       nonce: BigNumberish,
       payload: BytesLike,
       consistencyLevel: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<PopulatedTransaction>;
   };
 }

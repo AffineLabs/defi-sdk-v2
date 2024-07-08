@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import {Contract, Signer, utils} from "ethers";
-import type {Provider} from "@ethersproject/providers";
-import type {IGemJoin, IGemJoinInterface} from "../IGemJoin";
+import { Contract, Signer, utils } from "ethers";
+import type { Provider } from "@ethersproject/providers";
+import type { IGemJoin, IGemJoinInterface } from "../IGemJoin";
 
 const _abi = [
   {
@@ -164,14 +164,12 @@ const _abi = [
 
 export class IGemJoin__factory {
   static readonly abi = _abi;
-
   static createInterface(): IGemJoinInterface {
     return new utils.Interface(_abi) as IGemJoinInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): IGemJoin {
     return new Contract(address, _abi, signerOrProvider) as IGemJoin;
   }

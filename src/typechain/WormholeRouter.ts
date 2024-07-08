@@ -41,62 +41,50 @@ export interface WormholeRouterInterface extends utils.Interface {
       | "otherLayerWormholeId"
       | "setConsistencyLevel"
       | "vault"
-      | "wormhole",
+      | "wormhole"
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "consistencyLevel",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "governance",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "nextValidNonce",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "otherLayerWormholeId",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "setConsistencyLevel",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
-
   encodeFunctionData(functionFragment: "vault", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "wormhole", values?: undefined): string;
 
   decodeFunctionResult(
     functionFragment: "consistencyLevel",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "governance", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "nextValidNonce",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "otherLayerWormholeId",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "setConsistencyLevel",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "vault", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "wormhole", data: BytesLike): Result;
 
   events: {};
@@ -104,9 +92,7 @@ export interface WormholeRouterInterface extends utils.Interface {
 
 export interface WormholeRouter extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: WormholeRouterInterface;
@@ -114,21 +100,17 @@ export interface WormholeRouter extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -145,7 +127,7 @@ export interface WormholeRouter extends BaseContract {
 
     setConsistencyLevel(
       _consistencyLevel: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     vault(overrides?: CallOverrides): Promise<[string]>;
@@ -163,7 +145,7 @@ export interface WormholeRouter extends BaseContract {
 
   setConsistencyLevel(
     _consistencyLevel: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   vault(overrides?: CallOverrides): Promise<string>;
@@ -181,7 +163,7 @@ export interface WormholeRouter extends BaseContract {
 
     setConsistencyLevel(
       _consistencyLevel: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     vault(overrides?: CallOverrides): Promise<string>;
@@ -202,7 +184,7 @@ export interface WormholeRouter extends BaseContract {
 
     setConsistencyLevel(
       _consistencyLevel: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     vault(overrides?: CallOverrides): Promise<BigNumber>;
@@ -218,12 +200,12 @@ export interface WormholeRouter extends BaseContract {
     nextValidNonce(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     otherLayerWormholeId(
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     setConsistencyLevel(
       _consistencyLevel: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     vault(overrides?: CallOverrides): Promise<PopulatedTransaction>;

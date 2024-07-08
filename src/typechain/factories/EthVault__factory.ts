@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import {Contract, Signer, utils} from "ethers";
-import type {Provider} from "@ethersproject/providers";
-import type {EthVault, EthVaultInterface} from "../EthVault";
+import { Contract, Signer, utils } from "ethers";
+import type { Provider } from "@ethersproject/providers";
+import type { EthVault, EthVaultInterface } from "../EthVault";
 
 const _abi = [
   {
@@ -1733,14 +1733,12 @@ const _abi = [
 
 export class EthVault__factory {
   static readonly abi = _abi;
-
   static createInterface(): EthVaultInterface {
     return new utils.Interface(_abi) as EthVaultInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): EthVault {
     return new Contract(address, _abi, signerOrProvider) as EthVault;
   }

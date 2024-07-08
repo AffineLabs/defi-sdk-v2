@@ -111,14 +111,12 @@ const _abi = [
 
 export class IUniPositionValue__factory {
   static readonly abi = _abi;
-
   static createInterface(): IUniPositionValueInterface {
     return new utils.Interface(_abi) as IUniPositionValueInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): IUniPositionValue {
     return new Contract(address, _abi, signerOrProvider) as IUniPositionValue;
   }

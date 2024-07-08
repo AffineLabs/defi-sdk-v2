@@ -34,14 +34,12 @@ const _abi = [
 
 export class RebalanceModule__factory {
   static readonly abi = _abi;
-
   static createInterface(): RebalanceModuleInterface {
     return new utils.Interface(_abi) as RebalanceModuleInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): RebalanceModule {
     return new Contract(address, _abi, signerOrProvider) as RebalanceModule;
   }

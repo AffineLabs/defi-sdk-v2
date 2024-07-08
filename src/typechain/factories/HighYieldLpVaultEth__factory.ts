@@ -1767,14 +1767,12 @@ const _abi = [
 
 export class HighYieldLpVaultEth__factory {
   static readonly abi = _abi;
-
   static createInterface(): HighYieldLpVaultEthInterface {
     return new utils.Interface(_abi) as HighYieldLpVaultEthInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): HighYieldLpVaultEth {
     return new Contract(address, _abi, signerOrProvider) as HighYieldLpVaultEth;
   }

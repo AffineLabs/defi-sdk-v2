@@ -27,14 +27,12 @@ const _abi = [
 
 export class IDelegatorBeacon__factory {
   static readonly abi = _abi;
-
   static createInterface(): IDelegatorBeaconInterface {
     return new utils.Interface(_abi) as IDelegatorBeaconInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): IDelegatorBeacon {
     return new Contract(address, _abi, signerOrProvider) as IDelegatorBeacon;
   }

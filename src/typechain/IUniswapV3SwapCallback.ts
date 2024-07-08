@@ -28,17 +28,17 @@ export interface IUniswapV3SwapCallbackInterface extends utils.Interface {
   };
 
   getFunction(
-    nameOrSignatureOrTopic: "uniswapV3SwapCallback",
+    nameOrSignatureOrTopic: "uniswapV3SwapCallback"
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "uniswapV3SwapCallback",
-    values: [BigNumberish, BigNumberish, BytesLike],
+    values: [BigNumberish, BigNumberish, BytesLike]
   ): string;
 
   decodeFunctionResult(
     functionFragment: "uniswapV3SwapCallback",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
 
   events: {};
@@ -46,9 +46,7 @@ export interface IUniswapV3SwapCallbackInterface extends utils.Interface {
 
 export interface IUniswapV3SwapCallback extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: IUniswapV3SwapCallbackInterface;
@@ -56,21 +54,17 @@ export interface IUniswapV3SwapCallback extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -81,7 +75,7 @@ export interface IUniswapV3SwapCallback extends BaseContract {
       amount0Delta: BigNumberish,
       amount1Delta: BigNumberish,
       data: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
   };
 
@@ -89,7 +83,7 @@ export interface IUniswapV3SwapCallback extends BaseContract {
     amount0Delta: BigNumberish,
     amount1Delta: BigNumberish,
     data: BytesLike,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -97,7 +91,7 @@ export interface IUniswapV3SwapCallback extends BaseContract {
       amount0Delta: BigNumberish,
       amount1Delta: BigNumberish,
       data: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
   };
 
@@ -108,7 +102,7 @@ export interface IUniswapV3SwapCallback extends BaseContract {
       amount0Delta: BigNumberish,
       amount1Delta: BigNumberish,
       data: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
   };
 
@@ -117,7 +111,7 @@ export interface IUniswapV3SwapCallback extends BaseContract {
       amount0Delta: BigNumberish,
       amount1Delta: BigNumberish,
       data: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
   };
 }

@@ -60,7 +60,7 @@ export declare namespace DataTypes {
     string,
     string,
     string,
-    number,
+    number
   ] & {
     configuration: DataTypes.ReserveConfigurationMapStructOutput;
     liquidityIndex: BigNumber;
@@ -134,24 +134,21 @@ export interface ILendingPoolInterface extends utils.Interface {
       | "setReserveInterestRateStrategyAddress"
       | "setUserUseReserveAsCollateral"
       | "swapBorrowRateMode"
-      | "withdraw",
+      | "withdraw"
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "borrow",
-    values: [string, BigNumberish, BigNumberish, BigNumberish, string],
+    values: [string, BigNumberish, BigNumberish, BigNumberish, string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "deposit",
-    values: [string, BigNumberish, string, BigNumberish],
+    values: [string, BigNumberish, string, BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "finalizeTransfer",
-    values: [string, string, string, BigNumberish, BigNumberish, BigNumberish],
+    values: [string, string, string, BigNumberish, BigNumberish, BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "flashLoan",
     values: [
@@ -161,191 +158,150 @@ export interface ILendingPoolInterface extends utils.Interface {
       BigNumberish[],
       string,
       BytesLike,
-      BigNumberish,
-    ],
+      BigNumberish
+    ]
   ): string;
-
   encodeFunctionData(
     functionFragment: "getAddressesProvider",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "getConfiguration",
-    values: [string],
+    values: [string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "getReserveData",
-    values: [string],
+    values: [string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "getReserveNormalizedIncome",
-    values: [string],
+    values: [string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "getReserveNormalizedVariableDebt",
-    values: [string],
+    values: [string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "getReservesList",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "getUserAccountData",
-    values: [string],
+    values: [string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "getUserConfiguration",
-    values: [string],
+    values: [string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "initReserve",
-    values: [string, string, string, string, string],
+    values: [string, string, string, string, string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "liquidationCall",
-    values: [string, string, string, BigNumberish, boolean],
+    values: [string, string, string, BigNumberish, boolean]
   ): string;
-
   encodeFunctionData(functionFragment: "paused", values?: undefined): string;
-
   encodeFunctionData(
     functionFragment: "rebalanceStableBorrowRate",
-    values: [string, string],
+    values: [string, string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "repay",
-    values: [string, BigNumberish, BigNumberish, string],
+    values: [string, BigNumberish, BigNumberish, string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "setConfiguration",
-    values: [string, BigNumberish],
+    values: [string, BigNumberish]
   ): string;
-
   encodeFunctionData(functionFragment: "setPause", values: [boolean]): string;
-
   encodeFunctionData(
     functionFragment: "setReserveInterestRateStrategyAddress",
-    values: [string, string],
+    values: [string, string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "setUserUseReserveAsCollateral",
-    values: [string, boolean],
+    values: [string, boolean]
   ): string;
-
   encodeFunctionData(
     functionFragment: "swapBorrowRateMode",
-    values: [string, BigNumberish],
+    values: [string, BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "withdraw",
-    values: [string, BigNumberish, string],
+    values: [string, BigNumberish, string]
   ): string;
 
   decodeFunctionResult(functionFragment: "borrow", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "deposit", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "finalizeTransfer",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "flashLoan", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "getAddressesProvider",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "getConfiguration",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "getReserveData",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "getReserveNormalizedIncome",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "getReserveNormalizedVariableDebt",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "getReservesList",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "getUserAccountData",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "getUserConfiguration",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "initReserve",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "liquidationCall",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "paused", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "rebalanceStableBorrowRate",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "repay", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "setConfiguration",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "setPause", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "setReserveInterestRateStrategyAddress",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "setUserUseReserveAsCollateral",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "swapBorrowRateMode",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "withdraw", data: BytesLike): Result;
 
   events: {
@@ -365,33 +321,21 @@ export interface ILendingPoolInterface extends utils.Interface {
   };
 
   getEvent(nameOrSignatureOrTopic: "Borrow"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "Deposit"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "FlashLoan"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "LiquidationCall"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "Paused"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "RebalanceStableBorrowRate"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "Repay"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "ReserveDataUpdated"): EventFragment;
-
   getEvent(
-    nameOrSignatureOrTopic: "ReserveUsedAsCollateralDisabled",
+    nameOrSignatureOrTopic: "ReserveUsedAsCollateralDisabled"
   ): EventFragment;
-
   getEvent(
-    nameOrSignatureOrTopic: "ReserveUsedAsCollateralEnabled",
+    nameOrSignatureOrTopic: "ReserveUsedAsCollateralEnabled"
   ): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "Swap"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "Unpaused"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "Withdraw"): EventFragment;
 }
 
@@ -404,7 +348,6 @@ export interface BorrowEventObject {
   borrowRate: BigNumber;
   referral: number;
 }
-
 export type BorrowEvent = TypedEvent<
   [string, string, string, BigNumber, BigNumber, BigNumber, number],
   BorrowEventObject
@@ -419,7 +362,6 @@ export interface DepositEventObject {
   amount: BigNumber;
   referral: number;
 }
-
 export type DepositEvent = TypedEvent<
   [string, string, string, BigNumber, number],
   DepositEventObject
@@ -435,7 +377,6 @@ export interface FlashLoanEventObject {
   premium: BigNumber;
   referralCode: number;
 }
-
 export type FlashLoanEvent = TypedEvent<
   [string, string, string, BigNumber, BigNumber, number],
   FlashLoanEventObject
@@ -452,7 +393,6 @@ export interface LiquidationCallEventObject {
   liquidator: string;
   receiveAToken: boolean;
 }
-
 export type LiquidationCallEvent = TypedEvent<
   [string, string, string, BigNumber, BigNumber, string, boolean],
   LiquidationCallEventObject
@@ -461,7 +401,6 @@ export type LiquidationCallEvent = TypedEvent<
 export type LiquidationCallEventFilter = TypedEventFilter<LiquidationCallEvent>;
 
 export interface PausedEventObject {}
-
 export type PausedEvent = TypedEvent<[], PausedEventObject>;
 
 export type PausedEventFilter = TypedEventFilter<PausedEvent>;
@@ -470,7 +409,6 @@ export interface RebalanceStableBorrowRateEventObject {
   reserve: string;
   user: string;
 }
-
 export type RebalanceStableBorrowRateEvent = TypedEvent<
   [string, string],
   RebalanceStableBorrowRateEventObject
@@ -485,7 +423,6 @@ export interface RepayEventObject {
   repayer: string;
   amount: BigNumber;
 }
-
 export type RepayEvent = TypedEvent<
   [string, string, string, BigNumber],
   RepayEventObject
@@ -501,7 +438,6 @@ export interface ReserveDataUpdatedEventObject {
   liquidityIndex: BigNumber;
   variableBorrowIndex: BigNumber;
 }
-
 export type ReserveDataUpdatedEvent = TypedEvent<
   [string, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber],
   ReserveDataUpdatedEventObject
@@ -514,7 +450,6 @@ export interface ReserveUsedAsCollateralDisabledEventObject {
   reserve: string;
   user: string;
 }
-
 export type ReserveUsedAsCollateralDisabledEvent = TypedEvent<
   [string, string],
   ReserveUsedAsCollateralDisabledEventObject
@@ -527,7 +462,6 @@ export interface ReserveUsedAsCollateralEnabledEventObject {
   reserve: string;
   user: string;
 }
-
 export type ReserveUsedAsCollateralEnabledEvent = TypedEvent<
   [string, string],
   ReserveUsedAsCollateralEnabledEventObject
@@ -541,7 +475,6 @@ export interface SwapEventObject {
   user: string;
   rateMode: BigNumber;
 }
-
 export type SwapEvent = TypedEvent<
   [string, string, BigNumber],
   SwapEventObject
@@ -550,7 +483,6 @@ export type SwapEvent = TypedEvent<
 export type SwapEventFilter = TypedEventFilter<SwapEvent>;
 
 export interface UnpausedEventObject {}
-
 export type UnpausedEvent = TypedEvent<[], UnpausedEventObject>;
 
 export type UnpausedEventFilter = TypedEventFilter<UnpausedEvent>;
@@ -561,7 +493,6 @@ export interface WithdrawEventObject {
   to: string;
   amount: BigNumber;
 }
-
 export type WithdrawEvent = TypedEvent<
   [string, string, string, BigNumber],
   WithdrawEventObject
@@ -571,9 +502,7 @@ export type WithdrawEventFilter = TypedEventFilter<WithdrawEvent>;
 
 export interface ILendingPool extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: ILendingPoolInterface;
@@ -581,21 +510,17 @@ export interface ILendingPool extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -608,7 +533,7 @@ export interface ILendingPool extends BaseContract {
       interestRateMode: BigNumberish,
       referralCode: BigNumberish,
       onBehalfOf: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     deposit(
@@ -616,7 +541,7 @@ export interface ILendingPool extends BaseContract {
       amount: BigNumberish,
       onBehalfOf: string,
       referralCode: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     finalizeTransfer(
@@ -626,7 +551,7 @@ export interface ILendingPool extends BaseContract {
       amount: BigNumberish,
       balanceFromAfter: BigNumberish,
       balanceToBefore: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     flashLoan(
@@ -637,36 +562,36 @@ export interface ILendingPool extends BaseContract {
       onBehalfOf: string,
       params: BytesLike,
       referralCode: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     getAddressesProvider(overrides?: CallOverrides): Promise<[string]>;
 
     getConfiguration(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[DataTypes.ReserveConfigurationMapStructOutput]>;
 
     getReserveData(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[DataTypes.ReserveDataStructOutput]>;
 
     getReserveNormalizedIncome(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
     getReserveNormalizedVariableDebt(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
     getReservesList(overrides?: CallOverrides): Promise<[string[]]>;
 
     getUserAccountData(
       user: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
         totalCollateralETH: BigNumber;
@@ -680,7 +605,7 @@ export interface ILendingPool extends BaseContract {
 
     getUserConfiguration(
       user: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[DataTypes.UserConfigurationMapStructOutput]>;
 
     initReserve(
@@ -689,7 +614,7 @@ export interface ILendingPool extends BaseContract {
       stableDebtAddress: string,
       variableDebtAddress: string,
       interestRateStrategyAddress: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     liquidationCall(
@@ -698,7 +623,7 @@ export interface ILendingPool extends BaseContract {
       user: string,
       debtToCover: BigNumberish,
       receiveAToken: boolean,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     paused(overrides?: CallOverrides): Promise<[boolean]>;
@@ -706,7 +631,7 @@ export interface ILendingPool extends BaseContract {
     rebalanceStableBorrowRate(
       asset: string,
       user: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     repay(
@@ -714,43 +639,43 @@ export interface ILendingPool extends BaseContract {
       amount: BigNumberish,
       rateMode: BigNumberish,
       onBehalfOf: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     setConfiguration(
       reserve: string,
       configuration: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     setPause(
       val: boolean,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     setReserveInterestRateStrategyAddress(
       reserve: string,
       rateStrategyAddress: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     setUserUseReserveAsCollateral(
       asset: string,
       useAsCollateral: boolean,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     swapBorrowRateMode(
       asset: string,
       rateMode: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     withdraw(
       asset: string,
       amount: BigNumberish,
       to: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
   };
 
@@ -760,7 +685,7 @@ export interface ILendingPool extends BaseContract {
     interestRateMode: BigNumberish,
     referralCode: BigNumberish,
     onBehalfOf: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   deposit(
@@ -768,7 +693,7 @@ export interface ILendingPool extends BaseContract {
     amount: BigNumberish,
     onBehalfOf: string,
     referralCode: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   finalizeTransfer(
@@ -778,7 +703,7 @@ export interface ILendingPool extends BaseContract {
     amount: BigNumberish,
     balanceFromAfter: BigNumberish,
     balanceToBefore: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   flashLoan(
@@ -789,36 +714,36 @@ export interface ILendingPool extends BaseContract {
     onBehalfOf: string,
     params: BytesLike,
     referralCode: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   getAddressesProvider(overrides?: CallOverrides): Promise<string>;
 
   getConfiguration(
     asset: string,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<DataTypes.ReserveConfigurationMapStructOutput>;
 
   getReserveData(
     asset: string,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<DataTypes.ReserveDataStructOutput>;
 
   getReserveNormalizedIncome(
     asset: string,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<BigNumber>;
 
   getReserveNormalizedVariableDebt(
     asset: string,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<BigNumber>;
 
   getReservesList(overrides?: CallOverrides): Promise<string[]>;
 
   getUserAccountData(
     user: string,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<
     [BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
       totalCollateralETH: BigNumber;
@@ -832,7 +757,7 @@ export interface ILendingPool extends BaseContract {
 
   getUserConfiguration(
     user: string,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<DataTypes.UserConfigurationMapStructOutput>;
 
   initReserve(
@@ -841,7 +766,7 @@ export interface ILendingPool extends BaseContract {
     stableDebtAddress: string,
     variableDebtAddress: string,
     interestRateStrategyAddress: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   liquidationCall(
@@ -850,7 +775,7 @@ export interface ILendingPool extends BaseContract {
     user: string,
     debtToCover: BigNumberish,
     receiveAToken: boolean,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   paused(overrides?: CallOverrides): Promise<boolean>;
@@ -858,7 +783,7 @@ export interface ILendingPool extends BaseContract {
   rebalanceStableBorrowRate(
     asset: string,
     user: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   repay(
@@ -866,43 +791,43 @@ export interface ILendingPool extends BaseContract {
     amount: BigNumberish,
     rateMode: BigNumberish,
     onBehalfOf: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   setConfiguration(
     reserve: string,
     configuration: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   setPause(
     val: boolean,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   setReserveInterestRateStrategyAddress(
     reserve: string,
     rateStrategyAddress: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   setUserUseReserveAsCollateral(
     asset: string,
     useAsCollateral: boolean,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   swapBorrowRateMode(
     asset: string,
     rateMode: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   withdraw(
     asset: string,
     amount: BigNumberish,
     to: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -912,7 +837,7 @@ export interface ILendingPool extends BaseContract {
       interestRateMode: BigNumberish,
       referralCode: BigNumberish,
       onBehalfOf: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     deposit(
@@ -920,7 +845,7 @@ export interface ILendingPool extends BaseContract {
       amount: BigNumberish,
       onBehalfOf: string,
       referralCode: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     finalizeTransfer(
@@ -930,7 +855,7 @@ export interface ILendingPool extends BaseContract {
       amount: BigNumberish,
       balanceFromAfter: BigNumberish,
       balanceToBefore: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     flashLoan(
@@ -941,36 +866,36 @@ export interface ILendingPool extends BaseContract {
       onBehalfOf: string,
       params: BytesLike,
       referralCode: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     getAddressesProvider(overrides?: CallOverrides): Promise<string>;
 
     getConfiguration(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<DataTypes.ReserveConfigurationMapStructOutput>;
 
     getReserveData(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<DataTypes.ReserveDataStructOutput>;
 
     getReserveNormalizedIncome(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     getReserveNormalizedVariableDebt(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     getReservesList(overrides?: CallOverrides): Promise<string[]>;
 
     getUserAccountData(
       user: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
         totalCollateralETH: BigNumber;
@@ -984,7 +909,7 @@ export interface ILendingPool extends BaseContract {
 
     getUserConfiguration(
       user: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<DataTypes.UserConfigurationMapStructOutput>;
 
     initReserve(
@@ -993,7 +918,7 @@ export interface ILendingPool extends BaseContract {
       stableDebtAddress: string,
       variableDebtAddress: string,
       interestRateStrategyAddress: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     liquidationCall(
@@ -1002,7 +927,7 @@ export interface ILendingPool extends BaseContract {
       user: string,
       debtToCover: BigNumberish,
       receiveAToken: boolean,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     paused(overrides?: CallOverrides): Promise<boolean>;
@@ -1010,7 +935,7 @@ export interface ILendingPool extends BaseContract {
     rebalanceStableBorrowRate(
       asset: string,
       user: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     repay(
@@ -1018,13 +943,13 @@ export interface ILendingPool extends BaseContract {
       amount: BigNumberish,
       rateMode: BigNumberish,
       onBehalfOf: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     setConfiguration(
       reserve: string,
       configuration: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     setPause(val: boolean, overrides?: CallOverrides): Promise<void>;
@@ -1032,26 +957,26 @@ export interface ILendingPool extends BaseContract {
     setReserveInterestRateStrategyAddress(
       reserve: string,
       rateStrategyAddress: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     setUserUseReserveAsCollateral(
       asset: string,
       useAsCollateral: boolean,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     swapBorrowRateMode(
       asset: string,
       rateMode: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     withdraw(
       asset: string,
       amount: BigNumberish,
       to: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
   };
 
@@ -1063,7 +988,7 @@ export interface ILendingPool extends BaseContract {
       amount?: null,
       borrowRateMode?: null,
       borrowRate?: null,
-      referral?: BigNumberish | null,
+      referral?: BigNumberish | null
     ): BorrowEventFilter;
     Borrow(
       reserve?: string | null,
@@ -1072,7 +997,7 @@ export interface ILendingPool extends BaseContract {
       amount?: null,
       borrowRateMode?: null,
       borrowRate?: null,
-      referral?: BigNumberish | null,
+      referral?: BigNumberish | null
     ): BorrowEventFilter;
 
     "Deposit(address,address,address,uint256,uint16)"(
@@ -1080,14 +1005,14 @@ export interface ILendingPool extends BaseContract {
       user?: null,
       onBehalfOf?: string | null,
       amount?: null,
-      referral?: BigNumberish | null,
+      referral?: BigNumberish | null
     ): DepositEventFilter;
     Deposit(
       reserve?: string | null,
       user?: null,
       onBehalfOf?: string | null,
       amount?: null,
-      referral?: BigNumberish | null,
+      referral?: BigNumberish | null
     ): DepositEventFilter;
 
     "FlashLoan(address,address,address,uint256,uint256,uint16)"(
@@ -1096,7 +1021,7 @@ export interface ILendingPool extends BaseContract {
       asset?: string | null,
       amount?: null,
       premium?: null,
-      referralCode?: null,
+      referralCode?: null
     ): FlashLoanEventFilter;
     FlashLoan(
       target?: string | null,
@@ -1104,7 +1029,7 @@ export interface ILendingPool extends BaseContract {
       asset?: string | null,
       amount?: null,
       premium?: null,
-      referralCode?: null,
+      referralCode?: null
     ): FlashLoanEventFilter;
 
     "LiquidationCall(address,address,address,uint256,uint256,address,bool)"(
@@ -1114,7 +1039,7 @@ export interface ILendingPool extends BaseContract {
       debtToCover?: null,
       liquidatedCollateralAmount?: null,
       liquidator?: null,
-      receiveAToken?: null,
+      receiveAToken?: null
     ): LiquidationCallEventFilter;
     LiquidationCall(
       collateralAsset?: string | null,
@@ -1123,7 +1048,7 @@ export interface ILendingPool extends BaseContract {
       debtToCover?: null,
       liquidatedCollateralAmount?: null,
       liquidator?: null,
-      receiveAToken?: null,
+      receiveAToken?: null
     ): LiquidationCallEventFilter;
 
     "Paused()"(): PausedEventFilter;
@@ -1131,24 +1056,24 @@ export interface ILendingPool extends BaseContract {
 
     "RebalanceStableBorrowRate(address,address)"(
       reserve?: string | null,
-      user?: string | null,
+      user?: string | null
     ): RebalanceStableBorrowRateEventFilter;
     RebalanceStableBorrowRate(
       reserve?: string | null,
-      user?: string | null,
+      user?: string | null
     ): RebalanceStableBorrowRateEventFilter;
 
     "Repay(address,address,address,uint256)"(
       reserve?: string | null,
       user?: string | null,
       repayer?: string | null,
-      amount?: null,
+      amount?: null
     ): RepayEventFilter;
     Repay(
       reserve?: string | null,
       user?: string | null,
       repayer?: string | null,
-      amount?: null,
+      amount?: null
     ): RepayEventFilter;
 
     "ReserveDataUpdated(address,uint256,uint256,uint256,uint256,uint256)"(
@@ -1157,7 +1082,7 @@ export interface ILendingPool extends BaseContract {
       stableBorrowRate?: null,
       variableBorrowRate?: null,
       liquidityIndex?: null,
-      variableBorrowIndex?: null,
+      variableBorrowIndex?: null
     ): ReserveDataUpdatedEventFilter;
     ReserveDataUpdated(
       reserve?: string | null,
@@ -1165,36 +1090,36 @@ export interface ILendingPool extends BaseContract {
       stableBorrowRate?: null,
       variableBorrowRate?: null,
       liquidityIndex?: null,
-      variableBorrowIndex?: null,
+      variableBorrowIndex?: null
     ): ReserveDataUpdatedEventFilter;
 
     "ReserveUsedAsCollateralDisabled(address,address)"(
       reserve?: string | null,
-      user?: string | null,
+      user?: string | null
     ): ReserveUsedAsCollateralDisabledEventFilter;
     ReserveUsedAsCollateralDisabled(
       reserve?: string | null,
-      user?: string | null,
+      user?: string | null
     ): ReserveUsedAsCollateralDisabledEventFilter;
 
     "ReserveUsedAsCollateralEnabled(address,address)"(
       reserve?: string | null,
-      user?: string | null,
+      user?: string | null
     ): ReserveUsedAsCollateralEnabledEventFilter;
     ReserveUsedAsCollateralEnabled(
       reserve?: string | null,
-      user?: string | null,
+      user?: string | null
     ): ReserveUsedAsCollateralEnabledEventFilter;
 
     "Swap(address,address,uint256)"(
       reserve?: string | null,
       user?: string | null,
-      rateMode?: null,
+      rateMode?: null
     ): SwapEventFilter;
     Swap(
       reserve?: string | null,
       user?: string | null,
-      rateMode?: null,
+      rateMode?: null
     ): SwapEventFilter;
 
     "Unpaused()"(): UnpausedEventFilter;
@@ -1204,13 +1129,13 @@ export interface ILendingPool extends BaseContract {
       reserve?: string | null,
       user?: string | null,
       to?: string | null,
-      amount?: null,
+      amount?: null
     ): WithdrawEventFilter;
     Withdraw(
       reserve?: string | null,
       user?: string | null,
       to?: string | null,
-      amount?: null,
+      amount?: null
     ): WithdrawEventFilter;
   };
 
@@ -1221,7 +1146,7 @@ export interface ILendingPool extends BaseContract {
       interestRateMode: BigNumberish,
       referralCode: BigNumberish,
       onBehalfOf: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     deposit(
@@ -1229,7 +1154,7 @@ export interface ILendingPool extends BaseContract {
       amount: BigNumberish,
       onBehalfOf: string,
       referralCode: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     finalizeTransfer(
@@ -1239,7 +1164,7 @@ export interface ILendingPool extends BaseContract {
       amount: BigNumberish,
       balanceFromAfter: BigNumberish,
       balanceToBefore: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     flashLoan(
@@ -1250,41 +1175,41 @@ export interface ILendingPool extends BaseContract {
       onBehalfOf: string,
       params: BytesLike,
       referralCode: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     getAddressesProvider(overrides?: CallOverrides): Promise<BigNumber>;
 
     getConfiguration(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     getReserveData(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     getReserveNormalizedIncome(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     getReserveNormalizedVariableDebt(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     getReservesList(overrides?: CallOverrides): Promise<BigNumber>;
 
     getUserAccountData(
       user: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     getUserConfiguration(
       user: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     initReserve(
@@ -1293,7 +1218,7 @@ export interface ILendingPool extends BaseContract {
       stableDebtAddress: string,
       variableDebtAddress: string,
       interestRateStrategyAddress: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     liquidationCall(
@@ -1302,7 +1227,7 @@ export interface ILendingPool extends BaseContract {
       user: string,
       debtToCover: BigNumberish,
       receiveAToken: boolean,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     paused(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1310,7 +1235,7 @@ export interface ILendingPool extends BaseContract {
     rebalanceStableBorrowRate(
       asset: string,
       user: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     repay(
@@ -1318,43 +1243,43 @@ export interface ILendingPool extends BaseContract {
       amount: BigNumberish,
       rateMode: BigNumberish,
       onBehalfOf: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     setConfiguration(
       reserve: string,
       configuration: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     setPause(
       val: boolean,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     setReserveInterestRateStrategyAddress(
       reserve: string,
       rateStrategyAddress: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     setUserUseReserveAsCollateral(
       asset: string,
       useAsCollateral: boolean,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     swapBorrowRateMode(
       asset: string,
       rateMode: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     withdraw(
       asset: string,
       amount: BigNumberish,
       to: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
   };
 
@@ -1365,7 +1290,7 @@ export interface ILendingPool extends BaseContract {
       interestRateMode: BigNumberish,
       referralCode: BigNumberish,
       onBehalfOf: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     deposit(
@@ -1373,7 +1298,7 @@ export interface ILendingPool extends BaseContract {
       amount: BigNumberish,
       onBehalfOf: string,
       referralCode: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     finalizeTransfer(
@@ -1383,7 +1308,7 @@ export interface ILendingPool extends BaseContract {
       amount: BigNumberish,
       balanceFromAfter: BigNumberish,
       balanceToBefore: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     flashLoan(
@@ -1394,43 +1319,43 @@ export interface ILendingPool extends BaseContract {
       onBehalfOf: string,
       params: BytesLike,
       referralCode: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     getAddressesProvider(
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     getConfiguration(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     getReserveData(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     getReserveNormalizedIncome(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     getReserveNormalizedVariableDebt(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     getReservesList(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     getUserAccountData(
       user: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     getUserConfiguration(
       user: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     initReserve(
@@ -1439,7 +1364,7 @@ export interface ILendingPool extends BaseContract {
       stableDebtAddress: string,
       variableDebtAddress: string,
       interestRateStrategyAddress: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     liquidationCall(
@@ -1448,7 +1373,7 @@ export interface ILendingPool extends BaseContract {
       user: string,
       debtToCover: BigNumberish,
       receiveAToken: boolean,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     paused(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -1456,7 +1381,7 @@ export interface ILendingPool extends BaseContract {
     rebalanceStableBorrowRate(
       asset: string,
       user: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     repay(
@@ -1464,43 +1389,43 @@ export interface ILendingPool extends BaseContract {
       amount: BigNumberish,
       rateMode: BigNumberish,
       onBehalfOf: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     setConfiguration(
       reserve: string,
       configuration: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     setPause(
       val: boolean,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     setReserveInterestRateStrategyAddress(
       reserve: string,
       rateStrategyAddress: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     setUserUseReserveAsCollateral(
       asset: string,
       useAsCollateral: boolean,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     swapBorrowRateMode(
       asset: string,
       rateMode: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     withdraw(
       asset: string,
       amount: BigNumberish,
       to: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
   };
 }

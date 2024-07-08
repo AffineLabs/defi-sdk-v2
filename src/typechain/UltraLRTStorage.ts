@@ -63,167 +63,131 @@ export interface UltraLRTStorageInterface extends utils.Interface {
       | "lastHarvest"
       | "managementFee"
       | "maxLockedProfit"
-      | "withdrawalFee",
+      | "withdrawalFee"
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "GUARDIAN_ROLE",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(functionFragment: "HARVESTER", values?: undefined): string;
-
   encodeFunctionData(
     functionFragment: "LOCK_INTERVAL",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(functionFragment: "MAX_BPS", values?: undefined): string;
-
   encodeFunctionData(
     functionFragment: "MAX_DELEGATOR",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(functionFragment: "STETH", values?: undefined): string;
-
   encodeFunctionData(
     functionFragment: "ST_ETH_TRANSFER_BUFFER",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(functionFragment: "beacon", values?: undefined): string;
-
   encodeFunctionData(
     functionFragment: "delegatorAssets",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "delegatorCount",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "delegatorFactory",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "delegatorMap",
-    values: [string],
+    values: [string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "delegatorQueue",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "depositPaused",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(functionFragment: "escrow", values?: undefined): string;
-
   encodeFunctionData(
     functionFragment: "lastHarvest",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "managementFee",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "maxLockedProfit",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "withdrawalFee",
-    values?: undefined,
+    values?: undefined
   ): string;
 
   decodeFunctionResult(
     functionFragment: "GUARDIAN_ROLE",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "HARVESTER", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "LOCK_INTERVAL",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "MAX_BPS", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "MAX_DELEGATOR",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "STETH", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "ST_ETH_TRANSFER_BUFFER",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "beacon", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "delegatorAssets",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "delegatorCount",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "delegatorFactory",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "delegatorMap",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "delegatorQueue",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "depositPaused",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "escrow", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "lastHarvest",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "managementFee",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "maxLockedProfit",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "withdrawalFee",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
 
   events: {};
@@ -231,9 +195,7 @@ export interface UltraLRTStorageInterface extends utils.Interface {
 
 export interface UltraLRTStorage extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: UltraLRTStorageInterface;
@@ -241,21 +203,17 @@ export interface UltraLRTStorage extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -286,14 +244,14 @@ export interface UltraLRTStorage extends BaseContract {
 
     delegatorMap(
       arg0: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [boolean, BigNumber] & { isActive: boolean; balance: BigNumber }
     >;
 
     delegatorQueue(
       arg0: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[string]>;
 
     depositPaused(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -333,12 +291,12 @@ export interface UltraLRTStorage extends BaseContract {
 
   delegatorMap(
     arg0: string,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<[boolean, BigNumber] & { isActive: boolean; balance: BigNumber }>;
 
   delegatorQueue(
     arg0: BigNumberish,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<string>;
 
   depositPaused(overrides?: CallOverrides): Promise<BigNumber>;
@@ -378,14 +336,14 @@ export interface UltraLRTStorage extends BaseContract {
 
     delegatorMap(
       arg0: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [boolean, BigNumber] & { isActive: boolean; balance: BigNumber }
     >;
 
     delegatorQueue(
       arg0: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<string>;
 
     depositPaused(overrides?: CallOverrides): Promise<BigNumber>;
@@ -430,7 +388,7 @@ export interface UltraLRTStorage extends BaseContract {
 
     delegatorQueue(
       arg0: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     depositPaused(overrides?: CallOverrides): Promise<BigNumber>;
@@ -460,7 +418,7 @@ export interface UltraLRTStorage extends BaseContract {
     STETH(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     ST_ETH_TRANSFER_BUFFER(
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     beacon(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -473,12 +431,12 @@ export interface UltraLRTStorage extends BaseContract {
 
     delegatorMap(
       arg0: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     delegatorQueue(
       arg0: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     depositPaused(overrides?: CallOverrides): Promise<PopulatedTransaction>;

@@ -27,14 +27,12 @@ const _abi = [
 
 export class AffineGovernable__factory {
   static readonly abi = _abi;
-
   static createInterface(): AffineGovernableInterface {
     return new utils.Interface(_abi) as AffineGovernableInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): AffineGovernable {
     return new Contract(address, _abi, signerOrProvider) as AffineGovernable;
   }

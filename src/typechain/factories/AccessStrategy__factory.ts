@@ -344,14 +344,12 @@ const _abi = [
 
 export class AccessStrategy__factory {
   static readonly abi = _abi;
-
   static createInterface(): AccessStrategyInterface {
     return new utils.Interface(_abi) as AccessStrategyInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): AccessStrategy {
     return new Contract(address, _abi, signerOrProvider) as AccessStrategy;
   }

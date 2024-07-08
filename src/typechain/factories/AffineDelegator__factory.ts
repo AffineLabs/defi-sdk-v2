@@ -112,14 +112,12 @@ const _abi = [
 
 export class AffineDelegator__factory {
   static readonly abi = _abi;
-
   static createInterface(): AffineDelegatorInterface {
     return new utils.Interface(_abi) as AffineDelegatorInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): AffineDelegator {
     return new Contract(address, _abi, signerOrProvider) as AffineDelegator;
   }

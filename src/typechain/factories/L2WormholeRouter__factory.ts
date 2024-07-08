@@ -173,14 +173,12 @@ const _abi = [
 
 export class L2WormholeRouter__factory {
   static readonly abi = _abi;
-
   static createInterface(): L2WormholeRouterInterface {
     return new utils.Interface(_abi) as L2WormholeRouterInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): L2WormholeRouter {
     return new Contract(address, _abi, signerOrProvider) as L2WormholeRouter;
   }

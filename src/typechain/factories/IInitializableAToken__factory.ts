@@ -117,19 +117,17 @@ const _abi = [
 
 export class IInitializableAToken__factory {
   static readonly abi = _abi;
-
   static createInterface(): IInitializableATokenInterface {
     return new utils.Interface(_abi) as IInitializableATokenInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): IInitializableAToken {
     return new Contract(
       address,
       _abi,
-      signerOrProvider,
+      signerOrProvider
     ) as IInitializableAToken;
   }
 }

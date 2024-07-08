@@ -32,34 +32,30 @@ export interface RebalanceStorageInterface extends utils.Interface {
     nameOrSignatureOrTopic:
       | "governance"
       | "rebalanceModule"
-      | "setRebalanceModule",
+      | "setRebalanceModule"
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "governance",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "rebalanceModule",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "setRebalanceModule",
-    values: [string],
+    values: [string]
   ): string;
 
   decodeFunctionResult(functionFragment: "governance", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "rebalanceModule",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "setRebalanceModule",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
 
   events: {};
@@ -67,9 +63,7 @@ export interface RebalanceStorageInterface extends utils.Interface {
 
 export interface RebalanceStorage extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: RebalanceStorageInterface;
@@ -77,21 +71,17 @@ export interface RebalanceStorage extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -104,7 +94,7 @@ export interface RebalanceStorage extends BaseContract {
 
     setRebalanceModule(
       _rebalanceModule: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
   };
 
@@ -114,7 +104,7 @@ export interface RebalanceStorage extends BaseContract {
 
   setRebalanceModule(
     _rebalanceModule: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -124,7 +114,7 @@ export interface RebalanceStorage extends BaseContract {
 
     setRebalanceModule(
       _rebalanceModule: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
   };
 
@@ -137,7 +127,7 @@ export interface RebalanceStorage extends BaseContract {
 
     setRebalanceModule(
       _rebalanceModule: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
   };
 
@@ -148,7 +138,7 @@ export interface RebalanceStorage extends BaseContract {
 
     setRebalanceModule(
       _rebalanceModule: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
   };
 }

@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import {Contract, Signer, utils} from "ethers";
-import type {Provider} from "@ethersproject/providers";
-import type {ICollateral, ICollateralInterface} from "../ICollateral";
+import { Contract, Signer, utils } from "ethers";
+import type { Provider } from "@ethersproject/providers";
+import type { ICollateral, ICollateralInterface } from "../ICollateral";
 
 const _abi = [
   {
@@ -425,14 +425,12 @@ const _abi = [
 
 export class ICollateral__factory {
   static readonly abi = _abi;
-
   static createInterface(): ICollateralInterface {
     return new utils.Interface(_abi) as ICollateralInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): ICollateral {
     return new Contract(address, _abi, signerOrProvider) as ICollateral;
   }

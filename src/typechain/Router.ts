@@ -53,107 +53,83 @@ export interface RouterInterface extends utils.Interface {
       | "redeemToDeposit"
       | "weth"
       | "withdraw"
-      | "withdrawToDeposit",
+      | "withdrawToDeposit"
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "approve",
-    values: [string, string, BigNumberish],
+    values: [string, string, BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "deposit",
-    values: [string, string, BigNumberish, BigNumberish],
+    values: [string, string, BigNumberish, BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "depositMax",
-    values: [string, string, BigNumberish],
+    values: [string, string, BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "depositNative",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "depositToVault",
-    values: [string, string, BigNumberish, BigNumberish],
+    values: [string, string, BigNumberish, BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "mint",
-    values: [string, string, BigNumberish, BigNumberish],
+    values: [string, string, BigNumberish, BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "multicall",
-    values: [BytesLike[]],
+    values: [BytesLike[]]
   ): string;
-
   encodeFunctionData(
     functionFragment: "redeem",
-    values: [string, string, BigNumberish, BigNumberish],
+    values: [string, string, BigNumberish, BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "redeemMax",
-    values: [string, string, BigNumberish],
+    values: [string, string, BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "redeemToDeposit",
-    values: [string, string, string, BigNumberish, BigNumberish],
+    values: [string, string, string, BigNumberish, BigNumberish]
   ): string;
-
   encodeFunctionData(functionFragment: "weth", values?: undefined): string;
-
   encodeFunctionData(
     functionFragment: "withdraw",
-    values: [string, string, BigNumberish, BigNumberish],
+    values: [string, string, BigNumberish, BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "withdrawToDeposit",
-    values: [string, string, string, BigNumberish, BigNumberish, BigNumberish],
+    values: [string, string, string, BigNumberish, BigNumberish, BigNumberish]
   ): string;
 
   decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "deposit", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "depositMax", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "depositNative",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "depositToVault",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "mint", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "multicall", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "redeem", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "redeemMax", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "redeemToDeposit",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "weth", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "withdraw", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "withdrawToDeposit",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
 
   events: {};
@@ -161,9 +137,7 @@ export interface RouterInterface extends utils.Interface {
 
 export interface Router extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: RouterInterface;
@@ -171,21 +145,17 @@ export interface Router extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -196,7 +166,7 @@ export interface Router extends BaseContract {
       token: string,
       to: string,
       amount: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     deposit(
@@ -204,18 +174,18 @@ export interface Router extends BaseContract {
       to: string,
       amount: BigNumberish,
       minSharesOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     depositMax(
       vault: string,
       to: string,
       minSharesOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     depositNative(
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     depositToVault(
@@ -223,7 +193,7 @@ export interface Router extends BaseContract {
       to: string,
       amount: BigNumberish,
       minSharesOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     mint(
@@ -231,12 +201,12 @@ export interface Router extends BaseContract {
       to: string,
       shares: BigNumberish,
       maxAmountIn: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     multicall(
       data: BytesLike[],
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     redeem(
@@ -244,14 +214,14 @@ export interface Router extends BaseContract {
       to: string,
       shares: BigNumberish,
       minAmountOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     redeemMax(
       vault: string,
       to: string,
       minAmountOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     redeemToDeposit(
@@ -260,7 +230,7 @@ export interface Router extends BaseContract {
       to: string,
       shares: BigNumberish,
       minSharesOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     weth(overrides?: CallOverrides): Promise<[string]>;
@@ -270,7 +240,7 @@ export interface Router extends BaseContract {
       to: string,
       amount: BigNumberish,
       maxSharesOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     withdrawToDeposit(
@@ -280,7 +250,7 @@ export interface Router extends BaseContract {
       amount: BigNumberish,
       maxSharesIn: BigNumberish,
       minSharesOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<ContractTransaction>;
   };
 
@@ -288,7 +258,7 @@ export interface Router extends BaseContract {
     token: string,
     to: string,
     amount: BigNumberish,
-    overrides?: PayableOverrides & { from?: string },
+    overrides?: PayableOverrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   deposit(
@@ -296,18 +266,18 @@ export interface Router extends BaseContract {
     to: string,
     amount: BigNumberish,
     minSharesOut: BigNumberish,
-    overrides?: PayableOverrides & { from?: string },
+    overrides?: PayableOverrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   depositMax(
     vault: string,
     to: string,
     minSharesOut: BigNumberish,
-    overrides?: PayableOverrides & { from?: string },
+    overrides?: PayableOverrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   depositNative(
-    overrides?: PayableOverrides & { from?: string },
+    overrides?: PayableOverrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   depositToVault(
@@ -315,7 +285,7 @@ export interface Router extends BaseContract {
     to: string,
     amount: BigNumberish,
     minSharesOut: BigNumberish,
-    overrides?: PayableOverrides & { from?: string },
+    overrides?: PayableOverrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   mint(
@@ -323,12 +293,12 @@ export interface Router extends BaseContract {
     to: string,
     shares: BigNumberish,
     maxAmountIn: BigNumberish,
-    overrides?: PayableOverrides & { from?: string },
+    overrides?: PayableOverrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   multicall(
     data: BytesLike[],
-    overrides?: PayableOverrides & { from?: string },
+    overrides?: PayableOverrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   redeem(
@@ -336,14 +306,14 @@ export interface Router extends BaseContract {
     to: string,
     shares: BigNumberish,
     minAmountOut: BigNumberish,
-    overrides?: PayableOverrides & { from?: string },
+    overrides?: PayableOverrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   redeemMax(
     vault: string,
     to: string,
     minAmountOut: BigNumberish,
-    overrides?: PayableOverrides & { from?: string },
+    overrides?: PayableOverrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   redeemToDeposit(
@@ -352,7 +322,7 @@ export interface Router extends BaseContract {
     to: string,
     shares: BigNumberish,
     minSharesOut: BigNumberish,
-    overrides?: PayableOverrides & { from?: string },
+    overrides?: PayableOverrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   weth(overrides?: CallOverrides): Promise<string>;
@@ -362,7 +332,7 @@ export interface Router extends BaseContract {
     to: string,
     amount: BigNumberish,
     maxSharesOut: BigNumberish,
-    overrides?: PayableOverrides & { from?: string },
+    overrides?: PayableOverrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   withdrawToDeposit(
@@ -372,7 +342,7 @@ export interface Router extends BaseContract {
     amount: BigNumberish,
     maxSharesIn: BigNumberish,
     minSharesOut: BigNumberish,
-    overrides?: PayableOverrides & { from?: string },
+    overrides?: PayableOverrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -380,7 +350,7 @@ export interface Router extends BaseContract {
       token: string,
       to: string,
       amount: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     deposit(
@@ -388,14 +358,14 @@ export interface Router extends BaseContract {
       to: string,
       amount: BigNumberish,
       minSharesOut: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     depositMax(
       vault: string,
       to: string,
       minSharesOut: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     depositNative(overrides?: CallOverrides): Promise<void>;
@@ -405,7 +375,7 @@ export interface Router extends BaseContract {
       to: string,
       amount: BigNumberish,
       minSharesOut: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     mint(
@@ -413,7 +383,7 @@ export interface Router extends BaseContract {
       to: string,
       shares: BigNumberish,
       maxAmountIn: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     multicall(data: BytesLike[], overrides?: CallOverrides): Promise<string[]>;
@@ -423,14 +393,14 @@ export interface Router extends BaseContract {
       to: string,
       shares: BigNumberish,
       minAmountOut: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     redeemMax(
       vault: string,
       to: string,
       minAmountOut: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     redeemToDeposit(
@@ -439,7 +409,7 @@ export interface Router extends BaseContract {
       to: string,
       shares: BigNumberish,
       minSharesOut: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     weth(overrides?: CallOverrides): Promise<string>;
@@ -449,7 +419,7 @@ export interface Router extends BaseContract {
       to: string,
       amount: BigNumberish,
       maxSharesOut: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     withdrawToDeposit(
@@ -459,7 +429,7 @@ export interface Router extends BaseContract {
       amount: BigNumberish,
       maxSharesIn: BigNumberish,
       minSharesOut: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
   };
 
@@ -470,7 +440,7 @@ export interface Router extends BaseContract {
       token: string,
       to: string,
       amount: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<BigNumber>;
 
     deposit(
@@ -478,18 +448,18 @@ export interface Router extends BaseContract {
       to: string,
       amount: BigNumberish,
       minSharesOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<BigNumber>;
 
     depositMax(
       vault: string,
       to: string,
       minSharesOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<BigNumber>;
 
     depositNative(
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<BigNumber>;
 
     depositToVault(
@@ -497,7 +467,7 @@ export interface Router extends BaseContract {
       to: string,
       amount: BigNumberish,
       minSharesOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<BigNumber>;
 
     mint(
@@ -505,12 +475,12 @@ export interface Router extends BaseContract {
       to: string,
       shares: BigNumberish,
       maxAmountIn: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<BigNumber>;
 
     multicall(
       data: BytesLike[],
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<BigNumber>;
 
     redeem(
@@ -518,14 +488,14 @@ export interface Router extends BaseContract {
       to: string,
       shares: BigNumberish,
       minAmountOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<BigNumber>;
 
     redeemMax(
       vault: string,
       to: string,
       minAmountOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<BigNumber>;
 
     redeemToDeposit(
@@ -534,7 +504,7 @@ export interface Router extends BaseContract {
       to: string,
       shares: BigNumberish,
       minSharesOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<BigNumber>;
 
     weth(overrides?: CallOverrides): Promise<BigNumber>;
@@ -544,7 +514,7 @@ export interface Router extends BaseContract {
       to: string,
       amount: BigNumberish,
       maxSharesOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<BigNumber>;
 
     withdrawToDeposit(
@@ -554,7 +524,7 @@ export interface Router extends BaseContract {
       amount: BigNumberish,
       maxSharesIn: BigNumberish,
       minSharesOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<BigNumber>;
   };
 
@@ -563,7 +533,7 @@ export interface Router extends BaseContract {
       token: string,
       to: string,
       amount: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     deposit(
@@ -571,18 +541,18 @@ export interface Router extends BaseContract {
       to: string,
       amount: BigNumberish,
       minSharesOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     depositMax(
       vault: string,
       to: string,
       minSharesOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     depositNative(
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     depositToVault(
@@ -590,7 +560,7 @@ export interface Router extends BaseContract {
       to: string,
       amount: BigNumberish,
       minSharesOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     mint(
@@ -598,12 +568,12 @@ export interface Router extends BaseContract {
       to: string,
       shares: BigNumberish,
       maxAmountIn: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     multicall(
       data: BytesLike[],
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     redeem(
@@ -611,14 +581,14 @@ export interface Router extends BaseContract {
       to: string,
       shares: BigNumberish,
       minAmountOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     redeemMax(
       vault: string,
       to: string,
       minAmountOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     redeemToDeposit(
@@ -627,7 +597,7 @@ export interface Router extends BaseContract {
       to: string,
       shares: BigNumberish,
       minSharesOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     weth(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -637,7 +607,7 @@ export interface Router extends BaseContract {
       to: string,
       amount: BigNumberish,
       maxSharesOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     withdrawToDeposit(
@@ -647,7 +617,7 @@ export interface Router extends BaseContract {
       amount: BigNumberish,
       maxSharesIn: BigNumberish,
       minSharesOut: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<PopulatedTransaction>;
   };
 }

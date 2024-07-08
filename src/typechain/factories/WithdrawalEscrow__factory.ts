@@ -264,14 +264,12 @@ const _abi = [
 
 export class WithdrawalEscrow__factory {
   static readonly abi = _abi;
-
   static createInterface(): WithdrawalEscrowInterface {
     return new utils.Interface(_abi) as WithdrawalEscrowInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): WithdrawalEscrow {
     return new Contract(address, _abi, signerOrProvider) as WithdrawalEscrow;
   }

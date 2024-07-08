@@ -48,14 +48,12 @@ const _abi = [
 
 export class IPoolInitializer__factory {
   static readonly abi = _abi;
-
   static createInterface(): IPoolInitializerInterface {
     return new utils.Interface(_abi) as IPoolInitializerInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): IPoolInitializer {
     return new Contract(address, _abi, signerOrProvider) as IPoolInitializer;
   }

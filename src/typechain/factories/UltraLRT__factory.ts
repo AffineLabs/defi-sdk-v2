@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import {Contract, Signer, utils} from "ethers";
-import type {Provider} from "@ethersproject/providers";
-import type {UltraLRT, UltraLRTInterface} from "../UltraLRT";
+import { Contract, Signer, utils } from "ethers";
+import type { Provider } from "@ethersproject/providers";
+import type { UltraLRT, UltraLRTInterface } from "../UltraLRT";
 
 const _abi = [
   {
@@ -1665,14 +1665,12 @@ const _abi = [
 
 export class UltraLRT__factory {
   static readonly abi = _abi;
-
   static createInterface(): UltraLRTInterface {
     return new utils.Interface(_abi) as UltraLRTInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): UltraLRT {
     return new Contract(address, _abi, signerOrProvider) as UltraLRT;
   }

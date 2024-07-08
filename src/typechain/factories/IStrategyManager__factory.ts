@@ -37,14 +37,12 @@ const _abi = [
 
 export class IStrategyManager__factory {
   static readonly abi = _abi;
-
   static createInterface(): IStrategyManagerInterface {
     return new utils.Interface(_abi) as IStrategyManagerInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): IStrategyManager {
     return new Contract(address, _abi, signerOrProvider) as IStrategyManager;
   }

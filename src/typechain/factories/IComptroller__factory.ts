@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import {Contract, Signer, utils} from "ethers";
-import type {Provider} from "@ethersproject/providers";
-import type {IComptroller, IComptrollerInterface} from "../IComptroller";
+import { Contract, Signer, utils } from "ethers";
+import type { Provider } from "@ethersproject/providers";
+import type { IComptroller, IComptrollerInterface } from "../IComptroller";
 
 const _abi = [
   {
@@ -151,14 +151,12 @@ const _abi = [
 
 export class IComptroller__factory {
   static readonly abi = _abi;
-
   static createInterface(): IComptrollerInterface {
     return new utils.Interface(_abi) as IComptrollerInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): IComptroller {
     return new Contract(address, _abi, signerOrProvider) as IComptroller;
   }

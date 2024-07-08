@@ -2,20 +2,29 @@
 /* tslint:disable */
 /* eslint-disable */
 import type {
-    BaseContract,
-    BigNumber,
-    BigNumberish,
-    BytesLike,
-    CallOverrides,
-    ContractTransaction,
-    Overrides,
-    PopulatedTransaction,
-    Signer,
-    utils,
+  BaseContract,
+  BigNumber,
+  BigNumberish,
+  BytesLike,
+  CallOverrides,
+  ContractTransaction,
+  Overrides,
+  PopulatedTransaction,
+  Signer,
+  utils,
 } from "ethers";
-import type {EventFragment, FunctionFragment, Result,} from "@ethersproject/abi";
-import type {Listener, Provider} from "@ethersproject/providers";
-import type {OnEvent, TypedEvent, TypedEventFilter, TypedListener,} from "./common";
+import type {
+  FunctionFragment,
+  Result,
+  EventFragment,
+} from "@ethersproject/abi";
+import type { Listener, Provider } from "@ethersproject/providers";
+import type {
+  TypedEventFilter,
+  TypedEvent,
+  TypedListener,
+  OnEvent,
+} from "./common";
 
 export interface IPairInterface extends utils.Interface {
   functions: {
@@ -70,52 +79,38 @@ export interface IPairInterface extends utils.Interface {
       | "tokens"
       | "totalSupply"
       | "transfer"
-      | "transferFrom",
+      | "transferFrom"
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "allowance",
-    values: [string, string],
+    values: [string, string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "approve",
-    values: [string, BigNumberish],
+    values: [string, BigNumberish]
   ): string;
-
   encodeFunctionData(functionFragment: "balanceOf", values: [string]): string;
-
   encodeFunctionData(functionFragment: "burn", values: [string]): string;
-
   encodeFunctionData(functionFragment: "claimFees", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "claimable0", values: [string]): string;
-
   encodeFunctionData(functionFragment: "claimable1", values: [string]): string;
-
   encodeFunctionData(functionFragment: "decimals", values?: undefined): string;
-
   encodeFunctionData(
     functionFragment: "getAmountOut",
-    values: [BigNumberish, string],
+    values: [BigNumberish, string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "getReserves",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "initialize",
-    values: [string, string, boolean],
+    values: [string, string, boolean]
   ): string;
-
   encodeFunctionData(functionFragment: "metadata", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "mint", values: [string]): string;
-
   encodeFunctionData(functionFragment: "name", values?: undefined): string;
-
   encodeFunctionData(
     functionFragment: "permit",
     values: [
@@ -125,98 +120,66 @@ export interface IPairInterface extends utils.Interface {
       BigNumberish,
       BigNumberish,
       BytesLike,
-      BytesLike,
-    ],
+      BytesLike
+    ]
   ): string;
-
   encodeFunctionData(functionFragment: "stable", values?: undefined): string;
-
   encodeFunctionData(
     functionFragment: "swap",
-    values: [BigNumberish, BigNumberish, string, BytesLike],
+    values: [BigNumberish, BigNumberish, string, BytesLike]
   ): string;
-
   encodeFunctionData(functionFragment: "symbol", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "token0", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "token1", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "tokens", values?: undefined): string;
-
   encodeFunctionData(
     functionFragment: "totalSupply",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "transfer",
-    values: [string, BigNumberish],
+    values: [string, BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "transferFrom",
-    values: [string, string, BigNumberish],
+    values: [string, string, BigNumberish]
   ): string;
 
   decodeFunctionResult(functionFragment: "allowance", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "burn", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "claimFees", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "claimable0", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "claimable1", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "decimals", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "getAmountOut",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "getReserves",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "metadata", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "mint", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "name", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "permit", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "stable", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "swap", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "symbol", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "token0", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "token1", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "tokens", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "totalSupply",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "transfer", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "transferFrom",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
 
   events: {
@@ -225,7 +188,6 @@ export interface IPairInterface extends utils.Interface {
   };
 
   getEvent(nameOrSignatureOrTopic: "Approval"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "Transfer"): EventFragment;
 }
 
@@ -234,7 +196,6 @@ export interface ApprovalEventObject {
   spender: string;
   value: BigNumber;
 }
-
 export type ApprovalEvent = TypedEvent<
   [string, string, BigNumber],
   ApprovalEventObject
@@ -247,7 +208,6 @@ export interface TransferEventObject {
   to: string;
   value: BigNumber;
 }
-
 export type TransferEvent = TypedEvent<
   [string, string, BigNumber],
   TransferEventObject
@@ -257,9 +217,7 @@ export type TransferEventFilter = TypedEventFilter<TransferEvent>;
 
 export interface IPair extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: IPairInterface;
@@ -267,21 +225,17 @@ export interface IPair extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -291,24 +245,24 @@ export interface IPair extends BaseContract {
     allowance(
       owner: string,
       spender: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     balanceOf(account: string, overrides?: CallOverrides): Promise<[BigNumber]>;
 
     burn(
       to: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     claimFees(
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     claimable0(_user: string, overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -320,10 +274,12 @@ export interface IPair extends BaseContract {
     getAmountOut(
       arg0: BigNumberish,
       arg1: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
-    getReserves(overrides?: CallOverrides): Promise<
+    getReserves(
+      overrides?: CallOverrides
+    ): Promise<
       [BigNumber, BigNumber, BigNumber] & {
         _reserve0: BigNumber;
         _reserve1: BigNumber;
@@ -335,10 +291,12 @@ export interface IPair extends BaseContract {
       _token0: string,
       _token1: string,
       _stable: boolean,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
-    metadata(overrides?: CallOverrides): Promise<
+    metadata(
+      overrides?: CallOverrides
+    ): Promise<
       [BigNumber, BigNumber, BigNumber, BigNumber, boolean, string, string] & {
         dec0: BigNumber;
         dec1: BigNumber;
@@ -352,7 +310,7 @@ export interface IPair extends BaseContract {
 
     mint(
       to: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     name(overrides?: CallOverrides): Promise<[string]>;
@@ -365,7 +323,7 @@ export interface IPair extends BaseContract {
       v: BigNumberish,
       r: BytesLike,
       s: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     stable(overrides?: CallOverrides): Promise<[boolean]>;
@@ -375,7 +333,7 @@ export interface IPair extends BaseContract {
       amount1Out: BigNumberish,
       to: string,
       data: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     symbol(overrides?: CallOverrides): Promise<[string]>;
@@ -391,38 +349,38 @@ export interface IPair extends BaseContract {
     transfer(
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     transferFrom(
       src: string,
       dst: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
   };
 
   allowance(
     owner: string,
     spender: string,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<BigNumber>;
 
   approve(
     spender: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   balanceOf(account: string, overrides?: CallOverrides): Promise<BigNumber>;
 
   burn(
     to: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   claimFees(
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   claimable0(_user: string, overrides?: CallOverrides): Promise<BigNumber>;
@@ -434,10 +392,12 @@ export interface IPair extends BaseContract {
   getAmountOut(
     arg0: BigNumberish,
     arg1: string,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<BigNumber>;
 
-  getReserves(overrides?: CallOverrides): Promise<
+  getReserves(
+    overrides?: CallOverrides
+  ): Promise<
     [BigNumber, BigNumber, BigNumber] & {
       _reserve0: BigNumber;
       _reserve1: BigNumber;
@@ -449,10 +409,12 @@ export interface IPair extends BaseContract {
     _token0: string,
     _token1: string,
     _stable: boolean,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
-  metadata(overrides?: CallOverrides): Promise<
+  metadata(
+    overrides?: CallOverrides
+  ): Promise<
     [BigNumber, BigNumber, BigNumber, BigNumber, boolean, string, string] & {
       dec0: BigNumber;
       dec1: BigNumber;
@@ -466,7 +428,7 @@ export interface IPair extends BaseContract {
 
   mint(
     to: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   name(overrides?: CallOverrides): Promise<string>;
@@ -479,7 +441,7 @@ export interface IPair extends BaseContract {
     v: BigNumberish,
     r: BytesLike,
     s: BytesLike,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   stable(overrides?: CallOverrides): Promise<boolean>;
@@ -489,7 +451,7 @@ export interface IPair extends BaseContract {
     amount1Out: BigNumberish,
     to: string,
     data: BytesLike,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   symbol(overrides?: CallOverrides): Promise<string>;
@@ -505,34 +467,34 @@ export interface IPair extends BaseContract {
   transfer(
     to: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   transferFrom(
     src: string,
     dst: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   callStatic: {
     allowance(
       owner: string,
       spender: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<boolean>;
 
     balanceOf(account: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     burn(
       to: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [BigNumber, BigNumber] & { amount0: BigNumber; amount1: BigNumber }
     >;
@@ -548,10 +510,12 @@ export interface IPair extends BaseContract {
     getAmountOut(
       arg0: BigNumberish,
       arg1: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    getReserves(overrides?: CallOverrides): Promise<
+    getReserves(
+      overrides?: CallOverrides
+    ): Promise<
       [BigNumber, BigNumber, BigNumber] & {
         _reserve0: BigNumber;
         _reserve1: BigNumber;
@@ -563,10 +527,12 @@ export interface IPair extends BaseContract {
       _token0: string,
       _token1: string,
       _stable: boolean,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
-    metadata(overrides?: CallOverrides): Promise<
+    metadata(
+      overrides?: CallOverrides
+    ): Promise<
       [BigNumber, BigNumber, BigNumber, BigNumber, boolean, string, string] & {
         dec0: BigNumber;
         dec1: BigNumber;
@@ -590,7 +556,7 @@ export interface IPair extends BaseContract {
       v: BigNumberish,
       r: BytesLike,
       s: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     stable(overrides?: CallOverrides): Promise<boolean>;
@@ -600,7 +566,7 @@ export interface IPair extends BaseContract {
       amount1Out: BigNumberish,
       to: string,
       data: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     symbol(overrides?: CallOverrides): Promise<string>;
@@ -616,14 +582,14 @@ export interface IPair extends BaseContract {
     transfer(
       to: string,
       amount: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<boolean>;
 
     transferFrom(
       src: string,
       dst: string,
       amount: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<boolean>;
   };
 
@@ -631,23 +597,23 @@ export interface IPair extends BaseContract {
     "Approval(address,address,uint256)"(
       owner?: string | null,
       spender?: string | null,
-      value?: null,
+      value?: null
     ): ApprovalEventFilter;
     Approval(
       owner?: string | null,
       spender?: string | null,
-      value?: null,
+      value?: null
     ): ApprovalEventFilter;
 
     "Transfer(address,address,uint256)"(
       from?: string | null,
       to?: string | null,
-      value?: null,
+      value?: null
     ): TransferEventFilter;
     Transfer(
       from?: string | null,
       to?: string | null,
-      value?: null,
+      value?: null
     ): TransferEventFilter;
   };
 
@@ -655,20 +621,20 @@ export interface IPair extends BaseContract {
     allowance(
       owner: string,
       spender: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     balanceOf(account: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     burn(
       to: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     claimFees(overrides?: Overrides & { from?: string }): Promise<BigNumber>;
@@ -682,7 +648,7 @@ export interface IPair extends BaseContract {
     getAmountOut(
       arg0: BigNumberish,
       arg1: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     getReserves(overrides?: CallOverrides): Promise<BigNumber>;
@@ -691,14 +657,14 @@ export interface IPair extends BaseContract {
       _token0: string,
       _token1: string,
       _stable: boolean,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     metadata(overrides?: CallOverrides): Promise<BigNumber>;
 
     mint(
       to: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     name(overrides?: CallOverrides): Promise<BigNumber>;
@@ -711,7 +677,7 @@ export interface IPair extends BaseContract {
       v: BigNumberish,
       r: BytesLike,
       s: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     stable(overrides?: CallOverrides): Promise<BigNumber>;
@@ -721,7 +687,7 @@ export interface IPair extends BaseContract {
       amount1Out: BigNumberish,
       to: string,
       data: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     symbol(overrides?: CallOverrides): Promise<BigNumber>;
@@ -737,14 +703,14 @@ export interface IPair extends BaseContract {
     transfer(
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     transferFrom(
       src: string,
       dst: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
   };
 
@@ -752,37 +718,37 @@ export interface IPair extends BaseContract {
     allowance(
       owner: string,
       spender: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     approve(
       spender: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     balanceOf(
       account: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     burn(
       to: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     claimFees(
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     claimable0(
       _user: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     claimable1(
       _user: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     decimals(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -790,7 +756,7 @@ export interface IPair extends BaseContract {
     getAmountOut(
       arg0: BigNumberish,
       arg1: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     getReserves(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -799,14 +765,14 @@ export interface IPair extends BaseContract {
       _token0: string,
       _token1: string,
       _stable: boolean,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     metadata(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     mint(
       to: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     name(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -819,7 +785,7 @@ export interface IPair extends BaseContract {
       v: BigNumberish,
       r: BytesLike,
       s: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     stable(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -829,7 +795,7 @@ export interface IPair extends BaseContract {
       amount1Out: BigNumberish,
       to: string,
       data: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     symbol(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -845,14 +811,14 @@ export interface IPair extends BaseContract {
     transfer(
       to: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     transferFrom(
       src: string,
       dst: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
   };
 }

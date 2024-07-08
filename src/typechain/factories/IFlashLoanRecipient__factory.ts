@@ -42,14 +42,12 @@ const _abi = [
 
 export class IFlashLoanRecipient__factory {
   static readonly abi = _abi;
-
   static createInterface(): IFlashLoanRecipientInterface {
     return new utils.Interface(_abi) as IFlashLoanRecipientInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): IFlashLoanRecipient {
     return new Contract(address, _abi, signerOrProvider) as IFlashLoanRecipient;
   }

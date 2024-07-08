@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import {Contract, Signer, utils} from "ethers";
-import type {Provider} from "@ethersproject/providers";
-import type {ERC721A, ERC721AInterface} from "../ERC721A";
+import { Contract, Signer, utils } from "ethers";
+import type { Provider } from "@ethersproject/providers";
+import type { ERC721A, ERC721AInterface } from "../ERC721A";
 
 const _abi = [
   {
@@ -466,14 +466,12 @@ const _abi = [
 
 export class ERC721A__factory {
   static readonly abi = _abi;
-
   static createInterface(): ERC721AInterface {
     return new utils.Interface(_abi) as ERC721AInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): ERC721A {
     return new Contract(address, _abi, signerOrProvider) as ERC721A;
   }

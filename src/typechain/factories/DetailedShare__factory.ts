@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import {Contract, Signer, utils} from "ethers";
-import type {Provider} from "@ethersproject/providers";
-import type {DetailedShare, DetailedShareInterface} from "../DetailedShare";
+import { Contract, Signer, utils } from "ethers";
+import type { Provider } from "@ethersproject/providers";
+import type { DetailedShare, DetailedShareInterface } from "../DetailedShare";
 
 const _abi = [
   {
@@ -86,14 +86,12 @@ const _abi = [
 
 export class DetailedShare__factory {
   static readonly abi = _abi;
-
   static createInterface(): DetailedShareInterface {
     return new utils.Interface(_abi) as DetailedShareInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): DetailedShare {
     return new Contract(address, _abi, signerOrProvider) as DetailedShare;
   }

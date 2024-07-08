@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import {Contract, Signer, utils} from "ethers";
-import type {Provider} from "@ethersproject/providers";
-import type {ICToken, ICTokenInterface} from "../ICToken";
+import { Contract, Signer, utils } from "ethers";
+import type { Provider } from "@ethersproject/providers";
+import type { ICToken, ICTokenInterface } from "../ICToken";
 
 const _abi = [
   {
@@ -348,14 +348,12 @@ const _abi = [
 
 export class ICToken__factory {
   static readonly abi = _abi;
-
   static createInterface(): ICTokenInterface {
     return new utils.Interface(_abi) as ICTokenInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): ICToken {
     return new Contract(address, _abi, signerOrProvider) as ICToken;
   }

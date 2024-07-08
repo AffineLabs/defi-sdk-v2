@@ -139,14 +139,12 @@ const _abi = [
 
 export class L2BridgeEscrow__factory {
   static readonly abi = _abi;
-
   static createInterface(): L2BridgeEscrowInterface {
     return new utils.Interface(_abi) as L2BridgeEscrowInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): L2BridgeEscrow {
     return new Contract(address, _abi, signerOrProvider) as L2BridgeEscrow;
   }

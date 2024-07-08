@@ -164,14 +164,12 @@ const _abi = [
 
 export class I3CrvMetaPoolZap__factory {
   static readonly abi = _abi;
-
   static createInterface(): I3CrvMetaPoolZapInterface {
     return new utils.Interface(_abi) as I3CrvMetaPoolZapInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): I3CrvMetaPoolZap {
     return new Contract(address, _abi, signerOrProvider) as I3CrvMetaPoolZap;
   }

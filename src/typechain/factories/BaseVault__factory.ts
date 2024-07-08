@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import {Contract, Signer, utils} from "ethers";
-import type {Provider} from "@ethersproject/providers";
-import type {BaseVault, BaseVaultInterface} from "../BaseVault";
+import { Contract, Signer, utils } from "ethers";
+import type { Provider } from "@ethersproject/providers";
+import type { BaseVault, BaseVaultInterface } from "../BaseVault";
 
 const _abi = [
   {
@@ -790,14 +790,12 @@ const _abi = [
 
 export class BaseVault__factory {
   static readonly abi = _abi;
-
   static createInterface(): BaseVaultInterface {
     return new utils.Interface(_abi) as BaseVaultInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): BaseVault {
     return new Contract(address, _abi, signerOrProvider) as BaseVault;
   }

@@ -66,19 +66,17 @@ const _abi = [
 
 export class IAny2EVMMessageReceiver__factory {
   static readonly abi = _abi;
-
   static createInterface(): IAny2EVMMessageReceiverInterface {
     return new utils.Interface(_abi) as IAny2EVMMessageReceiverInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): IAny2EVMMessageReceiver {
     return new Contract(
       address,
       _abi,
-      signerOrProvider,
+      signerOrProvider
     ) as IAny2EVMMessageReceiver;
   }
 }

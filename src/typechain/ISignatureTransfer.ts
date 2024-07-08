@@ -43,7 +43,7 @@ export declare namespace ISignatureTransfer {
   export type PermitTransferFromStructOutput = [
     ISignatureTransfer.TokenPermissionsStructOutput,
     BigNumber,
-    BigNumber,
+    BigNumber
   ] & {
     permitted: ISignatureTransfer.TokenPermissionsStructOutput;
     nonce: BigNumber;
@@ -69,7 +69,7 @@ export declare namespace ISignatureTransfer {
   export type PermitBatchTransferFromStructOutput = [
     ISignatureTransfer.TokenPermissionsStructOutput[],
     BigNumber,
-    BigNumber,
+    BigNumber
   ] & {
     permitted: ISignatureTransfer.TokenPermissionsStructOutput[];
     nonce: BigNumber;
@@ -96,44 +96,39 @@ export interface ISignatureTransferInterface extends utils.Interface {
       | "permitTransferFrom(((address,uint256),uint256,uint256),(address,uint256),address,bytes)"
       | "permitTransferFrom(((address,uint256)[],uint256,uint256),(address,uint256)[],address,bytes)"
       | "permitWitnessTransferFrom(((address,uint256),uint256,uint256),(address,uint256),address,bytes32,string,bytes)"
-      | "permitWitnessTransferFrom(((address,uint256)[],uint256,uint256),(address,uint256)[],address,bytes32,string,bytes)",
+      | "permitWitnessTransferFrom(((address,uint256)[],uint256,uint256),(address,uint256)[],address,bytes32,string,bytes)"
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "DOMAIN_SEPARATOR",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "invalidateUnorderedNonces",
-    values: [BigNumberish, BigNumberish],
+    values: [BigNumberish, BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "nonceBitmap",
-    values: [string, BigNumberish],
+    values: [string, BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "permitTransferFrom(((address,uint256),uint256,uint256),(address,uint256),address,bytes)",
     values: [
       ISignatureTransfer.PermitTransferFromStruct,
       ISignatureTransfer.SignatureTransferDetailsStruct,
       string,
-      BytesLike,
-    ],
+      BytesLike
+    ]
   ): string;
-
   encodeFunctionData(
     functionFragment: "permitTransferFrom(((address,uint256)[],uint256,uint256),(address,uint256)[],address,bytes)",
     values: [
       ISignatureTransfer.PermitBatchTransferFromStruct,
       ISignatureTransfer.SignatureTransferDetailsStruct[],
       string,
-      BytesLike,
-    ],
+      BytesLike
+    ]
   ): string;
-
   encodeFunctionData(
     functionFragment: "permitWitnessTransferFrom(((address,uint256),uint256,uint256),(address,uint256),address,bytes32,string,bytes)",
     values: [
@@ -142,10 +137,9 @@ export interface ISignatureTransferInterface extends utils.Interface {
       string,
       BytesLike,
       string,
-      BytesLike,
-    ],
+      BytesLike
+    ]
   ): string;
-
   encodeFunctionData(
     functionFragment: "permitWitnessTransferFrom(((address,uint256)[],uint256,uint256),(address,uint256)[],address,bytes32,string,bytes)",
     values: [
@@ -154,43 +148,37 @@ export interface ISignatureTransferInterface extends utils.Interface {
       string,
       BytesLike,
       string,
-      BytesLike,
-    ],
+      BytesLike
+    ]
   ): string;
 
   decodeFunctionResult(
     functionFragment: "DOMAIN_SEPARATOR",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "invalidateUnorderedNonces",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "nonceBitmap",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "permitTransferFrom(((address,uint256),uint256,uint256),(address,uint256),address,bytes)",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "permitTransferFrom(((address,uint256)[],uint256,uint256),(address,uint256)[],address,bytes)",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "permitWitnessTransferFrom(((address,uint256),uint256,uint256),(address,uint256),address,bytes32,string,bytes)",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "permitWitnessTransferFrom(((address,uint256)[],uint256,uint256),(address,uint256)[],address,bytes32,string,bytes)",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
 
   events: {
@@ -205,7 +193,6 @@ export interface UnorderedNonceInvalidationEventObject {
   word: BigNumber;
   mask: BigNumber;
 }
-
 export type UnorderedNonceInvalidationEvent = TypedEvent<
   [string, BigNumber, BigNumber],
   UnorderedNonceInvalidationEventObject
@@ -216,9 +203,7 @@ export type UnorderedNonceInvalidationEventFilter =
 
 export interface ISignatureTransfer extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: ISignatureTransferInterface;
@@ -226,21 +211,17 @@ export interface ISignatureTransfer extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -252,13 +233,13 @@ export interface ISignatureTransfer extends BaseContract {
     invalidateUnorderedNonces(
       wordPos: BigNumberish,
       mask: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     nonceBitmap(
       arg0: string,
       arg1: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
     "permitTransferFrom(((address,uint256),uint256,uint256),(address,uint256),address,bytes)"(
@@ -266,7 +247,7 @@ export interface ISignatureTransfer extends BaseContract {
       transferDetails: ISignatureTransfer.SignatureTransferDetailsStruct,
       owner: string,
       signature: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     "permitTransferFrom(((address,uint256)[],uint256,uint256),(address,uint256)[],address,bytes)"(
@@ -274,7 +255,7 @@ export interface ISignatureTransfer extends BaseContract {
       transferDetails: ISignatureTransfer.SignatureTransferDetailsStruct[],
       owner: string,
       signature: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     "permitWitnessTransferFrom(((address,uint256),uint256,uint256),(address,uint256),address,bytes32,string,bytes)"(
@@ -284,7 +265,7 @@ export interface ISignatureTransfer extends BaseContract {
       witness: BytesLike,
       witnessTypeString: string,
       signature: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     "permitWitnessTransferFrom(((address,uint256)[],uint256,uint256),(address,uint256)[],address,bytes32,string,bytes)"(
@@ -294,7 +275,7 @@ export interface ISignatureTransfer extends BaseContract {
       witness: BytesLike,
       witnessTypeString: string,
       signature: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
   };
 
@@ -303,13 +284,13 @@ export interface ISignatureTransfer extends BaseContract {
   invalidateUnorderedNonces(
     wordPos: BigNumberish,
     mask: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   nonceBitmap(
     arg0: string,
     arg1: BigNumberish,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<BigNumber>;
 
   "permitTransferFrom(((address,uint256),uint256,uint256),(address,uint256),address,bytes)"(
@@ -317,7 +298,7 @@ export interface ISignatureTransfer extends BaseContract {
     transferDetails: ISignatureTransfer.SignatureTransferDetailsStruct,
     owner: string,
     signature: BytesLike,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   "permitTransferFrom(((address,uint256)[],uint256,uint256),(address,uint256)[],address,bytes)"(
@@ -325,7 +306,7 @@ export interface ISignatureTransfer extends BaseContract {
     transferDetails: ISignatureTransfer.SignatureTransferDetailsStruct[],
     owner: string,
     signature: BytesLike,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   "permitWitnessTransferFrom(((address,uint256),uint256,uint256),(address,uint256),address,bytes32,string,bytes)"(
@@ -335,7 +316,7 @@ export interface ISignatureTransfer extends BaseContract {
     witness: BytesLike,
     witnessTypeString: string,
     signature: BytesLike,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   "permitWitnessTransferFrom(((address,uint256)[],uint256,uint256),(address,uint256)[],address,bytes32,string,bytes)"(
@@ -345,7 +326,7 @@ export interface ISignatureTransfer extends BaseContract {
     witness: BytesLike,
     witnessTypeString: string,
     signature: BytesLike,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -354,13 +335,13 @@ export interface ISignatureTransfer extends BaseContract {
     invalidateUnorderedNonces(
       wordPos: BigNumberish,
       mask: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     nonceBitmap(
       arg0: string,
       arg1: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     "permitTransferFrom(((address,uint256),uint256,uint256),(address,uint256),address,bytes)"(
@@ -368,7 +349,7 @@ export interface ISignatureTransfer extends BaseContract {
       transferDetails: ISignatureTransfer.SignatureTransferDetailsStruct,
       owner: string,
       signature: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     "permitTransferFrom(((address,uint256)[],uint256,uint256),(address,uint256)[],address,bytes)"(
@@ -376,7 +357,7 @@ export interface ISignatureTransfer extends BaseContract {
       transferDetails: ISignatureTransfer.SignatureTransferDetailsStruct[],
       owner: string,
       signature: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     "permitWitnessTransferFrom(((address,uint256),uint256,uint256),(address,uint256),address,bytes32,string,bytes)"(
@@ -386,7 +367,7 @@ export interface ISignatureTransfer extends BaseContract {
       witness: BytesLike,
       witnessTypeString: string,
       signature: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     "permitWitnessTransferFrom(((address,uint256)[],uint256,uint256),(address,uint256)[],address,bytes32,string,bytes)"(
@@ -396,7 +377,7 @@ export interface ISignatureTransfer extends BaseContract {
       witness: BytesLike,
       witnessTypeString: string,
       signature: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
   };
 
@@ -404,12 +385,12 @@ export interface ISignatureTransfer extends BaseContract {
     "UnorderedNonceInvalidation(address,uint256,uint256)"(
       owner?: string | null,
       word?: null,
-      mask?: null,
+      mask?: null
     ): UnorderedNonceInvalidationEventFilter;
     UnorderedNonceInvalidation(
       owner?: string | null,
       word?: null,
-      mask?: null,
+      mask?: null
     ): UnorderedNonceInvalidationEventFilter;
   };
 
@@ -419,13 +400,13 @@ export interface ISignatureTransfer extends BaseContract {
     invalidateUnorderedNonces(
       wordPos: BigNumberish,
       mask: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     nonceBitmap(
       arg0: string,
       arg1: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     "permitTransferFrom(((address,uint256),uint256,uint256),(address,uint256),address,bytes)"(
@@ -433,7 +414,7 @@ export interface ISignatureTransfer extends BaseContract {
       transferDetails: ISignatureTransfer.SignatureTransferDetailsStruct,
       owner: string,
       signature: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     "permitTransferFrom(((address,uint256)[],uint256,uint256),(address,uint256)[],address,bytes)"(
@@ -441,7 +422,7 @@ export interface ISignatureTransfer extends BaseContract {
       transferDetails: ISignatureTransfer.SignatureTransferDetailsStruct[],
       owner: string,
       signature: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     "permitWitnessTransferFrom(((address,uint256),uint256,uint256),(address,uint256),address,bytes32,string,bytes)"(
@@ -451,7 +432,7 @@ export interface ISignatureTransfer extends BaseContract {
       witness: BytesLike,
       witnessTypeString: string,
       signature: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     "permitWitnessTransferFrom(((address,uint256)[],uint256,uint256),(address,uint256)[],address,bytes32,string,bytes)"(
@@ -461,7 +442,7 @@ export interface ISignatureTransfer extends BaseContract {
       witness: BytesLike,
       witnessTypeString: string,
       signature: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
   };
 
@@ -471,13 +452,13 @@ export interface ISignatureTransfer extends BaseContract {
     invalidateUnorderedNonces(
       wordPos: BigNumberish,
       mask: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     nonceBitmap(
       arg0: string,
       arg1: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     "permitTransferFrom(((address,uint256),uint256,uint256),(address,uint256),address,bytes)"(
@@ -485,7 +466,7 @@ export interface ISignatureTransfer extends BaseContract {
       transferDetails: ISignatureTransfer.SignatureTransferDetailsStruct,
       owner: string,
       signature: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     "permitTransferFrom(((address,uint256)[],uint256,uint256),(address,uint256)[],address,bytes)"(
@@ -493,7 +474,7 @@ export interface ISignatureTransfer extends BaseContract {
       transferDetails: ISignatureTransfer.SignatureTransferDetailsStruct[],
       owner: string,
       signature: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     "permitWitnessTransferFrom(((address,uint256),uint256,uint256),(address,uint256),address,bytes32,string,bytes)"(
@@ -503,7 +484,7 @@ export interface ISignatureTransfer extends BaseContract {
       witness: BytesLike,
       witnessTypeString: string,
       signature: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     "permitWitnessTransferFrom(((address,uint256)[],uint256,uint256),(address,uint256)[],address,bytes32,string,bytes)"(
@@ -513,7 +494,7 @@ export interface ISignatureTransfer extends BaseContract {
       witness: BytesLike,
       witnessTypeString: string,
       signature: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
   };
 }

@@ -37,7 +37,7 @@ export declare namespace IBalancerVault {
     BigNumber,
     BigNumber,
     BigNumber,
-    string,
+    string
   ] & {
     poolId: string;
     assetInIndex: BigNumber;
@@ -57,7 +57,7 @@ export declare namespace IBalancerVault {
     string,
     boolean,
     string,
-    boolean,
+    boolean
   ] & {
     sender: string;
     fromInternalBalance: boolean;
@@ -80,7 +80,7 @@ export declare namespace IBalancerVault {
     string,
     string,
     BigNumber,
-    string,
+    string
   ] & {
     poolId: string;
     kind: number;
@@ -106,55 +106,47 @@ export interface IBalancerVaultInterface extends utils.Interface {
       | "getPool"
       | "getPoolTokens"
       | "queryBatchSwap"
-      | "swap",
+      | "swap"
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "flashLoan",
-    values: [string, string[], BigNumberish[], BytesLike],
+    values: [string, string[], BigNumberish[], BytesLike]
   ): string;
-
   encodeFunctionData(functionFragment: "getPool", values: [BytesLike]): string;
-
   encodeFunctionData(
     functionFragment: "getPoolTokens",
-    values: [BytesLike],
+    values: [BytesLike]
   ): string;
-
   encodeFunctionData(
     functionFragment: "queryBatchSwap",
     values: [
       BigNumberish,
       IBalancerVault.BatchSwapStepStruct[],
       string[],
-      IBalancerVault.FundManagementStruct,
-    ],
+      IBalancerVault.FundManagementStruct
+    ]
   ): string;
-
   encodeFunctionData(
     functionFragment: "swap",
     values: [
       IBalancerVault.SingleSwapStruct,
       IBalancerVault.FundManagementStruct,
       BigNumberish,
-      BigNumberish,
-    ],
+      BigNumberish
+    ]
   ): string;
 
   decodeFunctionResult(functionFragment: "flashLoan", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "getPool", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "getPoolTokens",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "queryBatchSwap",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "swap", data: BytesLike): Result;
 
   events: {};
@@ -162,9 +154,7 @@ export interface IBalancerVaultInterface extends utils.Interface {
 
 export interface IBalancerVault extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: IBalancerVaultInterface;
@@ -172,21 +162,17 @@ export interface IBalancerVault extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -198,17 +184,17 @@ export interface IBalancerVault extends BaseContract {
       tokens: string[],
       amounts: BigNumberish[],
       userData: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     getPool(
       poolId: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[string, number]>;
 
     getPoolTokens(
       poolId: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [string[], BigNumber[], BigNumber] & {
         tokens: string[];
@@ -222,7 +208,7 @@ export interface IBalancerVault extends BaseContract {
       swaps: IBalancerVault.BatchSwapStepStruct[],
       assets: string[],
       funds: IBalancerVault.FundManagementStruct,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     swap(
@@ -230,7 +216,7 @@ export interface IBalancerVault extends BaseContract {
       funds: IBalancerVault.FundManagementStruct,
       limit: BigNumberish,
       deadline: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<ContractTransaction>;
   };
 
@@ -239,17 +225,17 @@ export interface IBalancerVault extends BaseContract {
     tokens: string[],
     amounts: BigNumberish[],
     userData: BytesLike,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   getPool(
     poolId: BytesLike,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<[string, number]>;
 
   getPoolTokens(
     poolId: BytesLike,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<
     [string[], BigNumber[], BigNumber] & {
       tokens: string[];
@@ -263,7 +249,7 @@ export interface IBalancerVault extends BaseContract {
     swaps: IBalancerVault.BatchSwapStepStruct[],
     assets: string[],
     funds: IBalancerVault.FundManagementStruct,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   swap(
@@ -271,7 +257,7 @@ export interface IBalancerVault extends BaseContract {
     funds: IBalancerVault.FundManagementStruct,
     limit: BigNumberish,
     deadline: BigNumberish,
-    overrides?: PayableOverrides & { from?: string },
+    overrides?: PayableOverrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -280,17 +266,17 @@ export interface IBalancerVault extends BaseContract {
       tokens: string[],
       amounts: BigNumberish[],
       userData: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     getPool(
       poolId: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[string, number]>;
 
     getPoolTokens(
       poolId: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [string[], BigNumber[], BigNumber] & {
         tokens: string[];
@@ -304,7 +290,7 @@ export interface IBalancerVault extends BaseContract {
       swaps: IBalancerVault.BatchSwapStepStruct[],
       assets: string[],
       funds: IBalancerVault.FundManagementStruct,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber[]>;
 
     swap(
@@ -312,7 +298,7 @@ export interface IBalancerVault extends BaseContract {
       funds: IBalancerVault.FundManagementStruct,
       limit: BigNumberish,
       deadline: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
   };
 
@@ -324,14 +310,14 @@ export interface IBalancerVault extends BaseContract {
       tokens: string[],
       amounts: BigNumberish[],
       userData: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     getPool(poolId: BytesLike, overrides?: CallOverrides): Promise<BigNumber>;
 
     getPoolTokens(
       poolId: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     queryBatchSwap(
@@ -339,7 +325,7 @@ export interface IBalancerVault extends BaseContract {
       swaps: IBalancerVault.BatchSwapStepStruct[],
       assets: string[],
       funds: IBalancerVault.FundManagementStruct,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     swap(
@@ -347,7 +333,7 @@ export interface IBalancerVault extends BaseContract {
       funds: IBalancerVault.FundManagementStruct,
       limit: BigNumberish,
       deadline: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<BigNumber>;
   };
 
@@ -357,17 +343,17 @@ export interface IBalancerVault extends BaseContract {
       tokens: string[],
       amounts: BigNumberish[],
       userData: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     getPool(
       poolId: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     getPoolTokens(
       poolId: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     queryBatchSwap(
@@ -375,7 +361,7 @@ export interface IBalancerVault extends BaseContract {
       swaps: IBalancerVault.BatchSwapStepStruct[],
       assets: string[],
       funds: IBalancerVault.FundManagementStruct,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     swap(
@@ -383,7 +369,7 @@ export interface IBalancerVault extends BaseContract {
       funds: IBalancerVault.FundManagementStruct,
       limit: BigNumberish,
       deadline: BigNumberish,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<PopulatedTransaction>;
   };
 }

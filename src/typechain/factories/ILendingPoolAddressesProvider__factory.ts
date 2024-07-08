@@ -425,19 +425,17 @@ const _abi = [
 
 export class ILendingPoolAddressesProvider__factory {
   static readonly abi = _abi;
-
   static createInterface(): ILendingPoolAddressesProviderInterface {
     return new utils.Interface(_abi) as ILendingPoolAddressesProviderInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): ILendingPoolAddressesProvider {
     return new Contract(
       address,
       _abi,
-      signerOrProvider,
+      signerOrProvider
     ) as ILendingPoolAddressesProvider;
   }
 }

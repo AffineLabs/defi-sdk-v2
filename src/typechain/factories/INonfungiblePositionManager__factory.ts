@@ -1003,19 +1003,17 @@ const _abi = [
 
 export class INonfungiblePositionManager__factory {
   static readonly abi = _abi;
-
   static createInterface(): INonfungiblePositionManagerInterface {
     return new utils.Interface(_abi) as INonfungiblePositionManagerInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): INonfungiblePositionManager {
     return new Contract(
       address,
       _abi,
-      signerOrProvider,
+      signerOrProvider
     ) as INonfungiblePositionManager;
   }
 }

@@ -655,14 +655,12 @@ const _abi = [
 
 export class ConvexStrategy__factory {
   static readonly abi = _abi;
-
   static createInterface(): ConvexStrategyInterface {
     return new utils.Interface(_abi) as ConvexStrategyInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): ConvexStrategy {
     return new Contract(address, _abi, signerOrProvider) as ConvexStrategy;
   }

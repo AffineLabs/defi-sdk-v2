@@ -2,9 +2,9 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import {Contract, Signer, utils} from "ethers";
-import type {Provider} from "@ethersproject/providers";
-import type {IWSTETH, IWSTETHInterface} from "../IWSTETH";
+import { Contract, Signer, utils } from "ethers";
+import type { Provider } from "@ethersproject/providers";
+import type { IWSTETH, IWSTETHInterface } from "../IWSTETH";
 
 const _abi = [
   {
@@ -410,14 +410,12 @@ const _abi = [
 
 export class IWSTETH__factory {
   static readonly abi = _abi;
-
   static createInterface(): IWSTETHInterface {
     return new utils.Interface(_abi) as IWSTETHInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): IWSTETH {
     return new Contract(address, _abi, signerOrProvider) as IWSTETH;
   }

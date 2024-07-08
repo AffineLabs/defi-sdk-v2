@@ -38,24 +38,22 @@ export interface IRewardsInterface extends utils.Interface {
   };
 
   getFunction(
-    nameOrSignatureOrTopic: "claim" | "getRewardOwed",
+    nameOrSignatureOrTopic: "claim" | "getRewardOwed"
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "claim",
-    values: [string, string, boolean],
+    values: [string, string, boolean]
   ): string;
-
   encodeFunctionData(
     functionFragment: "getRewardOwed",
-    values: [string, string],
+    values: [string, string]
   ): string;
 
   decodeFunctionResult(functionFragment: "claim", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "getRewardOwed",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
 
   events: {};
@@ -63,9 +61,7 @@ export interface IRewardsInterface extends utils.Interface {
 
 export interface IRewards extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: IRewardsInterface;
@@ -73,21 +69,17 @@ export interface IRewards extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -98,13 +90,13 @@ export interface IRewards extends BaseContract {
       comet: string,
       src: string,
       shouldAccrue: boolean,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     getRewardOwed(
       comet: string,
       account: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
   };
 
@@ -112,13 +104,13 @@ export interface IRewards extends BaseContract {
     comet: string,
     src: string,
     shouldAccrue: boolean,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   getRewardOwed(
     comet: string,
     account: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -126,13 +118,13 @@ export interface IRewards extends BaseContract {
       comet: string,
       src: string,
       shouldAccrue: boolean,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     getRewardOwed(
       comet: string,
       account: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<CometStructs.RewardOwedStructOutput>;
   };
 
@@ -143,13 +135,13 @@ export interface IRewards extends BaseContract {
       comet: string,
       src: string,
       shouldAccrue: boolean,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     getRewardOwed(
       comet: string,
       account: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
   };
 
@@ -158,13 +150,13 @@ export interface IRewards extends BaseContract {
       comet: string,
       src: string,
       shouldAccrue: boolean,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     getRewardOwed(
       comet: string,
       account: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
   };
 }

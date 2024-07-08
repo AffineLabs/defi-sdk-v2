@@ -41,45 +41,37 @@ export interface BridgeEscrowInterface extends utils.Interface {
       | "clearFunds"
       | "governance"
       | "rescueFunds"
-      | "wormholeRouter",
+      | "wormholeRouter"
   ): FunctionFragment;
 
   encodeFunctionData(functionFragment: "asset", values?: undefined): string;
-
   encodeFunctionData(
     functionFragment: "clearFunds",
-    values: [BigNumberish, BytesLike],
+    values: [BigNumberish, BytesLike]
   ): string;
-
   encodeFunctionData(
     functionFragment: "governance",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "rescueFunds",
-    values: [BigNumberish, BytesLike],
+    values: [BigNumberish, BytesLike]
   ): string;
-
   encodeFunctionData(
     functionFragment: "wormholeRouter",
-    values?: undefined,
+    values?: undefined
   ): string;
 
   decodeFunctionResult(functionFragment: "asset", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "clearFunds", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "governance", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "rescueFunds",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "wormholeRouter",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
 
   events: {
@@ -92,7 +84,6 @@ export interface BridgeEscrowInterface extends utils.Interface {
 export interface TransferToVaultEventObject {
   assets: BigNumber;
 }
-
 export type TransferToVaultEvent = TypedEvent<
   [BigNumber],
   TransferToVaultEventObject
@@ -102,9 +93,7 @@ export type TransferToVaultEventFilter = TypedEventFilter<TransferToVaultEvent>;
 
 export interface BridgeEscrow extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: BridgeEscrowInterface;
@@ -112,21 +101,17 @@ export interface BridgeEscrow extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -138,7 +123,7 @@ export interface BridgeEscrow extends BaseContract {
     clearFunds(
       assets: BigNumberish,
       exitProof: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     governance(overrides?: CallOverrides): Promise<[string]>;
@@ -146,7 +131,7 @@ export interface BridgeEscrow extends BaseContract {
     rescueFunds(
       amount: BigNumberish,
       exitProof: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     wormholeRouter(overrides?: CallOverrides): Promise<[string]>;
@@ -157,7 +142,7 @@ export interface BridgeEscrow extends BaseContract {
   clearFunds(
     assets: BigNumberish,
     exitProof: BytesLike,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   governance(overrides?: CallOverrides): Promise<string>;
@@ -165,7 +150,7 @@ export interface BridgeEscrow extends BaseContract {
   rescueFunds(
     amount: BigNumberish,
     exitProof: BytesLike,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   wormholeRouter(overrides?: CallOverrides): Promise<string>;
@@ -176,7 +161,7 @@ export interface BridgeEscrow extends BaseContract {
     clearFunds(
       assets: BigNumberish,
       exitProof: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     governance(overrides?: CallOverrides): Promise<string>;
@@ -184,7 +169,7 @@ export interface BridgeEscrow extends BaseContract {
     rescueFunds(
       amount: BigNumberish,
       exitProof: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     wormholeRouter(overrides?: CallOverrides): Promise<string>;
@@ -201,7 +186,7 @@ export interface BridgeEscrow extends BaseContract {
     clearFunds(
       assets: BigNumberish,
       exitProof: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     governance(overrides?: CallOverrides): Promise<BigNumber>;
@@ -209,7 +194,7 @@ export interface BridgeEscrow extends BaseContract {
     rescueFunds(
       amount: BigNumberish,
       exitProof: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     wormholeRouter(overrides?: CallOverrides): Promise<BigNumber>;
@@ -221,7 +206,7 @@ export interface BridgeEscrow extends BaseContract {
     clearFunds(
       assets: BigNumberish,
       exitProof: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     governance(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -229,7 +214,7 @@ export interface BridgeEscrow extends BaseContract {
     rescueFunds(
       amount: BigNumberish,
       exitProof: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     wormholeRouter(overrides?: CallOverrides): Promise<PopulatedTransaction>;

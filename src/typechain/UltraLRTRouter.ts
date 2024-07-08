@@ -60,14 +60,13 @@ export interface UltraLRTRouterInterface extends utils.Interface {
       | "upgradeTo"
       | "upgradeToAndCall"
       | "wStEth"
-      | "weth",
+      | "weth"
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "depositNative",
-    values: [string, string],
+    values: [string, string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "depositStEth",
     values: [
@@ -76,10 +75,9 @@ export interface UltraLRTRouterInterface extends utils.Interface {
       string,
       BigNumberish,
       BigNumberish,
-      BytesLike,
-    ],
+      BytesLike
+    ]
   ): string;
-
   encodeFunctionData(
     functionFragment: "depositWStEth",
     values: [
@@ -88,10 +86,9 @@ export interface UltraLRTRouterInterface extends utils.Interface {
       string,
       BigNumberish,
       BigNumberish,
-      BytesLike,
-    ],
+      BytesLike
+    ]
   ): string;
-
   encodeFunctionData(
     functionFragment: "depositWeth",
     values: [
@@ -100,86 +97,63 @@ export interface UltraLRTRouterInterface extends utils.Interface {
       string,
       BigNumberish,
       BigNumberish,
-      BytesLike,
-    ],
+      BytesLike
+    ]
   ): string;
-
   encodeFunctionData(
     functionFragment: "governance",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "initialize",
-    values: [string, string, string, string, string],
+    values: [string, string, string, string, string]
   ): string;
-
   encodeFunctionData(functionFragment: "paused", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "permit2", values?: undefined): string;
-
   encodeFunctionData(
     functionFragment: "proxiableUUID",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(functionFragment: "stEth", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "upgradeTo", values: [string]): string;
-
   encodeFunctionData(
     functionFragment: "upgradeToAndCall",
-    values: [string, BytesLike],
+    values: [string, BytesLike]
   ): string;
-
   encodeFunctionData(functionFragment: "wStEth", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "weth", values?: undefined): string;
 
   decodeFunctionResult(
     functionFragment: "depositNative",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "depositStEth",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "depositWStEth",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "depositWeth",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "governance", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "paused", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "permit2", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "proxiableUUID",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "stEth", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "upgradeTo", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "upgradeToAndCall",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "wStEth", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "weth", data: BytesLike): Result;
 
   events: {
@@ -192,15 +166,10 @@ export interface UltraLRTRouterInterface extends utils.Interface {
   };
 
   getEvent(nameOrSignatureOrTopic: "AdminChanged"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "BeaconUpgraded"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "Initialized"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "Paused"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "Unpaused"): EventFragment;
-
   getEvent(nameOrSignatureOrTopic: "Upgraded"): EventFragment;
 }
 
@@ -208,7 +177,6 @@ export interface AdminChangedEventObject {
   previousAdmin: string;
   newAdmin: string;
 }
-
 export type AdminChangedEvent = TypedEvent<
   [string, string],
   AdminChangedEventObject
@@ -219,7 +187,6 @@ export type AdminChangedEventFilter = TypedEventFilter<AdminChangedEvent>;
 export interface BeaconUpgradedEventObject {
   beacon: string;
 }
-
 export type BeaconUpgradedEvent = TypedEvent<
   [string],
   BeaconUpgradedEventObject
@@ -230,7 +197,6 @@ export type BeaconUpgradedEventFilter = TypedEventFilter<BeaconUpgradedEvent>;
 export interface InitializedEventObject {
   version: number;
 }
-
 export type InitializedEvent = TypedEvent<[number], InitializedEventObject>;
 
 export type InitializedEventFilter = TypedEventFilter<InitializedEvent>;
@@ -238,7 +204,6 @@ export type InitializedEventFilter = TypedEventFilter<InitializedEvent>;
 export interface PausedEventObject {
   account: string;
 }
-
 export type PausedEvent = TypedEvent<[string], PausedEventObject>;
 
 export type PausedEventFilter = TypedEventFilter<PausedEvent>;
@@ -246,7 +211,6 @@ export type PausedEventFilter = TypedEventFilter<PausedEvent>;
 export interface UnpausedEventObject {
   account: string;
 }
-
 export type UnpausedEvent = TypedEvent<[string], UnpausedEventObject>;
 
 export type UnpausedEventFilter = TypedEventFilter<UnpausedEvent>;
@@ -254,16 +218,13 @@ export type UnpausedEventFilter = TypedEventFilter<UnpausedEvent>;
 export interface UpgradedEventObject {
   implementation: string;
 }
-
 export type UpgradedEvent = TypedEvent<[string], UpgradedEventObject>;
 
 export type UpgradedEventFilter = TypedEventFilter<UpgradedEvent>;
 
 export interface UltraLRTRouter extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: UltraLRTRouterInterface;
@@ -271,21 +232,17 @@ export interface UltraLRTRouter extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -295,7 +252,7 @@ export interface UltraLRTRouter extends BaseContract {
     depositNative(
       vault: string,
       to: string,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     depositStEth(
@@ -305,7 +262,7 @@ export interface UltraLRTRouter extends BaseContract {
       nonce: BigNumberish,
       deadline: BigNumberish,
       signature: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     depositWStEth(
@@ -315,7 +272,7 @@ export interface UltraLRTRouter extends BaseContract {
       nonce: BigNumberish,
       deadline: BigNumberish,
       signature: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     depositWeth(
@@ -325,7 +282,7 @@ export interface UltraLRTRouter extends BaseContract {
       nonce: BigNumberish,
       deadline: BigNumberish,
       signature: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     governance(overrides?: CallOverrides): Promise<[string]>;
@@ -336,7 +293,7 @@ export interface UltraLRTRouter extends BaseContract {
       _stEth: string,
       _wStEth: string,
       _permit2: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     paused(overrides?: CallOverrides): Promise<[boolean]>;
@@ -349,13 +306,13 @@ export interface UltraLRTRouter extends BaseContract {
 
     upgradeTo(
       newImplementation: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     upgradeToAndCall(
       newImplementation: string,
       data: BytesLike,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     wStEth(overrides?: CallOverrides): Promise<[string]>;
@@ -366,7 +323,7 @@ export interface UltraLRTRouter extends BaseContract {
   depositNative(
     vault: string,
     to: string,
-    overrides?: PayableOverrides & { from?: string },
+    overrides?: PayableOverrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   depositStEth(
@@ -376,7 +333,7 @@ export interface UltraLRTRouter extends BaseContract {
     nonce: BigNumberish,
     deadline: BigNumberish,
     signature: BytesLike,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   depositWStEth(
@@ -386,7 +343,7 @@ export interface UltraLRTRouter extends BaseContract {
     nonce: BigNumberish,
     deadline: BigNumberish,
     signature: BytesLike,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   depositWeth(
@@ -396,7 +353,7 @@ export interface UltraLRTRouter extends BaseContract {
     nonce: BigNumberish,
     deadline: BigNumberish,
     signature: BytesLike,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   governance(overrides?: CallOverrides): Promise<string>;
@@ -407,7 +364,7 @@ export interface UltraLRTRouter extends BaseContract {
     _stEth: string,
     _wStEth: string,
     _permit2: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   paused(overrides?: CallOverrides): Promise<boolean>;
@@ -420,13 +377,13 @@ export interface UltraLRTRouter extends BaseContract {
 
   upgradeTo(
     newImplementation: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   upgradeToAndCall(
     newImplementation: string,
     data: BytesLike,
-    overrides?: PayableOverrides & { from?: string },
+    overrides?: PayableOverrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   wStEth(overrides?: CallOverrides): Promise<string>;
@@ -437,7 +394,7 @@ export interface UltraLRTRouter extends BaseContract {
     depositNative(
       vault: string,
       to: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     depositStEth(
@@ -447,7 +404,7 @@ export interface UltraLRTRouter extends BaseContract {
       nonce: BigNumberish,
       deadline: BigNumberish,
       signature: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     depositWStEth(
@@ -457,7 +414,7 @@ export interface UltraLRTRouter extends BaseContract {
       nonce: BigNumberish,
       deadline: BigNumberish,
       signature: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     depositWeth(
@@ -467,7 +424,7 @@ export interface UltraLRTRouter extends BaseContract {
       nonce: BigNumberish,
       deadline: BigNumberish,
       signature: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     governance(overrides?: CallOverrides): Promise<string>;
@@ -478,7 +435,7 @@ export interface UltraLRTRouter extends BaseContract {
       _stEth: string,
       _wStEth: string,
       _permit2: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     paused(overrides?: CallOverrides): Promise<boolean>;
@@ -491,13 +448,13 @@ export interface UltraLRTRouter extends BaseContract {
 
     upgradeTo(
       newImplementation: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     upgradeToAndCall(
       newImplementation: string,
       data: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     wStEth(overrides?: CallOverrides): Promise<string>;
@@ -508,15 +465,15 @@ export interface UltraLRTRouter extends BaseContract {
   filters: {
     "AdminChanged(address,address)"(
       previousAdmin?: null,
-      newAdmin?: null,
+      newAdmin?: null
     ): AdminChangedEventFilter;
     AdminChanged(
       previousAdmin?: null,
-      newAdmin?: null,
+      newAdmin?: null
     ): AdminChangedEventFilter;
 
     "BeaconUpgraded(address)"(
-      beacon?: string | null,
+      beacon?: string | null
     ): BeaconUpgradedEventFilter;
     BeaconUpgraded(beacon?: string | null): BeaconUpgradedEventFilter;
 
@@ -537,7 +494,7 @@ export interface UltraLRTRouter extends BaseContract {
     depositNative(
       vault: string,
       to: string,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<BigNumber>;
 
     depositStEth(
@@ -547,7 +504,7 @@ export interface UltraLRTRouter extends BaseContract {
       nonce: BigNumberish,
       deadline: BigNumberish,
       signature: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     depositWStEth(
@@ -557,7 +514,7 @@ export interface UltraLRTRouter extends BaseContract {
       nonce: BigNumberish,
       deadline: BigNumberish,
       signature: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     depositWeth(
@@ -567,7 +524,7 @@ export interface UltraLRTRouter extends BaseContract {
       nonce: BigNumberish,
       deadline: BigNumberish,
       signature: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     governance(overrides?: CallOverrides): Promise<BigNumber>;
@@ -578,7 +535,7 @@ export interface UltraLRTRouter extends BaseContract {
       _stEth: string,
       _wStEth: string,
       _permit2: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     paused(overrides?: CallOverrides): Promise<BigNumber>;
@@ -591,13 +548,13 @@ export interface UltraLRTRouter extends BaseContract {
 
     upgradeTo(
       newImplementation: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     upgradeToAndCall(
       newImplementation: string,
       data: BytesLike,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<BigNumber>;
 
     wStEth(overrides?: CallOverrides): Promise<BigNumber>;
@@ -609,7 +566,7 @@ export interface UltraLRTRouter extends BaseContract {
     depositNative(
       vault: string,
       to: string,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     depositStEth(
@@ -619,7 +576,7 @@ export interface UltraLRTRouter extends BaseContract {
       nonce: BigNumberish,
       deadline: BigNumberish,
       signature: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     depositWStEth(
@@ -629,7 +586,7 @@ export interface UltraLRTRouter extends BaseContract {
       nonce: BigNumberish,
       deadline: BigNumberish,
       signature: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     depositWeth(
@@ -639,7 +596,7 @@ export interface UltraLRTRouter extends BaseContract {
       nonce: BigNumberish,
       deadline: BigNumberish,
       signature: BytesLike,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     governance(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -650,7 +607,7 @@ export interface UltraLRTRouter extends BaseContract {
       _stEth: string,
       _wStEth: string,
       _permit2: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     paused(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -663,13 +620,13 @@ export interface UltraLRTRouter extends BaseContract {
 
     upgradeTo(
       newImplementation: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     upgradeToAndCall(
       newImplementation: string,
       data: BytesLike,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     wStEth(overrides?: CallOverrides): Promise<PopulatedTransaction>;

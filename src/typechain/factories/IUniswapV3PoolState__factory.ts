@@ -260,14 +260,12 @@ const _abi = [
 
 export class IUniswapV3PoolState__factory {
   static readonly abi = _abi;
-
   static createInterface(): IUniswapV3PoolStateInterface {
     return new utils.Interface(_abi) as IUniswapV3PoolStateInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): IUniswapV3PoolState {
     return new Contract(address, _abi, signerOrProvider) as IUniswapV3PoolState;
   }

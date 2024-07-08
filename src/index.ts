@@ -35,7 +35,7 @@ import {
   WithdrawalEscrowV2__factory,
 } from "./typechain";
 import { WithdrawalInfoStruct } from "./typechain/EigenDelegator";
-import { bridgePass, ccipFee } from "./pass";
+import { bridgePass, ccipFee, getPassBalance } from "./pass";
 
 export class AffineRestakingSDK {
   public readonly provider: providers.JsonRpcProvider;
@@ -559,6 +559,17 @@ export class AffineRestakingSDK {
       fee,
       this.provider,
     );
+  }
+
+  async getPassBalance() {
+    try {
+      return await getPassBalance(
+        await this.provider.getSigner().getChainId(),
+        this.provider,
+      );
+    } catch (e) {
+      throw "ERROR GETTING PASS BALANCE";
+    }
   }
 
   _toDeadline(expiration: number): number {

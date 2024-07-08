@@ -519,19 +519,17 @@ const _abi = [
 
 export class BeefyPearlEpochStrategy__factory {
   static readonly abi = _abi;
-
   static createInterface(): BeefyPearlEpochStrategyInterface {
     return new utils.Interface(_abi) as BeefyPearlEpochStrategyInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): BeefyPearlEpochStrategy {
     return new Contract(
       address,
       _abi,
-      signerOrProvider,
+      signerOrProvider
     ) as BeefyPearlEpochStrategy;
   }
 }

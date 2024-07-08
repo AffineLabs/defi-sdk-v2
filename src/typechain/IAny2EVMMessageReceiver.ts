@@ -43,7 +43,7 @@ export declare namespace Client {
     BigNumber,
     string,
     string,
-    Client.EVMTokenAmountStructOutput[],
+    Client.EVMTokenAmountStructOutput[]
   ] & {
     messageId: string;
     sourceChainSelector: BigNumber;
@@ -62,12 +62,12 @@ export interface IAny2EVMMessageReceiverInterface extends utils.Interface {
 
   encodeFunctionData(
     functionFragment: "ccipReceive",
-    values: [Client.Any2EVMMessageStruct],
+    values: [Client.Any2EVMMessageStruct]
   ): string;
 
   decodeFunctionResult(
     functionFragment: "ccipReceive",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
 
   events: {};
@@ -75,9 +75,7 @@ export interface IAny2EVMMessageReceiverInterface extends utils.Interface {
 
 export interface IAny2EVMMessageReceiver extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: IAny2EVMMessageReceiverInterface;
@@ -85,21 +83,17 @@ export interface IAny2EVMMessageReceiver extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -108,19 +102,19 @@ export interface IAny2EVMMessageReceiver extends BaseContract {
   functions: {
     ccipReceive(
       message: Client.Any2EVMMessageStruct,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
   };
 
   ccipReceive(
     message: Client.Any2EVMMessageStruct,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   callStatic: {
     ccipReceive(
       message: Client.Any2EVMMessageStruct,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
   };
 
@@ -129,14 +123,14 @@ export interface IAny2EVMMessageReceiver extends BaseContract {
   estimateGas: {
     ccipReceive(
       message: Client.Any2EVMMessageStruct,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
     ccipReceive(
       message: Client.Any2EVMMessageStruct,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
   };
 }

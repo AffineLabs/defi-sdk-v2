@@ -28,24 +28,22 @@ export interface ICREATE3FactoryInterface extends utils.Interface {
   };
 
   getFunction(
-    nameOrSignatureOrTopic: "deploy" | "getDeployed",
+    nameOrSignatureOrTopic: "deploy" | "getDeployed"
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "deploy",
-    values: [BytesLike, BytesLike],
+    values: [BytesLike, BytesLike]
   ): string;
-
   encodeFunctionData(
     functionFragment: "getDeployed",
-    values: [string, BytesLike],
+    values: [string, BytesLike]
   ): string;
 
   decodeFunctionResult(functionFragment: "deploy", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "getDeployed",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
 
   events: {};
@@ -53,9 +51,7 @@ export interface ICREATE3FactoryInterface extends utils.Interface {
 
 export interface ICREATE3Factory extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: ICREATE3FactoryInterface;
@@ -63,21 +59,17 @@ export interface ICREATE3Factory extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -87,39 +79,39 @@ export interface ICREATE3Factory extends BaseContract {
     deploy(
       salt: BytesLike,
       creationCode: BytesLike,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     getDeployed(
       deployer: string,
       salt: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[string] & { deployed: string }>;
   };
 
   deploy(
     salt: BytesLike,
     creationCode: BytesLike,
-    overrides?: PayableOverrides & { from?: string },
+    overrides?: PayableOverrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   getDeployed(
     deployer: string,
     salt: BytesLike,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<string>;
 
   callStatic: {
     deploy(
       salt: BytesLike,
       creationCode: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<string>;
 
     getDeployed(
       deployer: string,
       salt: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<string>;
   };
 
@@ -129,13 +121,13 @@ export interface ICREATE3Factory extends BaseContract {
     deploy(
       salt: BytesLike,
       creationCode: BytesLike,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<BigNumber>;
 
     getDeployed(
       deployer: string,
       salt: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
   };
 
@@ -143,13 +135,13 @@ export interface ICREATE3Factory extends BaseContract {
     deploy(
       salt: BytesLike,
       creationCode: BytesLike,
-      overrides?: PayableOverrides & { from?: string },
+      overrides?: PayableOverrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     getDeployed(
       deployer: string,
       salt: BytesLike,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
   };
 }

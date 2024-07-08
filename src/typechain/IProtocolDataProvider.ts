@@ -47,77 +47,65 @@ export interface IProtocolDataProviderInterface extends utils.Interface {
       | "getReserveConfigurationData"
       | "getReserveData"
       | "getReserveTokensAddresses"
-      | "getUserReserveData",
+      | "getUserReserveData"
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "ADDRESSES_PROVIDER",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "getAllATokens",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "getAllReservesTokens",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "getReserveConfigurationData",
-    values: [string],
+    values: [string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "getReserveData",
-    values: [string],
+    values: [string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "getReserveTokensAddresses",
-    values: [string],
+    values: [string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "getUserReserveData",
-    values: [string, string],
+    values: [string, string]
   ): string;
 
   decodeFunctionResult(
     functionFragment: "ADDRESSES_PROVIDER",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "getAllATokens",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "getAllReservesTokens",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "getReserveConfigurationData",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "getReserveData",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "getReserveTokensAddresses",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "getUserReserveData",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
 
   events: {};
@@ -125,9 +113,7 @@ export interface IProtocolDataProviderInterface extends utils.Interface {
 
 export interface IProtocolDataProvider extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: IProtocolDataProviderInterface;
@@ -135,21 +121,17 @@ export interface IProtocolDataProvider extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -159,16 +141,16 @@ export interface IProtocolDataProvider extends BaseContract {
     ADDRESSES_PROVIDER(overrides?: CallOverrides): Promise<[string]>;
 
     getAllATokens(
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[IProtocolDataProvider.TokenDataStructOutput[]]>;
 
     getAllReservesTokens(
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[IProtocolDataProvider.TokenDataStructOutput[]]>;
 
     getReserveConfigurationData(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [
         BigNumber,
@@ -180,7 +162,7 @@ export interface IProtocolDataProvider extends BaseContract {
         boolean,
         boolean,
         boolean,
-        boolean,
+        boolean
       ] & {
         decimals: BigNumber;
         ltv: BigNumber;
@@ -197,7 +179,7 @@ export interface IProtocolDataProvider extends BaseContract {
 
     getReserveData(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [
         BigNumber,
@@ -209,7 +191,7 @@ export interface IProtocolDataProvider extends BaseContract {
         BigNumber,
         BigNumber,
         BigNumber,
-        number,
+        number
       ] & {
         availableLiquidity: BigNumber;
         totalStableDebt: BigNumber;
@@ -226,7 +208,7 @@ export interface IProtocolDataProvider extends BaseContract {
 
     getReserveTokensAddresses(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [string, string, string] & {
         aTokenAddress: string;
@@ -238,7 +220,7 @@ export interface IProtocolDataProvider extends BaseContract {
     getUserReserveData(
       asset: string,
       user: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [
         BigNumber,
@@ -249,7 +231,7 @@ export interface IProtocolDataProvider extends BaseContract {
         BigNumber,
         BigNumber,
         number,
-        boolean,
+        boolean
       ] & {
         currentATokenBalance: BigNumber;
         currentStableDebt: BigNumber;
@@ -267,16 +249,16 @@ export interface IProtocolDataProvider extends BaseContract {
   ADDRESSES_PROVIDER(overrides?: CallOverrides): Promise<string>;
 
   getAllATokens(
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<IProtocolDataProvider.TokenDataStructOutput[]>;
 
   getAllReservesTokens(
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<IProtocolDataProvider.TokenDataStructOutput[]>;
 
   getReserveConfigurationData(
     asset: string,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<
     [
       BigNumber,
@@ -288,7 +270,7 @@ export interface IProtocolDataProvider extends BaseContract {
       boolean,
       boolean,
       boolean,
-      boolean,
+      boolean
     ] & {
       decimals: BigNumber;
       ltv: BigNumber;
@@ -305,7 +287,7 @@ export interface IProtocolDataProvider extends BaseContract {
 
   getReserveData(
     asset: string,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<
     [
       BigNumber,
@@ -317,7 +299,7 @@ export interface IProtocolDataProvider extends BaseContract {
       BigNumber,
       BigNumber,
       BigNumber,
-      number,
+      number
     ] & {
       availableLiquidity: BigNumber;
       totalStableDebt: BigNumber;
@@ -334,7 +316,7 @@ export interface IProtocolDataProvider extends BaseContract {
 
   getReserveTokensAddresses(
     asset: string,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<
     [string, string, string] & {
       aTokenAddress: string;
@@ -346,7 +328,7 @@ export interface IProtocolDataProvider extends BaseContract {
   getUserReserveData(
     asset: string,
     user: string,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<
     [
       BigNumber,
@@ -357,7 +339,7 @@ export interface IProtocolDataProvider extends BaseContract {
       BigNumber,
       BigNumber,
       number,
-      boolean,
+      boolean
     ] & {
       currentATokenBalance: BigNumber;
       currentStableDebt: BigNumber;
@@ -375,16 +357,16 @@ export interface IProtocolDataProvider extends BaseContract {
     ADDRESSES_PROVIDER(overrides?: CallOverrides): Promise<string>;
 
     getAllATokens(
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<IProtocolDataProvider.TokenDataStructOutput[]>;
 
     getAllReservesTokens(
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<IProtocolDataProvider.TokenDataStructOutput[]>;
 
     getReserveConfigurationData(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [
         BigNumber,
@@ -396,7 +378,7 @@ export interface IProtocolDataProvider extends BaseContract {
         boolean,
         boolean,
         boolean,
-        boolean,
+        boolean
       ] & {
         decimals: BigNumber;
         ltv: BigNumber;
@@ -413,7 +395,7 @@ export interface IProtocolDataProvider extends BaseContract {
 
     getReserveData(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [
         BigNumber,
@@ -425,7 +407,7 @@ export interface IProtocolDataProvider extends BaseContract {
         BigNumber,
         BigNumber,
         BigNumber,
-        number,
+        number
       ] & {
         availableLiquidity: BigNumber;
         totalStableDebt: BigNumber;
@@ -442,7 +424,7 @@ export interface IProtocolDataProvider extends BaseContract {
 
     getReserveTokensAddresses(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [string, string, string] & {
         aTokenAddress: string;
@@ -454,7 +436,7 @@ export interface IProtocolDataProvider extends BaseContract {
     getUserReserveData(
       asset: string,
       user: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<
       [
         BigNumber,
@@ -465,7 +447,7 @@ export interface IProtocolDataProvider extends BaseContract {
         BigNumber,
         BigNumber,
         number,
-        boolean,
+        boolean
       ] & {
         currentATokenBalance: BigNumber;
         currentStableDebt: BigNumber;
@@ -491,56 +473,56 @@ export interface IProtocolDataProvider extends BaseContract {
 
     getReserveConfigurationData(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     getReserveData(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     getReserveTokensAddresses(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     getUserReserveData(
       asset: string,
       user: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
     ADDRESSES_PROVIDER(
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     getAllATokens(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     getAllReservesTokens(
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     getReserveConfigurationData(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     getReserveData(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     getReserveTokensAddresses(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     getUserReserveData(
       asset: string,
       user: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
   };
 }

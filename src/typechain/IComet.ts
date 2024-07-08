@@ -42,7 +42,7 @@ export declare namespace CometStructs {
     BigNumber,
     BigNumber,
     BigNumber,
-    BigNumber,
+    BigNumber
   ] & {
     offset: number;
     asset: string;
@@ -73,7 +73,7 @@ export declare namespace CometStructs {
     BigNumber,
     BigNumber,
     number,
-    number,
+    number
   ] & {
     baseSupplyIndex: BigNumber;
     baseBorrowIndex: BigNumber;
@@ -108,7 +108,7 @@ export declare namespace CometStructs {
     BigNumber,
     BigNumber,
     number,
-    number,
+    number
   ] & {
     principal: BigNumber;
     baseTrackingIndex: BigNumber;
@@ -179,195 +179,151 @@ export interface ICometInterface extends utils.Interface {
       | "totalsCollateral"
       | "userBasic"
       | "userCollateral"
-      | "withdraw",
+      | "withdraw"
   ): FunctionFragment;
 
   encodeFunctionData(functionFragment: "balanceOf", values: [string]): string;
-
   encodeFunctionData(
     functionFragment: "baseIndexScale",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "baseMinForRewards",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(functionFragment: "baseScale", values?: undefined): string;
-
   encodeFunctionData(functionFragment: "baseToken", values?: undefined): string;
-
   encodeFunctionData(
     functionFragment: "baseTokenPriceFeed",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "baseTrackingBorrowSpeed",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "baseTrackingSupplySpeed",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "getAssetInfo",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "getAssetInfoByAddress",
-    values: [string],
+    values: [string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "getBorrowRate",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
-
   encodeFunctionData(functionFragment: "getPrice", values: [string]): string;
-
   encodeFunctionData(
     functionFragment: "getSupplyRate",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "getUtilization",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(functionFragment: "numAssets", values?: undefined): string;
-
   encodeFunctionData(
     functionFragment: "supply",
-    values: [string, BigNumberish],
+    values: [string, BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "totalBorrow",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "totalSupply",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "totalsBasic",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "totalsCollateral",
-    values: [string],
+    values: [string]
   ): string;
-
   encodeFunctionData(functionFragment: "userBasic", values: [string]): string;
-
   encodeFunctionData(
     functionFragment: "userCollateral",
-    values: [string, string],
+    values: [string, string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "withdraw",
-    values: [string, BigNumberish],
+    values: [string, BigNumberish]
   ): string;
 
   decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "baseIndexScale",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "baseMinForRewards",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "baseScale", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "baseToken", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "baseTokenPriceFeed",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "baseTrackingBorrowSpeed",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "baseTrackingSupplySpeed",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "getAssetInfo",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "getAssetInfoByAddress",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "getBorrowRate",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "getPrice", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "getSupplyRate",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "getUtilization",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "numAssets", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "supply", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "totalBorrow",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "totalSupply",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "totalsBasic",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "totalsCollateral",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "userBasic", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "userCollateral",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "withdraw", data: BytesLike): Result;
 
   events: {};
@@ -375,9 +331,7 @@ export interface ICometInterface extends utils.Interface {
 
 export interface IComet extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: ICometInterface;
@@ -385,21 +339,17 @@ export interface IComet extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -408,7 +358,7 @@ export interface IComet extends BaseContract {
   functions: {
     balanceOf(
       arg0: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     baseIndexScale(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -427,27 +377,27 @@ export interface IComet extends BaseContract {
 
     getAssetInfo(
       i: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[CometStructs.AssetInfoStructOutput]>;
 
     getAssetInfoByAddress(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[CometStructs.AssetInfoStructOutput]>;
 
     getBorrowRate(
       utilization: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
     getPrice(
       priceFeed: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
     getSupplyRate(
       utilization: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
     getUtilization(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -457,7 +407,7 @@ export interface IComet extends BaseContract {
     supply(
       asset: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     totalBorrow(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -465,35 +415,35 @@ export interface IComet extends BaseContract {
     totalSupply(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     totalsBasic(
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[CometStructs.TotalsBasicStructOutput]>;
 
     totalsCollateral(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[CometStructs.TotalsCollateralStructOutput]>;
 
     userBasic(
       arg0: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[CometStructs.UserBasicStructOutput]>;
 
     userCollateral(
       arg0: string,
       arg1: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[CometStructs.UserCollateralStructOutput]>;
 
     withdraw(
       asset: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
   };
 
   balanceOf(
     arg0: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   baseIndexScale(overrides?: CallOverrides): Promise<BigNumber>;
@@ -512,24 +462,24 @@ export interface IComet extends BaseContract {
 
   getAssetInfo(
     i: BigNumberish,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<CometStructs.AssetInfoStructOutput>;
 
   getAssetInfoByAddress(
     asset: string,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<CometStructs.AssetInfoStructOutput>;
 
   getBorrowRate(
     utilization: BigNumberish,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<BigNumber>;
 
   getPrice(priceFeed: string, overrides?: CallOverrides): Promise<BigNumber>;
 
   getSupplyRate(
     utilization: BigNumberish,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<BigNumber>;
 
   getUtilization(overrides?: CallOverrides): Promise<BigNumber>;
@@ -539,7 +489,7 @@ export interface IComet extends BaseContract {
   supply(
     asset: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   totalBorrow(overrides?: CallOverrides): Promise<BigNumber>;
@@ -547,29 +497,29 @@ export interface IComet extends BaseContract {
   totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
 
   totalsBasic(
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<CometStructs.TotalsBasicStructOutput>;
 
   totalsCollateral(
     asset: string,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<CometStructs.TotalsCollateralStructOutput>;
 
   userBasic(
     arg0: string,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<CometStructs.UserBasicStructOutput>;
 
   userCollateral(
     arg0: string,
     arg1: string,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<CometStructs.UserCollateralStructOutput>;
 
   withdraw(
     asset: string,
     amount: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -591,24 +541,24 @@ export interface IComet extends BaseContract {
 
     getAssetInfo(
       i: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<CometStructs.AssetInfoStructOutput>;
 
     getAssetInfoByAddress(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<CometStructs.AssetInfoStructOutput>;
 
     getBorrowRate(
       utilization: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     getPrice(priceFeed: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     getSupplyRate(
       utilization: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     getUtilization(overrides?: CallOverrides): Promise<BigNumber>;
@@ -618,7 +568,7 @@ export interface IComet extends BaseContract {
     supply(
       asset: string,
       amount: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     totalBorrow(overrides?: CallOverrides): Promise<BigNumber>;
@@ -626,29 +576,29 @@ export interface IComet extends BaseContract {
     totalSupply(overrides?: CallOverrides): Promise<BigNumber>;
 
     totalsBasic(
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<CometStructs.TotalsBasicStructOutput>;
 
     totalsCollateral(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<CometStructs.TotalsCollateralStructOutput>;
 
     userBasic(
       arg0: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<CometStructs.UserBasicStructOutput>;
 
     userCollateral(
       arg0: string,
       arg1: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<CometStructs.UserCollateralStructOutput>;
 
     withdraw(
       asset: string,
       amount: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
   };
 
@@ -657,7 +607,7 @@ export interface IComet extends BaseContract {
   estimateGas: {
     balanceOf(
       arg0: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     baseIndexScale(overrides?: CallOverrides): Promise<BigNumber>;
@@ -676,24 +626,24 @@ export interface IComet extends BaseContract {
 
     getAssetInfo(
       i: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     getAssetInfoByAddress(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     getBorrowRate(
       utilization: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     getPrice(priceFeed: string, overrides?: CallOverrides): Promise<BigNumber>;
 
     getSupplyRate(
       utilization: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     getUtilization(overrides?: CallOverrides): Promise<BigNumber>;
@@ -703,7 +653,7 @@ export interface IComet extends BaseContract {
     supply(
       asset: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     totalBorrow(overrides?: CallOverrides): Promise<BigNumber>;
@@ -714,7 +664,7 @@ export interface IComet extends BaseContract {
 
     totalsCollateral(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     userBasic(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
@@ -722,20 +672,20 @@ export interface IComet extends BaseContract {
     userCollateral(
       arg0: string,
       arg1: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     withdraw(
       asset: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
     balanceOf(
       arg0: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     baseIndexScale(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -747,40 +697,40 @@ export interface IComet extends BaseContract {
     baseToken(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     baseTokenPriceFeed(
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     baseTrackingBorrowSpeed(
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     baseTrackingSupplySpeed(
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     getAssetInfo(
       i: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     getAssetInfoByAddress(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     getBorrowRate(
       utilization: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     getPrice(
       priceFeed: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     getSupplyRate(
       utilization: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     getUtilization(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -790,7 +740,7 @@ export interface IComet extends BaseContract {
     supply(
       asset: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     totalBorrow(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -801,24 +751,24 @@ export interface IComet extends BaseContract {
 
     totalsCollateral(
       asset: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     userBasic(
       arg0: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     userCollateral(
       arg0: string,
       arg1: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     withdraw(
       asset: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
   };
 }

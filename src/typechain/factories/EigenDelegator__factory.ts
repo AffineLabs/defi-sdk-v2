@@ -347,14 +347,12 @@ const _abi = [
 
 export class EigenDelegator__factory {
   static readonly abi = _abi;
-
   static createInterface(): EigenDelegatorInterface {
     return new utils.Interface(_abi) as EigenDelegatorInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): EigenDelegator {
     return new Contract(address, _abi, signerOrProvider) as EigenDelegator;
   }

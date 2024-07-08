@@ -53,14 +53,12 @@ const _abi = [
 
 export class RebalanceStorage__factory {
   static readonly abi = _abi;
-
   static createInterface(): RebalanceStorageInterface {
     return new utils.Interface(_abi) as RebalanceStorageInterface;
   }
-
   static connect(
     address: string,
-    signerOrProvider: Signer | Provider,
+    signerOrProvider: Signer | Provider
   ): RebalanceStorage {
     return new Contract(address, _abi, signerOrProvider) as RebalanceStorage;
   }

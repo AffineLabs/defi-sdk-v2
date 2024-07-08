@@ -34,7 +34,7 @@ export declare namespace IMasterChef {
     string,
     BigNumber,
     BigNumber,
-    BigNumber,
+    BigNumber
   ] & {
     lpToken: string;
     allocPoint: BigNumber;
@@ -92,99 +92,79 @@ export interface IMasterChefInterface extends utils.Interface {
       | "updatePool"
       | "userInfo"
       | "withdraw"
-      | "withdrawAndHarvest",
+      | "withdrawAndHarvest"
   ): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "deposit(uint256,uint256,address)",
-    values: [BigNumberish, BigNumberish, string],
+    values: [BigNumberish, BigNumberish, string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "deposit(uint256,uint256)",
-    values: [BigNumberish, BigNumberish],
+    values: [BigNumberish, BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "harvest",
-    values: [BigNumberish, string],
+    values: [BigNumberish, string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "pendingSushi",
-    values: [BigNumberish, string],
+    values: [BigNumberish, string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "poolInfo",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "poolLength",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "totalAllocPoint",
-    values?: undefined,
+    values?: undefined
   ): string;
-
   encodeFunctionData(
     functionFragment: "updatePool",
-    values: [BigNumberish],
+    values: [BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "userInfo",
-    values: [BigNumberish, string],
+    values: [BigNumberish, string]
   ): string;
-
   encodeFunctionData(
     functionFragment: "withdraw",
-    values: [BigNumberish, BigNumberish],
+    values: [BigNumberish, BigNumberish]
   ): string;
-
   encodeFunctionData(
     functionFragment: "withdrawAndHarvest",
-    values: [BigNumberish, BigNumberish, string],
+    values: [BigNumberish, BigNumberish, string]
   ): string;
 
   decodeFunctionResult(
     functionFragment: "deposit(uint256,uint256,address)",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(
     functionFragment: "deposit(uint256,uint256)",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "harvest", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "pendingSushi",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "poolInfo", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "poolLength", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "totalAllocPoint",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
-
   decodeFunctionResult(functionFragment: "updatePool", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "userInfo", data: BytesLike): Result;
-
   decodeFunctionResult(functionFragment: "withdraw", data: BytesLike): Result;
-
   decodeFunctionResult(
     functionFragment: "withdrawAndHarvest",
-    data: BytesLike,
+    data: BytesLike
   ): Result;
 
   events: {};
@@ -192,9 +172,7 @@ export interface IMasterChefInterface extends utils.Interface {
 
 export interface IMasterChef extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
-
   attach(addressOrName: string): this;
-
   deployed(): Promise<this>;
 
   interface: IMasterChefInterface;
@@ -202,21 +180,17 @@ export interface IMasterChef extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined,
+    toBlock?: string | number | undefined
   ): Promise<Array<TEvent>>;
 
   listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>,
+    eventFilter?: TypedEventFilter<TEvent>
   ): Array<TypedListener<TEvent>>;
-
   listeners(eventName?: string): Array<Listener>;
-
   removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>,
+    eventFilter: TypedEventFilter<TEvent>
   ): this;
-
   removeAllListeners(eventName?: string): this;
-
   off: OnEvent<this>;
   on: OnEvent<this>;
   once: OnEvent<this>;
@@ -227,30 +201,30 @@ export interface IMasterChef extends BaseContract {
       _pid: BigNumberish,
       _amount: BigNumberish,
       _to: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     "deposit(uint256,uint256)"(
       _pid: BigNumberish,
       _amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     harvest(
       pid: BigNumberish,
       to: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     pendingSushi(
       _pid: BigNumberish,
       _user: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[BigNumber] & { pending: BigNumber }>;
 
     poolInfo(
       pid: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[IMasterChef.PoolInfoStructOutput]>;
 
     poolLength(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -259,26 +233,26 @@ export interface IMasterChef extends BaseContract {
 
     updatePool(
       _pid: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     userInfo(
       pid: BigNumberish,
       user: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<[IMasterChef.UserInfoStructOutput]>;
 
     withdraw(
       _pid: BigNumberish,
       _amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
 
     withdrawAndHarvest(
       _pid: BigNumberish,
       _amount: BigNumberish,
       _to: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
   };
 
@@ -286,30 +260,30 @@ export interface IMasterChef extends BaseContract {
     _pid: BigNumberish,
     _amount: BigNumberish,
     _to: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   "deposit(uint256,uint256)"(
     _pid: BigNumberish,
     _amount: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   harvest(
     pid: BigNumberish,
     to: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   pendingSushi(
     _pid: BigNumberish,
     _user: string,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<BigNumber>;
 
   poolInfo(
     pid: BigNumberish,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<IMasterChef.PoolInfoStructOutput>;
 
   poolLength(overrides?: CallOverrides): Promise<BigNumber>;
@@ -318,26 +292,26 @@ export interface IMasterChef extends BaseContract {
 
   updatePool(
     _pid: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   userInfo(
     pid: BigNumberish,
     user: string,
-    overrides?: CallOverrides,
+    overrides?: CallOverrides
   ): Promise<IMasterChef.UserInfoStructOutput>;
 
   withdraw(
     _pid: BigNumberish,
     _amount: BigNumberish,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   withdrawAndHarvest(
     _pid: BigNumberish,
     _amount: BigNumberish,
     _to: string,
-    overrides?: Overrides & { from?: string },
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -345,30 +319,30 @@ export interface IMasterChef extends BaseContract {
       _pid: BigNumberish,
       _amount: BigNumberish,
       _to: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     "deposit(uint256,uint256)"(
       _pid: BigNumberish,
       _amount: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     harvest(
       pid: BigNumberish,
       to: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     pendingSushi(
       _pid: BigNumberish,
       _user: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     poolInfo(
       pid: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<IMasterChef.PoolInfoStructOutput>;
 
     poolLength(overrides?: CallOverrides): Promise<BigNumber>;
@@ -377,26 +351,26 @@ export interface IMasterChef extends BaseContract {
 
     updatePool(
       _pid: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<IMasterChef.PoolInfoV2StructOutput>;
 
     userInfo(
       pid: BigNumberish,
       user: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<IMasterChef.UserInfoStructOutput>;
 
     withdraw(
       _pid: BigNumberish,
       _amount: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
 
     withdrawAndHarvest(
       _pid: BigNumberish,
       _amount: BigNumberish,
       _to: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<void>;
   };
 
@@ -407,25 +381,25 @@ export interface IMasterChef extends BaseContract {
       _pid: BigNumberish,
       _amount: BigNumberish,
       _to: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     "deposit(uint256,uint256)"(
       _pid: BigNumberish,
       _amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     harvest(
       pid: BigNumberish,
       to: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     pendingSushi(
       _pid: BigNumberish,
       _user: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     poolInfo(pid: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
@@ -436,26 +410,26 @@ export interface IMasterChef extends BaseContract {
 
     updatePool(
       _pid: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     userInfo(
       pid: BigNumberish,
       user: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     withdraw(
       _pid: BigNumberish,
       _amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
 
     withdrawAndHarvest(
       _pid: BigNumberish,
       _amount: BigNumberish,
       _to: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
   };
 
@@ -464,30 +438,30 @@ export interface IMasterChef extends BaseContract {
       _pid: BigNumberish,
       _amount: BigNumberish,
       _to: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     "deposit(uint256,uint256)"(
       _pid: BigNumberish,
       _amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     harvest(
       pid: BigNumberish,
       to: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     pendingSushi(
       _pid: BigNumberish,
       _user: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     poolInfo(
       pid: BigNumberish,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     poolLength(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -496,26 +470,26 @@ export interface IMasterChef extends BaseContract {
 
     updatePool(
       _pid: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     userInfo(
       pid: BigNumberish,
       user: string,
-      overrides?: CallOverrides,
+      overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     withdraw(
       _pid: BigNumberish,
       _amount: BigNumberish,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
 
     withdrawAndHarvest(
       _pid: BigNumberish,
       _amount: BigNumberish,
       _to: string,
-      overrides?: Overrides & { from?: string },
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
   };
 }
