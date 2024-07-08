@@ -1,7 +1,7 @@
 import { BigNumber, ethers, providers } from "ethers";
 export declare class AffineRestakingSDK {
-    private provider;
-    private signer;
+    readonly provider: providers.JsonRpcProvider;
+    readonly signer: ethers.Signer;
     constructor(provider: providers.JsonRpcProvider, signer?: ethers.Signer);
     _getVaultBalanceByAsset(vaultAddress: string): Promise<string>;
     getUltraEthBalance(): Promise<string>;
