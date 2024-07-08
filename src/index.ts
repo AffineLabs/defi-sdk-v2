@@ -38,8 +38,8 @@ import { WithdrawalInfoStruct } from "./typechain/EigenDelegator";
 import { bridgePass, ccipFee } from "./pass";
 
 export class AffineRestakingSDK {
-  private provider: providers.JsonRpcProvider;
-  private signer: ethers.Signer;
+  public readonly provider: providers.JsonRpcProvider;
+  public readonly signer: ethers.Signer;
 
   constructor(provider: providers.JsonRpcProvider, signer?: ethers.Signer) {
     this.provider = provider;
