@@ -34,12 +34,6 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add package.json yarn.lock
+          git add package.json yarn.lock dist
           git commit -m "Updated version"
-          git push origin main
-
-      - name: Upload built files
-        run: |
-          git add dist
-          git commit -m "Include built files for updated version"
           git push origin main
