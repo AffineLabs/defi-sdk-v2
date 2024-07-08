@@ -38,16 +38,6 @@ jobs:
           git commit -m "Updated version"
           git push origin main
 
-      - name: Create release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: $(jq -r .version package.json)
-          release_name: Release $(jq -r .version package.json)
-          draft: false
-          prerelease: false
-
       - name: Upload built files
         run: |
           git add dist
