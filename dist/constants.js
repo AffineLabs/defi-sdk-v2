@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.WEthAddress = exports.RouterAddress = exports.SymbioticEscrow = exports.SymbioticVault = exports.EscrowAddress = exports.WStEthAddress = exports.StETHAddress = exports.UltraLRTAddress = exports.EigenDelegatorAddress = exports.EigenStETHStrategy = exports.EthRPC = void 0;
+exports.WEthAddress = exports.RouterAddress = exports.SymbioticEscrow = exports.SymbioticVault = exports.EscrowAddress = exports.WStEthAddress = exports.StETHAddress = exports.UltraLRTAddress = exports.EigenDelegatorAddress = exports.EigenStETHStrategy = exports.PassEthBridgeAddress = exports.PassEthAddress = exports.PassPolygonBridgeAddress = exports.PassPolygonAddress = exports.EthRPC = void 0;
 let _EigenStETHStrategy = "0x93c4b944D05dfe6df7645A86cd2206016c51564D";
 let _EigenDelegatorAddress = "0x39053D51B77DC0d36036Fc1fCc8Cb819df8Ef37A";
 let _UltraLRTAddress = "0x47657094e3AF11c47d5eF4D3598A1536B394EEc4";
@@ -24,6 +24,11 @@ if (process.env.NEXT_PUBLIC_NETWORK_TYPE === "holesky") {
     _RouterAddress = "0xB56aC485418304f20F21e8169db757c2261532e2";
     _WEthAddress = "0x94373a4919B3240D86eA41593D5eBa789FEF3848";
 }
+// AFFINE PASS
+exports.PassPolygonAddress = "0x962e765a68c12e5c890589ba66bfd848d0ee52c5";
+exports.PassPolygonBridgeAddress = "0xd1B45F273Db3156110cB363325331337BB1deD14";
+exports.PassEthAddress = "0x9244d2cf73861Ee7aA79Ffe90fe4eDF925482795";
+exports.PassEthBridgeAddress = "0xA473fDfdBBaf3a31f14F5b69f0Dfc31cc5a14e83";
 exports.EigenStETHStrategy = _EigenStETHStrategy;
 exports.EigenDelegatorAddress = _EigenDelegatorAddress;
 exports.UltraLRTAddress = _UltraLRTAddress;

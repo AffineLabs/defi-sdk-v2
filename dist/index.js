@@ -14,6 +14,7 @@ const ultraEth_json_1 = __importDefault(require("./abis/ultraEth.json"));
 const withdrawalEscrow_json_1 = __importDefault(require("./abis/withdrawalEscrow.json"));
 const delegationManager_json_1 = __importDefault(require("./abis/delegationManager.json"));
 const typechain_1 = require("./typechain");
+const pass_1 = require("./pass");
 class AffineRestakingSDK {
     provider;
     signer;
@@ -307,6 +308,12 @@ class AffineRestakingSDK {
         });
         await tx.wait();
         console.log(`Wrapped ${amountInEther} ETH to WETH`);
+    }
+    async getCCIPFee(destinationChainId) {
+        return await (0, pass_1.ccipFee)(destinationChainId, this.provider);
+    }
+    async bridgeAffinePass(destinationChainId, destinationAddress, tokenId, fee) {
+        return await (0, pass_1.bridgePass)(destinationChainId, destinationAddress, tokenId, fee, this.provider);
     }
     _toDeadline(expiration) {
         return Math.floor((Date.now() + expiration) / 1000);

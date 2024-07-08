@@ -65,7 +65,9 @@ exports.NETWORK_PARAMS = {
             symbol: "ETH",
             decimals: 18,
         },
-        rpcUrls: exports.IS_USING_FORKED_MAINNET && exports.FORKED_NODE_URL_FOR_ETH ? [exports.FORKED_NODE_URL_FOR_ETH] : ["https://rpc.ankr.com/eth"],
+        rpcUrls: exports.IS_USING_FORKED_MAINNET && exports.FORKED_NODE_URL_FOR_ETH
+            ? [exports.FORKED_NODE_URL_FOR_ETH]
+            : ["https://rpc.ankr.com/eth"],
         blockExplorerUrls: ["https://etherscan.io"],
     },
     5: {
@@ -95,7 +97,9 @@ exports.NETWORK_PARAMS = {
             symbol: "MATIC",
             decimals: 18,
         },
-        rpcUrls: exports.IS_USING_FORKED_MAINNET && exports.FORKED_NODE_URL_FOR_MATIC ? [exports.FORKED_NODE_URL_FOR_MATIC] : ["https://polygon-rpc.com"],
+        rpcUrls: exports.IS_USING_FORKED_MAINNET && exports.FORKED_NODE_URL_FOR_MATIC
+            ? [exports.FORKED_NODE_URL_FOR_MATIC]
+            : ["https://polygon-rpc.com"],
         blockExplorerUrls: ["https://polygonscan.com"],
     },
     80001: {
@@ -115,7 +119,9 @@ exports.NETWORK_PARAMS = {
             symbol: "ETH",
             decimals: 18,
         },
-        rpcUrls: exports.IS_USING_FORKED_MAINNET && exports.FORKED_NODE_URL_FOR_BASE ? [exports.FORKED_NODE_URL_FOR_BASE] : ["https://mainnet.base.org"],
+        rpcUrls: exports.IS_USING_FORKED_MAINNET && exports.FORKED_NODE_URL_FOR_BASE
+            ? [exports.FORKED_NODE_URL_FOR_BASE]
+            : ["https://mainnet.base.org"],
         blockExplorerUrls: ["https://basescan.org"],
     },
     84531: {

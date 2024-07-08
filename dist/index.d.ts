@@ -1,4 +1,4 @@
-import { ethers, providers, BigNumber } from "ethers";
+import { BigNumber, ethers, providers } from "ethers";
 export declare class AffineRestakingSDK {
     private provider;
     private signer;
@@ -41,6 +41,8 @@ export declare class AffineRestakingSDK {
     isApproved(contractAddress: string, spenderAddress: string, amount: number): Promise<boolean>;
     approve(contractAddress: string, spenderAddress: string, amount: number): Promise<ethers.providers.TransactionResponse>;
     wrapETH(amountInEther: string): Promise<void>;
+    getCCIPFee(destinationChainId: 1 | 137): Promise<number>;
+    bridgeAffinePass(destinationChainId: 1 | 137, destinationAddress: string, tokenId: number, fee: number): Promise<import("./sdk-v1-types").SmallTxReceipt>;
     _toDeadline(expiration: number): number;
     _getRandomNonce(): Promise<BigNumber>;
 }
