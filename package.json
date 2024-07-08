@@ -5,7 +5,6 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
-    "prepare": "npm run build",
     "build": "npm run gentype && tsc",
     "gentype": "typechain --target ethers-v5 --out-dir ./src/typechain './node_modules/contracts/abi/*.json'",
     "lint": "npx prettier --write ."
