@@ -11,6 +11,7 @@ import {
   EigenStETHStrategy,
   EscrowAddress,
   EthRPC,
+  PassEthAddress,
   RouterAddress,
   StETHAddress,
   SymbioticEscrow,
@@ -27,6 +28,7 @@ import ULTRAETH_ABI from "./abis/ultraEth.json";
 import ESCROW_ABI from "./abis/withdrawalEscrow.json";
 import DELEGATION_MANAGER_ABI from "./abis/delegationManager.json";
 import {
+  AffinePass__factory,
   ISignatureTransfer__factory,
   IWSTETH__factory,
   MockERC20__factory,
@@ -565,7 +567,7 @@ export class AffineRestakingSDK {
     try {
       return await getPassBalance(
         await this.provider.getSigner().getChainId(),
-        this.provider,
+        await this.provider.getSigner().getAddress(),
       );
     } catch (e) {
       throw "ERROR GETTING PASS BALANCE";

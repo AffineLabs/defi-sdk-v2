@@ -1,6 +1,7 @@
 import { ethers, providers } from "ethers";
 import { AffinePass__factory, AffinePassBridge__factory } from "./typechain";
 import {
+  EthRPC,
   PassEthAddress,
   PassEthBridgeAddress,
   PassPolygonAddress,
@@ -132,10 +133,11 @@ export async function bridgePass(
   }
 }
 
-export async function getPassBalance(
-  chainId: number,
-  provider: providers.JsonRpcProvider,
-) {
-  const affinePass = await getAffinePass(chainId, provider);
-  return affinePass.balanceOf(await provider.getSigner().getAddress());
+export async function getPassBalance(chainId: number, address: string) {
+  const affinePass = await getAffinePass(
+    chainId,
+    new providers.JsonRpcProvider(EthRPC),
+  );
+  const balance = affinePass ? await affinePass.balanceOf(address) : undefined;
+  return balance === undefined ? 0 : balance.toNumber();
 }
