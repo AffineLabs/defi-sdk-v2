@@ -315,6 +315,14 @@ class AffineRestakingSDK {
     async bridgeAffinePass(destinationChainId, destinationAddress, tokenId, fee) {
         return await (0, pass_1.bridgePass)(destinationChainId, destinationAddress, tokenId, fee, this.provider);
     }
+    async getPassBalance() {
+        try {
+            return await (0, pass_1.getPassBalance)(await this.provider.getSigner().getChainId(), this.provider);
+        }
+        catch (e) {
+            throw "ERROR GETTING PASS BALANCE";
+        }
+    }
     _toDeadline(expiration) {
         return Math.floor((Date.now() + expiration) / 1000);
     }
