@@ -86,8 +86,9 @@ async function bridgePass(destinationChainId, destinationAddress, tokenId, fee, 
     }
 }
 exports.bridgePass = bridgePass;
-async function getPassBalance(chainId, provider) {
-    const affinePass = await getAffinePass(chainId, provider);
-    return affinePass.balanceOf(await provider.getSigner().getAddress());
+async function getPassBalance(chainId, address) {
+    const affinePass = await getAffinePass(chainId, new ethers_1.providers.JsonRpcProvider(constants_1.EthRPC));
+    const balance = affinePass ? await affinePass.balanceOf(address) : undefined;
+    return balance === undefined ? 0 : balance.toNumber();
 }
 exports.getPassBalance = getPassBalance;

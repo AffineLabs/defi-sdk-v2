@@ -317,7 +317,7 @@ class AffineRestakingSDK {
     }
     async getPassBalance() {
         try {
-            return await (0, pass_1.getPassBalance)(await this.provider.getSigner().getChainId(), this.provider);
+            return await (0, pass_1.getPassBalance)(await this.provider.getSigner().getChainId(), await this.provider.getSigner().getAddress());
         }
         catch (e) {
             throw "ERROR GETTING PASS BALANCE";
