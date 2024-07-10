@@ -6,6 +6,7 @@ import {
   PassEthBridgeAddress,
   PassPolygonAddress,
   PassPolygonBridgeAddress,
+  PolygonRPC,
 } from "./constants";
 import { TransactionResponse } from "@ethersproject/abstract-provider";
 import { SmallTxReceipt } from "./sdk-v1-types";
@@ -60,7 +61,13 @@ export async function ccipFee(
     throw new Error("Invalid chain id. Only 1 and 137 are supported.");
   }
 
-  const affinePass = await getAffinePassBridge(destinationChainId, provider);
+  const affinePass = await getAffinePassBridge(
+    destinationChainId,
+    destinationChainId === 1
+      ? new providers.JsonRpcProvider(PolygonRPC)
+      : new providers.JsonRpcProvider(EthRPC),
+  );
+
   if (!affinePass) {
     console.error(
       "ERROR TRYING TO GET CCIP FEE - AFFINE PASS BRIDGE UNDEFINED",

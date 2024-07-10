@@ -13,6 +13,8 @@ let _WEthAddress = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2";
 
 export let EthRPC =
   "https://eth-mainnet.g.alchemy.com/v2/T8JHI8jMGKrO88j6qvZwjk8d1IxOPqtk";
+export let PolygonRPC =
+  "https://polygon-mainnet.g.alchemy.com/v2/T8JHI8jMGKrO88j6qvZwjk8d1IxOPqtk";
 
 if (process.env.NEXT_PUBLIC_NETWORK_TYPE === "holesky") {
   _EigenStETHStrategy = "0x7D704507b76571a51d9caE8AdDAbBFd0ba0e63d3";
