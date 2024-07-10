@@ -43,7 +43,7 @@ export declare class AffineRestakingSDK {
     wrapETH(amountInEther: string): Promise<void>;
     getCCIPFee(destinationChainId: 1 | 137): Promise<number>;
     bridgeAffinePass(destinationChainId: 1 | 137, destinationAddress: string, tokenId: number, fee: number): Promise<import("./sdk-v1-types").SmallTxReceipt>;
-    getPassBalance(): Promise<BigNumber>;
+    getPassBalance(): Promise<number>;
     _toDeadline(expiration: number): number;
     _getRandomNonce(): Promise<BigNumber>;
 }

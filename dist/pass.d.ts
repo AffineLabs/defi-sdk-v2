@@ -1,4 +1,4 @@
-import { ethers, providers } from "ethers";
+import { providers } from "ethers";
 import { SmallTxReceipt } from "./sdk-v1-types";
 export declare const CCIP_NETWORK_SELECTOR: Record<1 | 137, string>;
 /**
@@ -26,4 +26,4 @@ export declare function ccipFee(destinationChainId: 1 | 137, provider: providers
  * @returns
  */
 export declare function bridgePass(destinationChainId: 1 | 137, destinationAddress: string, tokenId: number, fee: number, provider: providers.JsonRpcProvider): Promise<SmallTxReceipt>;
-export declare function getPassBalance(chainId: number, provider: providers.JsonRpcProvider): Promise<ethers.BigNumber>;
+export declare function getPassBalance(chainId: number, address: string): Promise<number>;
