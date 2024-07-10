@@ -1,5 +1,6 @@
 import { ethers } from "ethers";
 export declare let EthRPC: string;
+export declare let PolygonRPC: string;
 export declare const PassPolygonAddress = "0x962e765a68c12e5c890589ba66bfd848d0ee52c5";
 export declare const PassPolygonBridgeAddress = "0xd1B45F273Db3156110cB363325331337BB1deD14";
 export declare const PassEthAddress = "0x9244d2cf73861Ee7aA79Ffe90fe4eDF925482795";

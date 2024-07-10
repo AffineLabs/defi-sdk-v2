@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.WEthAddress = exports.RouterAddress = exports.SymbioticEscrow = exports.SymbioticVault = exports.EscrowAddress = exports.WStEthAddress = exports.StETHAddress = exports.UltraLRTAddress = exports.EigenDelegatorAddress = exports.EigenStETHStrategy = exports.PassEthBridgeAddress = exports.PassEthAddress = exports.PassPolygonBridgeAddress = exports.PassPolygonAddress = exports.EthRPC = void 0;
+exports.WEthAddress = exports.RouterAddress = exports.SymbioticEscrow = exports.SymbioticVault = exports.EscrowAddress = exports.WStEthAddress = exports.StETHAddress = exports.UltraLRTAddress = exports.EigenDelegatorAddress = exports.EigenStETHStrategy = exports.PassEthBridgeAddress = exports.PassEthAddress = exports.PassPolygonBridgeAddress = exports.PassPolygonAddress = exports.PolygonRPC = exports.EthRPC = void 0;
 let _EigenStETHStrategy = "0x93c4b944D05dfe6df7645A86cd2206016c51564D";
 let _EigenDelegatorAddress = "0x39053D51B77DC0d36036Fc1fCc8Cb819df8Ef37A";
 let _UltraLRTAddress = "0x47657094e3AF11c47d5eF4D3598A1536B394EEc4";
@@ -12,6 +12,7 @@ let _SymbioticEscrow = "0x02f5289e7dBF17E49631A160bdE5BaDDd36163Dd";
 let _RouterAddress = "0x379a56089623AE0c22F56417AB28319AD8DCF1Cc";
 let _WEthAddress = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2";
 exports.EthRPC = "https://eth-mainnet.g.alchemy.com/v2/T8JHI8jMGKrO88j6qvZwjk8d1IxOPqtk";
+exports.PolygonRPC = "https://polygon-mainnet.g.alchemy.com/v2/T8JHI8jMGKrO88j6qvZwjk8d1IxOPqtk";
 if (process.env.NEXT_PUBLIC_NETWORK_TYPE === "holesky") {
     _EigenStETHStrategy = "0x7D704507b76571a51d9caE8AdDAbBFd0ba0e63d3";
     _EigenDelegatorAddress = "0xA44151489861Fe9e3055d95adC98FbD462B948e7";

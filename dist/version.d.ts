@@ -1,1 +1,1 @@
-export declare const AFFINE_SDK_VERSION = "1.0.55";
+export declare const AFFINE_SDK_VERSION = "1.0.56";

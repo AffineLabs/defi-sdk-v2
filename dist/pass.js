@@ -42,7 +42,9 @@ async function ccipFee(destinationChainId, provider) {
     if (![1, 137].includes(destinationChainId)) {
         throw new Error("Invalid chain id. Only 1 and 137 are supported.");
     }
-    const affinePass = await getAffinePassBridge(destinationChainId, provider);
+    const affinePass = await getAffinePassBridge(destinationChainId, destinationChainId === 1
+        ? new ethers_1.providers.JsonRpcProvider(constants_1.PolygonRPC)
+        : new ethers_1.providers.JsonRpcProvider(constants_1.EthRPC));
     if (!affinePass) {
         console.error("ERROR TRYING TO GET CCIP FEE - AFFINE PASS BRIDGE UNDEFINED");
         throw new Error("ERROR TRYING TO GET CCIP FEE - AFFINE PASS BRIDGE UNDEFINED");
