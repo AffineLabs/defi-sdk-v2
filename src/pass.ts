@@ -22,17 +22,17 @@ export const CCIP_NETWORK_SELECTOR: Record<1 | 137, string> = {
  * @param provider
  * @returns
  */
-export async function getAffinePassBridge(
-  destinationChainId: number,
-  provider: providers.JsonRpcProvider,
-) {
+export async function getAffinePassBridge(destinationChainId: number) {
   if (destinationChainId === 1) {
     return AffinePassBridge__factory.connect(
       PassPolygonBridgeAddress,
-      provider,
+      new providers.JsonRpcProvider(PolygonRPC),
     );
   } else {
-    return AffinePassBridge__factory.connect(PassEthBridgeAddress, provider);
+    return AffinePassBridge__factory.connect(
+      PassEthBridgeAddress,
+      new providers.JsonRpcProvider(EthRPC),
+    );
   }
 }
 
@@ -61,12 +61,9 @@ export async function ccipFee(
     throw new Error("Invalid chain id. Only 1 and 137 are supported.");
   }
 
-  const affinePass = await getAffinePassBridge(
-    destinationChainId,
-    destinationChainId === 1
-      ? new providers.JsonRpcProvider(PolygonRPC)
-      : new providers.JsonRpcProvider(EthRPC),
-  );
+  console.log("GETTING CCIP FEE", destinationChainId);
+
+  const affinePass = await getAffinePassBridge(destinationChainId);
 
   if (!affinePass) {
     console.error(
@@ -103,7 +100,7 @@ export async function bridgePass(
     throw new Error("Invalid chain id. Only 1 and 137 are supported.");
   }
 
-  const bridge = await getAffinePassBridge(destinationChainId, provider);
+  const bridge = await getAffinePassBridge(destinationChainId);
 
   if (bridge) {
     const value = ethers.utils.parseEther(fee.toString());
