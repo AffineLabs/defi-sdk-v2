@@ -7,7 +7,7 @@ export declare const CCIP_NETWORK_SELECTOR: Record<1 | 137, string>;
  * @param provider
  * @returns
  */
-export declare function getAffinePassBridge(destinationChainId: number, provider: providers.JsonRpcProvider): Promise<import("./typechain").AffinePassBridge>;
+export declare function getAffinePassBridge(destinationChainId: number): Promise<import("./typechain").AffinePassBridge>;
 export declare function getAffinePass(chainId: number, provider: providers.JsonRpcProvider): Promise<import("./typechain").AffinePass>;
 /**
  * Get the fee in native asset for bridging pass to destination chain
