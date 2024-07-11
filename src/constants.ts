@@ -25,7 +25,7 @@ if (process.env.NEXT_PUBLIC_NETWORK_TYPE === "holesky") {
   _SymbioticEscrow = "0xe1A274343d23BCb148e838256665baFb250c4937";
   _RouterAddress = "0xB56aC485418304f20F21e8169db757c2261532e2";
   _WEthAddress = "0x94373a4919B3240D86eA41593D5eBa789FEF3848";
-  EthRPC = "https://ethereum-holesky.blockpi.network/v1/rpc/public";
+  EthRPC = "https://ethereum-holesky-rpc.publicnode.com";
 }
 
 // AFFINE PASS
