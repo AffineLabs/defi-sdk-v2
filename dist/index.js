@@ -363,6 +363,7 @@ async function _getVaultTVL(vaultAddress, provider) {
     return _removeDecimals(totalAssets, await asset.decimals());
 }
 async function getUltraEthTVL() {
+    console.log("ETH RPC", constants_1.EthRPC);
     return _getVaultTVL(constants_1.UltraLRTAddress, new ethers_1.providers.JsonRpcProvider(constants_1.EthRPC));
 }
 exports.getUltraEthTVL = getUltraEthTVL;
