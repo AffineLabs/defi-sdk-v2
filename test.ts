@@ -12,6 +12,7 @@ import dotenv from "dotenv";
 import { parse } from "path";
 import { get } from "http";
 import { parseEther } from "ethers/lib/utils";
+import { EthRPC } from "./src/constants";
 dotenv.config();
 
 describe("AffineRestakingSDK", () => {
@@ -24,7 +25,7 @@ describe("AffineRestakingSDK", () => {
     const rpcUrl = process.env.RPC_URL;
     if (!privateKey || !rpcUrl) {
       throw new Error(
-        "Private key or RPC are not set in the environment variables"
+        "Private key or RPC are not set in the environment variables",
       );
     }
 
@@ -102,6 +103,7 @@ describe("AffineRestakingSDK", () => {
   // });
 
   it("test rpc", async () => {
+    console.log("ETH RPC", EthRPC);
     console.log("rpc: ", await getUltraEthTVL());
     console.log("rpc: ", await getSymbioticTVL());
   });

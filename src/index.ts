@@ -633,6 +633,7 @@ async function _getVaultTVL(
 }
 
 export async function getUltraEthTVL(): Promise<string> {
+  console.log("ETH RPC", EthRPC);
   return _getVaultTVL(UltraLRTAddress, new providers.JsonRpcProvider(EthRPC));
 }
 

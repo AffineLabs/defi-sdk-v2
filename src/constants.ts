@@ -11,8 +11,8 @@ let _SymbioticEscrow = "0x02f5289e7dBF17E49631A160bdE5BaDDd36163Dd";
 let _RouterAddress = "0x379a56089623AE0c22F56417AB28319AD8DCF1Cc";
 let _WEthAddress = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2";
 
-export let EthRPC = "https://rpc.ankr.com/eth";
-export let PolygonRPC = "https://polygon-rpc.com";
+let _EthRPC = "https://rpc.ankr.com/eth";
+let _PolygonRPC = "https://polygon-rpc.com";
 
 if (process.env.NEXT_PUBLIC_NETWORK_TYPE === "holesky") {
   _EigenStETHStrategy = "0x7D704507b76571a51d9caE8AdDAbBFd0ba0e63d3";
@@ -25,7 +25,7 @@ if (process.env.NEXT_PUBLIC_NETWORK_TYPE === "holesky") {
   _SymbioticEscrow = "0xe1A274343d23BCb148e838256665baFb250c4937";
   _RouterAddress = "0xB56aC485418304f20F21e8169db757c2261532e2";
   _WEthAddress = "0x94373a4919B3240D86eA41593D5eBa789FEF3848";
-  EthRPC = "https://ethereum-holesky-rpc.publicnode.com";
+  _EthRPC = "https://ethereum-holesky-rpc.publicnode.com";
 }
 
 // AFFINE PASS
@@ -46,6 +46,8 @@ export const SymbioticVault = _SymbioticVault;
 export const SymbioticEscrow = _SymbioticEscrow;
 export const RouterAddress = _RouterAddress;
 export const WEthAddress = _WEthAddress;
+export const EthRPC = _EthRPC;
+export const PolygonRPC = _PolygonRPC;
 
 export interface WithdrawalInfo {
   staker: string;
