@@ -14,12 +14,12 @@ exports.CCIP_NETWORK_SELECTOR = {
  * @param provider
  * @returns
  */
-async function getAffinePassBridge(destinationChainId, provider) {
+async function getAffinePassBridge(destinationChainId) {
     if (destinationChainId === 1) {
-        return typechain_1.AffinePassBridge__factory.connect(constants_1.PassPolygonBridgeAddress, provider);
+        return typechain_1.AffinePassBridge__factory.connect(constants_1.PassPolygonBridgeAddress, new ethers_1.providers.JsonRpcProvider(constants_1.PolygonRPC));
     }
     else {
-        return typechain_1.AffinePassBridge__factory.connect(constants_1.PassEthBridgeAddress, provider);
+        return typechain_1.AffinePassBridge__factory.connect(constants_1.PassEthBridgeAddress, new ethers_1.providers.JsonRpcProvider(constants_1.EthRPC));
     }
 }
 exports.getAffinePassBridge = getAffinePassBridge;
@@ -42,9 +42,8 @@ async function ccipFee(destinationChainId, provider) {
     if (![1, 137].includes(destinationChainId)) {
         throw new Error("Invalid chain id. Only 1 and 137 are supported.");
     }
-    const affinePass = await getAffinePassBridge(destinationChainId, destinationChainId === 1
-        ? new ethers_1.providers.JsonRpcProvider(constants_1.PolygonRPC)
-        : new ethers_1.providers.JsonRpcProvider(constants_1.EthRPC));
+    console.log("GETTING CCIP FEE", destinationChainId);
+    const affinePass = await getAffinePassBridge(destinationChainId);
     if (!affinePass) {
         console.error("ERROR TRYING TO GET CCIP FEE - AFFINE PASS BRIDGE UNDEFINED");
         throw new Error("ERROR TRYING TO GET CCIP FEE - AFFINE PASS BRIDGE UNDEFINED");
@@ -66,7 +65,7 @@ async function bridgePass(destinationChainId, destinationAddress, tokenId, fee, 
     if (![1, 137].includes(destinationChainId)) {
         throw new Error("Invalid chain id. Only 1 and 137 are supported.");
     }
-    const bridge = await getAffinePassBridge(destinationChainId, provider);
+    const bridge = await getAffinePassBridge(destinationChainId);
     if (bridge) {
         const value = ethers_1.ethers.utils.parseEther(fee.toString());
         const gasLimit = (await bridge.estimateGas.bridgePass(exports.CCIP_NETWORK_SELECTOR[destinationChainId], destinationAddress, tokenId, { value }))
