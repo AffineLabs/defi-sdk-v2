@@ -655,6 +655,10 @@ export async function getSymbioticRate(): Promise<string> {
   return _getVaultRate(SymbioticVault, new providers.JsonRpcProvider(EthRPC));
 }
 
+export async function getUltraEthRate(): Promise<string> {
+  return _getVaultRate(UltraLRTAddress, new providers.JsonRpcProvider(EthRPC));
+}
+
 export async function convertStEthToWStEth(amount: string) {
   const provider = new providers.JsonRpcProvider(EthRPC);
   const wStEth = IWSTETH__factory.connect(WStEthAddress, provider);
