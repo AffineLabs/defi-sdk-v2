@@ -11,7 +11,7 @@ let _SymbioticVault = "0x0D53bc2BA508dFdf47084d511F13Bb2eb3f8317B";
 let _SymbioticEscrow = "0x02f5289e7dBF17E49631A160bdE5BaDDd36163Dd";
 let _RouterAddress = "0x379a56089623AE0c22F56417AB28319AD8DCF1Cc";
 let _WEthAddress = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2";
-let _EthRPC = "https://rpc.ankr.com/eth";
+let _EthRPC = "https://eth-mainnet.g.alchemy.com/v2/T8JHI8jMGKrO88j6qvZwjk8d1IxOPqtk";
 let _PolygonRPC = "https://polygon-rpc.com";
 if (process.env.NEXT_PUBLIC_NETWORK_TYPE === "holesky") {
     _EigenStETHStrategy = "0x7D704507b76571a51d9caE8AdDAbBFd0ba0e63d3";
