@@ -632,6 +632,16 @@ async function _getVaultTVL(
   return _removeDecimals(totalAssets, await asset.decimals());
 }
 
+async function _getVaultRate(
+    vaultAddress: string,
+    provider: providers.JsonRpcProvider,
+): Promise<string> {
+  const vault = UltraLRT__factory.connect(vaultAddress, provider);
+  const asset = MockERC20__factory.connect(await vault.asset(), provider);
+  const totalAssets = await vault.getRate();
+  return _removeDecimals(totalAssets, await asset.decimals());
+}
+
 export async function getUltraEthTVL(): Promise<string> {
   console.log("ETH RPC", EthRPC);
   return _getVaultTVL(UltraLRTAddress, new providers.JsonRpcProvider(EthRPC));
@@ -639,6 +649,10 @@ export async function getUltraEthTVL(): Promise<string> {
 
 export async function getSymbioticTVL(): Promise<string> {
   return _getVaultTVL(SymbioticVault, new providers.JsonRpcProvider(EthRPC));
+}
+
+export async function getSymbioticRate(): Promise<string> {
+  return _getVaultRate(SymbioticVault, new providers.JsonRpcProvider(EthRPC));
 }
 
 export async function convertStEthToWStEth(amount: string) {
