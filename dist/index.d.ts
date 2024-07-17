@@ -52,5 +52,6 @@ export declare function _addDecimals(amount: string, decimals: number): ethers.B
 export declare function getUltraEthTVL(): Promise<string>;
 export declare function getSymbioticTVL(): Promise<string>;
 export declare function getSymbioticRate(): Promise<string>;
+export declare function getUltraEthRate(): Promise<string>;
 export declare function convertStEthToWStEth(amount: string): Promise<string>;
 export declare function convertWStEthToStEth(amount: string): Promise<string>;

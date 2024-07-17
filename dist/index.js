@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.convertWStEthToStEth = exports.convertStEthToWStEth = exports.getSymbioticRate = exports.getSymbioticTVL = exports.getUltraEthTVL = exports._addDecimals = exports._removeDecimals = exports.AffineRestakingSDK = void 0;
+exports.convertWStEthToStEth = exports.convertStEthToWStEth = exports.getUltraEthRate = exports.getSymbioticRate = exports.getSymbioticTVL = exports.getUltraEthTVL = exports._addDecimals = exports._removeDecimals = exports.AffineRestakingSDK = void 0;
 const ethers_1 = require("ethers");
 const permit2_sdk_1 = require("@uniswap/permit2-sdk");
 const constants_1 = require("./constants");
@@ -381,6 +381,10 @@ async function getSymbioticRate() {
     return _getVaultRate(constants_1.SymbioticVault, new ethers_1.providers.JsonRpcProvider(constants_1.EthRPC));
 }
 exports.getSymbioticRate = getSymbioticRate;
+async function getUltraEthRate() {
+    return _getVaultRate(constants_1.UltraLRTAddress, new ethers_1.providers.JsonRpcProvider(constants_1.EthRPC));
+}
+exports.getUltraEthRate = getUltraEthRate;
 async function convertStEthToWStEth(amount) {
     const provider = new ethers_1.providers.JsonRpcProvider(constants_1.EthRPC);
     const wStEth = typechain_1.IWSTETH__factory.connect(constants_1.WStEthAddress, provider);
