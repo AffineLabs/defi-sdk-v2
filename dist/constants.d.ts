@@ -15,8 +15,6 @@ export declare const RouterAddress: string;
 export declare const WEthAddress: string;
 export declare const EthRPC: string;
 export declare const PolygonRPC: string;
-export declare const XUltraLRTAddressSEPOLIA: string;
-export declare const XUltraLRTAddressBSC: string;
 export interface WithdrawalInfo {
     staker: string;
     delegatedTo: string;
