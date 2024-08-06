@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.XUltraLRTAddress = exports.PolygonRPC = exports.EthRPC = exports.WEthAddress = exports.RouterAddress = exports.SymbioticEscrow = exports.SymbioticVault = exports.EscrowAddress = exports.WStEthAddress = exports.StETHAddress = exports.UltraLRTAddress = exports.EigenDelegatorAddress = exports.EigenStETHStrategy = exports.PassEthBridgeAddress = exports.PassEthAddress = exports.PassPolygonBridgeAddress = exports.PassPolygonAddress = void 0;
+exports.XUltraLRTAddressBSC = exports.XUltraLRTAddressLINEA = exports.PolygonRPC = exports.EthRPC = exports.WEthAddress = exports.RouterAddress = exports.SymbioticEscrow = exports.SymbioticVault = exports.EscrowAddress = exports.WStEthAddress = exports.StETHAddress = exports.UltraLRTAddress = exports.EigenDelegatorAddress = exports.EigenStETHStrategy = exports.PassEthBridgeAddress = exports.PassEthAddress = exports.PassPolygonBridgeAddress = exports.PassPolygonAddress = void 0;
 let _EigenStETHStrategy = "0x93c4b944D05dfe6df7645A86cd2206016c51564D";
 let _EigenDelegatorAddress = "0x39053D51B77DC0d36036Fc1fCc8Cb819df8Ef37A";
 let _UltraLRTAddress = "0xcbC632833687DacDcc7DfaC96F6c5989381f4B47";
@@ -11,7 +11,8 @@ let _SymbioticVault = "0xF0a949B935e367A94cDFe0F2A54892C2BC7b2131";
 let _SymbioticEscrow = "0xaE48EBEB1A00B66354e251b36267039749Ad48dD";
 let _RouterAddress = "0x379a56089623AE0c22F56417AB28319AD8DCF1Cc";
 let _WEthAddress = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2";
-let _XUltraLRTAddress = "0x633dc76965e520a777378CFc6299d925B443C224";
+let _XUltraLRTAddressLINEA = "0x633dc76965e520a777378CFc6299d925B443C224";
+let _XUltraLRTAddressBSC = "0x7e80886220B586942a200c92AD1273A3e128086b";
 let _EthRPC = "https://eth-mainnet.g.alchemy.com/v2/T8JHI8jMGKrO88j6qvZwjk8d1IxOPqtk";
 let _PolygonRPC = "https://polygon-rpc.com";
 if (process.env.NEXT_PUBLIC_NETWORK_TYPE === "holesky") {
@@ -44,4 +45,5 @@ exports.RouterAddress = _RouterAddress;
 exports.WEthAddress = _WEthAddress;
 exports.EthRPC = _EthRPC;
 exports.PolygonRPC = _PolygonRPC;
-exports.XUltraLRTAddress = _XUltraLRTAddress;
+exports.XUltraLRTAddressLINEA = _XUltraLRTAddressLINEA;
+exports.XUltraLRTAddressBSC = _XUltraLRTAddressBSC;

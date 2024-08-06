@@ -3,11 +3,11 @@ export declare class AffineRestakingSDK {
     readonly provider: providers.JsonRpcProvider;
     readonly signer: ethers.Signer;
     constructor(provider: providers.JsonRpcProvider, signer?: ethers.Signer);
-    deposit_native(tokenAddress: string, amount: string, receiver: string): Promise<ethers.providers.TransactionResponse>;
-    transferRemoteWithAddress(destination: number, to: string, amount: string): Promise<ethers.providers.TransactionResponse>;
-    transferRemoteWithoutAddress(destination: number, amount: string): Promise<ethers.providers.TransactionResponse>;
-    quoteTransferRemoteWithAddress(destination: number, to: string, amount: string): Promise<BigNumber>;
-    quoteTransferRemoteWithoutAddress(destination: number, amount: string): Promise<BigNumber>;
+    deposit_native(contract: string, tokenAddress: string, amount: string, receiver: string): Promise<ethers.providers.TransactionResponse>;
+    transferRemoteWithAddress(from: string, destination: number, to: string, amount: string): Promise<ethers.providers.TransactionResponse>;
+    transferRemoteWithoutAddress(from: string, destination: number, amount: string): Promise<ethers.providers.TransactionResponse>;
+    quoteTransferRemoteWithAddress(from: string, destination: number, to: string, amount: string): Promise<BigNumber>;
+    quoteTransferRemoteWithoutAddress(from: string, destination: number, amount: string): Promise<BigNumber>;
     _getVaultBalanceByAsset(vaultAddress: string): Promise<string>;
     getUltraEthBalance(): Promise<string>;
     getSymbioticBalance(): Promise<string>;

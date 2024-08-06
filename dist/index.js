@@ -24,8 +24,8 @@ class AffineRestakingSDK {
         this.signer = signer || this.provider.getSigner();
     }
     // ========= BRIDGING =========
-    async deposit_native(tokenAddress, amount, receiver) {
-        const vault = new ethers_1.ethers.Contract(constants_1.XUltraLRTAddress, XUltraLRT_json_1.default, this.signer);
+    async deposit_native(contract, tokenAddress, amount, receiver) {
+        const vault = new ethers_1.ethers.Contract(contract, XUltraLRT_json_1.default, this.signer);
         const assetUnits = ethers_1.ethers.utils.parseUnits(amount, await vault.decimals());
         const tx = await vault.deposit(assetUnits, receiver, {
             value: assetUnits, // Assuming native token deposit, remove if unnecessary
@@ -33,8 +33,8 @@ class AffineRestakingSDK {
         return tx;
     }
     // Transfer remote with address
-    async transferRemoteWithAddress(destination, to, amount) {
-        const router = new ethers_1.ethers.Contract(constants_1.XUltraLRTAddress, XUltraLRT_json_1.default, this.signer);
+    async transferRemoteWithAddress(from, destination, to, amount) {
+        const router = new ethers_1.ethers.Contract(from, XUltraLRT_json_1.default, this.signer);
         const assetUnits = ethers_1.ethers.utils.parseUnits(amount, await router.decimals());
         const tx = await router.transferRemote(destination, to, assetUnits, {
             value: assetUnits, // Assuming native token transfer, remove if unnecessary
@@ -42,8 +42,8 @@ class AffineRestakingSDK {
         return tx;
     }
     // Transfer remote without address
-    async transferRemoteWithoutAddress(destination, amount) {
-        const router = new ethers_1.ethers.Contract(constants_1.XUltraLRTAddress, XUltraLRT_json_1.default, this.signer);
+    async transferRemoteWithoutAddress(from, destination, amount) {
+        const router = new ethers_1.ethers.Contract(from, XUltraLRT_json_1.default, this.signer);
         const assetUnits = ethers_1.ethers.utils.parseUnits(amount, await router.decimals());
         const tx = await router.transferRemote(destination, assetUnits, {
             value: assetUnits, // Assuming native token transfer, remove if unnecessary
@@ -51,15 +51,15 @@ class AffineRestakingSDK {
         return tx;
     }
     // Quote transfer remote with address
-    async quoteTransferRemoteWithAddress(destination, to, amount) {
-        const router = new ethers_1.ethers.Contract(constants_1.XUltraLRTAddress, XUltraLRT_json_1.default, this.signer);
+    async quoteTransferRemoteWithAddress(from, destination, to, amount) {
+        const router = new ethers_1.ethers.Contract(from, XUltraLRT_json_1.default, this.signer);
         const assetUnits = ethers_1.ethers.utils.parseUnits(amount, await router.decimals());
         const fees = await router.quoteTransferRemote(destination, to, assetUnits);
         return fees;
     }
     // Quote transfer remote without address
-    async quoteTransferRemoteWithoutAddress(destination, amount) {
-        const router = new ethers_1.ethers.Contract(constants_1.XUltraLRTAddress, XUltraLRT_json_1.default, this.signer);
+    async quoteTransferRemoteWithoutAddress(from, destination, amount) {
+        const router = new ethers_1.ethers.Contract(from, XUltraLRT_json_1.default, this.signer);
         const assetUnits = ethers_1.ethers.utils.parseUnits(amount, await router.decimals());
         const fees = await router.quoteTransferRemote(destination, assetUnits);
         return fees;
