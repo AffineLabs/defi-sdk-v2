@@ -10,7 +10,7 @@ let _SymbioticVault = "0xF0a949B935e367A94cDFe0F2A54892C2BC7b2131";
 let _SymbioticEscrow = "0xaE48EBEB1A00B66354e251b36267039749Ad48dD";
 let _RouterAddress = "0x379a56089623AE0c22F56417AB28319AD8DCF1Cc";
 let _WEthAddress = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2";
-let _XUltraLRTAddressLINEA = "0x633dc76965e520a777378CFc6299d925B443C224";
+let _XUltraLRTAddressSEPOLIA = "0x633dc76965e520a777378CFc6299d925B443C224";
 let _XUltraLRTAddressBSC = "0x7e80886220B586942a200c92AD1273A3e128086b"
 
 let _EthRPC =
@@ -51,7 +51,7 @@ export const RouterAddress = _RouterAddress;
 export const WEthAddress = _WEthAddress;
 export const EthRPC = _EthRPC;
 export const PolygonRPC = _PolygonRPC;
-export const XUltraLRTAddressLINEA = _XUltraLRTAddressLINEA;
+export const XUltraLRTAddressSEPOLIA = _XUltraLRTAddressSEPOLIA;
 export const XUltraLRTAddressBSC = _XUltraLRTAddressBSC
 
 export interface WithdrawalInfo {

@@ -5,8 +5,9 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
-    "build": "npm run gentype && tsc",
+    "build": "npm run gentype && gentype-bridging && tsc",
     "gentype": "typechain --target ethers-v5 --out-dir ./src/typechain './node_modules/contracts/abi/*.json'",
+    "gentype-bridging": "typechain --target ethers-v5 --out-dir src/bridge-typegen './src/bridge-abis/*.json'",
     "lint": "npx prettier --write ."
   },
   "keywords": [],

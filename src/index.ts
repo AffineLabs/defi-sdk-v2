@@ -28,7 +28,6 @@ import ULTRAETH_ABI from "./abis/ultraEth.json";
 import ESCROW_ABI from "./abis/withdrawalEscrow.json";
 import DELEGATION_MANAGER_ABI from "./abis/delegationManager.json";
 import {
-  AffinePass__factory,
   ISignatureTransfer__factory,
   IWSTETH__factory,
   MockERC20__factory,
@@ -38,6 +37,7 @@ import {
 } from "./typechain";
 import { WithdrawalInfoStruct } from "./typechain/EigenDelegator";
 import { bridgePass, ccipFee, getPassBalance } from "./pass";
+import {XUltraLRT__factory} from "./bridge-typegen";
 
 export class AffineRestakingSDK {
   public readonly provider: providers.JsonRpcProvider;
@@ -61,9 +61,9 @@ export class AffineRestakingSDK {
 
   // Transfer remote with address
   async transferRemoteWithAddress(from: string, destination: number, to: string, amount: string): Promise<ethers.providers.TransactionResponse> {
-    const router = new ethers.Contract(from, XUltraLRTABI, this.signer);
+    const router = XUltraLRT__factory.connect(from, this.signer);
     const assetUnits = ethers.utils.parseUnits(amount, await router.decimals());
-    const tx = await router.transferRemote(destination, to, assetUnits, {
+    const tx = await router["transferRemote(uint32,address,uint256)"](destination, to, assetUnits, {
       value: assetUnits, // Assuming native token transfer, remove if unnecessary
     });
     return tx;
