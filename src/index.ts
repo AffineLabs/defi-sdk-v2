@@ -1,11 +1,5 @@
-import { BigNumber, ethers, providers } from "ethers";
-import {
-  AllowanceProvider,
-  PERMIT2_ADDRESS,
-  PermitTransferFrom,
-  SignatureTransfer,
-} from "@uniswap/permit2-sdk";
-import XUltraLRTABI from "./abis/XUltraLRT.json"
+import {BigNumber, ethers, providers} from "ethers";
+import {AllowanceProvider, PERMIT2_ADDRESS, PermitTransferFrom, SignatureTransfer,} from "@uniswap/permit2-sdk";
 
 import {
   EigenDelegatorAddress,
@@ -35,9 +29,10 @@ import {
   UltraLRTRouter__factory,
   WithdrawalEscrowV2__factory,
 } from "./typechain";
-import { WithdrawalInfoStruct } from "./typechain/EigenDelegator";
-import { bridgePass, ccipFee, getPassBalance } from "./pass";
+import {WithdrawalInfoStruct} from "./typechain/EigenDelegator";
+import {bridgePass, ccipFee, getPassBalance} from "./pass";
 import {XUltraLRT__factory} from "./bridge-typegen";
+import {NETWORK_PARAMS} from "./chain-constants";
 
 export class AffineRestakingSDK {
   public readonly provider: providers.JsonRpcProvider;
@@ -50,48 +45,57 @@ export class AffineRestakingSDK {
 
   // ========= BRIDGING =========
 
-  async deposit_native(contract: string, tokenAddress: string, amount: string, receiver: string): Promise<ethers.providers.TransactionResponse> {
-    const vault = new ethers.Contract(contract, XUltraLRTABI, this.signer);
-    const assetUnits = ethers.utils.parseUnits(amount, await vault.decimals());
-    const tx = await vault.deposit(assetUnits, receiver, {
-      value: assetUnits, // Assuming native token deposit, remove if unnecessary
-    });
-    return tx;
+  async deposit_to_chain(contract: string, tokenAddress: string, amount: string, receiver: string): Promise<void> {
+    // TODO implement @maruf
+  }
+
+  async get_balance_from_chain(chainId : number): Promise<number> {
+    const contract = NETWORK_PARAMS[chainId].xUltraLRTAddress;
+    if(!contract) return 0;
+    const router = XUltraLRT__factory.connect(contract, this.signer);
+
+    const balance = await router.balanceOf(await this.signer.getAddress());
+    return balance.toNumber();
   }
 
   // Transfer remote with address
-  async transferRemoteWithAddress(from: string, destination: number, to: string, amount: string): Promise<ethers.providers.TransactionResponse> {
-    const router = XUltraLRT__factory.connect(from, this.signer);
+  async transferRemoteWithAddress(chainID: number, destination: number, to: string, amount: string): Promise<ethers.providers.TransactionResponse> {
+    const contract = NETWORK_PARAMS[chainID].xUltraLRTAddress;
+    if(!contract) throw new Error("Invalid chainID Or chain ID doesnt have contract deployment")
+    const router = XUltraLRT__factory.connect(contract, this.signer);
     const assetUnits = ethers.utils.parseUnits(amount, await router.decimals());
-    const tx = await router["transferRemote(uint32,address,uint256)"](destination, to, assetUnits, {
+    return await router["transferRemote(uint32,address,uint256)"](destination, to, assetUnits, {
       value: assetUnits, // Assuming native token transfer, remove if unnecessary
     });
-    return tx;
   }
 
   // Transfer remote without address
-  async transferRemoteWithoutAddress(from: string, destination: number, amount: string): Promise<ethers.providers.TransactionResponse> {
-    const router = new ethers.Contract(from, XUltraLRTABI, this.signer);
+  async transferRemoteWithoutAddress(chainID: number, destination: number, amount: string): Promise<ethers.providers.TransactionResponse> {
+    const contract = NETWORK_PARAMS[chainID].xUltraLRTAddress;
+    if(!contract) throw new Error("Invalid chainID Or chain ID doesnt have contract deployment")
+    const router = XUltraLRT__factory.connect(contract, this.signer);
     const assetUnits = ethers.utils.parseUnits(amount, await router.decimals());
-    const tx = await router.transferRemote(destination, assetUnits, {
+    return await router["transferRemote(uint32,uint256)"](destination, assetUnits, {
       value: assetUnits, // Assuming native token transfer, remove if unnecessary
     });
-    return tx;
   }
 
   // Quote transfer remote with address
-  async quoteTransferRemoteWithAddress(from: string, destination: number, to: string, amount: string): Promise<BigNumber> {
-    const router = new ethers.Contract(from, XUltraLRTABI, this.signer);
+  async quoteTransferRemoteWithAddress(chainID: number, destination: number, to: string, amount: string): Promise<BigNumber> {
+    const contract = NETWORK_PARAMS[chainID].xUltraLRTAddress;
+    if(!contract) throw new Error("Invalid chainID Or chain ID doesnt have contract deployment")
+    const router = XUltraLRT__factory.connect(contract, this.signer);
     const assetUnits = ethers.utils.parseUnits(amount, await router.decimals());
-    const fees = await router.quoteTransferRemote(destination, to, assetUnits);
-    return fees;
+    return await router["quoteTransferRemote(uint32,address,uint256)"](destination, to, assetUnits);
   }
 
   // Quote transfer remote without address
-  async quoteTransferRemoteWithoutAddress(from: string, destination: number, amount: string): Promise<BigNumber> {
-    const router = new ethers.Contract(from, XUltraLRTABI, this.signer);
+  async quoteTransferRemoteWithoutAddress(chainID: number, destination: number, amount: string): Promise<BigNumber> {
+    const contract = NETWORK_PARAMS[chainID].xUltraLRTAddress;
+    if(!contract) throw new Error("Invalid chainID Or chain ID doesnt have contract deployment")
+    const router = XUltraLRT__factory.connect(contract, this.signer);
     const assetUnits = ethers.utils.parseUnits(amount, await router.decimals());
-    const fees = await router.quoteTransferRemote(destination, assetUnits);
+    const fees = await router["quoteTransferRemote(uint32,uint256)"](destination, assetUnits);
     return fees;
   }
 

@@ -16,7 +16,7 @@ import {
   WithdrawalEscrowV2,
 } from "./typechain";
 import { ethers } from "ethers";
-import { NETWORK_PARAMS } from "./sdk-v1-constants";
+import {NETWORK_PARAMS} from "./chain-constants";
 
 export interface GasInfo {
   txnCost: string;
@@ -194,4 +194,5 @@ export interface NetworkParams {
   };
   rpcUrls: string[];
   blockExplorerUrls?: string[];
+  xUltraLRTAddress?: string;
 }
