@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.convertWStEthToStEth = exports.convertStEthToWStEth = exports.getUltraEthRate = exports.getSymbioticRate = exports.getSymbioticTVL = exports.getUltraEthTVL = exports._addDecimals = exports._removeDecimals = exports.AffineRestakingSDK = void 0;
 const ethers_1 = require("ethers");
 const permit2_sdk_1 = require("@uniswap/permit2-sdk");
+const XUltraLRT_json_1 = __importDefault(require("./abis/XUltraLRT.json"));
 const constants_1 = require("./constants");
 // ABIs
 const erc20_json_1 = __importDefault(require("./abis/erc20.json"));
@@ -21,6 +22,47 @@ class AffineRestakingSDK {
     constructor(provider, signer) {
         this.provider = provider;
         this.signer = signer || this.provider.getSigner();
+    }
+    // ========= BRIDGING =========
+    async deposit_native(tokenAddress, amount, receiver) {
+        const vault = new ethers_1.ethers.Contract(constants_1.XUltraLRTAddress, XUltraLRT_json_1.default, this.signer);
+        const assetUnits = ethers_1.ethers.utils.parseUnits(amount, await vault.decimals());
+        const tx = await vault.deposit(assetUnits, receiver, {
+            value: assetUnits, // Assuming native token deposit, remove if unnecessary
+        });
+        return tx;
+    }
+    // Transfer remote with address
+    async transferRemoteWithAddress(destination, to, amount) {
+        const router = new ethers_1.ethers.Contract(constants_1.XUltraLRTAddress, XUltraLRT_json_1.default, this.signer);
+        const assetUnits = ethers_1.ethers.utils.parseUnits(amount, await router.decimals());
+        const tx = await router.transferRemote(destination, to, assetUnits, {
+            value: assetUnits, // Assuming native token transfer, remove if unnecessary
+        });
+        return tx;
+    }
+    // Transfer remote without address
+    async transferRemoteWithoutAddress(destination, amount) {
+        const router = new ethers_1.ethers.Contract(constants_1.XUltraLRTAddress, XUltraLRT_json_1.default, this.signer);
+        const assetUnits = ethers_1.ethers.utils.parseUnits(amount, await router.decimals());
+        const tx = await router.transferRemote(destination, assetUnits, {
+            value: assetUnits, // Assuming native token transfer, remove if unnecessary
+        });
+        return tx;
+    }
+    // Quote transfer remote with address
+    async quoteTransferRemoteWithAddress(destination, to, amount) {
+        const router = new ethers_1.ethers.Contract(constants_1.XUltraLRTAddress, XUltraLRT_json_1.default, this.signer);
+        const assetUnits = ethers_1.ethers.utils.parseUnits(amount, await router.decimals());
+        const fees = await router.quoteTransferRemote(destination, to, assetUnits);
+        return fees;
+    }
+    // Quote transfer remote without address
+    async quoteTransferRemoteWithoutAddress(destination, amount) {
+        const router = new ethers_1.ethers.Contract(constants_1.XUltraLRTAddress, XUltraLRT_json_1.default, this.signer);
+        const assetUnits = ethers_1.ethers.utils.parseUnits(amount, await router.decimals());
+        const fees = await router.quoteTransferRemote(destination, assetUnits);
+        return fees;
     }
     async _getVaultBalanceByAsset(vaultAddress) {
         const address = await this.signer.getAddress();
