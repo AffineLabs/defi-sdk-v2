@@ -12,14 +12,13 @@ import {
   EigenStETHStrategy,
   EscrowAddress,
   EthRPC,
-  PassEthAddress,
   RouterAddress,
   StETHAddress,
   SymbioticEscrow,
   SymbioticVault,
   UltraLRTAddress,
   WEthAddress,
-  WStEthAddress, XUltraLRTAddress,
+  WStEthAddress,
 } from "./constants";
 
 // ABIs
@@ -51,8 +50,8 @@ export class AffineRestakingSDK {
 
   // ========= BRIDGING =========
 
-  async deposit_native(tokenAddress: string, amount: string, receiver: string): Promise<ethers.providers.TransactionResponse> {
-    const vault = new ethers.Contract(XUltraLRTAddress, XUltraLRTABI, this.signer);
+  async deposit_native(contract: string, tokenAddress: string, amount: string, receiver: string): Promise<ethers.providers.TransactionResponse> {
+    const vault = new ethers.Contract(contract, XUltraLRTABI, this.signer);
     const assetUnits = ethers.utils.parseUnits(amount, await vault.decimals());
     const tx = await vault.deposit(assetUnits, receiver, {
       value: assetUnits, // Assuming native token deposit, remove if unnecessary
@@ -61,8 +60,8 @@ export class AffineRestakingSDK {
   }
 
   // Transfer remote with address
-  async transferRemoteWithAddress(destination: number, to: string, amount: string): Promise<ethers.providers.TransactionResponse> {
-    const router = new ethers.Contract(XUltraLRTAddress, XUltraLRTABI, this.signer);
+  async transferRemoteWithAddress(from: string, destination: number, to: string, amount: string): Promise<ethers.providers.TransactionResponse> {
+    const router = new ethers.Contract(from, XUltraLRTABI, this.signer);
     const assetUnits = ethers.utils.parseUnits(amount, await router.decimals());
     const tx = await router.transferRemote(destination, to, assetUnits, {
       value: assetUnits, // Assuming native token transfer, remove if unnecessary
@@ -71,8 +70,8 @@ export class AffineRestakingSDK {
   }
 
   // Transfer remote without address
-  async transferRemoteWithoutAddress(destination: number, amount: string): Promise<ethers.providers.TransactionResponse> {
-    const router = new ethers.Contract(XUltraLRTAddress, XUltraLRTABI, this.signer);
+  async transferRemoteWithoutAddress(from: string, destination: number, amount: string): Promise<ethers.providers.TransactionResponse> {
+    const router = new ethers.Contract(from, XUltraLRTABI, this.signer);
     const assetUnits = ethers.utils.parseUnits(amount, await router.decimals());
     const tx = await router.transferRemote(destination, assetUnits, {
       value: assetUnits, // Assuming native token transfer, remove if unnecessary
@@ -81,16 +80,16 @@ export class AffineRestakingSDK {
   }
 
   // Quote transfer remote with address
-  async quoteTransferRemoteWithAddress(destination: number, to: string, amount: string): Promise<BigNumber> {
-    const router = new ethers.Contract(XUltraLRTAddress, XUltraLRTABI, this.signer);
+  async quoteTransferRemoteWithAddress(from: string, destination: number, to: string, amount: string): Promise<BigNumber> {
+    const router = new ethers.Contract(from, XUltraLRTABI, this.signer);
     const assetUnits = ethers.utils.parseUnits(amount, await router.decimals());
     const fees = await router.quoteTransferRemote(destination, to, assetUnits);
     return fees;
   }
 
   // Quote transfer remote without address
-  async quoteTransferRemoteWithoutAddress(destination: number, amount: string): Promise<BigNumber> {
-    const router = new ethers.Contract(XUltraLRTAddress, XUltraLRTABI, this.signer);
+  async quoteTransferRemoteWithoutAddress(from: string, destination: number, amount: string): Promise<BigNumber> {
+    const router = new ethers.Contract(from, XUltraLRTABI, this.signer);
     const assetUnits = ethers.utils.parseUnits(amount, await router.decimals());
     const fees = await router.quoteTransferRemote(destination, assetUnits);
     return fees;
