@@ -5,6 +5,7 @@ import {
   PermitTransferFrom,
   SignatureTransfer,
 } from "@uniswap/permit2-sdk";
+import XUltraLRTABI from "./abis/XUltraLRT.json"
 
 import {
   EigenDelegatorAddress,
@@ -18,7 +19,7 @@ import {
   SymbioticVault,
   UltraLRTAddress,
   WEthAddress,
-  WStEthAddress,
+  WStEthAddress, XUltraLRTAddress,
 } from "./constants";
 
 // ABIs
@@ -46,6 +47,53 @@ export class AffineRestakingSDK {
   constructor(provider: providers.JsonRpcProvider, signer?: ethers.Signer) {
     this.provider = provider;
     this.signer = signer || this.provider.getSigner();
+  }
+
+  // ========= BRIDGING =========
+
+  async deposit_native(tokenAddress: string, amount: string, receiver: string): Promise<ethers.providers.TransactionResponse> {
+    const vault = new ethers.Contract(XUltraLRTAddress, XUltraLRTABI, this.signer);
+    const assetUnits = ethers.utils.parseUnits(amount, await vault.decimals());
+    const tx = await vault.deposit(assetUnits, receiver, {
+      value: assetUnits, // Assuming native token deposit, remove if unnecessary
+    });
+    return tx;
+  }
+
+  // Transfer remote with address
+  async transferRemoteWithAddress(destination: number, to: string, amount: string): Promise<ethers.providers.TransactionResponse> {
+    const router = new ethers.Contract(XUltraLRTAddress, XUltraLRTABI, this.signer);
+    const assetUnits = ethers.utils.parseUnits(amount, await router.decimals());
+    const tx = await router.transferRemote(destination, to, assetUnits, {
+      value: assetUnits, // Assuming native token transfer, remove if unnecessary
+    });
+    return tx;
+  }
+
+  // Transfer remote without address
+  async transferRemoteWithoutAddress(destination: number, amount: string): Promise<ethers.providers.TransactionResponse> {
+    const router = new ethers.Contract(XUltraLRTAddress, XUltraLRTABI, this.signer);
+    const assetUnits = ethers.utils.parseUnits(amount, await router.decimals());
+    const tx = await router.transferRemote(destination, assetUnits, {
+      value: assetUnits, // Assuming native token transfer, remove if unnecessary
+    });
+    return tx;
+  }
+
+  // Quote transfer remote with address
+  async quoteTransferRemoteWithAddress(destination: number, to: string, amount: string): Promise<BigNumber> {
+    const router = new ethers.Contract(XUltraLRTAddress, XUltraLRTABI, this.signer);
+    const assetUnits = ethers.utils.parseUnits(amount, await router.decimals());
+    const fees = await router.quoteTransferRemote(destination, to, assetUnits);
+    return fees;
+  }
+
+  // Quote transfer remote without address
+  async quoteTransferRemoteWithoutAddress(destination: number, amount: string): Promise<BigNumber> {
+    const router = new ethers.Contract(XUltraLRTAddress, XUltraLRTABI, this.signer);
+    const assetUnits = ethers.utils.parseUnits(amount, await router.decimals());
+    const fees = await router.quoteTransferRemote(destination, assetUnits);
+    return fees;
   }
 
   async _getVaultBalanceByAsset(vaultAddress: string): Promise<string> {
