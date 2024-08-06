@@ -22,7 +22,7 @@ export const NETWORK_TYPE: "testnet" | "mainnet" =
   process.env.NEXT_PUBLIC_NETWORK_TYPE === "mainnet" ? "mainnet" : "testnet";
 
 export const ALLOWED_CHAIN_IDS: AllowedChainId[] =
-  NETWORK_TYPE === "mainnet" ? [1, 137] : [5, 80001, 17000];
+  NETWORK_TYPE === "mainnet" ? [1] : [17000, 11155111, 97];
 
 export const MAX_UINT = ethers.BigNumber.from(2).pow(256).sub(1);
 
