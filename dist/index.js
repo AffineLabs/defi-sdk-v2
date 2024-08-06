@@ -16,6 +16,7 @@ const withdrawalEscrow_json_1 = __importDefault(require("./abis/withdrawalEscrow
 const delegationManager_json_1 = __importDefault(require("./abis/delegationManager.json"));
 const typechain_1 = require("./typechain");
 const pass_1 = require("./pass");
+const bridge_typegen_1 = require("./bridge-typegen");
 class AffineRestakingSDK {
     provider;
     signer;
@@ -34,9 +35,9 @@ class AffineRestakingSDK {
     }
     // Transfer remote with address
     async transferRemoteWithAddress(from, destination, to, amount) {
-        const router = new ethers_1.ethers.Contract(from, XUltraLRT_json_1.default, this.signer);
+        const router = bridge_typegen_1.XUltraLRT__factory.connect(from, this.signer);
         const assetUnits = ethers_1.ethers.utils.parseUnits(amount, await router.decimals());
-        const tx = await router.transferRemote(destination, to, assetUnits, {
+        const tx = await router["transferRemote(uint32,address,uint256)"](destination, to, assetUnits, {
             value: assetUnits, // Assuming native token transfer, remove if unnecessary
         });
         return tx;
