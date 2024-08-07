@@ -49,7 +49,7 @@ export class AffineRestakingSDK {
     // TODO implement @maruf
   }
 
-  async get_balance_from_chain(chainId : number): Promise<number> {
+  async getBalanceFromChain(chainId : number): Promise<number> {
     const contract = NETWORK_PARAMS[chainId].xUltraLRTAddress;
     if(!contract) return 0;
     const router = XUltraLRT__factory.connect(contract, this.signer);

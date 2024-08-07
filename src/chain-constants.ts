@@ -6,8 +6,8 @@ import {
     IS_USING_FORKED_MAINNET
 } from "./sdk-v1-constants";
 
-let _XUltraLRTAddressSEPOLIA = "0x633dc76965e520a777378CFc6299d925B443C224";
-let _XUltraLRTAddressBSC = "0x7e80886220B586942a200c92AD1273A3e128086b"
+const _XUltraLRTAddressSEPOLIA = "0x633dc76965e520a777378CFc6299d925B443C224";
+const _XUltraLRTAddressBSC = "0x7e80886220B586942a200c92AD1273A3e128086b"
 
 export const NETWORK_PARAMS: { [index: number]: NetworkParams } = {
     1: {
