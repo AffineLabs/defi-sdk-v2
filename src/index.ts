@@ -55,7 +55,7 @@ export class AffineRestakingSDK {
     const router = XUltraLRT__factory.connect(contract, this.signer);
 
     const balance = await router.balanceOf(await this.signer.getAddress());
-    return balance.toNumber();
+    return Number(_removeDecimals(balance, await router.decimals()));
   }
 
   // Transfer remote with address
