@@ -103,8 +103,8 @@ export const NETWORK_PARAMS: { [index: number]: NetworkParams } = {
     97: {
         chainName: "BSC Testnet",
         nativeCurrency: {
-            name: "Ether",
-            symbol: "ETH",
+            name: "BSC Testnet",
+            symbol: "tBNB",
             decimals: 18,
         },
         rpcUrls: ["https://data-seed-prebsc-1-s1.binance.org:8545/"],
