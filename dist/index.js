@@ -28,7 +28,7 @@ class AffineRestakingSDK {
     async deposit_to_chain(contract, tokenAddress, amount, receiver) {
         // TODO implement @maruf
     }
-    async get_balance_from_chain(chainId) {
+    async getBalanceFromChain(chainId) {
         const contract = chain_constants_1.NETWORK_PARAMS[chainId].xUltraLRTAddress;
         if (!contract)
             return 0;

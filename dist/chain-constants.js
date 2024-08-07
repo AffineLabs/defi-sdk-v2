@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NETWORK_PARAMS = void 0;
 const sdk_v1_constants_1 = require("./sdk-v1-constants");
-let _XUltraLRTAddressSEPOLIA = "0x633dc76965e520a777378CFc6299d925B443C224";
-let _XUltraLRTAddressBSC = "0x7e80886220B586942a200c92AD1273A3e128086b";
+const _XUltraLRTAddressSEPOLIA = "0x633dc76965e520a777378CFc6299d925B443C224";
+const _XUltraLRTAddressBSC = "0x7e80886220B586942a200c92AD1273A3e128086b";
 exports.NETWORK_PARAMS = {
     1: {
         chainName: `Ethereum Mainnet${sdk_v1_constants_1.IS_USING_FORKED_MAINNET ? " (Forked)" : ""}`,
