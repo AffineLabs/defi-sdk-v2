@@ -34,7 +34,7 @@ class AffineRestakingSDK {
             return 0;
         const router = bridge_typegen_1.XUltraLRT__factory.connect(contract, this.signer);
         const balance = await router.balanceOf(await this.signer.getAddress());
-        return balance.toNumber();
+        return Number(_removeDecimals(balance, await router.decimals()));
     }
     // Transfer remote with address
     async transferRemoteWithAddress(chainID, destination, to, amount) {
