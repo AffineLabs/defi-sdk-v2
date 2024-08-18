@@ -28,6 +28,24 @@ class AffineRestakingSDK {
     async deposit_to_chain(contract, tokenAddress, amount, receiver) {
         // TODO implement @maruf
     }
+    async doMainnetTransfer(chainIdFrom, chainIdTo, to, amount) {
+        const contract = chain_constants_1.NETWORK_PARAMS[chainIdFrom].xUltraLRTAddress;
+        if (!contract)
+            return 0;
+        const xultraLRT = bridge_typegen_1.XUltraLRT__factory.connect(contract, this.signer);
+        const router = bridge_typegen_1.Routerabi__factory.connect(constants_1.XUltraLRTRouterAddress, this.signer);
+        const assetUnits = ethers_1.ethers.utils.parseUnits(amount, await xultraLRT.decimals());
+        // Case 1: With an address
+        if (to) {
+            return await router["transferRemoteUltraLRT(address,uint32,address,uint256)"](contract, chainIdTo, to, assetUnits, {
+                value: assetUnits, // Assuming native token transfer, remove if unnecessary
+            });
+        }
+        // Case 2: Without an address
+        return await router["transferRemoteUltraLRT(address,uint32,uint256)"](contract, chainIdTo, assetUnits, {
+            value: assetUnits, // Assuming native token transfer, remove if unnecessary
+        });
+    }
     async getBalanceFromChain(chainId) {
         const contract = chain_constants_1.NETWORK_PARAMS[chainId].xUltraLRTAddress;
         if (!contract)

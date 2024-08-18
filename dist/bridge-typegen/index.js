@@ -23,7 +23,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.XUltraLRT__factory = exports.factories = void 0;
+exports.XUltraLRT__factory = exports.Routerabi__factory = exports.factories = void 0;
 exports.factories = __importStar(require("./factories"));
+var Routerabi__factory_1 = require("./factories/Routerabi__factory");
+Object.defineProperty(exports, "Routerabi__factory", { enumerable: true, get: function () { return Routerabi__factory_1.Routerabi__factory; } });
 var XUltraLRT__factory_1 = require("./factories/XUltraLRT__factory");
 Object.defineProperty(exports, "XUltraLRT__factory", { enumerable: true, get: function () { return XUltraLRT__factory_1.XUltraLRT__factory; } });

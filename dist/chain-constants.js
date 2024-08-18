@@ -4,6 +4,8 @@ exports.NETWORK_PARAMS = void 0;
 const sdk_v1_constants_1 = require("./sdk-v1-constants");
 const _XUltraLRTAddressSEPOLIA = "0x633dc76965e520a777378CFc6299d925B443C224";
 const _XUltraLRTAddressBSC = "0x7e80886220B586942a200c92AD1273A3e128086b";
+const _XUltraLRTAddressBLAST = "0x7e80886220B586942a200c92AD1273A3e128086b";
+const _XUltraLRTAddressETH = "0xb954d805aAf2a2c4fCe83325fC4C785DeF4A6E94";
 exports.NETWORK_PARAMS = {
     1: {
         chainName: `Ethereum Mainnet${sdk_v1_constants_1.IS_USING_FORKED_MAINNET ? " (Forked)" : ""}`,
@@ -16,6 +18,7 @@ exports.NETWORK_PARAMS = {
             ? [sdk_v1_constants_1.FORKED_NODE_URL_FOR_ETH]
             : ["https://rpc.ankr.com/eth"],
         blockExplorerUrls: ["https://etherscan.io"],
+        xUltraLRTAddress: _XUltraLRTAddressETH
     },
     5: {
         chainName: "Goerli Testnet",
@@ -102,5 +105,16 @@ exports.NETWORK_PARAMS = {
         rpcUrls: ["https://data-seed-prebsc-1-s1.binance.org:8545/"],
         blockExplorerUrls: ["https://testnet.bscscan.com/"],
         xUltraLRTAddress: _XUltraLRTAddressBSC
+    },
+    81457: {
+        chainName: "Blast",
+        nativeCurrency: {
+            name: "Ether",
+            symbol: "ETH",
+            decimals: 18,
+        },
+        rpcUrls: [""],
+        blockExplorerUrls: ["https://testnet.bscscan.com/"],
+        xUltraLRTAddress: _XUltraLRTAddressBLAST
     }
 };

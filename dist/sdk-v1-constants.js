@@ -12,7 +12,7 @@ function getChainIdFromRaw(chainId = exports.DEFAULT_RAW_CHAIN_ID) {
 }
 exports.getChainIdFromRaw = getChainIdFromRaw;
 exports.NETWORK_TYPE = process.env.NEXT_PUBLIC_NETWORK_TYPE === "mainnet" ? "mainnet" : "testnet";
-exports.ALLOWED_CHAIN_IDS = exports.NETWORK_TYPE === "mainnet" ? [1] : [17000, 11155111, 97];
+exports.ALLOWED_CHAIN_IDS = exports.NETWORK_TYPE === "mainnet" ? [1, 81457] : [17000, 11155111, 97];
 exports.MAX_UINT = ethers_1.ethers.BigNumber.from(2).pow(256).sub(1);
 exports.MAX_APPROVAL_AMOUNT = ethers_1.ethers.constants.MaxUint256;
 exports.WALLETCONNECT_PROJECT_ID = process.env.WALLETCONNECT_PROJECT_ID || "demo-project-id";

@@ -4,6 +4,7 @@ export declare class AffineRestakingSDK {
     readonly signer: ethers.Signer;
     constructor(provider: providers.JsonRpcProvider, signer?: ethers.Signer);
     deposit_to_chain(contract: string, tokenAddress: string, amount: string, receiver: string): Promise<void>;
+    doMainnetTransfer(chainIdFrom: number, chainIdTo: number, to: string | null, amount: string): Promise<ethers.providers.TransactionResponse | number>;
     getBalanceFromChain(chainId: number): Promise<number>;
     transferRemoteWithAddress(chainID: number, destination: number, to: string, amount: string): Promise<ethers.providers.TransactionResponse>;
     transferRemoteWithoutAddress(chainID: number, destination: number, amount: string): Promise<ethers.providers.TransactionResponse>;
