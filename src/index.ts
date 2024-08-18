@@ -12,7 +12,7 @@ import {
   SymbioticVault,
   UltraLRTAddress,
   WEthAddress,
-  WStEthAddress,
+  WStEthAddress, XUltraLRTRouterAddress,
 } from "./constants";
 
 // ABIs
@@ -31,7 +31,7 @@ import {
 } from "./typechain";
 import {WithdrawalInfoStruct} from "./typechain/EigenDelegator";
 import {bridgePass, ccipFee, getPassBalance} from "./pass";
-import {XUltraLRT__factory} from "./bridge-typegen";
+import {Routerabi__factory, XUltraLRT__factory} from "./bridge-typegen";
 import {NETWORK_PARAMS} from "./chain-constants";
 
 export class AffineRestakingSDK {
@@ -48,6 +48,28 @@ export class AffineRestakingSDK {
   async deposit_to_chain(contract: string, tokenAddress: string, amount: string, receiver: string): Promise<void> {
     // TODO implement @maruf
   }
+
+  async doMainnetTransfer(chainIdFrom: number, chainIdTo: number, to: string | null, amount: string): Promise<ethers.providers.TransactionResponse | number> {
+    const contract = NETWORK_PARAMS[chainIdFrom].xUltraLRTAddress;
+    if (!contract) return 0;
+
+    const xultraLRT = XUltraLRT__factory.connect(contract, this.signer);
+    const router = Routerabi__factory.connect(XUltraLRTRouterAddress, this.signer);
+    const assetUnits = ethers.utils.parseUnits(amount, await xultraLRT.decimals());
+
+    // Case 1: With an address
+    if (to) {
+      return await router["transferRemoteUltraLRT(address,uint32,address,uint256)"](contract, chainIdTo, to, assetUnits, {
+        value: assetUnits, // Assuming native token transfer, remove if unnecessary
+      });
+    }
+
+    // Case 2: Without an address
+    return await router["transferRemoteUltraLRT(address,uint32,uint256)"](contract, chainIdTo, assetUnits, {
+      value: assetUnits, // Assuming native token transfer, remove if unnecessary
+    });
+  }
+
 
   async getBalanceFromChain(chainId : number): Promise<number> {
     const contract = NETWORK_PARAMS[chainId].xUltraLRTAddress;
