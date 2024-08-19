@@ -107,9 +107,11 @@ export class AffineRestakingSDK {
     if(!contract) throw new Error("Invalid chainID Or chain ID doesnt have contract deployment")
     const router = XUltraLRT__factory.connect(contract, this.signer);
 
+    const asset = NETWORK_PARAMS[chainID].ultraLRTAddress
     const provider = new providers.JsonRpcProvider(NETWORK_PARAMS[chainID].rpcUrls[0])
-    if(!NETWORK_PARAMS[chainID].ultraLRTAddress) throw new Error("Invalid chainID Or chain ID doesnt have contract deployment")
-    const assets = MockERC20__factory.connect(NETWORK_PARAMS[chainID].ultraLRTAddress, provider);
+    if(!asset) throw new Error("Invalid chainID Or chain ID doesnt have contract deployment")
+    const assets = MockERC20__factory.connect(asset, provider);
+
 
     //TODO: FIX DECIMALS HERE
     const assetUnits = ethers.utils.parseUnits(amount, await assets.decimals());
