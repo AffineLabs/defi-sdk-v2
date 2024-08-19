@@ -142,10 +142,7 @@ export class AffineRestakingSDK {
     const router = XUltraLRT__factory.connect(contract, this.signer);
     const assetUnits = ethers.utils.parseUnits(amount, await router.decimals());
 
-    const target = NETWORK_PARAMS[destination].xUltraLRTAddress
-    if(!target) throw new Error("Invalid chainID Or chain ID doesnt have contract deployment");
-
-    return await router["quoteTransferRemote(uint32,address,uint256)"](target, to, assetUnits);
+    return await router["quoteTransferRemote(uint32,address,uint256)"](destination, to, assetUnits);
   }
 
   // Quote transfer remote without address
@@ -155,9 +152,8 @@ export class AffineRestakingSDK {
     const router = XUltraLRT__factory.connect(contract, this.signer);
     const assetUnits = ethers.utils.parseUnits(amount, await router.decimals());
 
-    const target = NETWORK_PARAMS[destination].xUltraLRTAddress
-    if(!target) throw new Error("Invalid chainID Or chain ID doesnt have contract deployment");
-    return await router["quoteTransferRemote(uint32,uint256)"](ethers.utils.parseUnits(destination + ""), assetUnits);
+    console.log("CHAIN ID OF SIGNER", this.signer.getChainId())
+    return await router["quoteTransferRemote(uint32,uint256)"](destination, assetUnits);
   }
 
   async _getVaultBalanceByAsset(vaultAddress: string): Promise<string> {
