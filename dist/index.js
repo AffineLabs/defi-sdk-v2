@@ -69,7 +69,13 @@ class AffineRestakingSDK {
         if (!contract)
             throw new Error("Invalid chainID Or chain ID doesnt have contract deployment");
         const router = bridge_typegen_1.XUltraLRT__factory.connect(contract, this.signer);
-        const assetUnits = ethers_1.ethers.utils.parseUnits(amount, await router.decimals());
+        const asset = chain_constants_1.NETWORK_PARAMS[chainID].ultraLRTAddress;
+        const provider = new ethers_1.providers.JsonRpcProvider(chain_constants_1.NETWORK_PARAMS[chainID].rpcUrls[0]);
+        if (!asset)
+            throw new Error("Invalid chainID Or chain ID doesnt have contract deployment");
+        const assets = typechain_1.MockERC20__factory.connect(asset, provider);
+        //TODO: FIX DECIMALS HERE
+        const assetUnits = ethers_1.ethers.utils.parseUnits(amount, await assets.decimals());
         return await router["transferRemote(uint32,address,uint256)"](destination, to, assetUnits, {
             value: assetUnits, // Assuming native token transfer, remove if unnecessary
         });

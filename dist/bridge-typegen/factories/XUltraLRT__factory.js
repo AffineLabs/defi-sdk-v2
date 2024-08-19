@@ -12,6 +12,23 @@ const _abi = [
         stateMutability: "nonpayable",
     },
     {
+        type: "receive",
+        stateMutability: "payable",
+    },
+    {
+        type: "function",
+        name: "DEFAULT_ADMIN_ROLE",
+        inputs: [],
+        outputs: [
+            {
+                name: "",
+                type: "bytes32",
+                internalType: "bytes32",
+            },
+        ],
+        stateMutability: "view",
+    },
+    {
         type: "function",
         name: "DOMAIN_SEPARATOR",
         inputs: [],
@@ -27,6 +44,121 @@ const _abi = [
     {
         type: "function",
         name: "FACTORY",
+        inputs: [],
+        outputs: [
+            {
+                name: "",
+                type: "address",
+                internalType: "address",
+            },
+        ],
+        stateMutability: "view",
+    },
+    {
+        type: "function",
+        name: "GUARDIAN_ROLE",
+        inputs: [],
+        outputs: [
+            {
+                name: "",
+                type: "bytes32",
+                internalType: "bytes32",
+            },
+        ],
+        stateMutability: "view",
+    },
+    {
+        type: "function",
+        name: "HARVESTER",
+        inputs: [],
+        outputs: [
+            {
+                name: "",
+                type: "bytes32",
+                internalType: "bytes32",
+            },
+        ],
+        stateMutability: "view",
+    },
+    {
+        type: "function",
+        name: "MAX_FEE_BPS",
+        inputs: [],
+        outputs: [
+            {
+                name: "",
+                type: "uint256",
+                internalType: "uint256",
+            },
+        ],
+        stateMutability: "view",
+    },
+    {
+        type: "function",
+        name: "STETH",
+        inputs: [],
+        outputs: [
+            {
+                name: "",
+                type: "address",
+                internalType: "contract IStEth",
+            },
+        ],
+        stateMutability: "view",
+    },
+    {
+        type: "function",
+        name: "WSTETH",
+        inputs: [],
+        outputs: [
+            {
+                name: "",
+                type: "address",
+                internalType: "contract IWSTETH",
+            },
+        ],
+        stateMutability: "view",
+    },
+    {
+        type: "function",
+        name: "accruedFees",
+        inputs: [],
+        outputs: [
+            {
+                name: "",
+                type: "uint256",
+                internalType: "uint256",
+            },
+        ],
+        stateMutability: "view",
+    },
+    {
+        type: "function",
+        name: "acrossChainIdRecipient",
+        inputs: [
+            {
+                name: "",
+                type: "uint256",
+                internalType: "uint256",
+            },
+        ],
+        outputs: [
+            {
+                name: "recipient",
+                type: "address",
+                internalType: "address",
+            },
+            {
+                name: "token",
+                type: "address",
+                internalType: "address",
+            },
+        ],
+        stateMutability: "view",
+    },
+    {
+        type: "function",
+        name: "acrossSpokePool",
         inputs: [],
         outputs: [
             {
@@ -123,6 +255,47 @@ const _abi = [
             },
         ],
         stateMutability: "view",
+    },
+    {
+        type: "function",
+        name: "bridgeFeeBps",
+        inputs: [],
+        outputs: [
+            {
+                name: "",
+                type: "uint256",
+                internalType: "uint256",
+            },
+        ],
+        stateMutability: "view",
+    },
+    {
+        type: "function",
+        name: "bridgeToken",
+        inputs: [
+            {
+                name: "destinationChainId",
+                type: "uint256",
+                internalType: "uint256",
+            },
+            {
+                name: "amount",
+                type: "uint256",
+                internalType: "uint256",
+            },
+            {
+                name: "fees",
+                type: "uint256",
+                internalType: "uint256",
+            },
+            {
+                name: "quoteTimestamp",
+                type: "uint32",
+                internalType: "uint32",
+            },
+        ],
+        outputs: [],
+        stateMutability: "nonpayable",
     },
     {
         type: "function",
@@ -250,6 +423,39 @@ const _abi = [
     },
     {
         type: "function",
+        name: "buyLRT",
+        inputs: [
+            {
+                name: "_amount",
+                type: "uint256",
+                internalType: "uint256",
+            },
+        ],
+        outputs: [],
+        stateMutability: "nonpayable",
+    },
+    {
+        type: "function",
+        name: "collectFees",
+        inputs: [],
+        outputs: [],
+        stateMutability: "nonpayable",
+    },
+    {
+        type: "function",
+        name: "crossChainTransferLimit",
+        inputs: [],
+        outputs: [
+            {
+                name: "",
+                type: "uint256",
+                internalType: "uint256",
+            },
+        ],
+        stateMutability: "view",
+    },
+    {
+        type: "function",
         name: "decimals",
         inputs: [],
         outputs: [
@@ -260,6 +466,19 @@ const _abi = [
             },
         ],
         stateMutability: "view",
+    },
+    {
+        type: "function",
+        name: "decreaseCrossChainTransferLimit",
+        inputs: [
+            {
+                name: "_limitDec",
+                type: "uint256",
+                internalType: "uint256",
+            },
+        ],
+        outputs: [],
+        stateMutability: "nonpayable",
     },
     {
         type: "function",
@@ -277,7 +496,7 @@ const _abi = [
             },
         ],
         outputs: [],
-        stateMutability: "payable",
+        stateMutability: "nonpayable",
     },
     {
         type: "function",
@@ -331,6 +550,43 @@ const _abi = [
     },
     {
         type: "function",
+        name: "getRoleAdmin",
+        inputs: [
+            {
+                name: "role",
+                type: "bytes32",
+                internalType: "bytes32",
+            },
+        ],
+        outputs: [
+            {
+                name: "",
+                type: "bytes32",
+                internalType: "bytes32",
+            },
+        ],
+        stateMutability: "view",
+    },
+    {
+        type: "function",
+        name: "grantRole",
+        inputs: [
+            {
+                name: "role",
+                type: "bytes32",
+                internalType: "bytes32",
+            },
+            {
+                name: "account",
+                type: "address",
+                internalType: "address",
+            },
+        ],
+        outputs: [],
+        stateMutability: "nonpayable",
+    },
+    {
+        type: "function",
         name: "handle",
         inputs: [
             {
@@ -354,6 +610,43 @@ const _abi = [
     },
     {
         type: "function",
+        name: "hasRole",
+        inputs: [
+            {
+                name: "role",
+                type: "bytes32",
+                internalType: "bytes32",
+            },
+            {
+                name: "account",
+                type: "address",
+                internalType: "address",
+            },
+        ],
+        outputs: [
+            {
+                name: "",
+                type: "bool",
+                internalType: "bool",
+            },
+        ],
+        stateMutability: "view",
+    },
+    {
+        type: "function",
+        name: "increaseCrossChainTransferLimit",
+        inputs: [
+            {
+                name: "_limitInc",
+                type: "uint256",
+                internalType: "uint256",
+            },
+        ],
+        outputs: [],
+        stateMutability: "nonpayable",
+    },
+    {
+        type: "function",
         name: "initialize",
         inputs: [
             {
@@ -365,24 +658,6 @@ const _abi = [
                 name: "_symbol",
                 type: "string",
                 internalType: "string",
-            },
-            {
-                name: "_factory",
-                type: "address",
-                internalType: "address",
-            },
-        ],
-        outputs: [],
-        stateMutability: "nonpayable",
-    },
-    {
-        type: "function",
-        name: "initialize",
-        inputs: [
-            {
-                name: "_mailbox",
-                type: "address",
-                internalType: "address",
             },
             {
                 name: "_governance",
@@ -433,6 +708,32 @@ const _abi = [
                 name: "",
                 type: "address",
                 internalType: "contract IMailbox",
+            },
+        ],
+        stateMutability: "view",
+    },
+    {
+        type: "function",
+        name: "managementFeeBps",
+        inputs: [],
+        outputs: [
+            {
+                name: "",
+                type: "uint256",
+                internalType: "uint256",
+            },
+        ],
+        stateMutability: "view",
+    },
+    {
+        type: "function",
+        name: "maxBridgeFeeBps",
+        inputs: [],
+        outputs: [
+            {
+                name: "",
+                type: "uint256",
+                internalType: "uint256",
             },
         ],
         stateMutability: "view",
@@ -553,6 +854,13 @@ const _abi = [
     },
     {
         type: "function",
+        name: "pause",
+        inputs: [],
+        outputs: [],
+        stateMutability: "nonpayable",
+    },
+    {
+        type: "function",
         name: "paused",
         inputs: [],
         outputs: [
@@ -560,6 +868,19 @@ const _abi = [
                 name: "",
                 type: "bool",
                 internalType: "bool",
+            },
+        ],
+        stateMutability: "view",
+    },
+    {
+        type: "function",
+        name: "performanceFeeBps",
+        inputs: [],
+        outputs: [
+            {
+                name: "",
+                type: "uint256",
+                internalType: "uint256",
             },
         ],
         stateMutability: "view",
@@ -606,6 +927,19 @@ const _abi = [
         ],
         outputs: [],
         stateMutability: "nonpayable",
+    },
+    {
+        type: "function",
+        name: "priceFeed",
+        inputs: [],
+        outputs: [
+            {
+                name: "",
+                type: "address",
+                internalType: "contract PriceFeed",
+            },
+        ],
+        stateMutability: "view",
     },
     {
         type: "function",
@@ -701,6 +1035,55 @@ const _abi = [
     },
     {
         type: "function",
+        name: "renounceRole",
+        inputs: [
+            {
+                name: "role",
+                type: "bytes32",
+                internalType: "bytes32",
+            },
+            {
+                name: "callerConfirmation",
+                type: "address",
+                internalType: "address",
+            },
+        ],
+        outputs: [],
+        stateMutability: "nonpayable",
+    },
+    {
+        type: "function",
+        name: "resetAcrossChainIdRecipient",
+        inputs: [
+            {
+                name: "chainId",
+                type: "uint256",
+                internalType: "uint256",
+            },
+        ],
+        outputs: [],
+        stateMutability: "nonpayable",
+    },
+    {
+        type: "function",
+        name: "revokeRole",
+        inputs: [
+            {
+                name: "role",
+                type: "bytes32",
+                internalType: "bytes32",
+            },
+            {
+                name: "account",
+                type: "address",
+                internalType: "address",
+            },
+        ],
+        outputs: [],
+        stateMutability: "nonpayable",
+    },
+    {
+        type: "function",
         name: "routerMap",
         inputs: [
             {
@@ -720,12 +1103,48 @@ const _abi = [
     },
     {
         type: "function",
+        name: "setAcrossChainIdRecipient",
+        inputs: [
+            {
+                name: "chainId",
+                type: "uint256",
+                internalType: "uint256",
+            },
+            {
+                name: "recipient",
+                type: "address",
+                internalType: "address",
+            },
+            {
+                name: "token",
+                type: "address",
+                internalType: "address",
+            },
+        ],
+        outputs: [],
+        stateMutability: "nonpayable",
+    },
+    {
+        type: "function",
         name: "setBaseAsset",
         inputs: [
             {
                 name: "_baseAsset",
                 type: "address",
                 internalType: "address",
+            },
+        ],
+        outputs: [],
+        stateMutability: "nonpayable",
+    },
+    {
+        type: "function",
+        name: "setBridgeFeeBps",
+        inputs: [
+            {
+                name: "_feeBps",
+                type: "uint256",
+                internalType: "uint256",
             },
         ],
         outputs: [],
@@ -782,12 +1201,64 @@ const _abi = [
     },
     {
         type: "function",
+        name: "setManagementFeeBps",
+        inputs: [
+            {
+                name: "_feeBps",
+                type: "uint256",
+                internalType: "uint256",
+            },
+        ],
+        outputs: [],
+        stateMutability: "nonpayable",
+    },
+    {
+        type: "function",
+        name: "setMaxBridgeFeeBps",
+        inputs: [
+            {
+                name: "_maxBridgeFeeBps",
+                type: "uint256",
+                internalType: "uint256",
+            },
+        ],
+        outputs: [],
+        stateMutability: "nonpayable",
+    },
+    {
+        type: "function",
         name: "setMaxPriceLag",
         inputs: [
             {
                 name: "_maxPriceLag",
                 type: "uint256",
                 internalType: "uint256",
+            },
+        ],
+        outputs: [],
+        stateMutability: "nonpayable",
+    },
+    {
+        type: "function",
+        name: "setPerformanceFeeBps",
+        inputs: [
+            {
+                name: "_feeBps",
+                type: "uint256",
+                internalType: "uint256",
+            },
+        ],
+        outputs: [],
+        stateMutability: "nonpayable",
+    },
+    {
+        type: "function",
+        name: "setPriceFeed",
+        inputs: [
+            {
+                name: "_priceFeed",
+                type: "address",
+                internalType: "address",
             },
         ],
         outputs: [],
@@ -813,6 +1284,32 @@ const _abi = [
     },
     {
         type: "function",
+        name: "setSpokePool",
+        inputs: [
+            {
+                name: "_sparkPool",
+                type: "address",
+                internalType: "address",
+            },
+        ],
+        outputs: [],
+        stateMutability: "nonpayable",
+    },
+    {
+        type: "function",
+        name: "setWithdrawalFeeBps",
+        inputs: [
+            {
+                name: "_feeBps",
+                type: "uint256",
+                internalType: "uint256",
+            },
+        ],
+        outputs: [],
+        stateMutability: "nonpayable",
+    },
+    {
+        type: "function",
         name: "sharePrice",
         inputs: [],
         outputs: [
@@ -820,6 +1317,25 @@ const _abi = [
                 name: "",
                 type: "uint256",
                 internalType: "uint256",
+            },
+        ],
+        stateMutability: "view",
+    },
+    {
+        type: "function",
+        name: "supportsInterface",
+        inputs: [
+            {
+                name: "interfaceId",
+                type: "bytes4",
+                internalType: "bytes4",
+            },
+        ],
+        outputs: [
+            {
+                name: "",
+                type: "bool",
+                internalType: "bool",
             },
         ],
         stateMutability: "view",
@@ -971,6 +1487,26 @@ const _abi = [
         stateMutability: "payable",
     },
     {
+        type: "function",
+        name: "unpause",
+        inputs: [],
+        outputs: [],
+        stateMutability: "nonpayable",
+    },
+    {
+        type: "function",
+        name: "withdrawalFeeBps",
+        inputs: [],
+        outputs: [
+            {
+                name: "",
+                type: "uint256",
+                internalType: "uint256",
+            },
+        ],
+        stateMutability: "view",
+    },
+    {
         type: "event",
         name: "Approval",
         inputs: [
@@ -1022,6 +1558,56 @@ const _abi = [
     },
     {
         type: "event",
+        name: "ConversionFailedXLRTtoLRT",
+        inputs: [
+            {
+                name: "_user",
+                type: "address",
+                indexed: true,
+                internalType: "address",
+            },
+            {
+                name: "_assetAmount",
+                type: "uint256",
+                indexed: false,
+                internalType: "uint256",
+            },
+            {
+                name: "_requiredAmount",
+                type: "uint256",
+                indexed: false,
+                internalType: "uint256",
+            },
+        ],
+        anonymous: false,
+    },
+    {
+        type: "event",
+        name: "CrossChainTransferLimitChanged",
+        inputs: [
+            {
+                name: "_sender",
+                type: "address",
+                indexed: true,
+                internalType: "address",
+            },
+            {
+                name: "_oldLimit",
+                type: "uint256",
+                indexed: false,
+                internalType: "uint256",
+            },
+            {
+                name: "_newLimit",
+                type: "uint256",
+                indexed: false,
+                internalType: "uint256",
+            },
+        ],
+        anonymous: false,
+    },
+    {
+        type: "event",
         name: "EIP712DomainChanged",
         inputs: [],
         anonymous: false,
@@ -1041,6 +1627,25 @@ const _abi = [
     },
     {
         type: "event",
+        name: "L1LRTMinted",
+        inputs: [
+            {
+                name: "_assetAmount",
+                type: "uint256",
+                indexed: false,
+                internalType: "uint256",
+            },
+            {
+                name: "_lrtAmount",
+                type: "uint256",
+                indexed: false,
+                internalType: "uint256",
+            },
+        ],
+        anonymous: false,
+    },
+    {
+        type: "event",
         name: "LockboxSet",
         inputs: [
             {
@@ -1048,6 +1653,37 @@ const _abi = [
                 type: "address",
                 indexed: false,
                 internalType: "address",
+            },
+        ],
+        anonymous: false,
+    },
+    {
+        type: "event",
+        name: "MessageSent",
+        inputs: [
+            {
+                name: "chainId",
+                type: "uint256",
+                indexed: true,
+                internalType: "uint256",
+            },
+            {
+                name: "recipient",
+                type: "bytes32",
+                indexed: true,
+                internalType: "bytes32",
+            },
+            {
+                name: "msgId",
+                type: "bytes32",
+                indexed: false,
+                internalType: "bytes32",
+            },
+            {
+                name: "message",
+                type: "bytes",
+                indexed: false,
+                internalType: "bytes",
             },
         ],
         anonymous: false,
@@ -1080,6 +1716,112 @@ const _abi = [
                 type: "address",
                 indexed: false,
                 internalType: "address",
+            },
+        ],
+        anonymous: false,
+    },
+    {
+        type: "event",
+        name: "RoleAdminChanged",
+        inputs: [
+            {
+                name: "role",
+                type: "bytes32",
+                indexed: true,
+                internalType: "bytes32",
+            },
+            {
+                name: "previousAdminRole",
+                type: "bytes32",
+                indexed: true,
+                internalType: "bytes32",
+            },
+            {
+                name: "newAdminRole",
+                type: "bytes32",
+                indexed: true,
+                internalType: "bytes32",
+            },
+        ],
+        anonymous: false,
+    },
+    {
+        type: "event",
+        name: "RoleGranted",
+        inputs: [
+            {
+                name: "role",
+                type: "bytes32",
+                indexed: true,
+                internalType: "bytes32",
+            },
+            {
+                name: "account",
+                type: "address",
+                indexed: true,
+                internalType: "address",
+            },
+            {
+                name: "sender",
+                type: "address",
+                indexed: true,
+                internalType: "address",
+            },
+        ],
+        anonymous: false,
+    },
+    {
+        type: "event",
+        name: "RoleRevoked",
+        inputs: [
+            {
+                name: "role",
+                type: "bytes32",
+                indexed: true,
+                internalType: "bytes32",
+            },
+            {
+                name: "account",
+                type: "address",
+                indexed: true,
+                internalType: "address",
+            },
+            {
+                name: "sender",
+                type: "address",
+                indexed: true,
+                internalType: "address",
+            },
+        ],
+        anonymous: false,
+    },
+    {
+        type: "event",
+        name: "TokenBridged",
+        inputs: [
+            {
+                name: "chainId",
+                type: "uint256",
+                indexed: true,
+                internalType: "uint256",
+            },
+            {
+                name: "recipient",
+                type: "address",
+                indexed: false,
+                internalType: "address",
+            },
+            {
+                name: "amount",
+                type: "uint256",
+                indexed: false,
+                internalType: "uint256",
+            },
+            {
+                name: "fees",
+                type: "uint256",
+                indexed: false,
+                internalType: "uint256",
             },
         ],
         anonymous: false,
@@ -1121,6 +1863,27 @@ const _abi = [
             },
         ],
         anonymous: false,
+    },
+    {
+        type: "error",
+        name: "AccessControlBadConfirmation",
+        inputs: [],
+    },
+    {
+        type: "error",
+        name: "AccessControlUnauthorizedAccount",
+        inputs: [
+            {
+                name: "account",
+                type: "address",
+                internalType: "address",
+            },
+            {
+                name: "neededRole",
+                type: "bytes32",
+                internalType: "bytes32",
+            },
+        ],
     },
     {
         type: "error",
@@ -1269,6 +2032,11 @@ const _abi = [
     },
     {
         type: "error",
+        name: "ExceedsMaxBridgeFee",
+        inputs: [],
+    },
+    {
+        type: "error",
         name: "ExpectedPause",
         inputs: [],
     },
@@ -1279,12 +2047,22 @@ const _abi = [
     },
     {
         type: "error",
+        name: "IXERC20_LimitsTooHigh",
+        inputs: [],
+    },
+    {
+        type: "error",
         name: "IXERC20_NotFactory",
         inputs: [],
     },
     {
         type: "error",
         name: "IXERC20_NotHighEnoughLimits",
+        inputs: [],
+    },
+    {
+        type: "error",
+        name: "InsufficientBalance",
         inputs: [],
     },
     {
@@ -1305,12 +2083,122 @@ const _abi = [
     },
     {
         type: "error",
+        name: "InvalidAmount",
+        inputs: [],
+    },
+    {
+        type: "error",
+        name: "InvalidBaseAsset",
+        inputs: [],
+    },
+    {
+        type: "error",
+        name: "InvalidBridgeFeeAmount",
+        inputs: [],
+    },
+    {
+        type: "error",
+        name: "InvalidBridgePoolAddr",
+        inputs: [],
+    },
+    {
+        type: "error",
+        name: "InvalidBridgeRecipient",
+        inputs: [],
+    },
+    {
+        type: "error",
+        name: "InvalidBridgeRecipientToken",
+        inputs: [],
+    },
+    {
+        type: "error",
+        name: "InvalidDestinationRouter",
+        inputs: [],
+    },
+    {
+        type: "error",
+        name: "InvalidFeeBps",
+        inputs: [],
+    },
+    {
+        type: "error",
         name: "InvalidInitialization",
         inputs: [],
     },
     {
         type: "error",
+        name: "InvalidLRTAsset",
+        inputs: [],
+    },
+    {
+        type: "error",
+        name: "InvalidLockBoxAddr",
+        inputs: [],
+    },
+    {
+        type: "error",
+        name: "InvalidMsgOrigin",
+        inputs: [],
+    },
+    {
+        type: "error",
+        name: "InvalidMsgRecipient",
+        inputs: [],
+    },
+    {
+        type: "error",
+        name: "InvalidPriceFeed",
+        inputs: [],
+    },
+    {
+        type: "error",
+        name: "InvalidPriceFeedAsset",
+        inputs: [],
+    },
+    {
+        type: "error",
+        name: "InvalidReceiver",
+        inputs: [],
+    },
+    {
+        type: "error",
+        name: "InvalidRouterAddr",
+        inputs: [],
+    },
+    {
+        type: "error",
+        name: "InvalidSharePrice",
+        inputs: [],
+    },
+    {
+        type: "error",
+        name: "InvalidTransferLimit",
+        inputs: [],
+    },
+    {
+        type: "error",
+        name: "NotHarvester",
+        inputs: [],
+    },
+    {
+        type: "error",
+        name: "NotHarvesterOrLockbox",
+        inputs: [],
+    },
+    {
+        type: "error",
         name: "NotInitializing",
+        inputs: [],
+    },
+    {
+        type: "error",
+        name: "NotMailbox",
+        inputs: [],
+    },
+    {
+        type: "error",
+        name: "NotUpdatedPrice",
         inputs: [],
     },
     {
@@ -1334,6 +2222,11 @@ const _abi = [
                 internalType: "address",
             },
         ],
+    },
+    {
+        type: "error",
+        name: "TokenDepositNotAllowed",
+        inputs: [],
     },
 ];
 class XUltraLRT__factory {
