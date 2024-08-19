@@ -13,6 +13,7 @@ import { parse } from "path";
 import { get } from "http";
 import { parseEther } from "ethers/lib/utils";
 import { EthRPC } from "./src/constants";
+import {getBlastTVL} from "./src";
 dotenv.config();
 
 describe("AffineRestakingSDK", () => {
@@ -20,21 +21,21 @@ describe("AffineRestakingSDK", () => {
   let provider: ethers.providers.JsonRpcProvider;
   let signer: ethers.Signer;
 
-  beforeEach(() => {
-    const privateKey = process.env.PK;
-    const rpcUrl = process.env.RPC_URL;
-    if (!privateKey || !rpcUrl) {
-      throw new Error(
-        "Private key or RPC are not set in the environment variables",
-      );
-    }
-
-    const wallet = new ethers.Wallet(privateKey);
-    provider = new ethers.providers.JsonRpcProvider(rpcUrl);
-    signer = wallet.connect(provider);
-
-    sdk = new AffineRestakingSDK(provider, signer);
-  });
+  // beforeEach(() => {
+  //   const privateKey = process.env.PK;
+  //   const rpcUrl = process.env.RPC_URL;
+  //   if (!privateKey || !rpcUrl) {
+  //     throw new Error(
+  //       "Private key or RPC are not set in the environment variables",
+  //     );
+  //   }
+  //
+  //   const wallet = new ethers.Wallet(privateKey);
+  //   provider = new ethers.providers.JsonRpcProvider(rpcUrl);
+  //   signer = wallet.connect(provider);
+  //
+  //   sdk = new AffineRestakingSDK(provider, signer);
+  // });
 
   // it("should return the correct balance", async () => {
   //   const address = await signer.getAddress();
@@ -106,6 +107,7 @@ describe("AffineRestakingSDK", () => {
     console.log("ETH RPC", EthRPC);
     console.log("rpc: ", await getUltraEthTVL());
     console.log("rpc: ", await getSymbioticTVL());
+    console.log("rpc: ", await getBlastTVL());
   });
 
   it("test conversion", async () => {
