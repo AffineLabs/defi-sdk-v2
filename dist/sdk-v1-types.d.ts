@@ -137,4 +137,5 @@ export interface NetworkParams {
     rpcUrls: string[];
     blockExplorerUrls?: string[];
     xUltraLRTAddress?: string;
+    ultraLRTAddress?: string;
 }
