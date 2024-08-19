@@ -60,6 +60,7 @@ export declare function _removeDecimals(amount: ethers.BigNumber, decimals: ethe
 export declare function _addDecimals(amount: string, decimals: number): ethers.BigNumber;
 export declare function getUltraEthTVL(): Promise<string>;
 export declare function getSymbioticTVL(): Promise<string>;
+export declare function getBlastTVL(): Promise<string>;
 export declare function getSymbioticRate(): Promise<string>;
 export declare function getUltraEthRate(): Promise<string>;
 export declare function convertStEthToWStEth(amount: string): Promise<string>;

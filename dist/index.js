@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.convertWStEthToStEth = exports.convertStEthToWStEth = exports.getUltraEthRate = exports.getSymbioticRate = exports.getSymbioticTVL = exports.getUltraEthTVL = exports._addDecimals = exports._removeDecimals = exports.AffineRestakingSDK = void 0;
+exports.convertWStEthToStEth = exports.convertStEthToWStEth = exports.getUltraEthRate = exports.getSymbioticRate = exports.getBlastTVL = exports.getSymbioticTVL = exports.getUltraEthTVL = exports._addDecimals = exports._removeDecimals = exports.AffineRestakingSDK = void 0;
 const ethers_1 = require("ethers");
 const permit2_sdk_1 = require("@uniswap/permit2-sdk");
 const constants_1 = require("./constants");
@@ -467,6 +467,11 @@ async function getSymbioticTVL() {
     return _getVaultTVL(constants_1.SymbioticVault, new ethers_1.providers.JsonRpcProvider(constants_1.EthRPC));
 }
 exports.getSymbioticTVL = getSymbioticTVL;
+async function getBlastTVL() {
+    const address = chain_constants_1.NETWORK_PARAMS[81457].ultraLRTAddress;
+    return _getVaultTVL(address, new ethers_1.providers.JsonRpcProvider(chain_constants_1.NETWORK_PARAMS[81457].rpcUrls[0]));
+}
+exports.getBlastTVL = getBlastTVL;
 async function getSymbioticRate() {
     return _getVaultRate(constants_1.SymbioticVault, new ethers_1.providers.JsonRpcProvider(constants_1.EthRPC));
 }
