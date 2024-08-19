@@ -760,6 +760,11 @@ export async function getSymbioticTVL(): Promise<string> {
   return _getVaultTVL(SymbioticVault, new providers.JsonRpcProvider(EthRPC));
 }
 
+export async function getBlastTVL(): Promise<string> {
+  const address = NETWORK_PARAMS[81457].ultraLRTAddress as string;
+  return _getVaultTVL(address, new providers.JsonRpcProvider(NETWORK_PARAMS[81457].rpcUrls[0]));
+}
+
 export async function getSymbioticRate(): Promise<string> {
   return _getVaultRate(SymbioticVault, new providers.JsonRpcProvider(EthRPC));
 }
