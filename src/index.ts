@@ -103,6 +103,7 @@ export class AffineRestakingSDK {
 
   // Transfer remote with address
   async transferRemoteWithAddress(chainID: number, destination: number, to: string, amount: string): Promise<ethers.providers.TransactionResponse> {
+    console.log("transferRemoteWithAddress", chainID, destination, to, amount)
     const contract = NETWORK_PARAMS[chainID].xUltraLRTAddress;
     if(!contract) throw new Error("Invalid chainID Or chain ID doesnt have contract deployment")
     const router = XUltraLRT__factory.connect(contract, this.signer);
@@ -112,11 +113,13 @@ export class AffineRestakingSDK {
     if(!asset) throw new Error("Invalid chainID Or chain ID doesnt have contract deployment")
     const assets = MockERC20__factory.connect(asset, provider);
 
+    const quote = await this.quoteTransferRemoteWithAddress(chainID, destination, to, amount)
+
 
     //TODO: FIX DECIMALS HERE
     const assetUnits = ethers.utils.parseUnits(amount, await assets.decimals());
     return await router["transferRemote(uint32,address,uint256)"](destination, to, assetUnits, {
-      value: assetUnits, // Assuming native token transfer, remove if unnecessary
+      value: quote, // Assuming native token transfer, remove if unnecessary
     });
   }
 
