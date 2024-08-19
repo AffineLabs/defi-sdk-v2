@@ -34,9 +34,10 @@ class AffineRestakingSDK {
     }
     async isRouterApproved(amount) {
         const asset = typechain_1.MockERC20__factory.connect(constants_1.SymbioticVault, this.signer);
+        const units = _addDecimals(amount.toString(), await asset.decimals());
         const receiver = await this.signer.getAddress();
-        const allowance = await asset.allowance(receiver, permit2_sdk_1.PERMIT2_ADDRESS);
-        return !allowance.lt(ethers_1.ethers.utils.parseUnits(amount, await asset.decimals()));
+        const allowance = await asset.allowance(receiver, constants_1.XUltraLRTRouterAddress);
+        return ethers_1.ethers.BigNumber.from(allowance).gte(units);
     }
     async doMainnetTransfer(chainIdFrom, chainIdTo, to, amount) {
         const router = bridge_typegen_1.Routerabi__factory.connect(constants_1.XUltraLRTRouterAddress, this.signer);
