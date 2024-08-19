@@ -1,7 +1,6 @@
 import { BigNumber, ethers } from "ethers";
 import {
   AllowedChainId,
-  NetworkParams,
   WithdrawSlippageByProduct,
 } from "./sdk-v1-types";
 
