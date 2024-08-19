@@ -762,7 +762,11 @@ export async function getSymbioticTVL(): Promise<string> {
 
 export async function getBlastTVL(): Promise<string> {
   const address = NETWORK_PARAMS[81457].ultraLRTAddress as string;
-  return _getVaultTVL(address, new providers.JsonRpcProvider(NETWORK_PARAMS[81457].rpcUrls[0]));
+  const provider = new providers.JsonRpcProvider(NETWORK_PARAMS[81457].rpcUrls[0])
+  const vault = UltraLRT__factory.connect(address, provider);
+  const asset = MockERC20__factory.connect(await vault.asset(), provider);
+
+  return _removeDecimals(await vault.totalSupply(), await asset.decimals());
 }
 
 export async function getSymbioticRate(): Promise<string> {
