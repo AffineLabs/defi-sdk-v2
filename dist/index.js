@@ -75,10 +75,11 @@ class AffineRestakingSDK {
         if (!asset)
             throw new Error("Invalid chainID Or chain ID doesnt have contract deployment");
         const assets = typechain_1.MockERC20__factory.connect(asset, provider);
-        // const quote = await this.quoteTransferRemoteWithAddress(chainID, destination, to, amount)
-        //TODO: FIX DECIMALS HERE
+        const quote = await this.quoteTransferRemoteWithAddress(chainID, destination, to, amount);
         const assetUnits = ethers_1.ethers.utils.parseUnits(amount, await assets.decimals());
-        return await router["transferRemote(uint32,address,uint256)"](destination, to, assetUnits);
+        return await router["transferRemote(uint32,address,uint256)"](destination, to, assetUnits, {
+            value: quote
+        });
     }
     // Transfer remote without address
     async transferRemoteWithoutAddress(chainID, destination, amount) {

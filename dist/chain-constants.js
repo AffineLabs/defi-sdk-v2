@@ -5,8 +5,8 @@ const sdk_v1_constants_1 = require("./sdk-v1-constants");
 const constants_1 = require("./constants");
 const _XUltraLRTAddressSEPOLIA = "0x633dc76965e520a777378CFc6299d925B443C224";
 const _XUltraLRTAddressBSC = "0x7e80886220B586942a200c92AD1273A3e128086b";
-const _XUltraLRTAddressBLAST = "0x7e80886220B586942a200c92AD1273A3e128086b";
-const _XUltraLRTAddressETH = "0xb954d805aAf2a2c4fCe83325fC4C785DeF4A6E94";
+const _XUltraLRTAddressBLAST = "0xbb4e01B8940E8E2b3a95cED7941969D033786FF7";
+const _XUltraLRTAddressETH = "0x91F822fAFc1db552e78f49941776aCB2a78fD422";
 const ultraLRTTokenBlast = "0xbb4e01B8940E8E2b3a95cED7941969D033786FF7";
 exports.NETWORK_PARAMS = {
     1: {
