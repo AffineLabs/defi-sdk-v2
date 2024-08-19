@@ -91,9 +91,11 @@ export class AffineRestakingSDK {
 
 
   async getBalanceFromChain(chainId : number): Promise<number> {
-    const contract = NETWORK_PARAMS[chainId].xUltraLRTAddress;
+    const contract = NETWORK_PARAMS[chainId].ultraLRTAddress;
     if(!contract) return 0;
-    const router = XUltraLRT__factory.connect(contract, this.signer);
+
+    const provider = new providers.JsonRpcProvider(NETWORK_PARAMS[chainId].rpcUrls[0])
+    const router = MockERC20__factory.connect(contract, provider);
 
     const balance = await router.balanceOf(await this.signer.getAddress());
     return Number(_removeDecimals(balance, await router.decimals()));
