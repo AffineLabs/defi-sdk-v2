@@ -30,7 +30,7 @@ class AffineRestakingSDK {
     }
     async approveRouter(amount) {
         const asset = typechain_1.MockERC20__factory.connect(constants_1.SymbioticVault, this.signer);
-        return asset.approve(constants_1.XUltraLRTRouterAddress, ethers_1.ethers.utils.parseUnits(amount, await asset.decimals()));
+        return await asset.approve(constants_1.XUltraLRTRouterAddress, ethers_1.ethers.utils.parseUnits(amount, await asset.decimals()));
     }
     async isRouterApproved(amount) {
         const asset = typechain_1.MockERC20__factory.connect(constants_1.SymbioticVault, this.signer);
