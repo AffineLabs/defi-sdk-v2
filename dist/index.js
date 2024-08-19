@@ -52,7 +52,7 @@ class AffineRestakingSDK {
         }
         // Case 2: Without an address
         return await router["transferRemoteUltraLRT(address,uint32,uint256)"](constants_1.SymbioticVault, chainIdTo, assetUnits, {
-            value: assetUnits, // Assuming native token transfer, remove if unnecessary
+            value: quote, // Assuming native token transfer, remove if unnecessary
         });
     }
     async getBalanceFromChain(chainId) {
