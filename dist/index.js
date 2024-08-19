@@ -28,6 +28,16 @@ class AffineRestakingSDK {
     async deposit_to_chain(contract, tokenAddress, amount, receiver) {
         // TODO implement @maruf
     }
+    async approveRouter(amount) {
+        const asset = typechain_1.MockERC20__factory.connect(constants_1.SymbioticVault, this.signer);
+        return asset.approve(constants_1.XUltraLRTRouterAddress, ethers_1.ethers.utils.parseUnits(amount, await asset.decimals()));
+    }
+    async isRouterApproved(amount) {
+        const asset = typechain_1.MockERC20__factory.connect(constants_1.SymbioticVault, this.signer);
+        const receiver = await this.signer.getAddress();
+        const allowance = await asset.allowance(receiver, permit2_sdk_1.PERMIT2_ADDRESS);
+        return !allowance.lt(ethers_1.ethers.utils.parseUnits(amount, await asset.decimals()));
+    }
     async doMainnetTransfer(chainIdFrom, chainIdTo, to, amount) {
         const router = bridge_typegen_1.Routerabi__factory.connect(constants_1.XUltraLRTRouterAddress, this.signer);
         const lrtVault = new ethers_1.ethers.Contract(constants_1.SymbioticVault, ultraEth_json_1.default, this.signer);
