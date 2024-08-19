@@ -43,10 +43,11 @@ class AffineRestakingSDK {
         const router = bridge_typegen_1.Routerabi__factory.connect(constants_1.XUltraLRTRouterAddress, this.signer);
         const lrtVault = new ethers_1.ethers.Contract(constants_1.SymbioticVault, ultraEth_json_1.default, this.signer);
         const assetUnits = ethers_1.ethers.utils.parseUnits(amount, await lrtVault.decimals());
+        const quote = to ? await this.quoteTransferRemoteWithAddress(chainIdFrom, chainIdTo, to, amount) : await this.quoteTransferRemoteWithoutAddress(chainIdFrom, chainIdTo, amount);
         // Case 1: With an address
         if (to) {
             return await router["transferRemoteUltraLRT(address,uint32,address,uint256)"](constants_1.SymbioticVault, chainIdTo, to, assetUnits, {
-                value: assetUnits, // Assuming native token transfer, remove if unnecessary
+                value: quote, // Assuming native token transfer, remove if unnecessary
             });
         }
         // Case 2: Without an address
