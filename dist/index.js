@@ -470,8 +470,8 @@ exports.getSymbioticTVL = getSymbioticTVL;
 async function getBlastTVL() {
     const address = chain_constants_1.NETWORK_PARAMS[81457].ultraLRTAddress;
     const provider = new ethers_1.providers.JsonRpcProvider(chain_constants_1.NETWORK_PARAMS[81457].rpcUrls[0]);
-    const vault = typechain_1.UltraLRT__factory.connect(address, provider);
-    const asset = typechain_1.MockERC20__factory.connect(await vault.asset(), provider);
+    const vault = bridge_typegen_1.XUltraLRT__factory.connect(address, provider);
+    const asset = typechain_1.MockERC20__factory.connect(constants_1.SymbioticVault, new ethers_1.providers.JsonRpcProvider(constants_1.EthRPC));
     return _removeDecimals(await vault.totalSupply(), await asset.decimals());
 }
 exports.getBlastTVL = getBlastTVL;
