@@ -77,10 +77,13 @@ export class AffineRestakingSDK {
     );
     const assetUnits = ethers.utils.parseUnits(amount, await lrtVault.decimals());
 
+    const quote = to ? await this.quoteTransferRemoteWithAddress(chainIdFrom, chainIdTo, to, amount) : await this.quoteTransferRemoteWithoutAddress(chainIdFrom, chainIdTo, amount);
+
+
     // Case 1: With an address
     if (to) {
       return await router["transferRemoteUltraLRT(address,uint32,address,uint256)"](SymbioticVault, chainIdTo, to, assetUnits, {
-        value: assetUnits, // Assuming native token transfer, remove if unnecessary
+        value: quote, // Assuming native token transfer, remove if unnecessary
       });
     }
 
