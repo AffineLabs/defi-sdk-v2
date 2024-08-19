@@ -29,20 +29,17 @@ class AffineRestakingSDK {
         // TODO implement @maruf
     }
     async doMainnetTransfer(chainIdFrom, chainIdTo, to, amount) {
-        const contract = chain_constants_1.NETWORK_PARAMS[chainIdFrom].xUltraLRTAddress;
-        if (!contract)
-            return 0;
-        const xultraLRT = bridge_typegen_1.XUltraLRT__factory.connect(contract, this.signer);
         const router = bridge_typegen_1.Routerabi__factory.connect(constants_1.XUltraLRTRouterAddress, this.signer);
-        const assetUnits = ethers_1.ethers.utils.parseUnits(amount, await xultraLRT.decimals());
+        const lrtVault = new ethers_1.ethers.Contract(constants_1.SymbioticVault, ultraEth_json_1.default, this.signer);
+        const assetUnits = ethers_1.ethers.utils.parseUnits(amount, await lrtVault.decimals());
         // Case 1: With an address
         if (to) {
-            return await router["transferRemoteUltraLRT(address,uint32,address,uint256)"](contract, chainIdTo, to, assetUnits, {
+            return await router["transferRemoteUltraLRT(address,uint32,address,uint256)"](constants_1.SymbioticVault, chainIdTo, to, assetUnits, {
                 value: assetUnits, // Assuming native token transfer, remove if unnecessary
             });
         }
         // Case 2: Without an address
-        return await router["transferRemoteUltraLRT(address,uint32,uint256)"](contract, chainIdTo, assetUnits, {
+        return await router["transferRemoteUltraLRT(address,uint32,uint256)"](constants_1.SymbioticVault, chainIdTo, assetUnits, {
             value: assetUnits, // Assuming native token transfer, remove if unnecessary
         });
     }
