@@ -18,7 +18,7 @@
     "@eslint/js": "^9.4.0",
     "@typechain/ethers-v5": "^11.1.2",
     "@types/jest": "^29.5.12",
-    "contracts": "https://github.com/AffineLabs/contracts.git#6a09959e640bf31f1e25369d90a2e7f5395c31bc",
+    "contracts": "https://github.com/AffineLabs/contracts.git#619b50ab70423560430a65f5b745d0658dda9018",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
