@@ -56,12 +56,15 @@ export class AffineRestakingSDK {
 
   async isRouterApproved(amount: string) {
     const asset = MockERC20__factory.connect(SymbioticVault, this.signer);
-
+    const units = _addDecimals(
+        amount.toString(),
+        await asset.decimals(),
+    );
     const receiver = await this.signer.getAddress();
 
-    const allowance = await asset.allowance(receiver, PERMIT2_ADDRESS);
+    const allowance = await asset.allowance(receiver, XUltraLRTRouterAddress);
 
-    return !allowance.lt(ethers.utils.parseUnits(amount, await asset.decimals()));
+    return ethers.BigNumber.from(allowance).gte(units);
   }
 
   async doMainnetTransfer(chainIdFrom: number, chainIdTo: number, to: string | null, amount: string): Promise<ethers.providers.TransactionResponse | number> {
