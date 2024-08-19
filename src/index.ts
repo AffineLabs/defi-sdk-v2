@@ -49,6 +49,21 @@ export class AffineRestakingSDK {
     // TODO implement @maruf
   }
 
+  async approveRouter(amount: string) {
+    const asset = MockERC20__factory.connect(SymbioticVault, this.signer);
+    return asset.approve(XUltraLRTRouterAddress, ethers.utils.parseUnits(amount, await asset.decimals()))
+  }
+
+  async isRouterApproved(amount: string) {
+    const asset = MockERC20__factory.connect(SymbioticVault, this.signer);
+
+    const receiver = await this.signer.getAddress();
+
+    const allowance = await asset.allowance(receiver, PERMIT2_ADDRESS);
+
+    return !allowance.lt(ethers.utils.parseUnits(amount, await asset.decimals()));
+  }
+
   async doMainnetTransfer(chainIdFrom: number, chainIdTo: number, to: string | null, amount: string): Promise<ethers.providers.TransactionResponse | number> {
     const router = Routerabi__factory.connect(XUltraLRTRouterAddress, this.signer);
     const lrtVault = new ethers.Contract(
