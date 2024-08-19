@@ -157,7 +157,7 @@ export class AffineRestakingSDK {
 
     const target = NETWORK_PARAMS[destination].xUltraLRTAddress
     if(!target) throw new Error("Invalid chainID Or chain ID doesnt have contract deployment");
-    return await router["quoteTransferRemote(uint32,uint256)"](target, assetUnits);
+    return await router["quoteTransferRemote(uint32,uint256)"](ethers.utils.parseUnits(destination + ""), assetUnits);
   }
 
   async _getVaultBalanceByAsset(vaultAddress: string): Promise<string> {
