@@ -55,10 +55,11 @@ class AffineRestakingSDK {
         });
     }
     async getBalanceFromChain(chainId) {
-        const contract = chain_constants_1.NETWORK_PARAMS[chainId].xUltraLRTAddress;
+        const contract = chain_constants_1.NETWORK_PARAMS[chainId].ultraLRTAddress;
         if (!contract)
             return 0;
-        const router = bridge_typegen_1.XUltraLRT__factory.connect(contract, this.signer);
+        const provider = new ethers_1.providers.JsonRpcProvider(chain_constants_1.NETWORK_PARAMS[chainId].rpcUrls[0]);
+        const router = typechain_1.MockERC20__factory.connect(contract, provider);
         const balance = await router.balanceOf(await this.signer.getAddress());
         return Number(_removeDecimals(balance, await router.decimals()));
     }
