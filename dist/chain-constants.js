@@ -23,7 +23,20 @@ exports.NETWORK_PARAMS = {
         blockExplorerUrls: ["https://etherscan.io"],
         xUltraLRTAddress: _XUltraLRTAddressETH,
         ultraLRTAddress: constants_1.SymbioticVault,
-        nativeDepositAssets: ["ETH", "wstETH", "wETH", "stETH"]
+        nativeDepositAssets: {
+            "ETH": {
+                name: "ETH",
+            }, "wstETH": {
+                name: "wstETH",
+                address: constants_1.WStEthAddress,
+            }, "wETH": {
+                name: "wETH",
+                address: constants_1.WEthAddress,
+            }, "stETH": {
+                name: "stETH",
+                address: constants_1.StETHAddress
+            }
+        }
     },
     5: {
         chainName: "Goerli Testnet",
@@ -134,6 +147,11 @@ exports.NETWORK_PARAMS = {
         blockExplorerUrls: ["https://lineascan.build/"],
         xUltraLRTAddress: _XUltraLRTAddressLINEA,
         ultraLRTAddress: _XUltraLRTAddressLINEA,
-        nativeDepositAssets: ["wETH"]
+        nativeDepositAssets: {
+            wETH: {
+                name: "wETH",
+                address: "0xe5D7C2a44FfDDf6b295A15c148167daaAf5Cf34f"
+            }
+        }
     }
 };
