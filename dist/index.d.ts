@@ -1,10 +1,12 @@
-import { BigNumber, ethers, providers } from "ethers";
+import { BigNumber, ContractTransaction, ethers, providers } from "ethers";
 export declare class AffineRestakingSDK {
     readonly provider: providers.JsonRpcProvider;
     readonly signer: ethers.Signer;
     constructor(provider: providers.JsonRpcProvider, signer?: ethers.Signer);
-    deposit_to_chain(contract: string, tokenAddress: string, amount: string, receiver: string): Promise<void>;
-    approveRouter(amount: string): Promise<ethers.ContractTransaction>;
+    approveCrosschainDeposit(chainID: number, amount: string): Promise<ContractTransaction>;
+    checkCrosschainApproval(chainID: number, amount: string): Promise<boolean>;
+    depositToChain(chainID: number, amount: string): Promise<ContractTransaction>;
+    approveRouter(amount: string): Promise<ContractTransaction>;
     isRouterApproved(amount: string): Promise<boolean>;
     doMainnetTransfer(chainIdFrom: number, chainIdTo: number, to: string | null, amount: string): Promise<ethers.providers.TransactionResponse | number>;
     getBalanceFromChain(chainId: number): Promise<number>;
@@ -29,9 +31,9 @@ export declare class AffineRestakingSDK {
     withdraw(amount: string): Promise<any>;
     depositSymbiotic(amount: string): Promise<any>;
     isPermit2Approve(token: string, amount: string): Promise<boolean>;
-    approvePermit2(token: string): Promise<ethers.ContractTransaction>;
-    depositERC20Any(token: string, amount: string, vault: string): Promise<ethers.ContractTransaction>;
-    depositNative(amount: string, vault: string): Promise<ethers.ContractTransaction>;
+    approvePermit2(token: string): Promise<ContractTransaction>;
+    depositERC20Any(token: string, amount: string, vault: string): Promise<ContractTransaction>;
+    depositNative(amount: string, vault: string): Promise<ContractTransaction>;
     withdrawSymbiotic(amount: string): Promise<any>;
     withdrawableAssets(vaultAddress: string, address: string): Promise<{
         totalAmount: number;

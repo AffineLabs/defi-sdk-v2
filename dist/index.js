@@ -25,8 +25,31 @@ class AffineRestakingSDK {
         this.signer = signer || this.provider.getSigner();
     }
     // ========= BRIDGING =========
-    async deposit_to_chain(contract, tokenAddress, amount, receiver) {
-        // TODO implement @maruf
+    async approveCrosschainDeposit(chainID, amount) {
+        const contract = chain_constants_1.NETWORK_PARAMS[chainID].ultraLRTAddress;
+        if (!contract)
+            throw new Error("Invalid chainID Or chain ID doesnt have contract deployment");
+        const asset = typechain_1.MockERC20__factory.connect(contract, this.signer);
+        return await asset.approve(constants_1.XUltraLRTRouterAddress, ethers_1.ethers.utils.parseUnits(amount, await asset.decimals()));
+    }
+    async checkCrosschainApproval(chainID, amount) {
+        const contract = chain_constants_1.NETWORK_PARAMS[chainID].ultraLRTAddress;
+        if (!contract)
+            throw new Error("Invalid chainID Or chain ID doesnt have contract deployment");
+        const asset = typechain_1.MockERC20__factory.connect(contract, this.signer);
+        const units = _addDecimals(amount.toString(), await asset.decimals());
+        const receiver = await this.signer.getAddress();
+        const allowance = await asset.allowance(receiver, contract);
+        return ethers_1.ethers.BigNumber.from(allowance).gte(units);
+    }
+    async depositToChain(chainID, amount) {
+        const contract = chain_constants_1.NETWORK_PARAMS[chainID].ultraLRTAddress;
+        if (!contract)
+            throw new Error("Invalid chainID Or chain ID doesnt have contract deployment");
+        const router = typechain_1.UltraLRT__factory.connect(contract, this.signer);
+        const receiver = await this.signer.getAddress();
+        const assetUnits = _addDecimals(amount, 18);
+        return await router.deposit(assetUnits, receiver);
     }
     async approveRouter(amount) {
         const asset = typechain_1.MockERC20__factory.connect(constants_1.SymbioticVault, this.signer);
