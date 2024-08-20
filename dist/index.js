@@ -51,6 +51,17 @@ class AffineRestakingSDK {
         const assetUnits = _addDecimals(amount, 18);
         return await router.deposit(assetUnits, receiver);
     }
+    async getBalanceOfTokenWithChain(chainID, token) {
+        const assets = chain_constants_1.NETWORK_PARAMS[chainID].nativeDepositAssets;
+        if (!assets)
+            throw new Error("Invalid chainID Or chain ID doesnt have contract deployment");
+        const address = assets[token].address;
+        if (!address)
+            throw new Error("Token doesnt exist for chain ID");
+        const erc20 = typechain_1.MockERC20__factory.connect(address, this.signer);
+        const balance = await erc20.balanceOf(await this.signer.getAddress());
+        return _removeDecimals(balance, await erc20.decimals());
+    }
     async approveRouter(amount) {
         const asset = typechain_1.MockERC20__factory.connect(constants_1.SymbioticVault, this.signer);
         return await asset.approve(constants_1.XUltraLRTRouterAddress, ethers_1.ethers.utils.parseUnits(amount, await asset.decimals()));

@@ -6,6 +6,7 @@ export declare class AffineRestakingSDK {
     approveCrosschainDeposit(chainID: number, amount: string): Promise<ContractTransaction>;
     checkCrosschainApproval(chainID: number, amount: string): Promise<boolean>;
     depositToChain(chainID: number, amount: string): Promise<ContractTransaction>;
+    getBalanceOfTokenWithChain(chainID: number, token: string): Promise<string>;
     approveRouter(amount: string): Promise<ContractTransaction>;
     isRouterApproved(amount: string): Promise<boolean>;
     doMainnetTransfer(chainIdFrom: number, chainIdTo: number, to: string | null, amount: string): Promise<ethers.providers.TransactionResponse | number>;
