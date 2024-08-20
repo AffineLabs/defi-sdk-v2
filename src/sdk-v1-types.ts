@@ -196,4 +196,5 @@ export interface NetworkParams {
   blockExplorerUrls?: string[];
   xUltraLRTAddress?: string;
   ultraLRTAddress?: string;
+  nativeDepositAssets?: string[];
 }

@@ -30,7 +30,8 @@ export const NETWORK_PARAMS: { [index: number]: NetworkParams } = {
                 : ["https://rpc.ankr.com/eth"],
         blockExplorerUrls: ["https://etherscan.io"],
         xUltraLRTAddress: _XUltraLRTAddressETH,
-        ultraLRTAddress: SymbioticVault
+        ultraLRTAddress: SymbioticVault,
+        nativeDepositAssets: ["ETH", "wstETH", "wETH", "stETH"]
     },
     5: {
         chainName: "Goerli Testnet",
@@ -142,6 +143,7 @@ export const NETWORK_PARAMS: { [index: number]: NetworkParams } = {
         rpcUrls: ["https://linea-mainnet.g.alchemy.com/v2/T8JHI8jMGKrO88j6qvZwjk8d1IxOPqtk"],
         blockExplorerUrls: ["https://lineascan.build/"],
         xUltraLRTAddress: _XUltraLRTAddressLINEA,
-        ultraLRTAddress: _XUltraLRTAddressLINEA
+        ultraLRTAddress: _XUltraLRTAddressLINEA,
+        nativeDepositAssets: ["wETH"]
     }
 };

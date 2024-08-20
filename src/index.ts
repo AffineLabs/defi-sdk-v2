@@ -1,4 +1,4 @@
-import {BigNumber, ethers, providers} from "ethers";
+import {BigNumber, ContractTransaction, ethers, providers} from "ethers";
 import {AllowanceProvider, PERMIT2_ADDRESS, PermitTransferFrom, SignatureTransfer,} from "@uniswap/permit2-sdk";
 
 import {
@@ -46,8 +46,35 @@ export class AffineRestakingSDK {
 
   // ========= BRIDGING =========
 
-  async deposit_to_chain(contract: string, tokenAddress: string, amount: string, receiver: string): Promise<void> {
-    // TODO implement @maruf
+  async approveCrosschainDeposit(chainID: number, amount: string) {
+    const contract = NETWORK_PARAMS[chainID].ultraLRTAddress;
+    if(!contract) throw new Error("Invalid chainID Or chain ID doesnt have contract deployment")
+    const asset = MockERC20__factory.connect(contract, this.signer);
+    return await asset.approve(XUltraLRTRouterAddress, ethers.utils.parseUnits(amount, await asset.decimals()));
+  }
+
+  async checkCrosschainApproval(chainID: number, amount: string) {
+    const contract = NETWORK_PARAMS[chainID].ultraLRTAddress;
+    if(!contract) throw new Error("Invalid chainID Or chain ID doesnt have contract deployment")
+    const asset = MockERC20__factory.connect(contract, this.signer);
+    const units = _addDecimals(
+        amount.toString(),
+        await asset.decimals(),
+    );
+    const receiver = await this.signer.getAddress();
+
+    const allowance = await asset.allowance(receiver, contract);
+
+    return ethers.BigNumber.from(allowance).gte(units);
+  }
+
+  async depositToChain(chainID: number, amount: string): Promise<ContractTransaction> {
+    const contract = NETWORK_PARAMS[chainID].ultraLRTAddress;
+    if(!contract) throw new Error("Invalid chainID Or chain ID doesnt have contract deployment")
+    const router = UltraLRT__factory.connect(contract, this.signer);
+    const receiver = await this.signer.getAddress();
+    const assetUnits = _addDecimals(amount, 18);
+    return await router.deposit(assetUnits, receiver);
   }
 
   async approveRouter(amount: string) {
