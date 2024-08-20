@@ -5,10 +5,11 @@ const sdk_v1_constants_1 = require("./sdk-v1-constants");
 const constants_1 = require("./constants");
 const _XUltraLRTAddressSEPOLIA = "0x633dc76965e520a777378CFc6299d925B443C224";
 const _XUltraLRTAddressBSC = "0x7e80886220B586942a200c92AD1273A3e128086b";
-const _XUltraLRTAddressBLAST = "0xbb4e01B8940E8E2b3a95cED7941969D033786FF7";
+const _XUltraLRTAddressBLAST = "0x192B42e956b152367BB9C35B2fb4B068b6A0929a";
 const _XUltraLRTAddressLINEA = "0xB838Eb4F224c2454F2529213721500faf732bf4d";
 const _XUltraLRTAddressETH = "0x91F822fAFc1db552e78f49941776aCB2a78fD422";
 const ultraLRTTokenBlast = "0xbb4e01B8940E8E2b3a95cED7941969D033786FF7";
+const UltraLRTTokenLINEA = "0xB838Eb4F224c2454F2529213721500faf732bf4d";
 exports.NETWORK_PARAMS = {
     1: {
         chainName: `Ethereum Mainnet${sdk_v1_constants_1.IS_USING_FORKED_MAINNET ? " (Forked)" : ""}`,
@@ -146,7 +147,7 @@ exports.NETWORK_PARAMS = {
         rpcUrls: ["https://linea-mainnet.g.alchemy.com/v2/T8JHI8jMGKrO88j6qvZwjk8d1IxOPqtk"],
         blockExplorerUrls: ["https://lineascan.build/"],
         xUltraLRTAddress: _XUltraLRTAddressLINEA,
-        ultraLRTAddress: _XUltraLRTAddressLINEA,
+        ultraLRTAddress: UltraLRTTokenLINEA,
         nativeDepositAssets: {
             wETH: {
                 name: "wETH",
