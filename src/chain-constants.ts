@@ -5,7 +5,7 @@ import {
     FORKED_NODE_URL_FOR_MATIC,
     IS_USING_FORKED_MAINNET
 } from "./sdk-v1-constants";
-import {SymbioticVault} from "./constants";
+import {StETHAddress, SymbioticVault, WEthAddress, WStEthAddress} from "./constants";
 
 const _XUltraLRTAddressSEPOLIA = "0x633dc76965e520a777378CFc6299d925B443C224";
 const _XUltraLRTAddressBSC = "0x7e80886220B586942a200c92AD1273A3e128086b"
@@ -31,7 +31,20 @@ export const NETWORK_PARAMS: { [index: number]: NetworkParams } = {
         blockExplorerUrls: ["https://etherscan.io"],
         xUltraLRTAddress: _XUltraLRTAddressETH,
         ultraLRTAddress: SymbioticVault,
-        nativeDepositAssets: ["ETH", "wstETH", "wETH", "stETH"]
+        nativeDepositAssets: {
+            "ETH": {
+                name: "ETH",
+            }, "wstETH": {
+                name: "wstETH",
+                address: WStEthAddress,
+            }, "wETH": {
+                name: "wETH",
+                address: WEthAddress,
+            }, "stETH": {
+                name: "stETH",
+                address: StETHAddress
+            }
+        }
     },
     5: {
         chainName: "Goerli Testnet",
@@ -144,6 +157,11 @@ export const NETWORK_PARAMS: { [index: number]: NetworkParams } = {
         blockExplorerUrls: ["https://lineascan.build/"],
         xUltraLRTAddress: _XUltraLRTAddressLINEA,
         ultraLRTAddress: _XUltraLRTAddressLINEA,
-        nativeDepositAssets: ["wETH"]
+        nativeDepositAssets: {
+            wETH: {
+                name: "wETH",
+                address: "0xe5D7C2a44FfDDf6b295A15c148167daaAf5Cf34f"
+            }
+        }
     }
 };

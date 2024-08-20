@@ -185,6 +185,10 @@ export type WithdrawSlippageByProduct = {
 export type AllowedWallet = "magic" | "metamask" | "coinbase" | "walletConnect";
 export type AllowedChainId = keyof typeof NETWORK_PARAMS;
 
+export interface NativeAsset {
+    name: string;
+    address?: string;
+}
 export interface NetworkParams {
   chainName: string;
   nativeCurrency: {
@@ -196,5 +200,5 @@ export interface NetworkParams {
   blockExplorerUrls?: string[];
   xUltraLRTAddress?: string;
   ultraLRTAddress?: string;
-  nativeDepositAssets?: string[];
+  nativeDepositAssets?: Record<string, NativeAsset>
 }
