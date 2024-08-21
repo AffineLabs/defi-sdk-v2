@@ -48,7 +48,7 @@ class AffineRestakingSDK {
         const contract = chain_constants_1.NETWORK_PARAMS[chainID].ultraLRTAddress;
         if (!contract)
             throw new Error("Invalid chainID Or chain ID doesnt have contract deployment");
-        const router = typechain_1.UltraLRT__factory.connect(contract, this.signer);
+        const router = bridge_typegen_1.XUltraLRT__factory.connect(contract, this.signer);
         const receiver = await this.signer.getAddress();
         const assetUnits = _addDecimals(amount, 18);
         return await router.deposit(assetUnits, receiver);
