@@ -74,7 +74,7 @@ export class AffineRestakingSDK {
   async depositToChain(chainID: number, amount: string): Promise<ContractTransaction> {
     const contract = NETWORK_PARAMS[chainID].ultraLRTAddress;
     if(!contract) throw new Error("Invalid chainID Or chain ID doesnt have contract deployment")
-    const router = UltraLRT__factory.connect(contract, this.signer);
+    const router = XUltraLRT__factory.connect(contract, this.signer);
     const receiver = await this.signer.getAddress();
     const assetUnits = _addDecimals(amount, 18);
     return await router.deposit(assetUnits, receiver);
