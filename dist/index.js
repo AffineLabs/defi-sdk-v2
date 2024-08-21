@@ -39,7 +39,8 @@ class AffineRestakingSDK {
             throw new Error("Invalid chainID Or chain ID doesnt have contract deployment");
         const xulraLRT = bridge_typegen_1.XUltraLRT__factory.connect(contract, this.signer);
         const asset = typechain_1.MockERC20__factory.connect(await xulraLRT.baseAsset(), this.signer);
-        const units = _addDecimals(amount.toString(), await asset.decimals());
+        const decimals = await asset.decimals();
+        const units = _addDecimals(amount.toString(), decimals.valueOf());
         const receiver = await this.signer.getAddress();
         const allowance = await asset.allowance(receiver, contract);
         return ethers_1.ethers.BigNumber.from(allowance).gte(units);
