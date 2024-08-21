@@ -144,7 +144,7 @@ export const NETWORK_PARAMS: { [index: number]: NetworkParams } = {
             decimals: 18,
         },
         rpcUrls: ["https://blast-mainnet.g.alchemy.com/v2/T8JHI8jMGKrO88j6qvZwjk8d1IxOPqtk"],
-        blockExplorerUrls: ["https://blastscan.io/"],
+        blockExplorerUrls: ["https://blastscan.io"],
         xUltraLRTAddress: _XUltraLRTAddressBLAST,
         ultraLRTAddress: ultraLRTTokenBlast
     },
@@ -156,7 +156,7 @@ export const NETWORK_PARAMS: { [index: number]: NetworkParams } = {
             decimals: 18,
         },
         rpcUrls: ["https://linea-mainnet.g.alchemy.com/v2/T8JHI8jMGKrO88j6qvZwjk8d1IxOPqtk"],
-        blockExplorerUrls: ["https://lineascan.build/"],
+        blockExplorerUrls: ["https://lineascan.build"],
         xUltraLRTAddress: _XUltraLRTAddressLINEA,
         ultraLRTAddress: UltraLRTTokenLINEA,
         nativeDepositAssets: {
