@@ -61,9 +61,10 @@ export class AffineRestakingSDK {
 
     const xulraLRT = XUltraLRT__factory.connect(contract, this.signer);
     const asset = MockERC20__factory.connect(await xulraLRT.baseAsset(), this.signer);
+    const decimals = await asset.decimals()
     const units = _addDecimals(
         amount.toString(),
-        await asset.decimals(),
+        decimals.valueOf(),
     );
     const receiver = await this.signer.getAddress();
     const allowance = await asset.allowance(receiver, contract);
