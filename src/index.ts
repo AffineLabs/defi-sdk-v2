@@ -49,20 +49,23 @@ export class AffineRestakingSDK {
   async approveCrosschainDeposit(chainID: number, amount: string) {
     const contract = NETWORK_PARAMS[chainID].ultraLRTAddress;
     if(!contract) throw new Error("Invalid chainID Or chain ID doesnt have contract deployment")
-    const asset = MockERC20__factory.connect(contract, this.signer);
-    return await asset.approve(XUltraLRTRouterAddress, ethers.utils.parseUnits(amount, await asset.decimals()));
+    const xulraLRT = XUltraLRT__factory.connect(contract, this.signer);
+
+    const asset = MockERC20__factory.connect(await xulraLRT.baseAsset(), this.signer);
+    return await asset.approve(contract, ethers.utils.parseUnits(amount, await asset.decimals()));
   }
 
   async checkCrosschainApproval(chainID: number, amount: string) {
     const contract = NETWORK_PARAMS[chainID].ultraLRTAddress;
     if(!contract) throw new Error("Invalid chainID Or chain ID doesnt have contract deployment")
-    const asset = MockERC20__factory.connect(contract, this.signer);
+
+    const xulraLRT = XUltraLRT__factory.connect(contract, this.signer);
+    const asset = MockERC20__factory.connect(await xulraLRT.baseAsset(), this.signer);
     const units = _addDecimals(
         amount.toString(),
         await asset.decimals(),
     );
     const receiver = await this.signer.getAddress();
-
     const allowance = await asset.allowance(receiver, contract);
 
     return ethers.BigNumber.from(allowance).gte(units);
