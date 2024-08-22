@@ -80,7 +80,9 @@ class AffineRestakingSDK {
         const router = bridge_typegen_1.Routerabi__factory.connect(constants_1.XUltraLRTRouterAddress, this.signer);
         const lrtVault = new ethers_1.ethers.Contract(constants_1.SymbioticVault, ultraEth_json_1.default, this.signer);
         const assetUnits = ethers_1.ethers.utils.parseUnits(amount, await lrtVault.decimals());
-        const quote = to ? await this.quoteTransferRemoteWithAddress(chainIdFrom, chainIdTo, to, amount) : await this.quoteTransferRemoteWithoutAddress(chainIdFrom, chainIdTo, amount);
+        const quote = to
+            ? await this.quoteTransferRemoteWithAddress(chainIdFrom, chainIdTo, to, amount)
+            : await this.quoteTransferRemoteWithoutAddress(chainIdFrom, chainIdTo, amount);
         // Case 1: With an address
         if (to) {
             return await router["transferRemoteUltraLRT(address,uint32,address,uint256)"](constants_1.SymbioticVault, chainIdTo, to, assetUnits, {
@@ -116,7 +118,7 @@ class AffineRestakingSDK {
         const quote = await this.quoteTransferRemoteWithAddress(chainID, destination, to, amount);
         const assetUnits = ethers_1.ethers.utils.parseUnits(amount, await assets.decimals());
         return await router["transferRemote(uint32,address,uint256)"](destination, to, assetUnits, {
-            value: quote
+            value: quote,
         });
     }
     // Transfer remote without address
@@ -467,6 +469,15 @@ class AffineRestakingSDK {
             }
         }
         throw Error("Failed to generate a random nonce");
+    }
+    async LineaDepositNative(amount) {
+        const router = bridge_typegen_1.LineaRouter__factory.connect(constants_1.LieanXLRTRouter, this.signer);
+        const receiver = await this.signer.getAddress();
+        const assetUnits = _addDecimals(amount, 18);
+        const tx = await router.depositNative(assetUnits, receiver, {
+            value: assetUnits,
+        });
+        return tx;
     }
 }
 exports.AffineRestakingSDK = AffineRestakingSDK;
