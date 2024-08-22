@@ -1,11 +1,17 @@
-import {BigNumber, ContractTransaction, ethers, providers} from "ethers";
-import {AllowanceProvider, PERMIT2_ADDRESS, PermitTransferFrom, SignatureTransfer,} from "@uniswap/permit2-sdk";
+import { BigNumber, ContractTransaction, ethers, providers } from "ethers";
+import {
+  AllowanceProvider,
+  PERMIT2_ADDRESS,
+  PermitTransferFrom,
+  SignatureTransfer,
+} from "@uniswap/permit2-sdk";
 
 import {
   EigenDelegatorAddress,
   EigenStETHStrategy,
   EscrowAddress,
   EthRPC,
+  LieanXLRTRouter,
   RouterAddress,
   StETHAddress,
   SymbioticEscrow,
@@ -25,15 +31,20 @@ import DELEGATION_MANAGER_ABI from "./abis/delegationManager.json";
 import {
   ISignatureTransfer__factory,
   IWSTETH__factory,
+  LidoLevEthStrategy__factory,
   MockERC20__factory,
   UltraLRT__factory,
   UltraLRTRouter__factory,
   WithdrawalEscrowV2__factory,
 } from "./typechain";
-import {WithdrawalInfoStruct} from "./typechain/EigenDelegator";
-import {bridgePass, ccipFee, getPassBalance} from "./pass";
-import {Routerabi__factory, XUltraLRT__factory} from "./bridge-typegen";
-import {NETWORK_PARAMS} from "./chain-constants";
+import { WithdrawalInfoStruct } from "./typechain/EigenDelegator";
+import { bridgePass, ccipFee, getPassBalance } from "./pass";
+import {
+  LineaRouter__factory,
+  Routerabi__factory,
+  XUltraLRT__factory,
+} from "./bridge-typegen";
+import { NETWORK_PARAMS } from "./chain-constants";
 
 export class AffineRestakingSDK {
   public readonly provider: providers.JsonRpcProvider;
@@ -48,33 +59,51 @@ export class AffineRestakingSDK {
 
   async approveCrosschainDeposit(chainID: number, amount: string) {
     const contract = NETWORK_PARAMS[chainID].ultraLRTAddress;
-    if(!contract) throw new Error("Invalid chainID Or chain ID doesnt have contract deployment")
+    if (!contract)
+      throw new Error(
+        "Invalid chainID Or chain ID doesnt have contract deployment"
+      );
     const xulraLRT = XUltraLRT__factory.connect(contract, this.signer);
 
-    const asset = MockERC20__factory.connect(await xulraLRT.baseAsset(), this.signer);
-    return await asset.approve(contract, ethers.utils.parseUnits(amount, await asset.decimals()));
+    const asset = MockERC20__factory.connect(
+      await xulraLRT.baseAsset(),
+      this.signer
+    );
+    return await asset.approve(
+      contract,
+      ethers.utils.parseUnits(amount, await asset.decimals())
+    );
   }
 
   async checkCrosschainApproval(chainID: number, amount: string) {
     const contract = NETWORK_PARAMS[chainID].ultraLRTAddress;
-    if(!contract) throw new Error("Invalid chainID Or chain ID doesnt have contract deployment")
+    if (!contract)
+      throw new Error(
+        "Invalid chainID Or chain ID doesnt have contract deployment"
+      );
 
     const xulraLRT = XUltraLRT__factory.connect(contract, this.signer);
-    const asset = MockERC20__factory.connect(await xulraLRT.baseAsset(), this.signer);
-    const decimals = await asset.decimals()
-    const units = _addDecimals(
-        amount.toString(),
-        decimals.valueOf(),
+    const asset = MockERC20__factory.connect(
+      await xulraLRT.baseAsset(),
+      this.signer
     );
+    const decimals = await asset.decimals();
+    const units = _addDecimals(amount.toString(), decimals.valueOf());
     const receiver = await this.signer.getAddress();
     const allowance = await asset.allowance(receiver, contract);
 
     return ethers.BigNumber.from(allowance).gte(units);
   }
 
-  async depositToChain(chainID: number, amount: string): Promise<ContractTransaction> {
+  async depositToChain(
+    chainID: number,
+    amount: string
+  ): Promise<ContractTransaction> {
     const contract = NETWORK_PARAMS[chainID].ultraLRTAddress;
-    if(!contract) throw new Error("Invalid chainID Or chain ID doesnt have contract deployment")
+    if (!contract)
+      throw new Error(
+        "Invalid chainID Or chain ID doesnt have contract deployment"
+      );
     const router = XUltraLRT__factory.connect(contract, this.signer);
     const receiver = await this.signer.getAddress();
     const assetUnits = _addDecimals(amount, 18);
@@ -83,9 +112,12 @@ export class AffineRestakingSDK {
 
   async getBalanceOfTokenWithChain(chainID: number, token: string) {
     const assets = NETWORK_PARAMS[chainID].nativeDepositAssets;
-    if(!assets) throw new Error("Invalid chainID Or chain ID doesnt have contract deployment")
+    if (!assets)
+      throw new Error(
+        "Invalid chainID Or chain ID doesnt have contract deployment"
+      );
     const address = assets[token].address;
-    if(!address) throw new Error("Token doesnt exist for chain ID")
+    if (!address) throw new Error("Token doesnt exist for chain ID");
     const erc20 = MockERC20__factory.connect(address, this.signer);
     const balance = await erc20.balanceOf(await this.signer.getAddress());
     return _removeDecimals(balance, await erc20.decimals());
@@ -93,15 +125,15 @@ export class AffineRestakingSDK {
 
   async approveRouter(amount: string) {
     const asset = MockERC20__factory.connect(SymbioticVault, this.signer);
-    return await asset.approve(XUltraLRTRouterAddress, ethers.utils.parseUnits(amount, await asset.decimals()));
+    return await asset.approve(
+      XUltraLRTRouterAddress,
+      ethers.utils.parseUnits(amount, await asset.decimals())
+    );
   }
 
   async isRouterApproved(amount: string) {
     const asset = MockERC20__factory.connect(SymbioticVault, this.signer);
-    const units = _addDecimals(
-        amount.toString(),
-        await asset.decimals(),
-    );
+    const units = _addDecimals(amount.toString(), await asset.decimals());
     const receiver = await this.signer.getAddress();
 
     const allowance = await asset.allowance(receiver, XUltraLRTRouterAddress);
@@ -109,37 +141,66 @@ export class AffineRestakingSDK {
     return ethers.BigNumber.from(allowance).gte(units);
   }
 
-  async doMainnetTransfer(chainIdFrom: number, chainIdTo: number, to: string | null, amount: string): Promise<ethers.providers.TransactionResponse | number> {
-    const router = Routerabi__factory.connect(XUltraLRTRouterAddress, this.signer);
-    const lrtVault = new ethers.Contract(
-        SymbioticVault,
-        ULTRAETH_ABI,
-        this.signer,
+  async doMainnetTransfer(
+    chainIdFrom: number,
+    chainIdTo: number,
+    to: string | null,
+    amount: string
+  ): Promise<ethers.providers.TransactionResponse | number> {
+    const router = Routerabi__factory.connect(
+      XUltraLRTRouterAddress,
+      this.signer
     );
-    const assetUnits = ethers.utils.parseUnits(amount, await lrtVault.decimals());
+    const lrtVault = new ethers.Contract(
+      SymbioticVault,
+      ULTRAETH_ABI,
+      this.signer
+    );
+    const assetUnits = ethers.utils.parseUnits(
+      amount,
+      await lrtVault.decimals()
+    );
 
-    const quote = to ? await this.quoteTransferRemoteWithAddress(chainIdFrom, chainIdTo, to, amount) : await this.quoteTransferRemoteWithoutAddress(chainIdFrom, chainIdTo, amount);
-
+    const quote = to
+      ? await this.quoteTransferRemoteWithAddress(
+          chainIdFrom,
+          chainIdTo,
+          to,
+          amount
+        )
+      : await this.quoteTransferRemoteWithoutAddress(
+          chainIdFrom,
+          chainIdTo,
+          amount
+        );
 
     // Case 1: With an address
     if (to) {
-      return await router["transferRemoteUltraLRT(address,uint32,address,uint256)"](SymbioticVault, chainIdTo, to, assetUnits, {
+      return await router[
+        "transferRemoteUltraLRT(address,uint32,address,uint256)"
+      ](SymbioticVault, chainIdTo, to, assetUnits, {
         value: quote, // Assuming native token transfer, remove if unnecessary
       });
     }
 
     // Case 2: Without an address
-    return await router["transferRemoteUltraLRT(address,uint32,uint256)"](SymbioticVault, chainIdTo, assetUnits, {
-      value: quote, // Assuming native token transfer, remove if unnecessary
-    });
+    return await router["transferRemoteUltraLRT(address,uint32,uint256)"](
+      SymbioticVault,
+      chainIdTo,
+      assetUnits,
+      {
+        value: quote, // Assuming native token transfer, remove if unnecessary
+      }
+    );
   }
 
-
-  async getBalanceFromChain(chainId : number): Promise<number> {
+  async getBalanceFromChain(chainId: number): Promise<number> {
     const contract = NETWORK_PARAMS[chainId].ultraLRTAddress;
-    if(!contract) return 0;
+    if (!contract) return 0;
 
-    const provider = new providers.JsonRpcProvider(NETWORK_PARAMS[chainId].rpcUrls[0])
+    const provider = new providers.JsonRpcProvider(
+      NETWORK_PARAMS[chainId].rpcUrls[0]
+    );
     const router = MockERC20__factory.connect(contract, provider);
 
     const balance = await router.balanceOf(await this.signer.getAddress());
@@ -147,55 +208,111 @@ export class AffineRestakingSDK {
   }
 
   // Transfer remote with address
-  async transferRemoteWithAddress(chainID: number, destination: number, to: string, amount: string): Promise<ethers.providers.TransactionResponse> {
-    console.log("transferRemoteWithAddress", chainID, destination, to, amount)
+  async transferRemoteWithAddress(
+    chainID: number,
+    destination: number,
+    to: string,
+    amount: string
+  ): Promise<ethers.providers.TransactionResponse> {
+    console.log("transferRemoteWithAddress", chainID, destination, to, amount);
     const contract = NETWORK_PARAMS[chainID].xUltraLRTAddress;
-    if(!contract) throw new Error("Invalid chainID Or chain ID doesnt have contract deployment")
+    if (!contract)
+      throw new Error(
+        "Invalid chainID Or chain ID doesnt have contract deployment"
+      );
     const router = XUltraLRT__factory.connect(contract, this.signer);
 
-    const asset = NETWORK_PARAMS[chainID].ultraLRTAddress
-    const provider = new providers.JsonRpcProvider(NETWORK_PARAMS[chainID].rpcUrls[0])
-    if(!asset) throw new Error("Invalid chainID Or chain ID doesnt have contract deployment")
+    const asset = NETWORK_PARAMS[chainID].ultraLRTAddress;
+    const provider = new providers.JsonRpcProvider(
+      NETWORK_PARAMS[chainID].rpcUrls[0]
+    );
+    if (!asset)
+      throw new Error(
+        "Invalid chainID Or chain ID doesnt have contract deployment"
+      );
     const assets = MockERC20__factory.connect(asset, provider);
 
-    const quote = await this.quoteTransferRemoteWithAddress(chainID, destination, to, amount)
+    const quote = await this.quoteTransferRemoteWithAddress(
+      chainID,
+      destination,
+      to,
+      amount
+    );
 
     const assetUnits = ethers.utils.parseUnits(amount, await assets.decimals());
-    return await router["transferRemote(uint32,address,uint256)"](destination, to, assetUnits, {
-      value: quote
-    });
+    return await router["transferRemote(uint32,address,uint256)"](
+      destination,
+      to,
+      assetUnits,
+      {
+        value: quote,
+      }
+    );
   }
 
   // Transfer remote without address
-  async transferRemoteWithoutAddress(chainID: number, destination: number, amount: string): Promise<ethers.providers.TransactionResponse> {
+  async transferRemoteWithoutAddress(
+    chainID: number,
+    destination: number,
+    amount: string
+  ): Promise<ethers.providers.TransactionResponse> {
     const contract = NETWORK_PARAMS[chainID].xUltraLRTAddress;
-    if(!contract) throw new Error("Invalid chainID Or chain ID doesnt have contract deployment")
+    if (!contract)
+      throw new Error(
+        "Invalid chainID Or chain ID doesnt have contract deployment"
+      );
     const router = XUltraLRT__factory.connect(contract, this.signer);
     const assetUnits = ethers.utils.parseUnits(amount, await router.decimals());
-    return await router["transferRemote(uint32,uint256)"](destination, assetUnits, {
-      value: assetUnits, // Assuming native token transfer, remove if unnecessary
-    });
+    return await router["transferRemote(uint32,uint256)"](
+      destination,
+      assetUnits,
+      {
+        value: assetUnits, // Assuming native token transfer, remove if unnecessary
+      }
+    );
   }
 
   // Quote transfer remote with address
-  async quoteTransferRemoteWithAddress(chainID: number, destination: number, to: string, amount: string): Promise<BigNumber> {
+  async quoteTransferRemoteWithAddress(
+    chainID: number,
+    destination: number,
+    to: string,
+    amount: string
+  ): Promise<BigNumber> {
     const contract = NETWORK_PARAMS[chainID].xUltraLRTAddress;
-    if(!contract) throw new Error("Invalid chainID Or chain ID doesnt have contract deployment")
+    if (!contract)
+      throw new Error(
+        "Invalid chainID Or chain ID doesnt have contract deployment"
+      );
     const router = XUltraLRT__factory.connect(contract, this.signer);
     const assetUnits = ethers.utils.parseUnits(amount, await router.decimals());
 
-    return await router["quoteTransferRemote(uint32,address,uint256)"](destination, to, assetUnits);
+    return await router["quoteTransferRemote(uint32,address,uint256)"](
+      destination,
+      to,
+      assetUnits
+    );
   }
 
   // Quote transfer remote without address
-  async quoteTransferRemoteWithoutAddress(chainID: number, destination: number, amount: string): Promise<BigNumber> {
+  async quoteTransferRemoteWithoutAddress(
+    chainID: number,
+    destination: number,
+    amount: string
+  ): Promise<BigNumber> {
     const contract = NETWORK_PARAMS[chainID].xUltraLRTAddress;
-    if(!contract) throw new Error("Invalid chainID Or chain ID doesnt have contract deployment")
+    if (!contract)
+      throw new Error(
+        "Invalid chainID Or chain ID doesnt have contract deployment"
+      );
     const router = XUltraLRT__factory.connect(contract, this.signer);
     const assetUnits = ethers.utils.parseUnits(amount, await router.decimals());
 
-    console.log("CHAIN ID OF SIGNER", this.signer.getChainId())
-    return await router["quoteTransferRemote(uint32,uint256)"](destination, assetUnits);
+    console.log("CHAIN ID OF SIGNER", this.signer.getChainId());
+    return await router["quoteTransferRemote(uint32,uint256)"](
+      destination,
+      assetUnits
+    );
   }
 
   async _getVaultBalanceByAsset(vaultAddress: string): Promise<string> {
@@ -238,7 +355,7 @@ export class AffineRestakingSDK {
     const eigenStETH = new ethers.Contract(
       EigenStETHStrategy,
       EIGENSTETH_ABI,
-      this.signer,
+      this.signer
     );
     const value = await eigenStETH.userUnderlyingView(address);
     return parseFloat(_removeDecimals(value, 18));
@@ -249,12 +366,12 @@ export class AffineRestakingSDK {
     const eigenStETH = new ethers.Contract(
       EigenStETHStrategy,
       EIGENSTETH_ABI,
-      this.signer,
+      this.signer
     );
     const eigenDelegator = new ethers.Contract(
       EigenDelegatorAddress,
       DELEGATION_MANAGER_ABI,
-      this.signer,
+      this.signer
     );
 
     const assetUnits = ethers.utils.parseUnits(assets, 18);
@@ -280,7 +397,7 @@ export class AffineRestakingSDK {
     delegator: string,
     nonce: string,
     blockNumber: string,
-    shares: string,
+    shares: string
   ) {
     // Validate addresses
     if (
@@ -311,7 +428,7 @@ export class AffineRestakingSDK {
     const eigenDelegator = new ethers.Contract(
       EigenDelegatorAddress,
       DELEGATION_MANAGER_ABI,
-      this.signer,
+      this.signer
     );
 
     const withdrawalInfos: WithdrawalInfoStruct[] = [
@@ -343,7 +460,7 @@ export class AffineRestakingSDK {
           assetsArray,
           middlewareTimesIndex,
           receiveAsTokens,
-          { from: await this.signer.getAddress() },
+          { from: await this.signer.getAddress() }
         );
 
       console.log("Estimated Gas:", gasEstimate.toString());
@@ -353,7 +470,7 @@ export class AffineRestakingSDK {
         assetsArray,
         middlewareTimesIndex,
         receiveAsTokens,
-        { from: await this.signer.getAddress(), gasLimit: gasEstimate },
+        { from: await this.signer.getAddress(), gasLimit: gasEstimate }
       );
 
       console.log("Transaction successful:", tx);
@@ -369,10 +486,10 @@ export class AffineRestakingSDK {
     const lrtVault = new ethers.Contract(
       UltraLRTAddress,
       ULTRAETH_ABI,
-      this.signer,
+      this.signer
     );
     const value = await lrtVault.canWithdraw(
-      _addDecimals(amount.toString(), await asset.decimals()),
+      _addDecimals(amount.toString(), await asset.decimals())
     );
     return value;
   }
@@ -382,10 +499,10 @@ export class AffineRestakingSDK {
     const lrtVault = new ethers.Contract(
       SymbioticVault,
       ULTRAETH_ABI,
-      this.signer,
+      this.signer
     );
     const value = await lrtVault.canWithdraw(
-      _addDecimals(amount.toString(), await asset.decimals()),
+      _addDecimals(amount.toString(), await asset.decimals())
     );
     return value;
   }
@@ -395,13 +512,13 @@ export class AffineRestakingSDK {
     const lrtVault = new ethers.Contract(
       UltraLRTAddress,
       ULTRAETH_ABI,
-      this.signer,
+      this.signer
     );
 
     const assetUnits = _addDecimals(amount, await asset.decimals());
     const tx = await lrtVault.deposit(
       assetUnits,
-      await this.signer.getAddress(),
+      await this.signer.getAddress()
     );
     return tx;
   }
@@ -411,7 +528,7 @@ export class AffineRestakingSDK {
     const lrtVault = new ethers.Contract(
       UltraLRTAddress,
       ULTRAETH_ABI,
-      this.signer,
+      this.signer
     );
     const receiver = await this.signer.getAddress();
 
@@ -425,7 +542,7 @@ export class AffineRestakingSDK {
     const lrtVault = new ethers.Contract(
       SymbioticVault,
       ULTRAETH_ABI,
-      this.signer,
+      this.signer
     );
     const receiver = await this.signer.getAddress();
 
@@ -452,7 +569,7 @@ export class AffineRestakingSDK {
 
     const tx = await asset.approve(
       PERMIT2_ADDRESS,
-      BigNumber.from("2").pow(256).sub(1),
+      BigNumber.from("2").pow(256).sub(1)
     );
     return tx;
   }
@@ -471,7 +588,7 @@ export class AffineRestakingSDK {
     }
     const allowanceProvider = new AllowanceProvider(
       this.provider,
-      PERMIT2_ADDRESS,
+      PERMIT2_ADDRESS
     );
 
     const nonce = await this._getRandomNonce();
@@ -490,7 +607,7 @@ export class AffineRestakingSDK {
     const { domain, types, values } = SignatureTransfer.getPermitData(
       permit,
       PERMIT2_ADDRESS,
-      await this.signer.getChainId(),
+      await this.signer.getChainId()
     );
     const signature = await this.provider
       .getSigner()
@@ -505,7 +622,7 @@ export class AffineRestakingSDK {
         receiver,
         nonce,
         deadline,
-        signature,
+        signature
       );
     } else if (token === WStEthAddress) {
       tx = await router.depositWStEth(
@@ -514,7 +631,7 @@ export class AffineRestakingSDK {
         receiver,
         nonce,
         deadline,
-        signature,
+        signature
       );
     } else if (token === WEthAddress) {
       tx = await router.depositWeth(
@@ -523,7 +640,7 @@ export class AffineRestakingSDK {
         receiver,
         nonce,
         deadline,
-        signature,
+        signature
       );
     } else {
       throw Error("Invalid token");
@@ -547,7 +664,7 @@ export class AffineRestakingSDK {
     const lrtVault = new ethers.Contract(
       SymbioticVault,
       ULTRAETH_ABI,
-      this.signer,
+      this.signer
     );
     const receiver = await this.signer.getAddress();
 
@@ -561,7 +678,7 @@ export class AffineRestakingSDK {
     const asset = MockERC20__factory.connect(await vault.asset(), this.signer);
     const withdrawalEscrowV2 = WithdrawalEscrowV2__factory.connect(
       await vault.escrow(),
-      this.signer,
+      this.signer
     );
 
     const vaultDecimals = await vault.decimals();
@@ -577,7 +694,7 @@ export class AffineRestakingSDK {
     for (let i = 0; i <= currentEpoch; i++) {
       const shares = await withdrawalEscrowV2.userDebtShare(
         ethers.BigNumber.from(i),
-        address,
+        address
       );
       if (shares.eq(0)) continue;
       const assets = await withdrawalEscrowV2.withdrawableAssets(address, i);
@@ -602,7 +719,7 @@ export class AffineRestakingSDK {
     const withdrawalEscrowV2 = new ethers.Contract(
       EscrowAddress,
       ESCROW_ABI,
-      this.signer,
+      this.signer
     );
     const value = await withdrawalEscrowV2.canWithdraw(epoch);
     return value;
@@ -612,7 +729,7 @@ export class AffineRestakingSDK {
     const withdrawalEscrowV2 = new ethers.Contract(
       SymbioticEscrow,
       ESCROW_ABI,
-      this.signer,
+      this.signer
     );
     const value = await withdrawalEscrowV2.canWithdraw(epoch);
     return value;
@@ -621,7 +738,7 @@ export class AffineRestakingSDK {
   async redeem(epoch: string): Promise<ethers.providers.TransactionResponse> {
     const withdrawalEscrowV2 = WithdrawalEscrowV2__factory.connect(
       EscrowAddress,
-      this.signer,
+      this.signer
     );
     const receiver = await this.signer.getAddress();
 
@@ -630,11 +747,11 @@ export class AffineRestakingSDK {
   }
 
   async redeemSymbiotic(
-    epoch: string,
+    epoch: string
   ): Promise<ethers.providers.TransactionResponse> {
     const withdrawalEscrowV2 = WithdrawalEscrowV2__factory.connect(
       SymbioticEscrow,
-      this.signer,
+      this.signer
     );
     const receiver = await this.signer.getAddress();
 
@@ -645,20 +762,20 @@ export class AffineRestakingSDK {
   async isApproved(
     contractAddress: string,
     spenderAddress: string,
-    amount: number,
+    amount: number
   ): Promise<boolean> {
     const erc20Contract = new ethers.Contract(
       contractAddress,
       ERC20_ABI,
-      this.signer,
+      this.signer
     );
     const units = _addDecimals(
       amount.toString(),
-      await erc20Contract.decimals(),
+      await erc20Contract.decimals()
     );
     const allowance = await erc20Contract.allowance(
       await this.signer.getAddress(),
-      spenderAddress,
+      spenderAddress
     );
     return ethers.BigNumber.from(allowance).gte(units);
   }
@@ -666,16 +783,16 @@ export class AffineRestakingSDK {
   async approve(
     contractAddress: string,
     spenderAddress: string,
-    amount: number,
+    amount: number
   ): Promise<ethers.providers.TransactionResponse> {
     const erc20Contract = new ethers.Contract(
       contractAddress,
       ERC20_ABI,
-      this.signer,
+      this.signer
     );
     const units = _addDecimals(
       amount.toString(),
-      await erc20Contract.decimals(),
+      await erc20Contract.decimals()
     );
     const tx = await erc20Contract.approve(spenderAddress, units);
     return tx;
@@ -685,7 +802,7 @@ export class AffineRestakingSDK {
     const wethContract = new ethers.Contract(
       WEthAddress,
       ["function deposit() payable"],
-      this.signer,
+      this.signer
     );
     const tx = await wethContract.deposit({
       value: ethers.utils.parseEther(amountInEther),
@@ -702,14 +819,14 @@ export class AffineRestakingSDK {
     destinationChainId: 1 | 137,
     destinationAddress: string,
     tokenId: number,
-    fee: number,
+    fee: number
   ) {
     return await bridgePass(
       destinationChainId,
       destinationAddress,
       tokenId,
       fee,
-      this.provider,
+      this.provider
     );
   }
 
@@ -717,7 +834,7 @@ export class AffineRestakingSDK {
     try {
       return await getPassBalance(
         await this.provider.getSigner().getChainId(),
-        await this.provider.getSigner().getAddress(),
+        await this.provider.getSigner().getAddress()
       );
     } catch (e) {
       throw "ERROR GETTING PASS BALANCE";
@@ -731,7 +848,7 @@ export class AffineRestakingSDK {
   async _getRandomNonce(): Promise<BigNumber> {
     const nonceProvider = ISignatureTransfer__factory.connect(
       PERMIT2_ADDRESS,
-      this.signer,
+      this.signer
     );
     const byteSize = 32; // 256 bits
     for (let i = 0; i < 10; i++) {
@@ -742,7 +859,7 @@ export class AffineRestakingSDK {
 
       const bitMap = await nonceProvider.nonceBitmap(
         await nonceProvider.signer.getAddress(),
-        word,
+        word
       );
 
       if (bitMap.and(ethers.BigNumber.from(2).pow(bitPos)).eq(0)) {
@@ -751,11 +868,22 @@ export class AffineRestakingSDK {
     }
     throw Error("Failed to generate a random nonce");
   }
+
+  async LineaDepositNative(amount: string) {
+    const router = LineaRouter__factory.connect(LieanXLRTRouter, this.signer);
+    const receiver = await this.signer.getAddress();
+    const assetUnits = _addDecimals(amount, 18);
+
+    const tx = await router.depositNative(assetUnits, receiver, {
+      value: assetUnits,
+    });
+    return tx;
+  }
 }
 
 export function _removeDecimals(
   amount: ethers.BigNumber,
-  decimals: ethers.BigNumberish,
+  decimals: ethers.BigNumberish
 ): string {
   const parsed = ethers.utils.formatUnits(amount, decimals);
   const decimalIndex = parsed.indexOf(".");
@@ -767,14 +895,14 @@ export function _removeDecimals(
 
 export function _addDecimals(
   amount: string,
-  decimals: number,
+  decimals: number
 ): ethers.BigNumber {
   return ethers.utils.parseUnits(amount, decimals);
 }
 
 async function _getVaultTVL(
   vaultAddress: string,
-  provider: providers.JsonRpcProvider,
+  provider: providers.JsonRpcProvider
 ): Promise<string> {
   const vault = UltraLRT__factory.connect(vaultAddress, provider);
   const asset = MockERC20__factory.connect(await vault.asset(), provider);
@@ -783,8 +911,8 @@ async function _getVaultTVL(
 }
 
 async function _getVaultRate(
-    vaultAddress: string,
-    provider: providers.JsonRpcProvider,
+  vaultAddress: string,
+  provider: providers.JsonRpcProvider
 ): Promise<string> {
   const vault = UltraLRT__factory.connect(vaultAddress, provider);
   const asset = MockERC20__factory.connect(await vault.asset(), provider);
@@ -803,9 +931,14 @@ export async function getSymbioticTVL(): Promise<string> {
 
 export async function getBlastTVL(): Promise<string> {
   const address = NETWORK_PARAMS[81457].ultraLRTAddress as string;
-  const provider = new providers.JsonRpcProvider(NETWORK_PARAMS[81457].rpcUrls[0])
+  const provider = new providers.JsonRpcProvider(
+    NETWORK_PARAMS[81457].rpcUrls[0]
+  );
   const vault = XUltraLRT__factory.connect(address, provider);
-  const asset = MockERC20__factory.connect(SymbioticVault, new providers.JsonRpcProvider(EthRPC));
+  const asset = MockERC20__factory.connect(
+    SymbioticVault,
+    new providers.JsonRpcProvider(EthRPC)
+  );
 
   return _removeDecimals(await vault.totalSupply(), await asset.decimals());
 }

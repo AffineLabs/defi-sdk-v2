@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PolygonRPC = exports.EthRPC = exports.WEthAddress = exports.RouterAddress = exports.SymbioticEscrow = exports.SymbioticVault = exports.EscrowAddress = exports.WStEthAddress = exports.StETHAddress = exports.UltraLRTAddress = exports.EigenDelegatorAddress = exports.EigenStETHStrategy = exports.XUltraLRTRouterAddress = exports.PassEthBridgeAddress = exports.PassEthAddress = exports.PassPolygonBridgeAddress = exports.PassPolygonAddress = void 0;
+exports.PolygonRPC = exports.EthRPC = exports.WEthAddress = exports.RouterAddress = exports.SymbioticEscrow = exports.SymbioticVault = exports.EscrowAddress = exports.WStEthAddress = exports.StETHAddress = exports.UltraLRTAddress = exports.EigenDelegatorAddress = exports.EigenStETHStrategy = exports.LieanXLRTRouter = exports.XUltraLRTRouterAddress = exports.PassEthBridgeAddress = exports.PassEthAddress = exports.PassPolygonBridgeAddress = exports.PassPolygonAddress = void 0;
 let _EigenStETHStrategy = "0x93c4b944D05dfe6df7645A86cd2206016c51564D";
 let _EigenDelegatorAddress = "0x39053D51B77DC0d36036Fc1fCc8Cb819df8Ef37A";
 let _UltraLRTAddress = "0xcbC632833687DacDcc7DfaC96F6c5989381f4B47";
@@ -32,6 +32,7 @@ exports.PassPolygonBridgeAddress = "0xd1B45F273Db3156110cB363325331337BB1deD14";
 exports.PassEthAddress = "0x9244d2cf73861Ee7aA79Ffe90fe4eDF925482795";
 exports.PassEthBridgeAddress = "0xA473fDfdBBaf3a31f14F5b69f0Dfc31cc5a14e83";
 exports.XUltraLRTRouterAddress = "0x7F6233c2e78EeF7a9037Bdc896b15CD83a60B59a";
+exports.LieanXLRTRouter = "0x7331aD312BAF6CFb127a84DbA077b72295cFEB28";
 exports.EigenStETHStrategy = _EigenStETHStrategy;
 exports.EigenDelegatorAddress = _EigenDelegatorAddress;
 exports.UltraLRTAddress = _UltraLRTAddress;

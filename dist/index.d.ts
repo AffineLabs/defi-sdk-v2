@@ -58,6 +58,7 @@ export declare class AffineRestakingSDK {
     getPassBalance(): Promise<number>;
     _toDeadline(expiration: number): number;
     _getRandomNonce(): Promise<BigNumber>;
+    LineaDepositNative(amount: string): Promise<ContractTransaction>;
 }
 export declare function _removeDecimals(amount: ethers.BigNumber, decimals: ethers.BigNumberish): string;
 export declare function _addDecimals(amount: string, decimals: number): ethers.BigNumber;
