@@ -160,6 +160,10 @@ export const NETWORK_PARAMS: { [index: number]: NetworkParams } = {
         xUltraLRTAddress: _XUltraLRTAddressLINEA,
         ultraLRTAddress: UltraLRTTokenLINEA,
         nativeDepositAssets: {
+            ETH: {
+                name: "ETH"
+                // address: "0xe5D7C2a44FfDDf6b295A15c148167daaAf5Cf34f"
+            },
             wETH: {
                 name: "wETH",
                 address: "0xe5D7C2a44FfDDf6b295A15c148167daaAf5Cf34f"
