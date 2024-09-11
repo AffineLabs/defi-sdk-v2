@@ -39,7 +39,7 @@ export const PassEthBridgeAddress =
 export const XUltraLRTRouterAddress =
   "0x7F6233c2e78EeF7a9037Bdc896b15CD83a60B59a";
 
-export const LieanXLRTRouter = "0x7331aD312BAF6CFb127a84DbA077b72295cFEB28";
+export const LineaXLRTRouter = "0x7331aD312BAF6CFb127a84DbA077b72295cFEB28";
 
 export const EigenStETHStrategy = _EigenStETHStrategy;
 export const EigenDelegatorAddress = _EigenDelegatorAddress;

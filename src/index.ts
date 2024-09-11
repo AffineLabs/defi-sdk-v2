@@ -11,7 +11,7 @@ import {
   EigenStETHStrategy,
   EscrowAddress,
   EthRPC,
-  LieanXLRTRouter,
+  LineaXLRTRouter,
   RouterAddress,
   StETHAddress,
   SymbioticEscrow,
@@ -869,8 +869,12 @@ export class AffineRestakingSDK {
     throw Error("Failed to generate a random nonce");
   }
 
-  async LineaDepositNative(amount: string) {
-    const router = LineaRouter__factory.connect(LieanXLRTRouter, this.signer);
+  async DepositNativeL2(amount: string, chainID: number) {
+    const routerAddress = NETWORK_PARAMS[chainID].routerAddress;
+
+    if(!routerAddress) Error("Router contract for native deposit is not defined for chain")
+    //TODO: Confirm linea router is the same as other lrt routers
+    const router = LineaRouter__factory.connect(routerAddress as string, this.signer);
     const receiver = await this.signer.getAddress();
     const assetUnits = _addDecimals(amount, 18);
 

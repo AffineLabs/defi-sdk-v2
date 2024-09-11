@@ -5,7 +5,7 @@ import {
     FORKED_NODE_URL_FOR_MATIC,
     IS_USING_FORKED_MAINNET
 } from "./sdk-v1-constants";
-import {StETHAddress, SymbioticVault, WEthAddress, WStEthAddress} from "./constants";
+import {LineaXLRTRouter, StETHAddress, SymbioticVault, WEthAddress, WStEthAddress} from "./constants";
 
 const _XUltraLRTAddressSEPOLIA = "0x633dc76965e520a777378CFc6299d925B443C224";
 const _XUltraLRTAddressBSC = "0x7e80886220B586942a200c92AD1273A3e128086b"
@@ -159,6 +159,7 @@ export const NETWORK_PARAMS: { [index: number]: NetworkParams } = {
         blockExplorerUrls: ["https://lineascan.build"],
         xUltraLRTAddress: _XUltraLRTAddressLINEA,
         ultraLRTAddress: UltraLRTTokenLINEA,
+        routerAddress: LineaXLRTRouter,
         nativeDepositAssets: {
             ETH: {
                 name: "ETH"

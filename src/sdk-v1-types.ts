@@ -200,5 +200,6 @@ export interface NetworkParams {
   blockExplorerUrls?: string[];
   xUltraLRTAddress?: string;
   ultraLRTAddress?: string;
+  routerAddress?: string;
   nativeDepositAssets?: Record<string, NativeAsset>
 }
