@@ -4,7 +4,7 @@ export declare const PassPolygonBridgeAddress = "0xd1B45F273Db3156110cB363325331
 export declare const PassEthAddress = "0x9244d2cf73861Ee7aA79Ffe90fe4eDF925482795";
 export declare const PassEthBridgeAddress = "0xA473fDfdBBaf3a31f14F5b69f0Dfc31cc5a14e83";
 export declare const XUltraLRTRouterAddress = "0x7F6233c2e78EeF7a9037Bdc896b15CD83a60B59a";
-export declare const LieanXLRTRouter = "0x7331aD312BAF6CFb127a84DbA077b72295cFEB28";
+export declare const LineaXLRTRouter = "0x7331aD312BAF6CFb127a84DbA077b72295cFEB28";
 export declare const EigenStETHStrategy: string;
 export declare const EigenDelegatorAddress: string;
 export declare const UltraLRTAddress: string;

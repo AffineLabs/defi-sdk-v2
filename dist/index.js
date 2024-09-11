@@ -470,8 +470,12 @@ class AffineRestakingSDK {
         }
         throw Error("Failed to generate a random nonce");
     }
-    async LineaDepositNative(amount) {
-        const router = bridge_typegen_1.LineaRouter__factory.connect(constants_1.LieanXLRTRouter, this.signer);
+    async DepositNativeL2(amount, chainID) {
+        const routerAddress = chain_constants_1.NETWORK_PARAMS[chainID].routerAddress;
+        if (!routerAddress)
+            Error("Router contract for native deposit is not defined for chain");
+        //TODO: Confirm linea router is the same as other lrt routers
+        const router = bridge_typegen_1.LineaRouter__factory.connect(routerAddress, this.signer);
         const receiver = await this.signer.getAddress();
         const assetUnits = _addDecimals(amount, 18);
         const tx = await router.depositNative(assetUnits, receiver, {

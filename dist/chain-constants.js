@@ -148,6 +148,7 @@ exports.NETWORK_PARAMS = {
         blockExplorerUrls: ["https://lineascan.build"],
         xUltraLRTAddress: _XUltraLRTAddressLINEA,
         ultraLRTAddress: UltraLRTTokenLINEA,
+        routerAddress: constants_1.LineaXLRTRouter,
         nativeDepositAssets: {
             ETH: {
                 name: "ETH"
