@@ -6,10 +6,11 @@ const constants_1 = require("./constants");
 const _XUltraLRTAddressSEPOLIA = "0x633dc76965e520a777378CFc6299d925B443C224";
 const _XUltraLRTAddressBSC = "0x7e80886220B586942a200c92AD1273A3e128086b";
 const _XUltraLRTAddressBLAST = "0xbb4e01B8940E8E2b3a95cED7941969D033786FF7";
-const _XUltraLRTAddressLINEA = "0xB838Eb4F224c2454F2529213721500faf732bf4d";
-const _XUltraLRTAddressETH = "0x91F822fAFc1db552e78f49941776aCB2a78fD422";
 const ultraLRTTokenBlast = "0xbb4e01B8940E8E2b3a95cED7941969D033786FF7";
+const _XUltraLRTAddressLINEA = "0xB838Eb4F224c2454F2529213721500faf732bf4d";
 const UltraLRTTokenLINEA = "0xB838Eb4F224c2454F2529213721500faf732bf4d";
+const _XUltraLRTAddressETH = "0x91F822fAFc1db552e78f49941776aCB2a78fD422";
+const _XUltraLRTAddressTaiko = "0x5217C8F3B7fb8B6501C8FF2a4C09b14B4B08C9f91";
 exports.NETWORK_PARAMS = {
     1: {
         chainName: `Ethereum Mainnet${sdk_v1_constants_1.IS_USING_FORKED_MAINNET ? " (Forked)" : ""}`,
@@ -159,5 +160,17 @@ exports.NETWORK_PARAMS = {
                 address: "0xe5D7C2a44FfDDf6b295A15c148167daaAf5Cf34f"
             }
         }
-    }
+    },
+    167000: {
+        chainName: "Taiko Mainnet",
+        nativeCurrency: {
+            name: "Ether",
+            symbol: "ETH",
+            decimals: 18,
+        },
+        rpcUrls: ["https://rpc.mainnet.taiko.xyz"],
+        blockExplorerUrls: ["https://taikoscan.io"],
+        xUltraLRTAddress: _XUltraLRTAddressTaiko,
+        ultraLRTAddress: _XUltraLRTAddressTaiko
+    },
 };
