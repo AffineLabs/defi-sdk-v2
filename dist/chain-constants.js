@@ -11,6 +11,7 @@ const _XUltraLRTAddressLINEA = "0xB838Eb4F224c2454F2529213721500faf732bf4d";
 const UltraLRTTokenLINEA = "0xB838Eb4F224c2454F2529213721500faf732bf4d";
 const _XUltraLRTAddressETH = "0x91F822fAFc1db552e78f49941776aCB2a78fD422";
 const _XUltraLRTAddressTaiko = "0x5217C8F3B7fb8B6501C8FF2a4C09b14B4B08C9f9";
+const _XUltraLRTAddressBase = "0x14Dc0EA777a87CAF54E49c9375B39727e1D85B69";
 exports.NETWORK_PARAMS = {
     1: {
         chainName: `Ethereum Mainnet${sdk_v1_constants_1.IS_USING_FORKED_MAINNET ? " (Forked)" : ""}`,
@@ -93,6 +94,8 @@ exports.NETWORK_PARAMS = {
             ? [sdk_v1_constants_1.FORKED_NODE_URL_FOR_BASE]
             : ["https://mainnet.base.org"],
         blockExplorerUrls: ["https://basescan.org"],
+        xUltraLRTAddress: _XUltraLRTAddressBase,
+        ultraLRTAddress: _XUltraLRTAddressBase
     },
     84531: {
         chainName: "Base Goerli",

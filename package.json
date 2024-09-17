@@ -1,6 +1,6 @@
 {
   "name": "affine-restaking-sdk",
-  "version": "1.0.104",
+  "version": "1.0.105",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
