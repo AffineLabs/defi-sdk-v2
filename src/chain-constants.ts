@@ -20,6 +20,9 @@ const _XUltraLRTAddressETH = "0x91F822fAFc1db552e78f49941776aCB2a78fD422"
 
 const _XUltraLRTAddressTaiko = "0x5217C8F3B7fb8B6501C8FF2a4C09b14B4B08C9f9"
 
+const _XUltraLRTAddressBase = "0x14Dc0EA777a87CAF54E49c9375B39727e1D85B69"
+
+
 
 
 export const NETWORK_PARAMS: { [index: number]: NetworkParams } = {
@@ -107,6 +110,8 @@ export const NETWORK_PARAMS: { [index: number]: NetworkParams } = {
                 ? [FORKED_NODE_URL_FOR_BASE]
                 : ["https://mainnet.base.org"],
         blockExplorerUrls: ["https://basescan.org"],
+        xUltraLRTAddress: _XUltraLRTAddressBase,
+        ultraLRTAddress: _XUltraLRTAddressBase
     },
     84531: {
         chainName: "Base Goerli",
