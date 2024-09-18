@@ -19,6 +19,7 @@ const UltraLRTTokenLINEA = "0xB838Eb4F224c2454F2529213721500faf732bf4d"
 const _XUltraLRTAddressETH = "0x91F822fAFc1db552e78f49941776aCB2a78fD422"
 
 const _XUltraLRTAddressTaiko = "0x5217C8F3B7fb8B6501C8FF2a4C09b14B4B08C9f9"
+const TaikoRouter = "0x1C6281dd697d2dD23fA0d0eAa97764b169801852";
 
 const _XUltraLRTAddressBase = "0x14Dc0EA777a87CAF54E49c9375B39727e1D85B69"
 
@@ -190,6 +191,16 @@ export const NETWORK_PARAMS: { [index: number]: NetworkParams } = {
         rpcUrls: ["https://rpc.mainnet.taiko.xyz"],
         blockExplorerUrls: ["https://taikoscan.io"],
         xUltraLRTAddress: _XUltraLRTAddressTaiko,
-        ultraLRTAddress: _XUltraLRTAddressTaiko
+        ultraLRTAddress: _XUltraLRTAddressTaiko,
+        routerAddress: TaikoRouter,
+        nativeDepositAssets: {
+            ETH: {
+                name: "ETH"
+            },
+            wETH: {
+                name: "wETH",
+                address: "0x4200000000000000000000000000000000000006"
+            }
+        },
     },
 };
